@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jesmo Drazik Blog</title>
+    <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://jesmodrazik.fr</link>
+    <description>Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue </description>
+    <pubDate>Sun, 15 Mar 2015 01:00:00 +0100</pubDate>
+    <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
+    <language>fr</language>
+    <item>
+      <title>Bye bye Tumblr !</title>
+      <link>http://jesmodrazik.fr/articles/bye-bye-tumblr/</link>
+      <pubDate>Sun, 15 Mar 2015 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/bye-bye-tumblr/</guid>
+      <author></author>
+      <description>&lt;p&gt;En ce moment, je m’interesse pas mal à tout ce qui touche à la perte de contrôle sur nos données personnelles (ou privées, c’est selon comment qu’on aime dire, comme dirait l’autre). Et mon apprentissage a débuté avec la publication du livre de Tristan Nitot (ex directeur de Mozilla Europe, aujourd’hui C3PO : Cozy Cloud Chief Product Officer) sur &lt;a href=&quot;http://standblog.org/blog/serie/flicage-brouillon&quot;&gt;son blog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dans ce livre, Tristan Nitot nous explique qu’aujourd’hui le web tend à être centralisé. C’est à dire que de très (très) gros services comme Facebook, Dropbox, Skype et plein d’autres s’approprient les données de nombreux utilisateurs (un milliard pour Facebook, par exemple) et s’en servent pour proposer de la publicité ciblée à des annonceurs. Pour éviter celà, une méthode proposée est de créer son propre blog afin d’y poster ses humeurs, photos, vidéos et de l’auto-héberger. Je ne vais pas vous refaire tout le livre, filez plutôt le lire et profitez-en pour faire des commentaires qui permettront à Mr Nitot de l’améliorer encore.&lt;/p&gt;
+&lt;p&gt;Face à tout ça, ma réaction n’a pas été de quitter Facebook. Bien qu’assez détâché de ce service, j’y accorde tout de même une certaine importance dans le sens où c’est mon seul moyen de communication avec certaines personnes. Ne parlons pas de Twitter, qui est mon moyen de veille technologique numéro 1. Non, face à tout ça, ma réaction a plutôt été de me dire “eh, tu as un blog, mais il est chez Tumblr, qui est un service participant à la centralisation d’Internet”. J’ai donc décidé de prendre les quelques articles que j’avais publié sur Tumblr, et de faire mon propre blog, auto-hébergé.&lt;/p&gt;
+&lt;p&gt;Après quelques recherches, je me suis tourné vers &lt;a href=&quot;http://wintersmith.io/&quot;&gt;Wintersmith&lt;/a&gt; pour générer un site statique à partir de quelques fichiers Markdown. Ce système est vraiment pratique et convient parfaitement à mes besoins très simples.&lt;/p&gt;
+&lt;p&gt;Tout était bon. Jusqu’à ce que je cherche à exporter mes articles Tumblr. Je vais la faire courte : je n’ai pas trouvé la fonctionnalité, et mes recherches n’ont pas donné de méthode simple pour exporter les articles d’un blog Tumblr. Typique d’un service qui cherche à enfermer ses utilisateurs. Je suis chanceux, mon blog, qui a bientôt un an, ne comporte que 5 articles. Les exporter à la main n’a donc pas été compliqué. Mais j’éprouve de la pitié pour ceux qui voudront fermer leur blog sur Tumblr pour en ouvrir un auto-hébergé, et qui auront des centaines d’articles à exporter. Ma mauvaise vision de ce service a donc été accrue avec cette expérience.&lt;/p&gt;
+&lt;p&gt;Bref, depuis aujourd’hui mon blog m’appartient entièrement. On se sent quand même plus libre comme ça. J’invite tout le monde à faire de même.&lt;/p&gt;
+&lt;p&gt;Bon, pour le moment mon hébergeur est Github, grâce à ses Github Pages. Mais ça ne saurait durer, je vais très rapidement mettre en place mon propre hébergement. Car Github &lt;a href=&quot;http://framablog.org/2015/03/13/google-code-ferme-ses-portes-nous-on-les-ouvre/&quot;&gt;est aussi un service participant à la centralisation du web&lt;/a&gt;. Toujours est-il que même si Github ferme ou si je décide de le quitter, il me suffira de mettre mon blog ailleurs pour qu’il soit toujours accessible. Ce qui n’était pas le cas de Tumblr. Bye bye Tumblr !&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Ne plus installer gulp en dépendance globale</title>
+      <link>http://jesmodrazik.fr/articles/ne-plus-installer-gulp-en-dependance-globale/</link>
+      <pubDate>Sun, 01 Mar 2015 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/ne-plus-installer-gulp-en-dependance-globale/</guid>
+      <author></author>
+      <description>&lt;p&gt;Avec l’arrivée de Gulp 4 (actuellement 3.8.x), qui apporte des nouveautés et cassera potentiellement la compatibilité descendante (nouvelle version majeure), je me suis penché sur le problème que pose le fait d’utiliser Gulp via une installation locale (projet, gulpfile.js) + une installation globale (système, commande gulp).&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Si j’utilise Gulp 4 pour mes nouveaux projets pour profiter des nouveautés, alors je devrais mettre à jour mon installation globale. Sauf que par conséquent je risque de ne plus pouvoir l’utiliser sur mes projets anciens et actuels car ceux-ci seront toujours en 3.8.x. Je pourrais mettre à jour le gulp local à tous ces projets, mais ce serait galère. La meilleure solution serait d’avoir tout le temps la version globale de gulp correspondant à la version locale du projet sur lequel je bosse.&lt;/p&gt;
+&lt;p&gt;Il est très simple de régler ce problème sur les systèmes Linux / UNIX. Il suffit de créer un alias sur &lt;code&gt;./node_modules/.bin/gulp&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Du côté de Windows, il va falloir ruser. Mais ça tombe bien, quand on installe localement un module qui a besoin d’une interface en ligne de commande, npm crée un dossier &lt;code&gt;.bin&lt;/code&gt; dans le dossier &lt;code&gt;node_modules&lt;/code&gt; et il met les exécutables correspondant dedans. On a donc accès à la commande &lt;code&gt;gulp&lt;/code&gt; sans l’installer en global.&lt;/p&gt;
+&lt;p&gt;Pour lancer la tâche watch d’un projet, on peut faire ceci :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.\node_modules.bin\gulp watch
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On peut aussi aller “plus loin” et utiliser les scripts NPM. NPM permet de définir des scripts qui peuvent être lancés en tapant :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm run nom_du_script
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Pour définir un script, il suffit d’ajouter un objet “scripts” dans le package.json. On peut donc faire ceci :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: {
+    &lt;span class=&quot;string&quot;&gt;&quot;gulp&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;./node_modules/.bin/gulp&quot;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dans l’état c’est cool mais ça ne fait rien, il faudrait pouvoir lui passer la tâche qu’on veut exécuter en argument, ou alors définir un script par tâche :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: {
+    &lt;span class=&quot;string&quot;&gt;&quot;gulp:watch&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;./node_modules/.bin/gulp watch&quot;&lt;/span&gt;,
+    &lt;span class=&quot;string&quot;&gt;&quot;gulp:compile&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;./node_modules/.bin/gulp compile&quot;&lt;/span&gt;
+    &lt;span class=&quot;comment&quot;&gt;// autres tâches…&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;On pourrait donc faire :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm run gulp:watch
+npm run gulp:compile
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Mais le mieux serait de pouvoir utiliser le script &lt;code&gt;gulp&lt;/code&gt; précédemment défini et lui passer en paramètre le nom de la tâche qu’on veut exécuter. C’est possible de faire ça, mais uniquement à partir de la version 2.0.0 de npm. Il faut donc mettre à jour notre npm si on est en 1.x.y (&lt;code&gt;npm -v&lt;/code&gt; pour vérifier) :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install npm -g
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On peut maintenant faire ceci :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm run nom_du_script — arg1 arg2 &amp;quot;arg avec des espaces&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Et du coup on peut lancer une tâche gulp en spécifiant son nom comme ceci :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm run gulp -- watch
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Et si on tient absolument à avoir un script pour chaque tâche, on peut réutiliser le script “gulp” déjà écrit :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: {
+    &lt;span class=&quot;string&quot;&gt;&quot;gulp&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;./node_modules/.bin/gulp&quot;&lt;/span&gt;,
+    &lt;span class=&quot;string&quot;&gt;&quot;gulp:watch&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;npm run gulp — watch&quot;&lt;/span&gt;,
+    &lt;span class=&quot;string&quot;&gt;&quot;gulp:compile&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;npm run gulp — compile&quot;&lt;/span&gt;
+    &lt;span class=&quot;comment&quot;&gt;// autres tâches…&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Oh, wait ! Il y a encore plus fort. Quand on lance un script avec &lt;code&gt;npm run&lt;/code&gt;, npm prend le dossier &lt;code&gt;node_modules/.bin&lt;/code&gt; et le met dans le PATH. On peut donc faire encore plus court :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: {
+    &lt;span class=&quot;string&quot;&gt;&quot;gulp:watch&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;gulp watch&quot;&lt;/span&gt;,
+    &lt;span class=&quot;string&quot;&gt;&quot;gulp:compile&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;gulp compile&quot;&lt;/span&gt;
+    &lt;span class=&quot;comment&quot;&gt;// autres tâches…&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Voilà, de cette manière, on évite d’avoir une installation globale de gulp (et donc d’avoir à la maintenir à jour), et on a l’avantage de ne pas avoir à se soucier de la version de gulp utilisée pour chacun des projets. Ceci est bien entendu (théoriquement) valable pour toutes les dépendances globales.&lt;/p&gt;
+&lt;p&gt;Il est aussi interressant de voir qu’avec ce systèmes de scripts npm, l’interêt des outils comme Gulp ou Grunt (pour ne citer qu’eux) devient limité. Des articles traitent très bien de ces sujets. Vous pouvez par exemple aller voir &lt;a href=&quot;http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/&quot;&gt;celui-ci&lt;/a&gt; de Keith Cirkel. Chacun se fera son propre avis !&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Sublime Text, un IDE à la carte ?</title>
+      <link>http://jesmodrazik.fr/articles/sublime-text-ide-a-la-carte/</link>
+      <pubDate>Tue, 23 Sep 2014 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/sublime-text-ide-a-la-carte/</guid>
+      <author></author>
+      <description>&lt;p&gt;Durant ma courte vie de développeur (ça fait “déjà” 4 ans pour de vrai, un peu plus pour rire), j’ai été amené à utiliser plusieurs éditeurs. J’ai commencé avec le bloc note de Windows parce que le tutoriel HTML/CSS du bon vieux Site du Zero disait que c’était suffisant même si il y avait mieux. Puis j’ai utilisé notepad++. Je développais dans mon coin et pas en pro donc ça m’a suffit pendant un bon bout de temps. Puis j’ai intégré une entreprise dans le cadre d’un contrat d’apprentissage. On m’a dit d’utiliser ce que je voulais, donc j’ai continué avec mon notepad++ (hey, c’est le truc le plus avancé que je connaissais!). Puis un jour j’ai découvert Sublime Text 2. C’était la mode, je me suis mis à l’utiliser, je l’ai trouvé plutôt cool. Puis mon maître d’apprentissage m’a suggéré d’utiliser Netbeans. Ce que j’ai fais 2/3 jours. Avant de revenir en courant vers Sublime Text. Dans mon entreprise actuelle, tout le monde utilise PhpStorm. J’ai essayé de faire comme tout le monde. Cette fois j’ai réussi presque 1 an… Avant de revenir en courant vers Sublime Text. Et ce pour plusieurs raisons.&lt;/p&gt;
+&lt;h2 id=&quot;c-est-rapide&quot;&gt;C’est rapide&lt;/h2&gt;
+&lt;p&gt;Je clique sur l’icône dans ma barre de tâches, ça s’ouvre, je peux bosser. Je n’attends pas plusieurs minutes qu’une usine se lance et analyse tout mon projet (encore?! tu l’as fais hier, avant hier, avant avant hier, la semaine dernière… Tu perds la mémoire?!) avant de me permettre de travailler.&lt;/p&gt;
+&lt;h2 id=&quot;j-installe-uniquement-ce-dont-j-ai-besoin&quot;&gt;J’installe uniquement ce dont j’ai besoin&lt;/h2&gt;
+&lt;p&gt;Ils permettent tous de faire ça, certes. Mais ils embarquent tous la terre entière par défaut (c’est surement pour ça qu’ils mettent de nombreuses minutes à s’ouvrir). Dans Sublime Text, si j’ai besoin d’intégrer Git, j’installe le plugin qui va bien et j’ai Git intégré à mon environnement de développement, basta. Dans PhpStorm, plusieurs systèmes de gestion de versions sont intégrés par défaut. Une entreprise n’en utilise généralement qu’un, pourquoi tout embarquer par défaut ?&lt;/p&gt;
+&lt;p&gt;De plus, les plugins n’étant pas directement inclus et liés à l’éditeur, ils sont mis à jour indépendamment de celui-ci, et le merveilleux “Package Control” les met à jour automatiquement. D’autres sont obligés d’attendre qu’une nouvelle version de leur IDE préféré sorte pour une malheureuse fonctionnalité.&lt;/p&gt;
+&lt;h2 id=&quot;je-partage-tr-s-simplement-ma-configuration-entre-mes-diff-rentes-machines&quot;&gt;Je partage très simplement ma configuration entre mes différentes machines&lt;/h2&gt;
+&lt;p&gt;Quoi de plus agréable que d’avoir exactement le même environnement au travail que chez soi? Avec Sublime Text, j’initialise un repository git dans le dossier contenant les fichiers de configuration de mes différents packages, je le mets sur GitHub, je le récupère au boulot. Si je modifie ma configuration au boulot, je push sur GitHub et je récupère tout le soir en rentrant chez moi. Package Control s’occupe de récupérer les plugins que je n’ai pas sur telle ou telle machine, et même de récupérer des versions différentes en fonction du système d’exploitation si nécessaire.&lt;/p&gt;
+&lt;h2 id=&quot;c-est-gratuit&quot;&gt;C’est gratuit&lt;/h2&gt;
+&lt;p&gt;Sauf si on ne veut pas qu’une petite fenêtre apparaisse de temps en temps lorsqu’un sauvegarde un fichier. Dans ce cas c’est 70$.&lt;/p&gt;
+&lt;p&gt;Pour tout ça, selon moi, Sublime Text n’a rien a envier à Eclipse, Netbeans et *Storm. Ceci dit, le principal est d’utiliser l’outil qu’on préfère. Moi, j’ai fais mon choix :)&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Je pense qu'il est impossible de respecter les maquettes</title>
+      <link>http://jesmodrazik.fr/articles/je-pense-qu-il-est-impossible-de-respecter-les-maquettes/</link>
+      <pubDate>Wed, 16 Apr 2014 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/je-pense-qu-il-est-impossible-de-respecter-les-maquettes/</guid>
+      <author></author>
+      <description>&lt;p&gt;Quand on fait une intégration, on se fie à une maquette. C’est cette image statique qu’il faut retranscrire afin qu’elle s’affiche et soit comprise par le navigateur web.&lt;/p&gt;
+&lt;p&gt;Le problème principal est déjà posé. La maquette est statique. Alors que la page web est dynamique. Même si son contenu ne l’est pas, la page peut être affichée de différentes manières. Une maquette est faite dans une résolution bien précise. La fenêtre du navigateur peut être redimensionnée à souhait. Le problème est encore plus gros lorsqu’il y a des animations et/ou de l’interaction au sein de la (future) page.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;En effet, le designer a une idée. Il transpose cette idée en maquette, souvent en utilisant Photoshop ou assimilés. Il file ensuite cette maquette à l’intégrateur. Ici deux solutions :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;le designer et l’intégrateur peuvent discuter (sous entendu il n’y a pas 36 intermédiaires &lt;del&gt;inutiles, sauf à faire grimper la facture du client final&lt;/del&gt; entre eux). Le designer peut dire à l’intégrateur comment il voit la page vivre. L’intégrateur a alors une idée de ce qu’il y a à faire, et le sujet de la faisabilité peut être abordé&lt;/li&gt;
+&lt;li&gt;le designer et l’intégrateur ne peuvent pas discuter &lt;del&gt;(saloperies d’intermédiaires)&lt;/del&gt;, ou très difficilement. L’intégrateur doit donc tout deviner. La probabilité que ce soit exactement ce à quoi le designer avait pensé? Quasi nulle. Dans le meilleur des cas ça s’en rapprochera. L’intégrateur n’est pas dans la tête du designer. Même si nous, les gens qui faisons de l’informatique, &lt;a href=&quot;https://www.youtube.com/watch?v=BKorP55Aqvg&quot;&gt;sommes d’obscurs magiciens&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Aujourd’hui, les maquettes sont de plus en plus composées d’éléments complexes. Il y a du bord arrondis de partout, des transitions (quand le designer a pu nous le dire, donc)… Quoi? Les bords arrondis ne sont pas des éléments complexes? Vous dites? border-radius? Je réplique avec une compatibilité IE7+. Alors? Les bords arrondis sont bien des éléments complexes. Ce genre de chose qui &lt;a href=&quot;http://www.sitepoint.com/web-page-weight-2012/&quot;&gt;alourdis une page qui n’en a pas besoin&lt;/a&gt; avec des éléments HTML et des images supplémentaires, ou des hacks qui font du mal aux performances de ces vieux navigateurs (qui ne sont déjà pas bien élevées). A-t-on absolument besoin de bords arrondis pour ces navigateurs? Ajoutent-ils de la valeur à notre page? Sur un navigateur qui le permet facilement, certainement que oui. Sur un navigateur qui demande du travail supplémentaire qui provoquera une baisse de performances (et donc de confort d’utilisation), certainement que non.&lt;/p&gt;
+&lt;p&gt;Mais le client a validé ces maquettes, et le designer (et peut être le chef de projet) lui a dit que c’était tout à fait possible de faire des bords arrondis sur IE7+, parce qu’il l’a déjà vu sur un autre site. Le client attend donc des bords arrondis sur IE7 lors de la livraison. Nouveau problème ici. Je pense qu’il manque une étape. La maquette ne devrait-elle pas être validée (sur le plan de la faisabilité) par l’intégrateur en premier lieu? Ne serait-ce que pour se mettre d’accord sur le discours à avoir face au client : “OK pour les bords arrondis, mais sous IE ça va pas être possible, sauf solutions de contournement qui feront à coup sûr ramer le site dans ce navigateur, et donc faire fuir vos clients potentiels qui l’utilisent”. Avec un tel discours (réaliste), les bords arrondis risqueraient d’avoir beaucoup moins d’importance aux yeux du client.&lt;/p&gt;
+&lt;p&gt;Ajoutons à tout ça du responsive, une page un peu spéciale qui nécessite des positions absolues pour certains éléments, et on se retrouve presque en enfer.&lt;/p&gt;
+&lt;p&gt;Alors, avec tout ça, qu’est-ce qu’on fait? On se contente de se plaindre, ou on propose quelques solutions?&lt;/p&gt;
+&lt;p&gt;On va proposer des solutions. La plus évidente, avec ce discours, ce serait que le designer soit lui-même l’intégrateur. Ainsi, la vision dynamique qu’il a de sa maquette statique ne peut pas s’échapper de son cerveau entre la phase du design et celle de l’intégration, et le résultat final ne peut être qu’identique à cette vision.&lt;/p&gt;
+&lt;p&gt;Une autre solution, comme je l’ai déjà évoqué, serait de discuter des maquettes entre designer et intégrateur avant de les proposer au client. Ça peut paraître bête (c’est surtout de ne pas le faire qui l’est, mais bon…), mais nombre de soucis pourraient être évités, tout en gardant une certaine qualité pour les maquettes.&lt;/p&gt;
+&lt;p&gt;Dernière solution. Celle qui rendraient les choses parfaites selon moi. Ne plus faire de maquettes avec Photoshop. Oh bah comment qu’on fait alors? Le client il valide quoi? Ben le client, il valide une idée générale de la page, et des &lt;a href=&quot;http://letrainde13h37.fr/4/style-tiles-nouvel-outil-pour-webdesigner/&quot;&gt;style tiles&lt;/a&gt; par exemple. De cette manière, il n’a pas une image fixe de sa page, mais se la représente tout de même. Ça fonctionne, la preuve : &lt;a href=&quot;http://www.inpixelitrust.fr/portfolio/pandasuite-site-vitrine/&quot;&gt;Pandasuite, le site vitrine&lt;/a&gt; (Stéphanie Walter). Je suppose qu’il faut tout de même avoir affaire à un client à l’esprit ouvert.&lt;/p&gt;
+&lt;p&gt;Je débute dans le domaine de l’intégration. J’ai peut être dis des conneries. Mais c’est comme ça que je ressens les choses. Je suis frustré, parce que je devrais respecter des maquettes, mais que je pense que c’est impossible.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>J'ai eu besoin de connaître la date de pâques chaque année jusqu'à l'infi et au-delà</title>
+      <link>http://jesmodrazik.fr/articles/calculer-date-paques-php/</link>
+      <pubDate>Tue, 01 Apr 2014 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/calculer-date-paques-php/</guid>
+      <author></author>
+      <description>&lt;p&gt;Pour un projet de gestion de demandes de congés, j’ai eu besoin de connaître les dates de chaque jour férié (sauf le lundi de Pentecôte puisqu’il est maintenant ouvré).&lt;/p&gt;
+&lt;p&gt;Facile, certains sont fixes. D’autres sont fonction de Pâques, qui est lui même variable. Ambiance.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Je me renseigne donc sur Pâques, et me retrouve rapidement sur &lt;a href=&quot;http://fr.wikipedia.org/wiki/Calcul_de_la_date_de_P%C3%A2ques&quot;&gt;ce genre de page wikipedia&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Puisque des algorithmes existent, je me dis que ça a bien du être implémenté, que ce soit dans la SPL ou par n’importe qui d’autre. Après un petit coup de google, me voici sur la documentation de &lt;a href=&quot;http://php.net/manual/fr/function.easter-date.php&quot;&gt;la fonction PHP &lt;code&gt;easter_date()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ça a l’air satisfaisant. Pourtant en lisant l’avertissement présent sur la page, je me rend compte que ça ne va pas aller. Certes 2037 c’est loin, tout aura changé d’ici là, mais pour le principe, je veux que ça marche tout le temps.&lt;/p&gt;
+&lt;p&gt;Un peu plus bas sur la même page, une note nous dit que &lt;code&gt;easter_date()&lt;/code&gt; ne se base pas sur le fuseau horaire par défaut de PHP mais celui du système. Encore un mauvais point. Cette fois par contre la doc propose une solution à ce problème, et au précédent par la même occasion : utiliser &lt;a href=&quot;http://www.php.net/manual/fr/function.easter-days.php&quot;&gt;la fonction &lt;code&gt;easter_days()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Puisqu’on sait que Pâques tombe entre le 21 mars et le 25 avril, alors il suffit de prendre comme base le 21 mars et y ajouter le résultat de &lt;code&gt;easter_days()&lt;/code&gt; pour l’année voulue. C’est partit. On va faire une petite méthode qui renvoie un tableau de DateTime représentant les jours fériés pour l’année passée en paramètre.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-php&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**
+ *&lt;span class=&quot;phpdoc&quot;&gt; @brief&lt;/span&gt; Retourne le tableau des jours fériés (DateTime)
+ *&lt;span class=&quot;phpdoc&quot;&gt; @param&lt;/span&gt; $year
+ *&lt;span class=&quot;phpdoc&quot;&gt; @return&lt;/span&gt; array
+ */&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getHolidays&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt;)&lt;/span&gt;
+{&lt;/span&gt;
+    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();
+
+    &lt;span class=&quot;comment&quot;&gt;// Fixed holidays&lt;/span&gt;
+    &lt;span class=&quot;variable&quot;&gt;$fixedDates&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;'01-01'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'05-01'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'05-08'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'07-14'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'08-15'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'11-01'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'11-11'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'12-25'&lt;/span&gt;);
+
+    &lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt; (&lt;span class=&quot;variable&quot;&gt;$fixedDates&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;)
+    {
+        &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;[] = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateTime(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt; . &lt;span class=&quot;string&quot;&gt;'-'&lt;/span&gt; . &lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;);
+    }
+
+    &lt;span class=&quot;comment&quot;&gt;// Variables holidays, depending on easter&lt;/span&gt;
+    &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateTime(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt; . &lt;span class=&quot;string&quot;&gt;'-03-21'&lt;/span&gt;);
+    &lt;span class=&quot;variable&quot;&gt;$nbDays&lt;/span&gt; = easter_days(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt;);
+    &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt;-&amp;gt;add(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateInterval(&lt;span class=&quot;string&quot;&gt;'P'&lt;/span&gt; . &lt;span class=&quot;variable&quot;&gt;$nbDays&lt;/span&gt; . &lt;span class=&quot;string&quot;&gt;'D'&lt;/span&gt;));
+    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;[] = &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt;;
+
+    &lt;span class=&quot;variable&quot;&gt;$easterMonday&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt;;
+    &lt;span class=&quot;variable&quot;&gt;$easterMonday&lt;/span&gt;-&amp;gt;add(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateInterval(&lt;span class=&quot;string&quot;&gt;'P1D'&lt;/span&gt;));
+    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;[] = &lt;span class=&quot;variable&quot;&gt;$easterMonday&lt;/span&gt;;
+
+    &lt;span class=&quot;variable&quot;&gt;$easterThursday&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt;;
+    &lt;span class=&quot;variable&quot;&gt;$easterThursday&lt;/span&gt;-&amp;gt;add(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateInterval(&lt;span class=&quot;string&quot;&gt;'P39D'&lt;/span&gt;));
+    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;[] = &lt;span class=&quot;variable&quot;&gt;$easterThursday&lt;/span&gt;;
+
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;On peut maintenant faire une méthode qui prend en paramètre un DateTime et qui nous dit si celui-ci est un jour férié ou non :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-php&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**
+ *&lt;span class=&quot;phpdoc&quot;&gt; @param&lt;/span&gt; DateTime $date
+ *&lt;span class=&quot;phpdoc&quot;&gt; @return&lt;/span&gt; bool
+ */&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isHoliday&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(\DateTime &lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;)&lt;/span&gt;
+{&lt;/span&gt;
+    &lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt; = intval(&lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;-&amp;gt;format(&lt;span class=&quot;string&quot;&gt;'Y'&lt;/span&gt;));
+    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt; = &lt;span class=&quot;variable&quot;&gt;$this&lt;/span&gt;-&amp;gt;getHolidays(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt;);
+
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; in_array(&lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;, &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    <item>
+      <title>J'ai eu besoin d'un accès distant à mon serveur MySQL</title>
+      <link>http://jesmodrazik.fr/articles/acces-distant-serveur-mysql/</link>
+      <pubDate>Sun, 16 Mar 2014 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/acces-distant-serveur-mysql/</guid>
+      <author></author>
+      <description>&lt;p&gt;Pour un projet universitaire (une plateforme collaborative de développement R), j’ai eu besoin d’une base de données. J’ai pas cherché midi à quatorze heures, j’ai choisi MySQL. Mais quelle fût ma surprise lorsque j’ai constaté que je ne pouvais pas m’y connecter à partir de ma machine mais uniquement à partir de celle sur laquelle MySQL tournait.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Bon d’abord, on va commencer par installer MySQL :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt-get mysql-server
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Il nous demande le mot de passe root. Nous voilà avec un MySQL et un utilisateur root.&lt;/p&gt;
+&lt;p&gt;Maintenant j’aimerais utiliser HeidiSQL pour gérer mes bases. Allez soyons fous, on entre l’ip de notre serveur, root et notre mot de passe dans HeidiSQL. Et là… Oh la grosse erreur ! Eh ouais, MySQL n’autorise que les connexions locales par défaut. Et ne donne des droits aux utilisateur que s’ils se connectent en local. Bon, on va changer tout ça.&lt;/p&gt;
+&lt;p&gt;On va d’abord donner tous les droits sur toutes les bases à notre utilisateur root (en vrai il faudrait ne surtout pas toucher à root, mais plutôt créer un autre utilisateur à qui on restreint les droits, etc… J’ai la flemme, on verra plus tard) :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; *.* &lt;span class=&quot;keyword&quot;&gt;TO&lt;/span&gt; ‘root’@’%’ IDENTIFIED &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; ‘UnMDPSuperSecret’;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Explications. &lt;code&gt;GRANT ALL PRIVILEGES&lt;/code&gt;, ça veut dire ce que ça veut dire. &lt;code&gt;ON *.*&lt;/code&gt;, ça veut dire sur toutes les bases et toutes les tables qui composent ces bases. &lt;code&gt;TO &amp;#39;root&amp;#39;@&amp;#39;%&amp;#39;&lt;/code&gt;, ça veut dire à l’utilisateur root peu importe l’IP avec laquelle il se connecte. Et &lt;code&gt;IDENTIFIED BY &amp;#39;...&amp;#39;&lt;/code&gt;, c’est le mot de passe de root.&lt;/p&gt;
+&lt;p&gt;Pour que MySQL prenne ceci en compte, il faut “flusher” les privileges :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Une fois ceci fait, on va dire à MySQL de ne plus écouter les connexions uniquement sur 127.0.0.1 :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vi /etc/mysql/my.cnf
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On commente la ligne &lt;code&gt;bind-address = 127.0.0.1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Et on redémarre MySQL :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/etc/init.d/mysql restart
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Et voilà, comme dirait l’autre.&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>
