@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "dploy": "^1.2.0",
+    "moment": "2.3.x",
+    "typogr": "0.5.x",
+    "underscore": "1.4.x",
+    "wintersmith": "^2.1.0"
+  },
+  "repository": "none",
+  "scripts": {
+    "preview": "wintersmith preview",
+    "build": "wintersmith build -c config.build.json",
+    "dploy": "dploy prod"
+  }
+}

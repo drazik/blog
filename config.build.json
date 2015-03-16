@@ -1,0 +1,26 @@
+{
+  "locals": {
+    "url": "http://jesmodrazik.fr",
+    "name": "Jesmo Drazik Blog",
+    "owner": "Cyrille Perois",
+    "description": "Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue "
+  },
+  "plugins": [
+    "./plugins/paginator.coffee"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  },
+  "paginator": {
+    "perPage": 3
+  }
+}
