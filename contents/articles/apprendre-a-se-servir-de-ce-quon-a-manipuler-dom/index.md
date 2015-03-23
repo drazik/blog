@@ -45,7 +45,17 @@ La seconde, c'est que IE8 ne connait pas les sélecteurs CSS 3. Il n'est donc pa
 
 ## Créer des éléments
 
-=> https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+Pour créer des éléments, c'est très simple. Là où on ferait un `$('<div />')` avec jQuery ou un `new Element('div')` avec MooTools, en JavaScript natif, il suffit de faire ceci :
+
+```javascript
+var div = document.createElement('div');
+```
+
+Il existe aussi une méthode de `document` permettant de créer un noeud texte, que l'on pourra par la suite ajouter à notre div précédemment créée :
+
+```javascript
+var text = document.createTextNode('Le futur contenu de ma div !');
+```
 
 ## Insérer des bouts de DOM
 
