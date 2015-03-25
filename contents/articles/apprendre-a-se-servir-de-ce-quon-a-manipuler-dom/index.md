@@ -59,9 +59,40 @@ var text = document.createTextNode('Le futur contenu de ma div !');
 
 ## Insérer des bouts de DOM
 
-=> document.createDocumentFragment
+Reprenons nos deux noeuds précédents. Imaginons qu'on veuille donc insérer le texte dans la div, puis la div dans le `body`. Pour ça, il suffit de faire ceci :
+
+```javascript
+div.appendChild(text);
+document.body.appendChild(div);
+```
+
+C'est exactement la même chose qu'avec un jQuery-like, sauf que c'est natif.
+
+Ca fonctionne très bien pour ajouter un ou deux éléments, mais pour ajouter de gros bouts de DOM, il est conseillé d'utiliser `document.createDocumentFragment()`. En effet, l'API DOM des navigateurs est extrêmement lente. Par conséquent, faire plusieurs petites insertions est moins performant qu'une seule grosse insertion. En utilisant `document.createDocumentFragment()`, on crée un `DocumentFragment` (merci Captain Obvious) dans lequel on va faire toutes nos petites insertions, puis on va finir par insérer tout le résultat, en une seule fois, dans le DOM. Imaginons qu'on veuille créer une liste non ordonnée d'éléments se trouvant dans un tableau (pourquoi pas) :
+
+```javascript
+var elements = ['Pommes', 'Poires', 'Carottes', 'Tomates'];
+var fragment = document.createDocumentFragment();
+var title = document.createElement('h1');
+var list = document.createElement('ul');
+title.innerText = 'Ma liste de trucs à acheter';
+fragment.appendChild('title');
+
+elements.forEach(function(element) {
+    var listItem = document.createElement('li');
+    listItem.innerText = element;
+
+    list.appendChild(listItem);
+});
+
+fragment.appendChild(list);
+
+document.body.appendChild(fragment);
+```
+
+Et voilà, on construit petit à petit notre DOM. Une fois terminé, on l'insère en une seule traite.
+
 => preprend : https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore?redirectlocale=en-US&redirectslug=DOM%2FNode.insertBefore
-=> append : https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild?redirectlocale=en-US&redirectslug=DOM%2FNode.appendChild
 
 ## Cloner un élement
 
