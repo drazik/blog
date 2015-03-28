@@ -1,5 +1,5 @@
 ---
-title: J'ai eu besoin de connaître la date de pâques chaque année jusqu'à l'infi et au-delà
+title: J'ai eu besoin de connaître la date de pâques chaque année jusqu'à l'infini et au-delà
 author: Cyrille Jesmo Drazik
 date: 2014-04-01
 template: article.jade

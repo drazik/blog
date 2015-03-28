@@ -2,7 +2,6 @@
 title: Apprendre à se servir de ce qu'on a
 author: Cyrille Jesmo Drazik
 date: 2015-03-20
-template: article.jade
 ---
 
 Très souvent, lorsqu'on développe un site ou une application web, l'utilisation d'une bibliothèque telle que jQuery ou MooTools (certes, celle-ci a perdu la guerre, mais je trouve que cette bibliothèque propose tout de même des choses intéressantes) s'impose. S'impose ? Et si ce n'était finalement pas si obligatoire que ça ? Si on pouvait faire la même chose qu'avec jQuery, mais sans jQuery ?
