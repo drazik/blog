@@ -8,7 +8,7 @@
   },
   "repository": "none",
   "scripts": {
-    "preview": "wintersmith preview",
+    "start": "wintersmith preview",
     "build": "wintersmith build -c config.build.json",
     "dploy": "dploy prod"
   }
