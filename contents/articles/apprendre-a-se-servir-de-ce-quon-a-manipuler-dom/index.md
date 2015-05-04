@@ -5,7 +5,7 @@ date: 2015-03-21
 template: article.jade
 ---
 
-L'une des fonctionnalités majeures des jQuery-like est la manipulation du DOM (lien vers la définition du DOM?). Voyons comment faire pour manipuler le DOM sans utiliser de bibliothèque.
+L'une des fonctionnalités majeures des jQuery-like est la manipulation du DOM. Voyons comment faire pour manipuler le DOM sans utiliser de bibliothèque.
 
 ## Qu'est-ce que c'est quoi dis-donc que le DOM ?
 
@@ -23,14 +23,14 @@ var $element = $('#element');
 var $buttons = $('button');
 ```
 
-Pourtant, les navigateurs proposent une API pour faire la même chose : `document.querySelector` et `document.querySelectorAll`. `querySelector` renvoie le premier élément trouvé ou `null`. `querySelectorAll` renvoie une `NodeList` contenant tous les éléments trouvés (donc vide si aucun élément n'est trouvé). Voici donc comment faire la même chose que le code précédent, avec cette API :
+Pourtant, les navigateurs proposent une API pour faire la même chose : [`document.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector?redirectlocale=en-US&redirectslug=DOM%2FDocument.querySelector) et [`document.querySelectorAll()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll?redirectlocale=en-US&redirectslug=DOM%2FDocument.querySelectorAll). `querySelector` renvoie le premier élément trouvé ou `null`. `querySelectorAll` renvoie une `NodeList` contenant tous les éléments trouvés (donc vide si aucun élément n'est trouvé). Voici donc comment faire la même chose que le code précédent, avec cette API :
 
 ```javascript
 var element = document.querySelector('#element');
 var buttons = document.querySelectorAll('button');
 ```
 
-Il y a deux subtilités. La première, c'est cette `NodeList` renvoyée par `querySelectorAll`. On s'attendrait plutôt à obtenir un `Array`. En effet, `NodeList` n'expose pas toutes les méthodes pratiques qu'`Array` expose, et dont vous trouverez une liste [par ici](http://es5.github.io/#x15.4.4) (on s'arrête à EcmaScript 5 car nous ciblons IE8, mais si vous voulez utiliser des méthodes introduites avec EcmaScript 2015 - le nom officiel d'EcmaScript 6 -, vous pouvez chercher des polyfills). Pour des raisons de praticité, il vaut donc mieux transformer cette `NodeList` en `Array`. On va donc se recréer une fonction `getDOMElements` qui fait ça. Vous pouvez l'appeler comme vous voulez, `$` par exemple.
+Il y a deux subtilités. La première, c'est cette `NodeList` renvoyée par `querySelectorAll`. On s'attendrait plutôt à obtenir un `Array`. En effet, `NodeList` n'expose pas toutes les méthodes pratiques qu'`Array` expose, et dont vous trouverez une liste [par ici](http://es5.github.io/#x15.4.4) (on s'arrête à EcmaScript 5 car nous ciblons IE8, mais si vous voulez utiliser des méthodes introduites avec EcmaScript 2015 - le nom officiel d'EcmaScript 6 -, vous pouvez chercher des polyfills). Pour des raisons de praticité, il vaut donc mieux transformer cette `NodeList` en `Array`. On va donc se recréer une fonction `$` qui fait ça.
 
 ```javascript
 function $(selector) {
@@ -56,6 +56,9 @@ Il existe aussi une méthode de `document` permettant de créer un noeud texte, 
 ```javascript
 var text = document.createTextNode('Le futur contenu de ma div !');
 ```
+
+* [Documentation de `document.createElement()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
+* [Documentation de `documentation.createTextNode()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode)
 
 ## Insérer des bouts de DOM
 
@@ -90,7 +93,7 @@ fragment.appendChild(list);
 document.body.appendChild(fragment);
 ```
 
-Et voilà, on construit petit à petit notre DOM. Une fois terminé, on l'insère en une seule traite.
+Et voilà, on construit petit à petit notre DOM. Une fois terminé, on l'insère en une seule traite. L'exemple précédent est très simple, et pourtant le gain en performance est déjà notable, comme en atteste [ce jsPerf](http://jsperf.com/documentfragment-speed-test).
 
 Il est aussi possible de prepend un élément, c'est à dire non pas l'ajouter à la fin des fils d'un noeud, mais avant l'un d'entre eux. Imaginons qu'on veuille ajouter un élément au tout début de notre liste précédente, on aurait donc besoin de 3 choses : la liste, l'élément avant lequel on souhaite ajouter un nouvel élément, et le nouvel élément. Ce qui donne ceci :
 
@@ -105,7 +108,29 @@ list.insertBefore(newItem, firstItem);
 
 Si `firstItem` vaut `null`, le comportement est équivalent à `appendChild`, ce qui permet d'insérer un élément avant un autre élément, ou à la fin du parent dans le cas où l'autre élément n'existe pas.
 
+* [Documentation de `Node.appendChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+* [Documentation de `Document.createDocumentFragment()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment)
+* [Documentation de `Node.insertBefore()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
 
 ## Cloner un élement
 
-=> https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
+Enfin, il est possible de cloner un élément existant dans le DOM. Pour cela il suffit d'utiliser la méthode [`Node.cloneNode()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode), comme ceci :
+
+```javascript
+var title = document.querySelector('h1');
+var clonedTitle = title.cloneNode(true);
+```
+Le paramètre qu'on passe à `cloneNode` sert à dire si on veut que les fils du `Node` soient aussi clonés ou non. Ici, je veux que le texte que contient mon `h1` soit aussi cloné, donc je passe `true`. Le noeud cloné n'est pas directement inséré dans le DOM. On a sa référence dans `clonedTitle`, ce qui nous permet de l'insérer où on veut en utilisant les méthodes vues précédemment.
+
+## Supprimer un élément
+
+On sait sélectionner des éléments, en ajouter, en cloner. Il ne reste plus qu'à savoir comment en supprimer. Et pour ça, il faut utiliser la méthode [`Node.removeChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild). Supprimons le premier élément de notre liste :
+
+```javascripts
+var list = document.querySelector('ul');
+var firstItem = list.querySelector('li');
+
+list.removeChild(firstItem);
+```
+
+Voilà. La majorité des besoins les plus courants en termes de manipulation du DOM sont couverts par les API de base des navigateurs. Il y a beaucoup d'autres méthodes à notre disposition. La documentation du MDN est très complète, n'hésitez pas à la parcourir.
