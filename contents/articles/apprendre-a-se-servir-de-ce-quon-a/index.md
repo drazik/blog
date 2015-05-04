@@ -1,7 +1,7 @@
 ---
 title: Apprendre à se servir de ce qu'on a
 author: Cyrille Jesmo Drazik
-date: 2015-05-04
+date: 2015-05-03
 template: article.jade
 ---
 

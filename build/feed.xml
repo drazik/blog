@@ -9,32 +9,6 @@
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
     <item>
-      <title>Apprendre à se servir de ce qu'on a</title>
-      <link>http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a/</link>
-      <pubDate>Mon, 04 May 2015 02:00:00 +0200</pubDate>
-      <guid isPermaLink="true">http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a/</guid>
-      <author></author>
-      <description>&lt;p&gt;Très souvent, lorsqu’on développe un site ou une application web, l’utilisation d’une bibliothèque telle que jQuery ou MooTools (certes, celle-ci a, parait-il, perdu la guerre, mais je trouve que cette bibliothèque propose tout de même des choses intéressantes) s’impose. S’impose ? Et si ce n’était finalement pas si obligatoire que ça ? Si on pouvait faire la même chose qu’avec jQuery, mais sans jQuery ?&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Que l’on soit bien d’accord. Je ne crache pas sur jQuery ni sur ses petits copains. Cette bibliothèque rend un grand service, et est de très bonne qualité. Seulement, jQuery n’a pas forcément d’intérêt pour tous vos projets web. Et c’est précisément le problème. Un jQuery-like est souvent un choix par défaut au début d’un projet. Pourtant, les API JavaScript exposées par les navigateurs suffisent à couvrir une grande variété de besoins. Cette série d’articles aura pour but de donner des solutions aux problèmes couramment rencontrés lors du développement de sites (et d’applications) web. J’évoquerais les sujets suivants :&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1ère partie : introduction&lt;/li&gt;
-&lt;li&gt;2ème partie : &lt;a href=&quot;http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-dom/&quot;&gt;manipuler le DOM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;3ème partie : manipuler le style des éléments&lt;/li&gt;
-&lt;li&gt;4ème partie : faire des animations&lt;/li&gt;
-&lt;li&gt;5ème partie : la délégation d’événements&lt;/li&gt;
-&lt;li&gt;6ème partie : AJAX&lt;/li&gt;
-&lt;li&gt;7ème partie : des petites choses bien pratiques&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Les liens ci-dessus seront mis à jour au fur et à mesure de la publication de chaque partie.&lt;/p&gt;
-&lt;p&gt;Je m’efforcerais de donner des solutions compatibles avec Internet Explorer 8 et plus, ainsi que les navigateurs dits “récents” (Firefox, Chrome, Safari, Opera…). Les très vieilles versions d’Internet Explorer ne sont quasiment plus utilisées et, selon moi, freinent grandement nos développements qui doivent être compatibles avec elles. Je m’épargnerais cela pour ces articles.&lt;/p&gt;
-&lt;p&gt;Parfois, les solutions passeront par la mise en place de polyfills. C’est pourquoi je tiens à présenter ce concept dans cette introduction, pour ceux qui ne sauraient pas ce que c’est. Un polyfill est un script JavaScript qui a pour but de simuler une fonctionnalité dans un navigateur qui ne la propose pas de manière native. Par exemple, IE8 ne propose pas l’objet &lt;code&gt;console&lt;/code&gt;. On peut donc exécuter un script qui lui ajoutera cet objet (pour ceux que ça intéresse, il y en a un qui est disponible &lt;a href=&quot;https://github.com/paulmillr/console-polyfill&quot;&gt;sur github&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;Pour trouver un polyfill, c’est très simple. Il suffit de taper dans son moteur de recherche favoris “polyfill [fonctionnalité recherchée]” (exemple: “polyfill console”). Sachez que le &lt;a href=&quot;https://developer.mozilla.org/fr/&quot;&gt;Mozilla Developer Network (MDN)&lt;/a&gt; propose très souvent des polyfills sur ses pages de documentation de fonctions / méthodes.&lt;/p&gt;
-&lt;p&gt;Un dernier point sur les polyfills. Il existe un service permettant de les récupérer à la demande. Je ne l’ai encore jamais utilisé, mais vous pouvez aller voir ça &lt;a href=&quot;https://github.com/Financial-Times/polyfill-service&quot;&gt;par ici&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Voilà pour l’introduction de cette série d’articles.&lt;/p&gt;
-</description>
-    </item>
-    <item>
       <title>Apprendre à se servir de ce qu'on a : manipuler le DOM</title>
       <link>http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-dom/</link>
       <pubDate>Mon, 04 May 2015 02:00:00 +0200</pubDate>
@@ -129,6 +103,32 @@ var firstItem = list.querySelector(&amp;#39;li&amp;#39;);
 list.removeChild(firstItem);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Voilà. La majorité des besoins les plus courants en termes de manipulation du DOM sont couverts par les API de base des navigateurs. Il y a beaucoup d’autres méthodes à notre disposition. La documentation du MDN est très complète, n’hésitez pas à la parcourir.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Apprendre à se servir de ce qu'on a</title>
+      <link>http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a/</link>
+      <pubDate>Sun, 03 May 2015 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a/</guid>
+      <author></author>
+      <description>&lt;p&gt;Très souvent, lorsqu’on développe un site ou une application web, l’utilisation d’une bibliothèque telle que jQuery ou MooTools (certes, celle-ci a, parait-il, perdu la guerre, mais je trouve que cette bibliothèque propose tout de même des choses intéressantes) s’impose. S’impose ? Et si ce n’était finalement pas si obligatoire que ça ? Si on pouvait faire la même chose qu’avec jQuery, mais sans jQuery ?&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Que l’on soit bien d’accord. Je ne crache pas sur jQuery ni sur ses petits copains. Cette bibliothèque rend un grand service, et est de très bonne qualité. Seulement, jQuery n’a pas forcément d’intérêt pour tous vos projets web. Et c’est précisément le problème. Un jQuery-like est souvent un choix par défaut au début d’un projet. Pourtant, les API JavaScript exposées par les navigateurs suffisent à couvrir une grande variété de besoins. Cette série d’articles aura pour but de donner des solutions aux problèmes couramment rencontrés lors du développement de sites (et d’applications) web. J’évoquerais les sujets suivants :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1ère partie : introduction&lt;/li&gt;
+&lt;li&gt;2ème partie : &lt;a href=&quot;http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-dom/&quot;&gt;manipuler le DOM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;3ème partie : manipuler le style des éléments&lt;/li&gt;
+&lt;li&gt;4ème partie : faire des animations&lt;/li&gt;
+&lt;li&gt;5ème partie : la délégation d’événements&lt;/li&gt;
+&lt;li&gt;6ème partie : AJAX&lt;/li&gt;
+&lt;li&gt;7ème partie : des petites choses bien pratiques&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Les liens ci-dessus seront mis à jour au fur et à mesure de la publication de chaque partie.&lt;/p&gt;
+&lt;p&gt;Je m’efforcerais de donner des solutions compatibles avec Internet Explorer 8 et plus, ainsi que les navigateurs dits “récents” (Firefox, Chrome, Safari, Opera…). Les très vieilles versions d’Internet Explorer ne sont quasiment plus utilisées et, selon moi, freinent grandement nos développements qui doivent être compatibles avec elles. Je m’épargnerais cela pour ces articles.&lt;/p&gt;
+&lt;p&gt;Parfois, les solutions passeront par la mise en place de polyfills. C’est pourquoi je tiens à présenter ce concept dans cette introduction, pour ceux qui ne sauraient pas ce que c’est. Un polyfill est un script JavaScript qui a pour but de simuler une fonctionnalité dans un navigateur qui ne la propose pas de manière native. Par exemple, IE8 ne propose pas l’objet &lt;code&gt;console&lt;/code&gt;. On peut donc exécuter un script qui lui ajoutera cet objet (pour ceux que ça intéresse, il y en a un qui est disponible &lt;a href=&quot;https://github.com/paulmillr/console-polyfill&quot;&gt;sur github&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Pour trouver un polyfill, c’est très simple. Il suffit de taper dans son moteur de recherche favoris “polyfill [fonctionnalité recherchée]” (exemple: “polyfill console”). Sachez que le &lt;a href=&quot;https://developer.mozilla.org/fr/&quot;&gt;Mozilla Developer Network (MDN)&lt;/a&gt; propose très souvent des polyfills sur ses pages de documentation de fonctions / méthodes.&lt;/p&gt;
+&lt;p&gt;Un dernier point sur les polyfills. Il existe un service permettant de les récupérer à la demande. Je ne l’ai encore jamais utilisé, mais vous pouvez aller voir ça &lt;a href=&quot;https://github.com/Financial-Times/polyfill-service&quot;&gt;par ici&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Voilà pour l’introduction de cette série d’articles.&lt;/p&gt;
 </description>
     </item>
     <item>
