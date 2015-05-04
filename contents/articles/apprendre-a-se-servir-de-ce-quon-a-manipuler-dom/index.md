@@ -33,7 +33,7 @@ var buttons = document.querySelectorAll('button');
 Il y a deux subtilités. La première, c'est cette `NodeList` renvoyée par `querySelectorAll`. On s'attendrait plutôt à obtenir un `Array`. En effet, `NodeList` n'expose pas toutes les méthodes pratiques qu'`Array` expose, et dont vous trouverez une liste [par ici](http://es5.github.io/#x15.4.4) (on s'arrête à EcmaScript 5 car nous ciblons IE8, mais si vous voulez utiliser des méthodes introduites avec EcmaScript 2015 - le nom officiel d'EcmaScript 6 -, vous pouvez chercher des polyfills). Pour des raisons de praticité, il vaut donc mieux transformer cette `NodeList` en `Array`. On va donc se recréer une fonction `getDOMElements` qui fait ça. Vous pouvez l'appeler comme vous voulez, `$` par exemple.
 
 ```javascript
-function getDOMElements(selector) {
+function $(selector) {
     var elements = document.querySelectorAll(selector);
 
     return Array.apply(null, elements);
@@ -75,12 +75,12 @@ var elements = ['Pommes', 'Poires', 'Carottes', 'Tomates'];
 var fragment = document.createDocumentFragment();
 var title = document.createElement('h1');
 var list = document.createElement('ul');
-title.innerText = 'Ma liste de trucs à acheter';
-fragment.appendChild('title');
+title.innerHTML = 'Ma liste de trucs à acheter';
+fragment.appendChild(title);
 
 elements.forEach(function(element) {
     var listItem = document.createElement('li');
-    listItem.innerText = element;
+    listItem.innerHTML = element;
 
     list.appendChild(listItem);
 });
@@ -92,18 +92,20 @@ document.body.appendChild(fragment);
 
 Et voilà, on construit petit à petit notre DOM. Une fois terminé, on l'insère en une seule traite.
 
-=> preprend : https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore?redirectlocale=en-US&redirectslug=DOM%2FNode.insertBefore
+Il est aussi possible de prepend un élément, c'est à dire non pas l'ajouter à la fin des fils d'un noeud, mais avant l'un d'entre eux. Imaginons qu'on veuille ajouter un élément au tout début de notre liste précédente, on aurait donc besoin de 3 choses : la liste, l'élément avant lequel on souhaite ajouter un nouvel élément, et le nouvel élément. Ce qui donne ceci :
+
+```javascript
+var list = document.querySelector('ul');
+var firstItem = list.querySelector('li');
+var newItem = document.createElement('li');
+newItem.innerHTML = 'Courgettes';
+
+list.insertBefore(newItem, firstItem);
+```
+
+Si `firstItem` vaut `null`, le comportement est équivalent à `appendChild`, ce qui permet d'insérer un élément avant un autre élément, ou à la fin du parent dans le cas où l'autre élément n'existe pas.
+
 
 ## Cloner un élement
 
 => https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
-
-## Modifier les styles inline d'un élément
-
-=> element.style.property = 'value';
-
-## Gérer les classes d'un élément
-
-=> http://caniuse.com/#feat=classlist
-=> polyfill IE8+ https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
-
