@@ -28,11 +28,11 @@
 </code></pre><p>Il nous demande le mot de passe root. Nous voilà avec un MySQL et un utilisateur&nbsp;root.</p>
 <p>Maintenant j’aimerais utiliser HeidiSQL pour gérer mes bases. Allez soyons fous, on entre l’ip de notre serveur, root et notre mot de passe dans HeidiSQL. Et là… Oh la grosse erreur ! Eh ouais, MySQL n’autorise que les connexions locales par défaut. Et ne donne des droits aux utilisateur que s’ils se connectent en local. Bon, on va changer tout&nbsp;ça.</p>
 <p>On va d’abord donner tous les droits sur toutes les bases à notre utilisateur root (en vrai il faudrait ne surtout pas toucher à root, mais plutôt créer un autre utilisateur à qui on restreint les droits, etc… J’ai la flemme, on verra plus tard)&nbsp;:</p>
-<pre><code class="lang-sql"><span class="operator"><span class="keyword"><span class="caps">GRANT</span></span> <span class="keyword"><span class="caps">ALL</span></span> <span class="keyword"><span class="caps">PRIVILEGES</span></span> <span class="keyword"><span class="caps">ON</span></span> *.* <span class="keyword"><span class="caps">TO</span></span> ‘root’@’%’ <span class="caps">IDENTIFIED</span> <span class="keyword"><span class="caps">BY</span></span> ‘UnMDPSuperSecret’;</span>
+<pre><code class="lang-sql"><span class="operator"><span class="keyword"><span class="caps">GRANT</span></span> <span class="keyword"><span class="caps">ALL</span></span> <span class="keyword"><span class="caps">PRIVILEGES</span></span> <span class="keyword"><span class="caps">ON</span></span> *.* <span class="keyword"><span class="caps">TO</span></span> ‘root’@’%’ <span class="keyword"><span class="caps">IDENTIFIED</span></span> <span class="keyword"><span class="caps">BY</span></span> ‘UnMDPSuperSecret’;</span>
 </code></pre>
 <p>Explications. <code>GRANT ALL PRIVILEGES</code>, ça veut dire ce que ça veut dire. <code>ON *.*</code>, ça veut dire sur toutes les bases et toutes les tables qui composent ces bases. <code>TO &#39;root&#39;@&#39;%&#39;</code>, ça veut dire à l’utilisateur root peu importe l’<span class="caps">IP</span> avec laquelle il se connecte. Et <code>IDENTIFIED BY &#39;...&#39;</code>, c’est le mot de passe de&nbsp;root.</p>
 <p>Pour que MySQL prenne ceci en compte, il faut “flusher” les privileges&nbsp;:</p>
-<pre><code class="lang-sql">FLUSH PRIVILEGES;
+<pre><code class="lang-sql"><span class="operator"><span class="keyword"><span class="caps">FLUSH</span></span> <span class="keyword"><span class="caps">PRIVILEGES</span></span>;</span>
 </code></pre>
 <p>Une fois ceci fait, on va dire à MySQL de ne plus écouter les connexions uniquement sur 127.0.0.1&nbsp;:</p>
 <pre><code>vi /etc/mysql/my.cnf

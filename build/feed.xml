@@ -5,9 +5,35 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue </description>
-    <pubDate>Sun, 15 Mar 2015 01:00:00 +0100</pubDate>
+    <pubDate>Mon, 04 May 2015 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Apprendre à se servir de ce qu'on a</title>
+      <link>http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a/</link>
+      <pubDate>Mon, 04 May 2015 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a/</guid>
+      <author></author>
+      <description>&lt;p&gt;Très souvent, lorsqu’on développe un site ou une application web, l’utilisation d’une bibliothèque telle que jQuery ou MooTools (certes, celle-ci a, parait-il, perdu la guerre, mais je trouve que cette bibliothèque propose tout de même des choses intéressantes) s’impose. S’impose ? Et si ce n’était finalement pas si obligatoire que ça ? Si on pouvait faire la même chose qu’avec jQuery, mais sans jQuery ?&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Que l’on soit bien d’accord. Je ne crache pas sur jQuery ni sur ses petits copains. Cette bibliothèque rend un grand service, et est de très bonne qualité. Seulement, jQuery n’a pas forcément d’intérêt pour tous vos projets web. Et c’est précisément le problème. Un jQuery-like est souvent un choix par défaut au début d’un projet. Pourtant, les API JavaScript exposées par les navigateurs suffisent à couvrir une grande variété de besoins. Cette série d’articles aura pour but de donner des solutions aux problèmes couramment rencontrés lors du développement de sites (et d’applications) web. J’évoquerais les sujets suivants :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1ère partie : introduction&lt;/li&gt;
+&lt;li&gt;2ème partie : manipuler le DOM&lt;/li&gt;
+&lt;li&gt;3ème partie : manipuler le style des éléments&lt;/li&gt;
+&lt;li&gt;4ème partie : faire des animations&lt;/li&gt;
+&lt;li&gt;5ème partie : la délégation d’événements&lt;/li&gt;
+&lt;li&gt;6ème partie : AJAX&lt;/li&gt;
+&lt;li&gt;7ème partie : des petites choses bien pratiques&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Les liens ci-dessus seront mis à jour au fur et à mesure de la publication de chaque partie.&lt;/p&gt;
+&lt;p&gt;Je m’efforcerais de donner des solutions compatibles avec Internet Explorer 8 et plus, ainsi que les navigateurs dits “récents” (Firefox, Chrome, Safari, Opera…). Les très vieilles versions d’Internet Explorer ne sont quasiment plus utilisées et, selon moi, freinent grandement nos développements qui doivent être compatibles avec elles. Je m’épargnerais cela pour ces articles.&lt;/p&gt;
+&lt;p&gt;Parfois, les solutions passeront par la mise en place de polyfills. C’est pourquoi je tiens à présenter ce concept dans cette introduction, pour ceux qui ne sauraient pas ce que c’est. Un polyfill est un script JavaScript qui a pour but de simuler une fonctionnalité dans un navigateur qui ne la propose pas de manière native. Par exemple, IE8 ne propose pas l’objet &lt;code&gt;console&lt;/code&gt;. On peut donc exécuter un script qui lui ajoutera cet objet (pour ceux que ça intéresse, il y en a un qui est disponible &lt;a href=&quot;https://github.com/paulmillr/console-polyfill&quot;&gt;sur github&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Pour trouver un polyfill, c’est très simple. Il suffit de taper dans son moteur de recherche favoris “polyfill [fonctionnalité recherchée]” (exemple: “polyfill console”). Sachez que le &lt;a href=&quot;https://developer.mozilla.org/fr/&quot;&gt;Mozilla Developer Network (MDN)&lt;/a&gt; propose très souvent des polyfills sur ses pages de documentation de fonctions / méthodes.&lt;/p&gt;
+&lt;p&gt;Un dernier point sur les polyfills. Il existe un service permettant de les récupérer à la demande. Je ne l’ai encore jamais utilisé, mais vous pouvez aller voir ça &lt;a href=&quot;https://github.com/Financial-Times/polyfill-service&quot;&gt;par ici&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Voilà pour l’introduction de cette série d’articles.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Bye bye Tumblr !</title>
       <link>http://jesmodrazik.fr/articles/bye-bye-tumblr/</link>
@@ -142,7 +168,7 @@ npm run gulp:compile
  *&lt;span class=&quot;phpdoc&quot;&gt; @return&lt;/span&gt; array
  */&lt;/span&gt;
 &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getHolidays&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt;)&lt;/span&gt;
-{&lt;/span&gt;
+&lt;/span&gt;{
     &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();
 
     &lt;span class=&quot;comment&quot;&gt;// Fixed holidays&lt;/span&gt;
@@ -176,7 +202,7 @@ npm run gulp:compile
  *&lt;span class=&quot;phpdoc&quot;&gt; @return&lt;/span&gt; bool
  */&lt;/span&gt;
 &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isHoliday&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(\DateTime &lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;)&lt;/span&gt;
-{&lt;/span&gt;
+&lt;/span&gt;{
     &lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt; = intval(&lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;-&amp;gt;format(&lt;span class=&quot;string&quot;&gt;'Y'&lt;/span&gt;));
     &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt; = &lt;span class=&quot;variable&quot;&gt;$this&lt;/span&gt;-&amp;gt;getHolidays(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt;);
 
@@ -198,11 +224,11 @@ npm run gulp:compile
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Il nous demande le mot de passe root. Nous voilà avec un MySQL et un utilisateur root.&lt;/p&gt;
 &lt;p&gt;Maintenant j’aimerais utiliser HeidiSQL pour gérer mes bases. Allez soyons fous, on entre l’ip de notre serveur, root et notre mot de passe dans HeidiSQL. Et là… Oh la grosse erreur ! Eh ouais, MySQL n’autorise que les connexions locales par défaut. Et ne donne des droits aux utilisateur que s’ils se connectent en local. Bon, on va changer tout ça.&lt;/p&gt;
 &lt;p&gt;On va d’abord donner tous les droits sur toutes les bases à notre utilisateur root (en vrai il faudrait ne surtout pas toucher à root, mais plutôt créer un autre utilisateur à qui on restreint les droits, etc… J’ai la flemme, on verra plus tard) :&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; *.* &lt;span class=&quot;keyword&quot;&gt;TO&lt;/span&gt; ‘root’@’%’ IDENTIFIED &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; ‘UnMDPSuperSecret’;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; *.* &lt;span class=&quot;keyword&quot;&gt;TO&lt;/span&gt; ‘root’@’%’ &lt;span class=&quot;keyword&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; ‘UnMDPSuperSecret’;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Explications. &lt;code&gt;GRANT ALL PRIVILEGES&lt;/code&gt;, ça veut dire ce que ça veut dire. &lt;code&gt;ON *.*&lt;/code&gt;, ça veut dire sur toutes les bases et toutes les tables qui composent ces bases. &lt;code&gt;TO &amp;#39;root&amp;#39;@&amp;#39;%&amp;#39;&lt;/code&gt;, ça veut dire à l’utilisateur root peu importe l’IP avec laquelle il se connecte. Et &lt;code&gt;IDENTIFIED BY &amp;#39;...&amp;#39;&lt;/code&gt;, c’est le mot de passe de root.&lt;/p&gt;
 &lt;p&gt;Pour que MySQL prenne ceci en compte, il faut “flusher” les privileges :&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;FLUSH PRIVILEGES;
+&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;FLUSH&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Une fois ceci fait, on va dire à MySQL de ne plus écouter les connexions uniquement sur 127.0.0.1 :&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;vi /etc/mysql/my.cnf

@@ -35,7 +35,7 @@
  *<span class="phpdoc"> @return</span> array
  */</span>
 <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getHolidays</span><span class="params">(<span class="variable">$year</span>)</span>
-{</span>
+</span>{
     <span class="variable">$holidays</span> = <span class="keyword">array</span>();
 
     <span class="comment">// Fixed holidays</span>
@@ -69,7 +69,7 @@
  *<span class="phpdoc"> @return</span> bool
  */</span>
 <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">isHoliday</span><span class="params">(\DateTime <span class="variable">$date</span>)</span>
-{</span>
+</span>{
     <span class="variable">$year</span> = intval(<span class="variable">$date</span>-&gt;format(<span class="string">'Y'</span>));
     <span class="variable">$holidays</span> = <span class="variable">$this</span>-&gt;getHolidays(<span class="variable">$year</span>);
 
