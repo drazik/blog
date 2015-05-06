@@ -25,6 +25,8 @@ On va d’abord donner tous les droits sur toutes les bases à notre utilisateur
 GRANT ALL PRIVILEGES ON *.* TO ‘root’@’%’ IDENTIFIED BY ‘UnMDPSuperSecret’;
 ```
 
+EDIT : un [très bon article](http://blog.emmanuelgautier.fr/utilisateurs-et-privileges-sous-mysql.html) d'Emmanuel Gautier explique comment gérer les droits sous MySQL. Je vous invite à y jetter un oeil pour gérer les droits proprement sur votre serveur.
+
 Explications. `GRANT ALL PRIVILEGES`, ça veut dire ce que ça veut dire. `ON *.*`, ça veut dire sur toutes les bases et toutes les tables qui composent ces bases. `TO 'root'@'%'`, ça veut dire à l’utilisateur root peu importe l’IP avec laquelle il se connecte. Et `IDENTIFIED BY '...'`, c’est le mot de passe de root.
 
 Pour que MySQL prenne ceci en compte, il faut “flusher” les privileges :
