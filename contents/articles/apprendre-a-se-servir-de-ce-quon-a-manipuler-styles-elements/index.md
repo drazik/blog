@@ -16,3 +16,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style
 ## Manipuler les classes
 
 className, classList
+
+http://www.alsacreations.com/article/lire/1498-lapi-classlist.html
+
+https://developer.mozilla.org/en-US/docs/Web/API/Element/classList?redirectlocale=en-US&redirectslug=DOM%2Felement.classList
