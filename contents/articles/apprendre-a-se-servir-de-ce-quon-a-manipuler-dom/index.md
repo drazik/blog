@@ -108,9 +108,41 @@ list.insertBefore(newItem, firstItem);
 
 Si `firstItem` vaut `null`, le comportement est équivalent à `appendChild`, ce qui permet d'insérer un élément avant un autre élément, ou à la fin du parent dans le cas où l'autre élément n'existe pas.
 
+Le meilleur pour la fin : `Element.insertAdjacentHTML()`. Cette méthode permet d'insérer un élément soit avant, au tout début, en toute fin ou après l'élément auquel elle est appliquée. Exemple :
+
+```html
+<div id="parent">
+  <div class="child">Child element</div>
+</div>
+```
+
+```javascript
+var parent = document.querySelector('#parent');
+
+parent.insertAdjacentHTML('beforebegin','<div>Beforebegin</div>');
+parent.insertAdjacentHTML('afterbegin', '<div>Afterbegin</div>');
+parent.insertAdjacentHTML('beforeend', '<div>Beforeend</div>');
+parent.insertAdjacentHTML('afterend', '<div>Afterend</div>');
+```
+
+On obtient le DOM suivant :
+
+```html
+<div>Beforebegin</div>
+<div id="parent">
+  <div>Afterbegin</div>
+  <div class="child">Child element</div>
+  <div>Beforeend</div>
+</div>
+<div>Afterend</div>
+```
+
+Avec tout ça, il est possible d'ajouter des éléments à peu près n'importe où dans notre DOM, sans avoir recours à une bibliothèque.
+
 * [Documentation de `Node.appendChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
 * [Documentation de `Document.createDocumentFragment()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment)
 * [Documentation de `Node.insertBefore()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
+* [Documentation de `Element.insertAdjacentHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML)
 
 ## Cloner un élement
 
@@ -126,7 +158,7 @@ Le paramètre qu'on passe à `cloneNode` sert à dire si on veut que les fils du
 
 On sait sélectionner des éléments, en ajouter, en cloner. Il ne reste plus qu'à savoir comment en supprimer. Et pour ça, il faut utiliser la méthode [`Node.removeChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild). Supprimons le premier élément de notre liste :
 
-```javascripts
+```javascript
 var list = document.querySelector('ul');
 var firstItem = list.querySelector('li');
 
