@@ -91,10 +91,33 @@ newItem.innerHTML = <span class="string">'Courgettes'</span>;
 list.insertBefore(newItem, firstItem);
 </code></pre>
 <p>Si <code>firstItem</code> vaut <code>null</code>, le comportement est équivalent à <code>appendChild</code>, ce qui permet d’insérer un élément avant un autre élément, ou à la fin du parent dans le cas où l’autre élément n’existe&nbsp;pas.</p>
+<p>Le meilleur pour la fin : <code>Element.insertAdjacentHTML()</code>. Cette méthode permet d’insérer un élément soit avant, au tout début, en toute fin ou après l’élément auquel elle est appliquée. Exemple&nbsp;:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"parent"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"child"</span>&gt;</span>Child element<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> parent = <span class="built_in">document</span>.querySelector(<span class="string">'#parent'</span>);
+
+parent.insertAdjacentHTML(<span class="string">'beforebegin'</span>,<span class="string">'&lt;div&gt;Beforebegin&lt;/div&gt;'</span>);
+parent.insertAdjacentHTML(<span class="string">'afterbegin'</span>, <span class="string">'&lt;div&gt;Afterbegin&lt;/div&gt;'</span>);
+parent.insertAdjacentHTML(<span class="string">'beforeend'</span>, <span class="string">'&lt;div&gt;Beforeend&lt;/div&gt;'</span>);
+parent.insertAdjacentHTML(<span class="string">'afterend'</span>, <span class="string">'&lt;div&gt;Afterend&lt;/div&gt;'</span>);
+</code></pre>
+<p>On obtient le <span class="caps">DOM</span> suivant&nbsp;:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">div</span>&gt;</span>Beforebegin<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"parent"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span>&gt;</span>Afterbegin<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"child"</span>&gt;</span>Child element<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span>&gt;</span>Beforeend<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span>&gt;</span>Afterend<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+<p>Avec tout ça, il est possible d’ajouter des éléments à peu près n’importe où dans notre <span class="caps">DOM</span>, sans avoir recours à une&nbsp;bibliothèque.</p>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild">Documentation de <code>Node.appendChild()</code></a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment">Documentation de <code>Document.createDocumentFragment()</code></a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore">Documentation de <code>Node.insertBefore()</code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML">Documentation de <code>Element.insertAdjacentHTML()</code></a></li>
 </ul>
 <h2 id="cloner-un-lement">Cloner un&nbsp;élement</h2>
 <p>Enfin, il est possible de cloner un élément existant dans le <span class="caps">DOM</span>. Pour cela il suffit d’utiliser la méthode <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode"><code>Node.cloneNode()</code></a>, comme ceci&nbsp;:</p>
@@ -104,8 +127,8 @@ list.insertBefore(newItem, firstItem);
 <p>Le paramètre qu’on passe à <code>cloneNode</code> sert à dire si on veut que les fils du <code>Node</code> soient aussi clonés ou non. Ici, je veux que le texte que contient mon <code>h1</code> soit aussi cloné, donc je passe <code>true</code>. Le noeud cloné n’est pas directement inséré dans le <span class="caps">DOM</span>. On a sa référence dans <code>clonedTitle</code>, ce qui nous permet de l’insérer où on veut en utilisant les méthodes vues&nbsp;précédemment.</p>
 <h2 id="supprimer-un-l-ment">Supprimer un&nbsp;élément</h2>
 <p>On sait sélectionner des éléments, en ajouter, en cloner. Il ne reste plus qu’à savoir comment en supprimer. Et pour ça, il faut utiliser la méthode <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild"><code>Node.removeChild()</code></a>. Supprimons le premier élément de notre liste&nbsp;:</p>
-<pre><code class="lang-javascripts">var list = document.querySelector(&#39;ul&#39;);
-var firstItem = list.querySelector(&#39;li&#39;);
+<pre><code class="lang-javascript"><span class="keyword">var</span> list = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);
+<span class="keyword">var</span> firstItem = list.querySelector(<span class="string">'li'</span>);
 
 list.removeChild(firstItem);
 </code></pre>
