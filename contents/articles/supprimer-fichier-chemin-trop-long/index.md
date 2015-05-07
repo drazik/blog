@@ -10,3 +10,5 @@ Quand on travaille avec npm sous windows, on est souvent confronté au message d
 <span class="more"></span>
 
 http://osmstudios.net/projects/path-too-long
+
+https://github.com/DawsonG/PathTooLong
