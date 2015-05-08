@@ -1,7 +1,7 @@
 ---
 title: Supprimer un fichier (ou un dossier) dont le chemin est trop long
 author: Cyrille Jesmo Drazik
-date: 2015-03-15
+date: 2015-05-08
 template: article.jade
 ---
 
