@@ -5,9 +5,28 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue </description>
-    <pubDate>Mon, 04 May 2015 02:00:00 +0200</pubDate>
+    <pubDate>Fri, 08 May 2015 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Supprimer un fichier (ou un dossier) dont le chemin est trop long</title>
+      <link>http://jesmodrazik.fr/articles/supprimer-fichier-chemin-trop-long/</link>
+      <pubDate>Fri, 08 May 2015 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/supprimer-fichier-chemin-trop-long/</guid>
+      <author></author>
+      <description>&lt;p&gt;Quand on travaille avec npm sous windows, on est souvent confronté au message d’erreur suivant lorsqu’on veut supprimer un module non utilisé ou le dossier &lt;code&gt;node_modules&lt;/code&gt; pour quelque raison que ce soit : “Les noms de fichiers source sont plus longs que ne le permet le système de fichiers. Choisissez un emplacement de destination avec un nom plus court, ou donnez des noms plus courts aux fichiers avant de les déplacer”. Il existe un petit outil qui permet de passer outre cette restriction.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;C’est OSMStudios qui fournit &lt;a href=&quot;http://osmstudios.net/projects/path-too-long&quot;&gt;PathTooLong&lt;/a&gt;, écrit en Java, et qui permet tout simplement de sélectionner un dossier dont le chemin est trop long pour être supprimé par windows, et le supprimer pour de bon.&lt;/p&gt;
+&lt;p&gt;Il suffit de télécharger le fichier JAR et de l’exécuter avec un JDK 1.7 ou plus :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;java -jar PathTooLong.jar
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;/articles/supprimer-fichier-chemin-trop-long/images/01.jpg&quot; alt=&quot;Fenêtre principale de PathTooLong&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Une fenêtre s’ouvre, il ne vous reste plus qu’à sélectionner le dossier à supprimer, à confirmer la suppression et attendre plus ou moins longtemps en fonction de la taille de celui-ci. Un message de succès s’affiche une fois le dossier supprimé.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/supprimer-fichier-chemin-trop-long/images/02.jpg&quot; alt=&quot;Confirmation de suppression&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/supprimer-fichier-chemin-trop-long/images/03.jpg&quot; alt=&quot;Message de succès&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Attention, comme l’indique le message vous demandant de confirmer la suppression, celle-ci est définitive. Les fichiers ne passeront pas par la corbeille.&lt;/p&gt;
+&lt;p&gt;Pour les sceptiques, le code source est disponible sur &lt;a href=&quot;https://github.com/DawsonG/PathTooLong&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Apprendre à se servir de ce qu'on a : manipuler le DOM</title>
       <link>http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-dom/</link>
@@ -168,25 +187,6 @@ list.removeChild(firstItem);
 &lt;p&gt;Tout était bon. Jusqu’à ce que je cherche à exporter mes articles Tumblr. Je vais la faire courte : je n’ai pas trouvé la fonctionnalité, et mes recherches n’ont pas donné de méthode simple pour exporter les articles d’un blog Tumblr. Typique d’un service qui cherche à enfermer ses utilisateurs. Je suis chanceux, mon blog, qui a bientôt un an, ne comporte que 5 articles. Les exporter à la main n’a donc pas été compliqué. Mais j’éprouve de la pitié pour ceux qui voudront fermer leur blog sur Tumblr pour en ouvrir un auto-hébergé, et qui auront des centaines d’articles à exporter. Ma mauvaise vision de ce service a donc été accrue avec cette expérience.&lt;/p&gt;
 &lt;p&gt;Bref, depuis aujourd’hui mon blog m’appartient entièrement. On se sent quand même plus libre comme ça. J’invite tout le monde à faire de même.&lt;/p&gt;
 &lt;p&gt;Bon, pour le moment mon hébergeur est Github, grâce à ses Github Pages. Mais ça ne saurait durer, je vais très rapidement mettre en place mon propre hébergement. Car Github &lt;a href=&quot;http://framablog.org/2015/03/13/google-code-ferme-ses-portes-nous-on-les-ouvre/&quot;&gt;est aussi un service participant à la centralisation du web&lt;/a&gt;. Toujours est-il que même si Github ferme ou si je décide de le quitter, il me suffira de mettre mon blog ailleurs pour qu’il soit toujours accessible. Ce qui n’était pas le cas de Tumblr. Bye bye Tumblr !&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>Supprimer un fichier (ou un dossier) dont le chemin est trop long</title>
-      <link>http://jesmodrazik.fr/articles/supprimer-fichier-chemin-trop-long/</link>
-      <pubDate>Sun, 15 Mar 2015 01:00:00 +0100</pubDate>
-      <guid isPermaLink="true">http://jesmodrazik.fr/articles/supprimer-fichier-chemin-trop-long/</guid>
-      <author></author>
-      <description>&lt;p&gt;Quand on travaille avec npm sous windows, on est souvent confronté au message d’erreur suivant lorsqu’on veut supprimer un module non utilisé ou le dossier &lt;code&gt;node_modules&lt;/code&gt; pour quelque raison que ce soit : “Les noms de fichiers source sont plus longs que ne le permet le système de fichiers. Choisissez un emplacement de destination avec un nom plus court, ou donnez des noms plus courts aux fichiers avant de les déplacer”. Il existe un petit outil qui permet de passer outre cette restriction.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;C’est OSMStudios qui fournit &lt;a href=&quot;http://osmstudios.net/projects/path-too-long&quot;&gt;PathTooLong&lt;/a&gt;, écrit en Java, et qui permet tout simplement de sélectionner un dossier dont le chemin est trop long pour être supprimé par windows, et le supprimer pour de bon.&lt;/p&gt;
-&lt;p&gt;Il suffit de télécharger le fichier JAR et de l’exécuter avec un JDK 1.7 ou plus :&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;java -jar PathTooLong.jar
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;/articles/supprimer-fichier-chemin-trop-long/images/01.jpg&quot; alt=&quot;Fenêtre principale de PathTooLong&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Une fenêtre s’ouvre, il ne vous reste plus qu’à sélectionner le dossier à supprimer, à confirmer la suppression et attendre plus ou moins longtemps en fonction de la taille de celui-ci. Un message de succès s’affiche une fois le dossier supprimé.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/articles/supprimer-fichier-chemin-trop-long/images/02.jpg&quot; alt=&quot;Confirmation de suppression&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/articles/supprimer-fichier-chemin-trop-long/images/03.jpg&quot; alt=&quot;Message de succès&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Attention, comme l’indique le message vous demandant de confirmer la suppression, celle-ci est définitive. Les fichiers ne passeront pas par la corbeille.&lt;/p&gt;
-&lt;p&gt;Pour les sceptiques, le code source est disponible sur &lt;a href=&quot;https://github.com/DawsonG/PathTooLong&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     <item>
