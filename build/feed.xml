@@ -171,6 +171,25 @@ list.removeChild(firstItem);
 </description>
     </item>
     <item>
+      <title>Supprimer un fichier (ou un dossier) dont le chemin est trop long</title>
+      <link>http://jesmodrazik.fr/articles/supprimer-fichier-chemin-trop-long/</link>
+      <pubDate>Sun, 15 Mar 2015 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/supprimer-fichier-chemin-trop-long/</guid>
+      <author></author>
+      <description>&lt;p&gt;Quand on travaille avec npm sous windows, on est souvent confronté au message d’erreur suivant lorsqu’on veut supprimer un module non utilisé ou le dossier &lt;code&gt;node_modules&lt;/code&gt; pour quelque raison que ce soit : “Les noms de fichiers source sont plus longs que ne le permet le système de fichiers. Choisissez un emplacement de destination avec un nom plus court, ou donnez des noms plus courts aux fichiers avant de les déplacer”. Il existe un petit outil qui permet de passer outre cette restriction.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;C’est OSMStudios qui fournit &lt;a href=&quot;http://osmstudios.net/projects/path-too-long&quot;&gt;PathTooLong&lt;/a&gt;, écrit en Java, et qui permet tout simplement de sélectionner un dossier dont le chemin est trop long pour être supprimé par windows, et le supprimer pour de bon.&lt;/p&gt;
+&lt;p&gt;Il suffit de télécharger le fichier JAR et de l’exécuter avec un JDK 1.7 ou plus :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;java -jar PathTooLong.jar
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;/articles/supprimer-fichier-chemin-trop-long/images/01.jpg&quot; alt=&quot;Fenêtre principale de PathTooLong&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Une fenêtre s’ouvre, il ne vous reste plus qu’à sélectionner le dossier à supprimer, à confirmer la suppression et attendre plus ou moins longtemps en fonction de la taille de celui-ci. Un message de succès s’affiche une fois le dossier supprimé.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/supprimer-fichier-chemin-trop-long/images/02.jpg&quot; alt=&quot;Confirmation de suppression&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/supprimer-fichier-chemin-trop-long/images/03.jpg&quot; alt=&quot;Message de succès&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Attention, comme l’indique le message vous demandant de confirmer la suppression, celle-ci est définitive. Les fichiers ne passeront pas par la corbeille.&lt;/p&gt;
+&lt;p&gt;Pour les sceptiques, le code source est disponible sur &lt;a href=&quot;https://github.com/DawsonG/PathTooLong&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Ne plus installer gulp en dépendance globale</title>
       <link>http://jesmodrazik.fr/articles/ne-plus-installer-gulp-en-dependance-globale/</link>
       <pubDate>Sun, 01 Mar 2015 01:00:00 +0100</pubDate>
