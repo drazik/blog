@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Supprimer un fichier (ou un dossier) dont le chemin est trop long - Jesmo Drazik Blog
+    </title>
+    <link rel="alternate" href="http://jesmodrazik.fr/feed.xml" type="application/rss+xml" title="Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue ">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Supprimer un fichier (ou un dossier) dont le chemin est trop long</h1>
+        <p class="author">Ecrit par <span class="author">Cyrille Jesmo Drazik</span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p>Quand on travaille avec npm sous windows, on est souvent confronté au message d’erreur suivant lorsqu’on veut supprimer un module non utilisé ou le dossier <code>node_modules</code> pour quelque raison que ce soit : “Les noms de fichiers source sont plus longs que ne le permet le système de fichiers. Choisissez un emplacement de destination avec un nom plus court, ou donnez des noms plus courts aux fichiers avant de les déplacer”. Il existe un petit outil qui permet de passer outre cette&nbsp;restriction.</p>
+<p><span class="more"></span></p>
+<p>C’est OSMStudios qui fournit <a href="http://osmstudios.net/projects/path-too-long">PathTooLong</a>, écrit en Java, et qui permet tout simplement de sélectionner un dossier dont le chemin est trop long pour être supprimé par windows, et le supprimer pour de&nbsp;bon.</p>
+<p>Il suffit de télécharger le fichier <span class="caps">JAR</span> et de l’exécuter avec un JDK 1.7 ou plus&nbsp;:</p>
+<pre><code>java -jar PathTooLong.jar
+</code></pre><p><img src="/articles/supprimer-fichier-chemin-trop-long/images/01.jpg" alt="Fenêtre principale de PathTooLong"></p>
+<p>Une fenêtre s’ouvre, il ne vous reste plus qu’à sélectionner le dossier à supprimer, à confirmer la suppression et attendre plus ou moins longtemps en fonction de la taille de celui-ci. Un message de succès s’affiche une fois le dossier&nbsp;supprimé.</p>
+<p><img src="/articles/supprimer-fichier-chemin-trop-long/images/02.jpg" alt="Confirmation de suppression"></p>
+<p><img src="/articles/supprimer-fichier-chemin-trop-long/images/03.jpg" alt="Message de succès"></p>
+<p>Attention, comme l’indique le message vous demandant de confirmer la suppression, celle-ci est définitive. Les fichiers ne passeront pas par la&nbsp;corbeille.</p>
+<p>Pour les sceptiques, le code source est disponible sur <a href="https://github.com/DawsonG/PathTooLong">GitHub</a>.</p>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« Revenir à la liste des articles</a></div>
+        <section class="about">
+        </section>
+        <section class="copy">
+          <p>&copy; 2015 Cyrille Perois &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
