@@ -45,8 +45,31 @@ Ca marche ©, mais c'est quand même beaucoup moins cool à lire qu'un objet.
 
 ## Manipuler les classes
 
-className, classList
+Le plus simple pour gérer les classes d'un element, c'est [`Element.className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className?redirectlocale=en-US&redirectslug=DOM%2Felement.className) :
 
-http://www.alsacreations.com/article/lire/1498-lapi-classlist.html
+```javascript
+var element = document.getElementById('element');
+element.className = 'toto';
+```
 
-https://developer.mozilla.org/en-US/docs/Web/API/Element/classList?redirectlocale=en-US&redirectslug=DOM%2Felement.classList
+Avec ce bout de code, l'élément ayant l'id `element` se verra attribuer la classe "toto". Toutefois, si l'élément a plusieurs classes, l'affectation de son `className` écrasera tout. On a donc besoin d'un moyen de gérer la liste des classes de l'élément, et non pas la chaîne de caractères la représentant. Ce qui nous mène à l'API [`Element.classList`](tps://developer.mozilla.org/en-US/docs/Web/API/Element/classList?redirectlocale=en-US&redirectslug=DOM%2Felement.classList).
+
+Cette API est très simple puisqu'elle n'expose que 4 méthodes : `add()`, `remove()`, `toggle` et `contains`, donc les noms sont plutôt évocateurs :
+
+```javascript
+//<div id="element"></div>
+element.classList.add('toto');
+//<div class="toto" id="element"></div>
+element.classList.remove('toto');
+//<div class="" id="element"></div>
+element.classList.toggle('toto');
+//<div class="toto" id="element"></div>
+element.classList.toggle('toto');
+//<div class="" id="element"></div>
+console.log(element.classList.contains('toto'));
+// false
+```
+
+L'API `classList` n'est utilisable qu'à partir d'IE 10. Pour les versions antérieures, il faut donc faire appel à un polyfill tel que celui fournit sur [le MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList?redirectlocale=en-US&redirectslug=DOM%2Felement.classList#wrapper) qui est compatible jusqu'à IE 8.
+
+Nous avons donc vu qu'il était possible de gérer les styles d'un élément du DOM via ses styles inline, mais aussi sa liste de classes, et ce sans utiliser de bibliothèque tierces (uniquement un minuscule polyfill dans le cas où de vieilles versions d'IE devraient être supportées).
