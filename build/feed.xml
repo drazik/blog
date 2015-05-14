@@ -5,9 +5,63 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue </description>
-    <pubDate>Fri, 08 May 2015 02:00:00 +0200</pubDate>
+    <pubDate>Thu, 14 May 2015 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Apprendre à se servir de ce qu'on a : manipuler les styles des éléments</title>
+      <link>http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-styles-elements/</link>
+      <pubDate>Thu, 14 May 2015 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-styles-elements/</guid>
+      <author></author>
+      <description>&lt;p&gt;Ajouter, modifier, supprimer des styles inline, des classes… Autant de choses facilitées par les jQuery-like, mais tout aussi simple à faire sans.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;manipuler-les-styles-inline&quot;&gt;Manipuler les styles inline&lt;/h2&gt;
+&lt;p&gt;Avec jQuery, on ferait ça de la manière suivante :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; $element = $(&lt;span class=&quot;string&quot;&gt;'#element'&lt;/span&gt;);
+$element.css(&lt;span class=&quot;string&quot;&gt;'background-color'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'#000'&lt;/span&gt;);
+$element.css({
+    color: &lt;span class=&quot;string&quot;&gt;'#fff'&lt;/span&gt;,
+    display: &lt;span class=&quot;string&quot;&gt;'block'&lt;/span&gt;
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Mais c’est tout aussi simple avec &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style&quot;&gt;&lt;code&gt;HTMLElement.style&lt;/code&gt;&lt;/a&gt; :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; element = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;string&quot;&gt;'element'&lt;/span&gt;);
+element.style.backgroundColor = &lt;span class=&quot;string&quot;&gt;'#000'&lt;/span&gt;;
+element.style.color = &lt;span class=&quot;string&quot;&gt;'#fff'&lt;/span&gt;;
+element.style.display = &lt;span class=&quot;string&quot;&gt;'block'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Toutefois on n’a pas la possibilité de passer directement un objet à &lt;code&gt;HTMLElement.style&lt;/code&gt;, comme on le fait avec la méthode &lt;code&gt;css&lt;/code&gt; de jQuery, puisque &lt;code&gt;HTMLElement.style&lt;/code&gt; n’est pas un simple objet mais un &lt;code&gt;CSSStyleDeclaration&lt;/code&gt;. La liste des propriétés CSS accessibles accessible via &lt;code&gt;style&lt;/code&gt; est disponible &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference&quot;&gt;sur le MDN&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Pour modifier plusieurs propriétés d’un seul coup, il est quand même possible d’utiliser &lt;code&gt;CSSStyleDeclaration.cssText&lt;/code&gt; :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;element.style.cssText = &lt;span class=&quot;string&quot;&gt;'background-color: #000; color: #fff; display: block;'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ca marche ©, mais c’est quand même beaucoup moins cool à lire qu’un objet.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration&quot;&gt;Documentation de &lt;code&gt;CSSStyleDeclaration&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;manipuler-les-classes&quot;&gt;Manipuler les classes&lt;/h2&gt;
+&lt;p&gt;Le plus simple pour gérer les classes d’un element, c’est &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Element/className?redirectlocale=en-US&amp;amp;redirectslug=DOM%2Felement.className&quot;&gt;&lt;code&gt;Element.className&lt;/code&gt;&lt;/a&gt; :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; element = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;string&quot;&gt;'element'&lt;/span&gt;);
+element.className = &lt;span class=&quot;string&quot;&gt;'toto'&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Avec ce bout de code, l’élément ayant l’id &lt;code&gt;element&lt;/code&gt; se verra attribuer la classe “toto”. Toutefois, si l’élément a plusieurs classes, l’affectation de son &lt;code&gt;className&lt;/code&gt; écrasera tout. On a donc besoin d’un moyen de gérer la liste des classes de l’élément, et non pas la chaîne de caractères la représentant. Ce qui nous mène à l’API &lt;a href=&quot;tps://developer.mozilla.org/en-US/docs/Web/API/Element/classList?redirectlocale=en-US&amp;amp;redirectslug=DOM%2Felement.classList&quot;&gt;&lt;code&gt;Element.classList&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Cette API est très simple puisqu’elle n’expose que 4 méthodes : &lt;code&gt;add()&lt;/code&gt;, &lt;code&gt;remove()&lt;/code&gt;, &lt;code&gt;toggle&lt;/code&gt; et &lt;code&gt;contains&lt;/code&gt;, donc les noms sont plutôt évocateurs :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//&amp;lt;div id=&quot;element&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+element.classList.add(&lt;span class=&quot;string&quot;&gt;'toto'&lt;/span&gt;);
+&lt;span class=&quot;comment&quot;&gt;//&amp;lt;div class=&quot;toto&quot; id=&quot;element&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+element.classList.remove(&lt;span class=&quot;string&quot;&gt;'toto'&lt;/span&gt;);
+&lt;span class=&quot;comment&quot;&gt;//&amp;lt;div class=&quot;&quot; id=&quot;element&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+element.classList.toggle(&lt;span class=&quot;string&quot;&gt;'toto'&lt;/span&gt;);
+&lt;span class=&quot;comment&quot;&gt;//&amp;lt;div class=&quot;toto&quot; id=&quot;element&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+element.classList.toggle(&lt;span class=&quot;string&quot;&gt;'toto'&lt;/span&gt;);
+&lt;span class=&quot;comment&quot;&gt;//&amp;lt;div class=&quot;&quot; id=&quot;element&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(element.classList.contains(&lt;span class=&quot;string&quot;&gt;'toto'&lt;/span&gt;));
+&lt;span class=&quot;comment&quot;&gt;// false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;L’API &lt;code&gt;classList&lt;/code&gt; n’est utilisable qu’à partir d’IE 10. Pour les versions antérieures, il faut donc faire appel à un polyfill tel que celui fournit sur &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Element/classList?redirectlocale=en-US&amp;amp;redirectslug=DOM%2Felement.classList#wrapper&quot;&gt;le MDN&lt;/a&gt; qui est compatible jusqu’à IE 8.&lt;/p&gt;
+&lt;p&gt;Nous avons donc vu qu’il était possible de gérer les styles d’un élément du DOM via ses styles inline, mais aussi sa liste de classes, et ce sans utiliser de bibliothèque tierces (uniquement un minuscule polyfill dans le cas où de vieilles versions d’IE devraient être supportées).&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Supprimer un fichier (ou un dossier) dont le chemin est trop long</title>
       <link>http://jesmodrazik.fr/articles/supprimer-fichier-chemin-trop-long/</link>
@@ -159,7 +213,7 @@ list.removeChild(firstItem);
 &lt;ul&gt;
 &lt;li&gt;1ère partie : introduction&lt;/li&gt;
 &lt;li&gt;2ème partie : &lt;a href=&quot;http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-dom/&quot;&gt;manipuler le DOM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;3ème partie : manipuler le style des éléments&lt;/li&gt;
+&lt;li&gt;3ème partie : &lt;a href=&quot;http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-styles-elements/&quot;&gt;manipuler le style des éléments&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;4ème partie : faire des animations&lt;/li&gt;
 &lt;li&gt;5ème partie : la délégation d’événements&lt;/li&gt;
 &lt;li&gt;6ème partie : AJAX&lt;/li&gt;

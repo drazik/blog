@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Apprendre à se servir de ce qu'on a : manipuler les styles des éléments - Jesmo Drazik Blog
+    </title>
+    <link rel="alternate" href="http://jesmodrazik.fr/feed.xml" type="application/rss+xml" title="Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue ">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Apprendre à se servir de ce qu'on a : manipuler les styles des éléments</h1>
+        <p class="author">Ecrit par <span class="author">Cyrille Jesmo Drazik</span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p>Ajouter, modifier, supprimer des styles inline, des classes… Autant de choses facilitées par les jQuery-like, mais tout aussi simple à faire&nbsp;sans.</p>
+<p><span class="more"></span></p>
+<h2 id="manipuler-les-styles-inline">Manipuler les styles&nbsp;inline</h2>
+<p>Avec jQuery, on ferait ça de la manière suivante&nbsp;:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> $element = $(<span class="string">'#element'</span>);
+$element.css(<span class="string">'background-color'</span>, <span class="string">'#000'</span>);
+$element.css({
+    color: <span class="string">'#fff'</span>,
+    display: <span class="string">'block'</span>
+});
+</code></pre>
+<p>Mais c’est tout aussi simple avec <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style"><code>HTMLElement.style</code></a>&nbsp;:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'element'</span>);
+element.style.backgroundColor = <span class="string">'#000'</span>;
+element.style.color = <span class="string">'#fff'</span>;
+element.style.display = <span class="string">'block'</span>;
+</code></pre>
+<p>Toutefois on n’a pas la possibilité de passer directement un objet à <code>HTMLElement.style</code>, comme on le fait avec la méthode <code>css</code> de jQuery, puisque <code>HTMLElement.style</code> n’est pas un simple objet mais un <code>CSSStyleDeclaration</code>. La liste des propriétés <span class="caps">CSS</span> accessibles accessible via <code>style</code> est disponible <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference">sur le <span class="caps">MDN</span></a>.</p>
+<p>Pour modifier plusieurs propriétés d’un seul coup, il est quand même possible d’utiliser <code>CSSStyleDeclaration.cssText</code> :</p>
+<pre><code class="lang-javascript">element.style.cssText = <span class="string">'background-color: #000; color: #fff; display: block;'</span>;
+</code></pre>
+<p>Ca marche ©, mais c’est quand même beaucoup moins cool à lire qu’un&nbsp;objet.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration">Documentation de <code>CSSStyleDeclaration</code></a></li>
+</ul>
+<h2 id="manipuler-les-classes">Manipuler les&nbsp;classes</h2>
+<p>Le plus simple pour gérer les classes d’un element, c’est <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/className?redirectlocale=en-US&amp;redirectslug=DOM%2Felement.className"><code>Element.className</code></a>&nbsp;:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'element'</span>);
+element.className = <span class="string">'toto'</span>;
+</code></pre>
+<p>Avec ce bout de code, l’élément ayant l’id <code>element</code> se verra attribuer la classe “toto”. Toutefois, si l’élément a plusieurs classes, l’affectation de son <code>className</code> écrasera tout. On a donc besoin d’un moyen de gérer la liste des classes de l’élément, et non pas la chaîne de caractères la représentant. Ce qui nous mène à l’<span class="caps">API</span> <a href="tps://developer.mozilla.org/en-US/docs/Web/API/Element/classList?redirectlocale=en-US&amp;redirectslug=DOM%2Felement.classList"><code>Element.classList</code></a>.</p>
+<p>Cette <span class="caps">API</span> est très simple puisqu’elle n’expose que 4 méthodes : <code>add()</code>, <code>remove()</code>, <code>toggle</code> et <code>contains</code>, donc les noms sont plutôt évocateurs&nbsp;:</p>
+<pre><code class="lang-javascript"><span class="comment">//&lt;div id="element"&gt;&lt;/div&gt;</span>
+element.classList.add(<span class="string">'toto'</span>);
+<span class="comment">//&lt;div class="toto" id="element"&gt;&lt;/div&gt;</span>
+element.classList.remove(<span class="string">'toto'</span>);
+<span class="comment">//&lt;div class="" id="element"&gt;&lt;/div&gt;</span>
+element.classList.toggle(<span class="string">'toto'</span>);
+<span class="comment">//&lt;div class="toto" id="element"&gt;&lt;/div&gt;</span>
+element.classList.toggle(<span class="string">'toto'</span>);
+<span class="comment">//&lt;div class="" id="element"&gt;&lt;/div&gt;</span>
+<span class="built_in">console</span>.log(element.classList.contains(<span class="string">'toto'</span>));
+<span class="comment">// false</span>
+</code></pre>
+<p>L’<span class="caps">API</span> <code>classList</code> n’est utilisable qu’à partir d’<span class="caps">IE</span> 10. Pour les versions antérieures, il faut donc faire appel à un polyfill tel que celui fournit sur <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList?redirectlocale=en-US&amp;redirectslug=DOM%2Felement.classList#wrapper">le <span class="caps">MDN</span></a> qui est compatible jusqu’à <span class="caps">IE</span>&nbsp;8.</p>
+<p>Nous avons donc vu qu’il était possible de gérer les styles d’un élément du <span class="caps">DOM</span> via ses styles inline, mais aussi sa liste de classes, et ce sans utiliser de bibliothèque tierces (uniquement un minuscule polyfill dans le cas où de vieilles versions d’IE devraient être&nbsp;supportées).</p>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« Revenir à la liste des articles</a></div>
+        <section class="about">
+        </section>
+        <section class="copy">
+          <p>&copy; 2015 Cyrille Perois &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
