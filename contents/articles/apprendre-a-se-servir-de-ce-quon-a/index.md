@@ -13,7 +13,7 @@ Que l'on soit bien d'accord. Je ne crache pas sur jQuery ni sur ses petits copai
 
 * 1ère partie : introduction
 * 2ème partie : [manipuler le DOM](/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-dom/)
-* 3ème partie : manipuler le style des éléments
+* 3ème partie : [manipuler le style des éléments](/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-styles-elements/)
 * 4ème partie : faire des animations
 * 5ème partie : la délégation d'événements
 * 6ème partie : AJAX
