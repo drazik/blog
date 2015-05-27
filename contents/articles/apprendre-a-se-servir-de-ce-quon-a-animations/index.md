@@ -9,6 +9,8 @@ Les sites web sont aujourd'hui remplis d'animations en tout genre. Elles permett
 
 <span class="more"></span>
 
+La toute première chose que je souhaitais évoquer dans cet article, c'est de privilégier les animations CSS. Certes nous allons parler uniquement d'animations réalisées avec du JavaScript. Mais je conseille de ne les utiliser qu'en dernier recours (client souhaitant avoir les mêmes animations sous IE7 que sous Chrome 42 -lol.-, ou que sais-je). La raison est simple : les animations CSS peuvent bénéficier de l'accélération matérielle, pas celles réalisées en JavaScript. Vous pourrez trouver un article sur ce sujet chez [Alsacréations](http://www.alsacreations.com/astuce/lire/1565-acceleration-materielle-au-service-de-vos-animations-css.html). Pour ceux qui sont toujours là, on peut passer au coeur du sujet !
+
 1er paragraphe : privilégier les animations CSS parce qu'il y a de l'accélération matérielle. Mais c'est moins compatible (lien vers caniuse transition et animation). Les animations en JS sont moins performantes mais plus compatibles.
 
 2eme paragraphe : faire des animations JS à la main, c'est la mort, on oublie (http://javascript.info/tutorial/animation).
