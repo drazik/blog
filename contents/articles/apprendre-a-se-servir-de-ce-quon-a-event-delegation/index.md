@@ -5,7 +5,7 @@ date: 2015-07-04
 template: article.jade
 ---
 
-La délégation d'événements est un concept très fréquemment utilisé et extrêmement utile. Plutôt que d'attacher un événement à chaque élément enfant d'un autre élément, pourquoi ne pas en attacher un uniquement à l'élément parent, et se servir de la phase de bubbling pour identifier l'élément qui a déclenché l'événement ? jQuery, MooTools et leurs petits copains gèrent ça très bien. Voyons comment faire la même chose en se passant de leurs services.
+La délégation d'événements est un concept très fréquemment utilisé et extrêmement utile. Plutôt que d'attacher un événement à chaque élément enfant d'un autre élément, pourquoi ne pas en attacher un uniquement à l'élément parent, et se servir de la phase de bubbling pour identifier l'élément qui a déclenché l'événement ? jQuery et ses petits copains gèrent ça très bien (le fameux 2ème paramètre de `jQuery.on`). Voyons comment faire la même chose en se passant de leurs services.
 
 <h2>Pourquoi faire ça ?</h2>
 
@@ -37,7 +37,7 @@ container.addEventListener('click', function(event) {
 });
 ```
 
-Cette façon de faire fonctionne. Mais est très spécifique et va vite devenir trop complexe. On va donc décomposer son fonctionnement pour essayer de créer une fonction générique. Notre fonction précédente regarde si `event.target` est bien un `<button>`. Pour généraliser, il faudrait qu'on puisse savoir si `event.target` correspond à un sélecteur CSS ou non. Puis, si l'élément correspond au sélecteur qui nous interresse, on exécute la fonction voulue.
+Cette façon de faire fonctionne. Mais est très spécifique et va vite devenir trop complexe. On va donc décomposer son fonctionnement pour essayer de créer une fonction générique. Notre fonction précédente regarde si `event.target` est bien un `<button>`. Pour généraliser, il faudrait qu'on puisse savoir si `event.target` correspond à un sélecteur CSS donné. Puis, si l'élément correspond au sélecteur qui nous interresse, on exécute la fonction voulue.
 
 On a donc besoin d'une fonction permettant de savoir si un élément correspond à un sélecteur CSS ou non. Pour cela, il existe la méthode [`Element.matches`](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches). Celle-ci est disponible sur tous les navigateurs récents, ainsi que sur IE 9+ (avec préfixe, en ateste [caniuse](http://caniuse.com/#feat=matchesselector)). Pour IE8, le MDN fournit un polyfill utilisant `document.querySelectorAll`. Celui-ci ne sera donc utilisable qu'avec des [sélecteurs CSS 2.1](http://www.w3.org/TR/CSS2/selector.html), ce qui devrait être largement suffisant pour une grande majorité des cas.
 
@@ -63,7 +63,7 @@ function delegate(element, eventType, selector, callback) {
 
 C'est aussi simple que ça. Il n'y a plus qu'à mettre tout ça dans un petit module Node.js et de le `require` pour ne pas polluer le scope global, et le tour est joué.
 
-Pour tester cette fonction, vous pouvez regarde le Codepen ci-dessous (n'oubliez pas d'ouvrir votre console pour voir les `console.log`) :
+Pour tester cette fonction, vous pouvez regarder le Codepen ci-dessous (n'oubliez pas d'ouvrir votre console pour voir les `console.log`) :
 
 <p data-height="268" data-theme-id="15557" data-slug-hash="GJQVYO" data-default-tab="result" data-user="JesmoDrazik" class='codepen'>See the Pen <a href='http://codepen.io/JesmoDrazik/pen/GJQVYO/'>Event delegation</a> by Cyrille Perois (<a href='http://codepen.io/JesmoDrazik'>@JesmoDrazik</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
@@ -71,4 +71,6 @@ Pour tester cette fonction, vous pouvez regarde le Codepen ci-dessous (n'oubliez
 <h2>Une bibliothèque spécialisée</h2>
 
 Il existe tout de même des bibliothèques spécialisées dans la délégation d'événements. Ma préférée est [FTDomDelegate](https://github.com/ftlabs/ftdomdelegate/blob/master/lib/delegate.js). Celle-ci couvre absolument tous les cas que vous pouvez rencontrer, et est compatible jusqu'à IE 8, à condition d'utiliser un polyfill pour
-`addEventListener`, ce qui était de toutes façons nécessaire pour notre solution précédente.
+`addEventListener`, ce qui était de toutes façons nécessaire pour notre solution précédente. L'API de cette bibliothèque est simple et le tout fonctionne très bien. De plus, elle est disponible sur npm. Que du bonheur.
+
+Voilà, nous avons donc vu qu'une fonction de quelques lignes peut permettre de faire de la délégation d'événement efficace et simple. Si vous préférez utiliser une bibliothèque spécialisée, testée et éprouvée, alors je vous conseille d'aller voir du côté de FTDomDelegate.
