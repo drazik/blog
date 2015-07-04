@@ -5,9 +5,69 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue </description>
-    <pubDate>Sat, 30 May 2015 02:00:00 +0200</pubDate>
+    <pubDate>Sat, 04 Jul 2015 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Apprendre à se servir de ce qu'on a : la délégation d'événements</title>
+      <link>http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-event-delegation/</link>
+      <pubDate>Sat, 04 Jul 2015 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-event-delegation/</guid>
+      <author></author>
+      <description>&lt;p&gt;La délégation d’événements est un concept très fréquemment utilisé et extrêmement utile. Plutôt que d’attacher un événement à chaque élément enfant d’un autre élément, pourquoi ne pas en attacher un uniquement à l’élément parent, et se servir de la phase de bubbling pour identifier l’élément qui a déclenché l’événement ? jQuery et ses petits copains gèrent ça très bien (le fameux 2ème paramètre de &lt;code&gt;jQuery.on&lt;/code&gt;). Voyons comment faire la même chose en se passant de leurs services.&lt;/p&gt;
+&lt;h2&gt;Pourquoi faire ça ?&lt;/h2&gt;
+
+&lt;p&gt;Tout d’abord, cette technique améliore les performances. Au lieu d’attacher 100 événements à mes 100 &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; qui composent mon &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;, je n’en attache qu’un seul sur le &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;. Mais un autre avantage non négligeable est qu’elle permet de ne pas se soucier de l’ajout ni de la suppression d’éléments au sein de l’élément auquel l’événement est attaché. En effet, en attachant un événément à chaque &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;, il faudrait, lorsque j’en supprime un, d’abord supprimer l’événement qui lui est attaché. De même si j’ajoute un &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;, il faudrait que je m’occupe de lui attacher un événement, puisque celui-ci ne peut pas deviner qu’il doit réagir comme les autres à l’événement &lt;code&gt;click&lt;/code&gt;, par exemple. Or en attachant un événement uniquement au &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;, celui-ci recevra l’événement click en provenance des &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;. Bien évidemment, ce n’est pas magique. Si la fonction de callback attachée au &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; se déclenche uniquement lorsqu’on intéragit avec un &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;, c’est parce qu’on lui a dit. Ceci est possible grâce à la phase de bubbling que traverse un événement, et qui est très bien expliquée chez &lt;a href=&quot;http://www.alsacreations.com/article/lire/578-La-gestion-des-evenements-en-JavaScript.html&quot;&gt;Alsacréations&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Voyons voir comment faire ceci avec nos petites main.&lt;/p&gt;
+&lt;h2&gt;La délégation d’événement sans bibliothèque aucune !&lt;/h2&gt;
+
+&lt;p&gt;Alors, qu’est-ce qu’il nous faut ? D’abord un DOM, évidemment, et un event listener. On va changer d’exemple et créer une &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; contenant des &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;. Lorsqu’on cliquera sur un &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;, on affichera le texte qu’il contient.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;container&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;button&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Je suis le 1er bouton&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;button&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Je suis le 2eme bouton&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;button&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Je suis le 3eme bouton&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Il faut maintenant qu’on attache un événement &lt;code&gt;click&lt;/code&gt; à notre &lt;code&gt;div#container&lt;/code&gt;. Celui-ci devra regarder si l’élément ayant déclenché l’événement est un &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;, et si c’est le cas, afficher le texte contenu par celui-ci dans la console. Pour IE 8, on utilisera un polyfill de &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener?redirectlocale=en-US&amp;amp;redirectslug=DOM%2FEventTarget.addEventListener&quot;&gt;&lt;code&gt;EventTarget.addEventListener&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; container = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;string&quot;&gt;'container'&lt;/span&gt;);
+
+container.addEventListener(&lt;span class=&quot;string&quot;&gt;'click'&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(event)&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (event.target &amp;amp;&amp;amp; event.target.nodeName === &lt;span class=&quot;string&quot;&gt;'BUTTON'&lt;/span&gt;) {
+        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(event.target.textContent);
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cette façon de faire fonctionne. Mais est très spécifique et va vite devenir trop complexe. On va donc décomposer son fonctionnement pour essayer de créer une fonction générique. Notre fonction précédente regarde si &lt;code&gt;event.target&lt;/code&gt; est bien un &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;. Pour généraliser, il faudrait qu’on puisse savoir si &lt;code&gt;event.target&lt;/code&gt; correspond à un sélecteur CSS donné. Puis, si l’élément correspond au sélecteur qui nous interresse, on exécute la fonction voulue.&lt;/p&gt;
+&lt;p&gt;On a donc besoin d’une fonction permettant de savoir si un élément correspond à un sélecteur CSS ou non. Pour cela, il existe la méthode &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Element/matches&quot;&gt;&lt;code&gt;Element.matches&lt;/code&gt;&lt;/a&gt;. Celle-ci est disponible sur tous les navigateurs récents, ainsi que sur IE 9+ (avec préfixe, en ateste &lt;a href=&quot;http://caniuse.com/#feat=matchesselector&quot;&gt;caniuse&lt;/a&gt;). Pour IE8, le MDN fournit un polyfill utilisant &lt;code&gt;document.querySelectorAll&lt;/code&gt;. Celui-ci ne sera donc utilisable qu’avec des &lt;a href=&quot;http://www.w3.org/TR/CSS2/selector.html&quot;&gt;sélecteurs CSS 2.1&lt;/a&gt;, ce qui devrait être largement suffisant pour une grande majorité des cas.&lt;/p&gt;
+&lt;p&gt;On a donc tout ce qu’il faut pour créer notre fonction &lt;code&gt;delegate&lt;/code&gt; !&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Notre fonction a besoin :&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// - de l'élément sur lequel écouter l'événement&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// - du type d'événement à écouter&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// - du sélecteur auquel les éléments doivent correspondre pour lancer le callback&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// - le callback à lancer&lt;/span&gt;
+&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;delegate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(element, eventType, selector, callback)&lt;/span&gt; &lt;/span&gt;{
+  &lt;span class=&quot;comment&quot;&gt;// on écoute l'événement sur l'élément parent&lt;/span&gt;
+  element.addEventListener(eventType, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(event)&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;comment&quot;&gt;// si event.target correspond au sélecteur voulu...&lt;/span&gt;
+    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (event.target &amp;amp;&amp;amp; event.target.matches(selector)) {
+      &lt;span class=&quot;comment&quot;&gt;// ... on exécute le callback&lt;/span&gt;
+      callback(event);
+    }
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;C’est aussi simple que ça. Il n’y a plus qu’à mettre tout ça dans un petit module Node.js et de le &lt;code&gt;require&lt;/code&gt; pour ne pas polluer le scope global, et le tour est joué.&lt;/p&gt;
+&lt;p&gt;Pour tester cette fonction, vous pouvez regarder le Codepen ci-dessous (n’oubliez pas d’ouvrir votre console pour voir les &lt;code&gt;console.log&lt;/code&gt;) :&lt;/p&gt;
+&lt;p&gt;&lt;p data-height=&quot;268&quot; data-theme-id=&quot;15557&quot; data-slug-hash=&quot;GJQVYO&quot; data-default-tab=&quot;result&quot; data-user=&quot;JesmoDrazik&quot; class='codepen'&gt;See the Pen &lt;a href='http://codepen.io/JesmoDrazik/pen/GJQVYO/'&gt;Event delegation&lt;/a&gt; by Cyrille Perois (&lt;a href='http://codepen.io/JesmoDrazik'&gt;@JesmoDrazik&lt;/a&gt;) on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+&lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2&gt;Une bibliothèque spécialisée&lt;/h2&gt;
+
+&lt;p&gt;Il existe tout de même des bibliothèques spécialisées dans la délégation d’événements. Ma préférée est &lt;a href=&quot;https://github.com/ftlabs/ftdomdelegate/blob/master/lib/delegate.js&quot;&gt;FTDomDelegate&lt;/a&gt;. Celle-ci couvre absolument tous les cas que vous pouvez rencontrer, et est compatible jusqu’à IE 8, à condition d’utiliser un polyfill pour
+&lt;code&gt;addEventListener&lt;/code&gt;, ce qui était de toutes façons nécessaire pour notre solution précédente. L’API de cette bibliothèque est simple et le tout fonctionne très bien. De plus, elle est disponible sur npm. Que du bonheur.&lt;/p&gt;
+&lt;p&gt;Voilà, nous avons donc vu qu’une fonction de quelques lignes peut permettre de faire de la délégation d’événement efficace et simple. Si vous préférez utiliser une bibliothèque spécialisée, testée et éprouvée, alors je vous conseille d’aller voir du côté de FTDomDelegate.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Apprendre à se servir de ce qu'on a : faire des animations</title>
       <link>http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-animations/</link>

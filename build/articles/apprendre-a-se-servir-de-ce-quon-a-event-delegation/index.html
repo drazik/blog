@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Apprendre à se servir de ce qu'on a : la délégation d'événements - Jesmo Drazik Blog
+    </title>
+    <link rel="alternate" href="http://jesmodrazik.fr/feed.xml" type="application/rss+xml" title="Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue ">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Apprendre à se servir de ce qu'on a : la délégation d'événements</h1>
+        <p class="author">Ecrit par <span class="author">Cyrille Jesmo Drazik</span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p>La délégation d’événements est un concept très fréquemment utilisé et extrêmement utile. Plutôt que d’attacher un événement à chaque élément enfant d’un autre élément, pourquoi ne pas en attacher un uniquement à l’élément parent, et se servir de la phase de bubbling pour identifier l’élément qui a déclenché l’événement ? jQuery et ses petits copains gèrent ça très bien (le fameux 2ème paramètre de <code>jQuery.on</code>). Voyons comment faire la même chose en se passant de leurs&nbsp;services.</p>
+<h2>Pourquoi faire ça&nbsp;?</h2>
+
+<p>Tout d’abord, cette technique améliore les performances. Au lieu d’attacher 100 événements à mes 100 <code>&lt;li&gt;</code> qui composent mon <code>&lt;ul&gt;</code>, je n’en attache qu’un seul sur le <code>&lt;ul&gt;</code>. Mais un autre avantage non négligeable est qu’elle permet de ne pas se soucier de l’ajout ni de la suppression d’éléments au sein de l’élément auquel l’événement est attaché. En effet, en attachant un événément à chaque <code>&lt;li&gt;</code>, il faudrait, lorsque j’en supprime un, d’abord supprimer l’événement qui lui est attaché. De même si j’ajoute un <code>&lt;li&gt;</code>, il faudrait que je m’occupe de lui attacher un événement, puisque celui-ci ne peut pas deviner qu’il doit réagir comme les autres à l’événement <code>click</code>, par exemple. Or en attachant un événement uniquement au <code>&lt;ul&gt;</code>, celui-ci recevra l’événement click en provenance des <code>&lt;li&gt;</code>. Bien évidemment, ce n’est pas magique. Si la fonction de callback attachée au <code>&lt;ul&gt;</code> se déclenche uniquement lorsqu’on intéragit avec un <code>&lt;li&gt;</code>, c’est parce qu’on lui a dit. Ceci est possible grâce à la phase de bubbling que traverse un événement, et qui est très bien expliquée chez <a href="http://www.alsacreations.com/article/lire/578-La-gestion-des-evenements-en-JavaScript.html">Alsacréations</a>.</p>
+<p>Voyons voir comment faire ceci avec nos petites&nbsp;main.</p>
+<h2>La délégation d’événement sans bibliothèque aucune&nbsp;!</h2>
+
+<p>Alors, qu’est-ce qu’il nous faut ? D’abord un <span class="caps">DOM</span>, évidemment, et un event listener. On va changer d’exemple et créer une <code>&lt;div&gt;</code> contenant des <code>&lt;button&gt;</code>. Lorsqu’on cliquera sur un <code>&lt;button&gt;</code>, on affichera le texte qu’il&nbsp;contient.</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>Je suis le 1er bouton<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>Je suis le 2eme bouton<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>Je suis le 3eme bouton<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+<p>Il faut maintenant qu’on attache un événement <code>click</code> à notre <code>div#container</code>. Celui-ci devra regarder si l’élément ayant déclenché l’événement est un <code>&lt;button&gt;</code>, et si c’est le cas, afficher le texte contenu par celui-ci dans la console. Pour <span class="caps">IE</span> 8, on utilisera un polyfill de <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener?redirectlocale=en-US&amp;redirectslug=DOM%2FEventTarget.addEventListener"><code>EventTarget.addEventListener</code></a>.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);
+
+container.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">(event)</span> </span>{
+    <span class="keyword">if</span> (event.target &amp;&amp; event.target.nodeName === <span class="string">'<span class="caps">BUTTON</span>'</span>) {
+        <span class="built_in">console</span>.log(event.target.textContent);
+    }
+});
+</code></pre>
+<p>Cette façon de faire fonctionne. Mais est très spécifique et va vite devenir trop complexe. On va donc décomposer son fonctionnement pour essayer de créer une fonction générique. Notre fonction précédente regarde si <code>event.target</code> est bien un <code>&lt;button&gt;</code>. Pour généraliser, il faudrait qu’on puisse savoir si <code>event.target</code> correspond à un sélecteur <span class="caps">CSS</span> donné. Puis, si l’élément correspond au sélecteur qui nous interresse, on exécute la fonction&nbsp;voulue.</p>
+<p>On a donc besoin d’une fonction permettant de savoir si un élément correspond à un sélecteur <span class="caps">CSS</span> ou non. Pour cela, il existe la méthode <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/matches"><code>Element.matches</code></a>. Celle-ci est disponible sur tous les navigateurs récents, ainsi que sur <span class="caps">IE</span> 9+ (avec préfixe, en ateste <a href="http://caniuse.com/#feat=matchesselector">caniuse</a>). Pour <span class="caps">IE8</span>, le MDN fournit un polyfill utilisant <code>document.querySelectorAll</code>. Celui-ci ne sera donc utilisable qu’avec des <a href="http://www.w3.org/TR/CSS2/selector.html">sélecteurs <span class="caps">CSS</span> 2.1</a>, ce qui devrait être largement suffisant pour une grande majorité des&nbsp;cas.</p>
+<p>On a donc tout ce qu’il faut pour créer notre fonction <code>delegate</code> !</p>
+<pre><code class="lang-javascript"><span class="comment">// Notre fonction a besoin :</span>
+<span class="comment">// - de l'élément sur lequel écouter l'événement</span>
+<span class="comment">// - du type d'événement à écouter</span>
+<span class="comment">// - du sélecteur auquel les éléments doivent correspondre pour lancer le callback</span>
+<span class="comment">// - le callback à lancer</span>
+<span class="function"><span class="keyword">function</span> <span class="title">delegate</span><span class="params">(element, eventType, selector, callback)</span> </span>{
+  <span class="comment">// on écoute l'événement sur l'élément parent</span>
+  element.addEventListener(eventType, <span class="function"><span class="keyword">function</span><span class="params">(event)</span> </span>{
+    <span class="comment">// si event.target correspond au sélecteur voulu...</span>
+    <span class="keyword">if</span> (event.target &amp;&amp; event.target.matches(selector)) {
+      <span class="comment">// ... on exécute le callback</span>
+      callback(event);
+    }
+  });
+}
+</code></pre>
+<p>C’est aussi simple que ça. Il n’y a plus qu’à mettre tout ça dans un petit module Node.js et de le <code>require</code> pour ne pas polluer le scope global, et le tour est&nbsp;joué.</p>
+<p>Pour tester cette fonction, vous pouvez regarder le Codepen ci-dessous (n’oubliez pas d’ouvrir votre console pour voir les <code>console.log</code>)&nbsp;:</p>
+<p><p data-height="268" data-theme-id="15557" data-slug-hash="GJQVYO" data-default-tab="result" data-user="JesmoDrazik" class='codepen'>See the Pen <a href='http://codepen.io/JesmoDrazik/pen/GJQVYO/'>Event delegation</a> by Cyrille Perois (<a href='http://codepen.io/JesmoDrazik'>@JesmoDrazik</a>) on <a href='http://codepen.io'>CodePen</a>.</p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2>Une bibliothèque&nbsp;spécialisée</h2>
+
+<p>Il existe tout de même des bibliothèques spécialisées dans la délégation d’événements. Ma préférée est <a href="https://github.com/ftlabs/ftdomdelegate/blob/master/lib/delegate.js">FTDomDelegate</a>. Celle-ci couvre absolument tous les cas que vous pouvez rencontrer, et est compatible jusqu’à <span class="caps">IE</span> 8, à condition d’utiliser un polyfill pour
+<code>addEventListener</code>, ce qui était de toutes façons nécessaire pour notre solution précédente. L’<span class="caps">API</span> de cette bibliothèque est simple et le tout fonctionne très bien. De plus, elle est disponible sur npm. Que du&nbsp;bonheur.</p>
+<p>Voilà, nous avons donc vu qu’une fonction de quelques lignes peut permettre de faire de la délégation d’événement efficace et simple. Si vous préférez utiliser une bibliothèque spécialisée, testée et éprouvée, alors je vous conseille d’aller voir du côté de&nbsp;FTDomDelegate.</p>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« Revenir à la liste des articles</a></div>
+        <section class="about">
+        </section>
+        <section class="copy">
+          <p>&copy; 2015 Cyrille Perois &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
