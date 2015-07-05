@@ -303,7 +303,7 @@ list.removeChild(firstItem);
 &lt;li&gt;2ème partie : &lt;a href=&quot;http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-dom/&quot;&gt;manipuler le DOM&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;3ème partie : &lt;a href=&quot;http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-styles-elements/&quot;&gt;manipuler le style des éléments&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;4ème partie : &lt;a href=&quot;http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-animations&quot;&gt;faire des animations&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;5ème partie : la délégation d’événements&lt;/li&gt;
+&lt;li&gt;5ème partie : &lt;a href=&quot;http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-event-delegation&quot;&gt;la délégation d’événements&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;6ème partie : AJAX&lt;/li&gt;
 &lt;li&gt;7ème partie : des petites choses bien pratiques&lt;/li&gt;
 &lt;/ul&gt;
