@@ -9,6 +9,8 @@ Ajouter, modifier, supprimer des styles inline, des classes... Autant de choses 
 
 <span class="more"></span>
 
+_Cet article est le troisième de la série ["apprendre à se servir de ce qu'on a"](/articles/apprendre-a-se-servir-de-ce-quon-a), ayant pour objectif de montrer que l'utilisation d'une bibliothèque telle que jQuery n'a pas toujours de sens. N'hésitez pas à parcourir les autres articles !_
+
 ## Manipuler les styles inline
 
 Avec jQuery, on ferait ça de la manière suivante :

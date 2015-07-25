@@ -7,13 +7,17 @@ template: article.jade
 
 La délégation d'événements est un concept très fréquemment utilisé et extrêmement utile. Plutôt que d'attacher un événement à chaque élément enfant d'un autre élément, pourquoi ne pas en attacher un uniquement à l'élément parent, et se servir de la phase de bubbling pour identifier l'élément qui a déclenché l'événement ? jQuery et ses petits copains gèrent ça très bien (le fameux 2ème paramètre de `jQuery.on`). Voyons comment faire la même chose en se passant de leurs services.
 
-<h2>Pourquoi faire ça ?</h2>
+<span class="more"></span>
+
+_Cet article est le cinquième de la série ["apprendre à se servir de ce qu'on a"](/articles/apprendre-a-se-servir-de-ce-quon-a), ayant pour objectif de montrer que l'utilisation d'une bibliothèque telle que jQuery n'a pas toujours de sens. N'hésitez pas à parcourir les autres articles !_
+
+## Pourquoi faire ça ?
 
 Tout d'abord, cette technique améliore les performances. Au lieu d'attacher 100 événements à mes 100 `<li>` qui composent mon `<ul>`, je n'en attache qu'un seul sur le `<ul>`. Mais un autre avantage non négligeable est qu'elle permet de ne pas se soucier de l'ajout ni de la suppression d'éléments au sein de l'élément auquel l'événement est attaché. En effet, en attachant un événément à chaque `<li>`, il faudrait, lorsque j'en supprime un, d'abord supprimer l'événement qui lui est attaché. De même si j'ajoute un `<li>`, il faudrait que je m'occupe de lui attacher un événement, puisque celui-ci ne peut pas deviner qu'il doit réagir comme les autres à l'événement `click`, par exemple. Or en attachant un événement uniquement au `<ul>`, celui-ci recevra l'événement click en provenance des `<li>`. Bien évidemment, ce n'est pas magique. Si la fonction de callback attachée au `<ul>` se déclenche uniquement lorsqu'on intéragit avec un `<li>`, c'est parce qu'on lui a dit. Ceci est possible grâce à la phase de bubbling que traverse un événement, et qui est très bien expliquée chez [Alsacréations](http://www.alsacreations.com/article/lire/578-La-gestion-des-evenements-en-JavaScript.html).
 
 Voyons voir comment faire ceci avec nos petites main.
 
-<h2>La délégation d'événement sans bibliothèque aucune !</h2>
+## La délégation d'événement sans bibliothèque aucune !
 
 Alors, qu'est-ce qu'il nous faut ? D'abord un DOM, évidemment, et un event listener. On va changer d'exemple et créer une `<div>` contenant des `<button>`. Lorsqu'on cliquera sur un `<button>`, on affichera le texte qu'il contient.
 
@@ -68,7 +72,7 @@ Pour tester cette fonction, vous pouvez regarder le Codepen ci-dessous (n'oublie
 <p data-height="268" data-theme-id="15557" data-slug-hash="GJQVYO" data-default-tab="result" data-user="JesmoDrazik" class='codepen'>See the Pen <a href='http://codepen.io/JesmoDrazik/pen/GJQVYO/'>Event delegation</a> by Cyrille Perois (<a href='http://codepen.io/JesmoDrazik'>@JesmoDrazik</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-<h2>Une bibliothèque spécialisée</h2>
+## Une bibliothèque spécialisée
 
 Il existe tout de même des bibliothèques spécialisées dans la délégation d'événements. Ma préférée est [FTDomDelegate](https://github.com/ftlabs/ftdomdelegate/blob/master/lib/delegate.js). Celle-ci couvre absolument tous les cas que vous pouvez rencontrer, et est compatible jusqu'à IE 8, à condition d'utiliser un polyfill pour
 `addEventListener`, ce qui était de toutes façons nécessaire pour notre solution précédente. L'API de cette bibliothèque est simple et le tout fonctionne très bien. De plus, elle est disponible sur npm. Que du bonheur.

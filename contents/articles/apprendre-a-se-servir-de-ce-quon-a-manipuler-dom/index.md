@@ -7,6 +7,10 @@ template: article.jade
 
 L'une des fonctionnalités majeures des jQuery-like est la manipulation du DOM. Voyons comment faire pour manipuler le DOM sans utiliser de bibliothèque.
 
+<span class="more"></span>
+
+_Cet article est le deuxième de la série ["apprendre à se servir de ce qu'on a"](/articles/apprendre-a-se-servir-de-ce-quon-a), ayant pour objectif de montrer que l'utilisation d'une bibliothèque telle que jQuery n'a pas toujours de sens. N'hésitez pas à parcourir les autres articles !_
+
 ## Qu'est-ce que c'est quoi dis-donc que le DOM ?
 
 Je ne vais pas réinventer la roue. La définition du DOM fournie par le Mozilla Developer Network (MDN), auquel je vais souvent faire référence dans cette liste d'articles, est parfaite :
