@@ -38,9 +38,7 @@ Pour installer nvm, il y a deux solutions :
 [manuellement](https://github.com/creationix/nvm#manual-install). La
 documentation est très claire sur ce point, rien à ajouter.
 
-## Utiliser nvm
-
-### Installer/désinstaller NodeJS
+## Installer/désinstaller NodeJS
 
 La première étape après avoir installé nvm, c'est de l'utiliser pour installer
 NodeJS :
@@ -63,7 +61,7 @@ Enfin, la commande `nvm ls` vous permet de voir quelles versions sont installée
 sur votre machine. Pour obtenir la liste des versions installables, il faut
 utiliser `nvm ls-remote`.
 
-### Utiliser une version installée
+## Utiliser une version installée
 
 Une fois une ou plusieurs version(s) de NodeJS installée(s), la commande
 `nvm use <version>` permet d'utiliser l'une d'elles dans le shell courrant. En
