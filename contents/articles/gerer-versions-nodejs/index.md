@@ -73,3 +73,16 @@ commande suivante :
 ```
 nvm alias default <version>
 ```
+
+Il est aussi possible d'exécuter une seule commande en utilisant une version
+donnée :
+
+```
+nvm exec <version> <commande>
+```
+
+Par exemple :
+
+```
+nvm exec 4.1.2 node -v
+```
