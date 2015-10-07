@@ -60,7 +60,8 @@ Pour désinstaller une version précédemment installée, il suffit d'utiliser l
 commande `nvm uninstall <version>`.
 
 Enfin, la commande `nvm ls` vous permet de voir quelles versions sont installées
-sur votre machine.
+sur votre machine. Pour obtenir la liste des versions installables, il faut
+utiliser `nvm ls-remote`.
 
 ### Utiliser une version installée
 
