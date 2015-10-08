@@ -90,3 +90,13 @@ la version de NodeJS spécifiée :
 nvm exec <version> <commande>
 nvm exec 4.1.2 node app.js
 ```
+
+## Conclusion
+
+nvm nous permet donc de gérer très simplement l'installation, la mise à jour et
+l'utilisation de NodeJS. Un avantage majeur de cette solution est de pouvoir
+installer plusieurs versions et d'en utiliser une à un moment donné. J'ai exposé
+ici les fonctionnalités les plus couramment utiles. Pour les cas d'utilisation
+plus rares et poussés,
+[la documentation](https://github.com/creationix/nvm#node-version-manager-) est
+très complète.
