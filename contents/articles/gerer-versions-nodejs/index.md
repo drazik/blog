@@ -1,7 +1,7 @@
 ---
 title: Gérer sa (ou ses) versions de NodeJS
 author: Cyrille Jesmo Drazik
-date: 2015-10-07
+date: 2015-10-08
 template: article.jade
 ---
 
