@@ -75,14 +75,18 @@ nvm alias default <version>
 ```
 
 Il est aussi possible d'exécuter une seule commande en utilisant une version
-donnée :
+donnée. Pour cela, il y a deux solutions. La première permet d'exécuter
+directement un fichier ou une commande avec une version précise :
+
+```
+nvm run <version> <fichier>
+nvm run 4.1.2 app.js
+```
+
+La seconde permet d'exécuter une commande avec la variable PATH pointant vers
+la version de NodeJS spécifiée :
 
 ```
 nvm exec <version> <commande>
-```
-
-Par exemple :
-
-```
-nvm exec 4.1.2 node -v
+nvm exec 4.1.2 node app.js
 ```
