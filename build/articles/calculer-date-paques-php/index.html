@@ -30,9 +30,9 @@
 <p>Un peu plus bas sur la même page, une note nous dit que <code>easter_date()</code> ne se base pas sur le fuseau horaire par défaut de <span class="caps">PHP</span> mais celui du système. Encore un mauvais point. Cette fois par contre la doc propose une solution à ce problème, et au précédent par la même occasion : utiliser <a href="http://www.php.net/manual/fr/function.easter-days.php">la fonction <code>easter_days()</code></a>.</p>
 <p>Puisqu’on sait que Pâques tombe entre le 21 mars et le 25 avril, alors il suffit de prendre comme base le 21 mars et y ajouter le résultat de <code>easter_days()</code> pour l’année voulue. C’est partit. On va faire une petite méthode qui renvoie un tableau de DateTime représentant les jours fériés pour l’année passée en&nbsp;paramètre.</p>
 <pre><code class="lang-php"><span class="comment">/**
- *<span class="phpdoc"> @brief</span> Retourne le tableau des jours fériés (DateTime)
- *<span class="phpdoc"> @param</span> $year
- *<span class="phpdoc"> @return</span> array
+ * <span class="doctag">@brief</span> Retourne le tableau des jours fériés (DateTime)
+ * <span class="doctag">@param</span> $year
+ * <span class="doctag">@return</span> array
  */</span>
 <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getHolidays</span><span class="params">(<span class="variable">$year</span>)</span>
 </span>{
@@ -65,8 +65,8 @@
 </code></pre>
 <p>On peut maintenant faire une méthode qui prend en paramètre un DateTime et qui nous dit si celui-ci est un jour férié ou non&nbsp;:</p>
 <pre><code class="lang-php"><span class="comment">/**
- *<span class="phpdoc"> @param</span> DateTime $date
- *<span class="phpdoc"> @return</span> bool
+ * <span class="doctag">@param</span> DateTime $date
+ * <span class="doctag">@return</span> bool
  */</span>
 <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">isHoliday</span><span class="params">(\DateTime <span class="variable">$date</span>)</span>
 </span>{

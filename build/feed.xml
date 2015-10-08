@@ -31,7 +31,7 @@
 &lt;p&gt;Il faut maintenant qu’on attache un événement &lt;code&gt;click&lt;/code&gt; à notre &lt;code&gt;div#container&lt;/code&gt;. Celui-ci devra regarder si l’élément ayant déclenché l’événement est un &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;, et si c’est le cas, afficher le texte contenu par celui-ci dans la console. Pour IE 8, on utilisera un polyfill de &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener?redirectlocale=en-US&amp;amp;redirectslug=DOM%2FEventTarget.addEventListener&quot;&gt;&lt;code&gt;EventTarget.addEventListener&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; container = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;string&quot;&gt;'container'&lt;/span&gt;);
 
-container.addEventListener(&lt;span class=&quot;string&quot;&gt;'click'&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(event)&lt;/span&gt; &lt;/span&gt;{
+container.addEventListener(&lt;span class=&quot;string&quot;&gt;'click'&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;) &lt;/span&gt;{
     &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (event.target &amp;amp;&amp;amp; event.target.nodeName === &lt;span class=&quot;string&quot;&gt;'BUTTON'&lt;/span&gt;) {
         &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(event.target.textContent);
     }
@@ -45,9 +45,9 @@ container.addEventListener(&lt;span class=&quot;string&quot;&gt;'click'&lt;/span
 &lt;span class=&quot;comment&quot;&gt;// - du type d'événement à écouter&lt;/span&gt;
 &lt;span class=&quot;comment&quot;&gt;// - du sélecteur auquel les éléments doivent correspondre pour lancer le callback&lt;/span&gt;
 &lt;span class=&quot;comment&quot;&gt;// - le callback à lancer&lt;/span&gt;
-&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;delegate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(element, eventType, selector, callback)&lt;/span&gt; &lt;/span&gt;{
+&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;delegate&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;element, eventType, selector, callback&lt;/span&gt;) &lt;/span&gt;{
   &lt;span class=&quot;comment&quot;&gt;// on écoute l'événement sur l'élément parent&lt;/span&gt;
-  element.addEventListener(eventType, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(event)&lt;/span&gt; &lt;/span&gt;{
+  element.addEventListener(eventType, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;) &lt;/span&gt;{
     &lt;span class=&quot;comment&quot;&gt;// si event.target correspond au sélecteur voulu...&lt;/span&gt;
     &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (event.target &amp;amp;&amp;amp; event.target.matches(selector)) {
       &lt;span class=&quot;comment&quot;&gt;// ... on exécute le callback&lt;/span&gt;
@@ -195,7 +195,7 @@ element.classList.toggle(&lt;span class=&quot;string&quot;&gt;'toto'&lt;/span&gt
 &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; buttons = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelectorAll(&lt;span class=&quot;string&quot;&gt;'button'&lt;/span&gt;);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Il y a deux subtilités. La première, c’est cette &lt;code&gt;NodeList&lt;/code&gt; renvoyée par &lt;code&gt;querySelectorAll&lt;/code&gt;. On s’attendrait plutôt à obtenir un &lt;code&gt;Array&lt;/code&gt;. En effet, &lt;code&gt;NodeList&lt;/code&gt; n’expose pas toutes les méthodes pratiques qu’&lt;code&gt;Array&lt;/code&gt; expose, et dont vous trouverez une liste &lt;a href=&quot;http://es5.github.io/#x15.4.4&quot;&gt;par ici&lt;/a&gt; (on s’arrête à EcmaScript 5 car nous ciblons IE8, mais si vous voulez utiliser des méthodes introduites avec EcmaScript 2015 - le nom officiel d’EcmaScript 6 -, vous pouvez chercher des polyfills). Pour des raisons de praticité, il vaut donc mieux transformer cette &lt;code&gt;NodeList&lt;/code&gt; en &lt;code&gt;Array&lt;/code&gt;. On va donc se recréer une fonction &lt;code&gt;$&lt;/code&gt; qui fait ça.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(selector)&lt;/span&gt; &lt;/span&gt;{
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;$&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;selector&lt;/span&gt;) &lt;/span&gt;{
     &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; elements = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelectorAll(selector);
 
     &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;.apply(&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;, elements);
@@ -227,7 +227,7 @@ element.classList.toggle(&lt;span class=&quot;string&quot;&gt;'toto'&lt;/span&gt
 title.innerHTML = &lt;span class=&quot;string&quot;&gt;'Ma liste de trucs à acheter'&lt;/span&gt;;
 fragment.appendChild(title);
 
-elements.forEach(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(element)&lt;/span&gt; &lt;/span&gt;{
+elements.forEach(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;element&lt;/span&gt;) &lt;/span&gt;{
     &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; listItem = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;'li'&lt;/span&gt;);
     listItem.innerHTML = element;
 
@@ -447,9 +447,9 @@ npm run gulp:compile
 &lt;p&gt;Un peu plus bas sur la même page, une note nous dit que &lt;code&gt;easter_date()&lt;/code&gt; ne se base pas sur le fuseau horaire par défaut de PHP mais celui du système. Encore un mauvais point. Cette fois par contre la doc propose une solution à ce problème, et au précédent par la même occasion : utiliser &lt;a href=&quot;http://www.php.net/manual/fr/function.easter-days.php&quot;&gt;la fonction &lt;code&gt;easter_days()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Puisqu’on sait que Pâques tombe entre le 21 mars et le 25 avril, alors il suffit de prendre comme base le 21 mars et y ajouter le résultat de &lt;code&gt;easter_days()&lt;/code&gt; pour l’année voulue. C’est partit. On va faire une petite méthode qui renvoie un tableau de DateTime représentant les jours fériés pour l’année passée en paramètre.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-php&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**
- *&lt;span class=&quot;phpdoc&quot;&gt; @brief&lt;/span&gt; Retourne le tableau des jours fériés (DateTime)
- *&lt;span class=&quot;phpdoc&quot;&gt; @param&lt;/span&gt; $year
- *&lt;span class=&quot;phpdoc&quot;&gt; @return&lt;/span&gt; array
+ * &lt;span class=&quot;doctag&quot;&gt;@brief&lt;/span&gt; Retourne le tableau des jours fériés (DateTime)
+ * &lt;span class=&quot;doctag&quot;&gt;@param&lt;/span&gt; $year
+ * &lt;span class=&quot;doctag&quot;&gt;@return&lt;/span&gt; array
  */&lt;/span&gt;
 &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getHolidays&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt;)&lt;/span&gt;
 &lt;/span&gt;{
@@ -482,8 +482,8 @@ npm run gulp:compile
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;On peut maintenant faire une méthode qui prend en paramètre un DateTime et qui nous dit si celui-ci est un jour férié ou non :&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-php&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**
- *&lt;span class=&quot;phpdoc&quot;&gt; @param&lt;/span&gt; DateTime $date
- *&lt;span class=&quot;phpdoc&quot;&gt; @return&lt;/span&gt; bool
+ * &lt;span class=&quot;doctag&quot;&gt;@param&lt;/span&gt; DateTime $date
+ * &lt;span class=&quot;doctag&quot;&gt;@return&lt;/span&gt; bool
  */&lt;/span&gt;
 &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isHoliday&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(\DateTime &lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;)&lt;/span&gt;
 &lt;/span&gt;{

@@ -40,7 +40,7 @@
 <span class="keyword">var</span> buttons = <span class="built_in">document</span>.querySelectorAll(<span class="string">'button'</span>);
 </code></pre>
 <p>Il y a deux subtilités. La première, c’est cette <code>NodeList</code> renvoyée par <code>querySelectorAll</code>. On s’attendrait plutôt à obtenir un <code>Array</code>. En effet, <code>NodeList</code> n’expose pas toutes les méthodes pratiques qu’<code>Array</code> expose, et dont vous trouverez une liste <a href="http://es5.github.io/#x15.4.4">par ici</a> (on s’arrête à EcmaScript 5 car nous ciblons <span class="caps">IE8</span>, mais si vous voulez utiliser des méthodes introduites avec EcmaScript 2015 - le nom officiel d’EcmaScript 6 -, vous pouvez chercher des polyfills). Pour des raisons de praticité, il vaut donc mieux transformer cette <code>NodeList</code> en <code>Array</code>. On va donc se recréer une fonction <code>$</code> qui fait&nbsp;ça.</p>
-<pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="title">$</span><span class="params">(selector)</span> </span>{
+<pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">selector</span>) </span>{
     <span class="keyword">var</span> elements = <span class="built_in">document</span>.querySelectorAll(selector);
 
     <span class="keyword">return</span> <span class="built_in">Array</span>.apply(<span class="literal">null</span>, elements);
@@ -72,7 +72,7 @@
 title.innerHTML = <span class="string">'Ma liste de trucs à acheter'</span>;
 fragment.appendChild(title);
 
-elements.forEach(<span class="function"><span class="keyword">function</span><span class="params">(element)</span> </span>{
+elements.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">element</span>) </span>{
     <span class="keyword">var</span> listItem = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);
     listItem.innerHTML = element;
 

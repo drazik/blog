@@ -38,7 +38,7 @@
 <p>Il faut maintenant qu’on attache un événement <code>click</code> à notre <code>div#container</code>. Celui-ci devra regarder si l’élément ayant déclenché l’événement est un <code>&lt;button&gt;</code>, et si c’est le cas, afficher le texte contenu par celui-ci dans la console. Pour <span class="caps">IE</span> 8, on utilisera un polyfill de <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener?redirectlocale=en-US&amp;redirectslug=DOM%2FEventTarget.addEventListener"><code>EventTarget.addEventListener</code></a>.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);
 
-container.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">(event)</span> </span>{
+container.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{
     <span class="keyword">if</span> (event.target &amp;&amp; event.target.nodeName === <span class="string">'<span class="caps">BUTTON</span>'</span>) {
         <span class="built_in">console</span>.log(event.target.textContent);
     }
@@ -52,9 +52,9 @@ container.addEventListener(<span class="string">'click'</span>, <span class="fun
 <span class="comment">// - du type d'événement à écouter</span>
 <span class="comment">// - du sélecteur auquel les éléments doivent correspondre pour lancer le callback</span>
 <span class="comment">// - le callback à lancer</span>
-<span class="function"><span class="keyword">function</span> <span class="title">delegate</span><span class="params">(element, eventType, selector, callback)</span> </span>{
+<span class="function"><span class="keyword">function</span> <span class="title">delegate</span>(<span class="params">element, eventType, selector, callback</span>) </span>{
   <span class="comment">// on écoute l'événement sur l'élément parent</span>
-  element.addEventListener(eventType, <span class="function"><span class="keyword">function</span><span class="params">(event)</span> </span>{
+  element.addEventListener(eventType, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{
     <span class="comment">// si event.target correspond au sélecteur voulu...</span>
     <span class="keyword">if</span> (event.target &amp;&amp; event.target.matches(selector)) {
       <span class="comment">// ... on exécute le callback</span>

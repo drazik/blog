@@ -10,6 +10,7 @@
   "scripts": {
     "start": "wintersmith preview",
     "build": "wintersmith build -c config.build.json",
-    "dploy": "dploy prod"
+    "dploy": "dploy prod",
+    "postinstall": "npm run build"
   }
 }
