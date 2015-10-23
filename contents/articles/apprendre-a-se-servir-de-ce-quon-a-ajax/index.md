@@ -1,5 +1,5 @@
 ---
-title: "Apprendre à se servir de ce qu'on a : la délégation d'événements"
+title: "Apprendre à se servir de ce qu'on a : AJAX"
 author: Cyrille Jesmo Drazik
 date: 2015-07-04
 template: article.jade
@@ -18,11 +18,16 @@ https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest
 ## Faire pareil, mais sans
 
 http://putaindecode.fr/posts/js/comment-se-passer-de-libraries-frameworks-javascript/
+http://www.sitepoint.com/guide-vanilla-ajax-without-jquery/
 
-## Pour aller un peu plus loin: XMLHttpRequest 2, le retour
+## XMLHttpRequest 2, le retour
 
 http://www.html5rocks.com/en/tutorials/file/xhr2/
 
+## Le "futur" des requêtes asynchrones
+
+http://www.sitepoint.com/javascript-goes-asynchronous-awesome/
+
 ## Pour finir
 
-Comme pour la manipulation du DOM, du style des éléments de ce même DOM, des animations, de la délégation d'événements, et j'en passe, il est donc possible, pour les cas les plus courants, de se passer de jQuery pour faire des requêtes AJAX. L'important est de se poser la bonne question : est-ce que pour faire ce dont j'ai besoin, jQuery est nécessaire ?
+Ca commence à devenir répétitif, mais la conclusion reste évidemment toujours la même : comme pour la manipulation du DOM, du style des éléments de ce même DOM, des animations, de la délégation d'événements, et j'en passe, il est donc possible, pour les cas les plus courants, de se passer de jQuery pour faire des requêtes AJAX. L'important est de se poser la bonne question : est-ce que pour faire ce dont j'ai besoin, jQuery est nécessaire ?
