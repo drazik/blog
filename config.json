@@ -3,7 +3,7 @@
     "url": "http://localhost:8080",
     "name": "Jesmo Drazik Blog",
     "owner": "Cyrille Perois",
-    "description": "Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue "
+    "description": "Développeur web pour l'agence de production Wandi"
   },
   "plugins": [
     "./plugins/paginator.coffee"
