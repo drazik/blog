@@ -4,7 +4,7 @@
     <title>Jesmo Drazik Blog</title>
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
-    <description>Des trucs sur le web, et des réflexions qui me sont propres. Qui sont donc peut être des conneries de votre point de vue </description>
+    <description>Développeur web pour l'agence de production Wandi</description>
     <pubDate>Thu, 08 Oct 2015 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>

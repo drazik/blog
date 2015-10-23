@@ -377,6 +377,24 @@ code.lang-markdown .bullet {
   color: #8959a8;
 }
 
+.find-me {
+  text-align: center;
+}
+
+.find-me a {
+  display: inline-block;
+}
+
+.find-me a + a {
+    margin-left: 20px;
+}
+
+.find-me a + a::before {
+    content: '-';
+    display: inline-block;
+    margin-right: 20px;
+}
+
 /* media queries */
 
 @media (min-width: 1600px) {
@@ -434,4 +452,3 @@ code.lang-markdown .bullet {
     margin-bottom: 1em;
   }
 }
-
