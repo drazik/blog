@@ -24,7 +24,7 @@ https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest
 
 Voyons voir comment fonctionne cet objet XMLHttpRequest.
 
-### Envoyer une requête simple
+### Envoyer une requête simple, sans paramètre
 
 D'abord il nous faut un objet...
 
@@ -38,13 +38,58 @@ Ensuite il faut dire sur quelle URL on veut faire notre requête et la méthode 
 xhr.open('GET', 'http://jesmodrazik.fr');
 ```
 
+Il est possible de spécifier 3 autres paramètres :
+
+* Un booléen spécifiant si la requête est asynchrone ou non. Par défaut celui-ci vaut `true`, donc la requête sera asynchrone
+* Un login en cas d'identification nécessaire (type .htaccess)
+* Le mot de passe qui va avec
+
+Pour faire une requête HEAD ou POST, il suffit de spécifier la méthode souhaitée en premier paramètre.
+
 Il ne nous reste plus qu'à envoyer la requête :
 
 ```javascript
 xhr.send(null);
 ```
 
-Wait, c'est quoi ce `null` ? En fait, la méthode `send` prend en paramètre les paramètres qu'on veut passer à la requête dans le cas d'une requête en POST. Ce paramètre est obligatoire. Ici, on ne passe aucun paramètre, donc on lui passe `null`.
+### Envoyer une requête avec des paramètres
+
+Dans le cas d'une requête GET ou HEAD (qui n'est ni plus ni moins qu'une requête GET, à la différence près qu'on ne récupère que l'entête de la réponse), le passage de paramètres se fait dans l'URL qu'on passe à la méthode `open`, comme on le ferait dans la barre d'adresse de notre navigateur :
+
+```javascript
+xhr.open('GET', 'http://jesmodrazik.fr?param1=value2&param2=value2');
+```
+
+Dans le cas d'une requête POST, il faut d'abord préciser dans l'entête de la requête que les paramètres viennent d'un formulaire (même si ce n'est pas le cas) :
+
+```javascript
+xhr.open('POST', 'http://jesmodrazik.fr');
+xhr.setRequestHeader('Content-Type', 'application/x-form-urlencoded');
+```
+
+Puis il faut passer les paramètres à la méthode `send` :
+
+```javascript
+xhr.send('param1=value1&param2=value2');
+```
+
+Dans les deux cas, il est nécessaire de convertir les paramètres qu'on veut passer à notre requête, afin que ceux-ci ne contiennent aucun caractère interdit dans une URL. Pour cela, il faut utiliser la fonction `encodeURIComponent` :
+
+```javascript
+// le caractère "&" a une signification dans une URL, il faut donc le convertir
+var param1 = encodeURIComponent('value1&');
+// ici, pas de caractère à convertir, mais dans le cas d'une saisie utilisateur, on ne peut pas prédire ce qu'on reçoit !
+var param2 = encodeURIComponent('value2');
+
+xhr.send('param1=' + param1 + '&param2=' + param2);
+```
+
+Maintenant qu'on sait envoyer une requête, il faudrait savoir...
+
+### Récupérer la réponse
+
+
+
 
 http://putaindecode.fr/posts/js/comment-se-passer-de-libraries-frameworks-javascript/
 http://www.sitepoint.com/guide-vanilla-ajax-without-jquery/
