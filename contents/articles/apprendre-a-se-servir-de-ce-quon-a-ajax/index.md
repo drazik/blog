@@ -13,13 +13,11 @@ _Cet article est le sixième de la série ["apprendre à se servir de ce qu'on a
 
 ## AJAX, ou plutôt XMLHttpRequest
 
-AJAX (pour Asynchronous Javascript And XML) n'est pas une technologie en tant que tele, mais un ensemble de technologies. Ce concept se base en particulier sur l'objet `XMLHttpRequest` introduit par Microsoft dans Internet Explorer, qui a été par la suite standardisé.
+AJAX (pour Asynchronous Javascript And XML) n'est pas une technologie en tant que telle, mais un ensemble de technologies. Ce concept se base en particulier sur l'objet `XMLHttpRequest` introduit par Microsoft dans Internet Explorer, qui a été par la suite standardisé.
 
-`XMLHttpRequest` permet d'envoyer des requêtes HTTP vers un serveur sans avoir à rafraichir la page en cours d'affichage. Ces requêtes peuvent être synchrones ou asynchrones. Dans le premier cas, l'exécution du thread JS est interrompue et attend la réponse du serveur pour reprendre. Dans le second cas, le thread continue sa petite vie, et c'est un événement qui sera lancé pour le notifiier de l'arrivée de la réponse du serveur. Il va sans dire que c'est le deuxième cas qui est le plus interessant, puisque le premier bloque tout intéraction avec la page tant que la réponse n'est pas arrivée.
+`XMLHttpRequest` permet d'envoyer des requêtes HTTP vers un serveur sans avoir à rafraichir la page en cours d'affichage. Ces requêtes peuvent être synchrones ou asynchrones. Dans le premier cas, l'exécution du thread JS est interrompue et attend la réponse du serveur pour reprendre. Dans le second cas, le thread continue sa petite vie, et c'est un événement qui sera lancé pour le notifiier de l'arrivée de la réponse du serveur. Il va sans dire que c'est le deuxième cas qui est le plus intéressant, puisque le premier bloque tout interaction avec la page tant que la réponse n'est pas arrivée.
 
 Le nom "AJAX" est trompeur car le serveur ne renvoie pas obligatoirement du XML. Plusieurs formats peuvent être gérés : texte brut, HTML, XML, JSON, données binaires...
-
-https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest
 
 ## Faire pareil, mais sans
 
