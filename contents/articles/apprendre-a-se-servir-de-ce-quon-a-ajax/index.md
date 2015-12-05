@@ -87,6 +87,48 @@ Maintenant qu'on sait envoyer une requête, il faudrait savoir...
 
 ### Récupérer la réponse
 
+Qui dit asynchrone dit callback. On va donc commencer par attacher une fonction à un événement qui nous notifiera l'arrivée de la réponse :
+
+```javascript
+// Directement via onreadystatechange
+xhr.onreadystatechange = function() {};
+
+// Ou avec addEventListener
+xhr.addEventListener('readystatechange', function() {});
+```
+
+Comme le nom de l'événement l'indique, nous n'écoutons pas réellement l'arrivée de la réponse, mais tout changement d'état de la requête. Le nombre d'état possible pour une `XMLHttpRequest` est de 5. Chaque état est représenté par un nombre entier, ainsi qu'une constante de l'objet `XMLHttpRequest` qui le représente :
+
+* `XMLHttpRequest.UNSENT === 0` : on a un objet `XMLHttpRequest` tout frais sur lequel la méthode `open()` n'a pas encore été appelée
+* `XMLHttpRequest.OPENED === 1` : la méthode `open()` a été appelée sur l'objet, mais pas la méthode `send()`
+* `XMLHttpRequest.HEADERS_RECEIVED === 2` : la méthode `send()` a été appelée, la requête a été entièrement envoyée
+* `XMLHttpRequest.LOADING === 3` : le serveur a commencé à renvoyer des données
+* `XMLHttpRequest.DONE === 4` : on a reçu toutes les données de la réponse
+
+Puisqu'on est intéressés uniquement par le dernier état, on va commencer par ajouter une condition sur celui-ci :
+
+```javascript
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === xhr.DONE) {}
+};
+```
+
+Il faut maintenant détecter si tout s'est bien passé. Si c'est le cas, alors la réponse du serveur doit avoir un code HTTP 2xx. Nouvelle condition :
+
+```javascript
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === xhr.DONE) {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            // OK
+        } else {
+            // Erreur
+        }
+    }
+};
+```
+
+### Récupérer les données reçues
+
 
 
 
