@@ -129,11 +129,124 @@ xhr.onreadystatechange = function() {
 
 ### Récupérer les données reçues
 
+Les données de la réponse sont contenues dans `xhr.responseXML` si ces données sont du XML, et dans `xhr.responseText` dans tous les autres cas. `responseXML` est un DOM qui peut être parcouru de la même manière que n'importe quel autre DOM. `responseText` n'est que du texte brut. Si on sait qu'on reçoit du JSON, alors on peut le parser avec `JSON.parse()` :
 
+```javascript
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === xhr.DONE) {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            // On récupère du XML
+            var elements = xhr.responseXML.getElementsByTagName('element');
 
+            // On récupère du JSON
+            var data = JSON.parse(xhr.responseText);
+        } else {
+            // Erreur
+        }
+    }
+};
+```
 
-http://putaindecode.fr/posts/js/comment-se-passer-de-libraries-frameworks-javascript/
-http://www.sitepoint.com/guide-vanilla-ajax-without-jquery/
+### Gérer les erreurs
+
+Lorsque le status n'est pas 2xx, c'est que le serveur a renvoyé une erreur. Dans ce cas, on peut savoir quelle est l'erreur en regardant le code HTTP contenu dans `xhr.status`, évidemment, mais aussi ce que contient `xhr.statusText` :
+
+```javascript
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === xhr.DONE) {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var data = JSON.parse(xhr.responseText);
+        } else {
+            console.error(xhr.status, xhr.statusText);
+        }
+    }
+};
+```
+
+### Récapitulons
+
+Pour faire de l'AJAX sans jQuery, voici donc ce qu'il faut faire (on imagine qu'on veut faire une requête en POST avec les paramètres `param1` et `param2` sur `http://jesmodrazik.fr`, et qu'on récupère du JSON qu'on veut simplement afficher dans la console du navigateur):
+
+```javascript
+var xhr = new XMLHttpRequest();
+var param1 = encodeURIComponent('value1&');
+var param2 = encodeURIComponent('value2');
+
+xhr.open('POST', 'http://jesmodrazik.fr');
+xhr.setRequestHeader('Content-Type', 'application/x-form-urlencoded');
+
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === xhr.DONE) {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var data = JSON.parse(xhr.responseText);
+
+            console.log(data);
+        } else {
+            console.error(xhr.status, xhr.statusText);
+        }
+    }
+};
+
+xhr.send('param1=' + param1 + '&param2=' + param2);
+
+```
+
+Bon heu... Autant d'habitude le JS natif est aussi simple, ou tout du moins pas beaucoup plus compliqué que l'équivalent avec jQuery, autant là, je dois avouer que jQuery a gagné :
+
+```javascript
+$.ajax({
+    type: 'POST',
+    url: 'hhtp://jesmodrazik.fr',
+    data: {
+        param1: 'value1&',
+        param2: 'value2'
+    },
+    success: function(data) {
+        console.log(data);
+    },
+    dataType: 'json'
+});
+```
+
+Mais on va pas se laisser abattre, on peut toujours se débrouiller sans lui !
+
+```javascript
+// TODO : gérer async true/false; passer le status au success; donner la possibilité d'envoyer des headers à la requête; faire le encodeURIComponent automatiquement
+function ajax(options) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open(options.type, options.url);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === xhr.DONE) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                options.success(xhr.responseXML || xhr.responseText);
+            } else {
+                options.error(xhr.status, xhr.statusText);
+            }
+        }
+    }
+
+    xhr.send(options.data || null);
+
+    return xhr;
+}
+
+ajax({
+    type: 'POST',
+    url: 'http://jesmodrazik.fr',
+    data: 'param1=' + encodeURIComponent('value1&') + '&param2=' + encodeURIComponent('value2'),
+    success: function(data) {
+        var json = JSON.parse(data);
+        console.log(data);
+    },
+    error: function(status, statusText) {
+        console.error(status, statusText);
+    }
+});
+```
+
+Et voilà !
 
 ## XMLHttpRequest 2, le retour
 
