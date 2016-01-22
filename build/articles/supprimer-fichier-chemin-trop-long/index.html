@@ -23,6 +23,14 @@
         <article class="article">
           <section class="content"><p>Quand on travaille avec npm sous windows, on est souvent confronté au message d’erreur suivant lorsqu’on veut supprimer un module non utilisé ou le dossier <code>node_modules</code> pour quelque raison que ce soit : “Les noms de fichiers source sont plus longs que ne le permet le système de fichiers. Choisissez un emplacement de destination avec un nom plus court, ou donnez des noms plus courts aux fichiers avant de les déplacer”. Il existe un petit outil qui permet de passer outre cette&nbsp;restriction.</p>
 <p><span class="more"></span></p>
+<p>Edit 22/01/2016 : il existe en fait une solution un peu plus simple, dont je
+dois la découverte à un collègue (qu’il doit lui-même au web). Il s’agit
+d’utiliser la commande <code>robocopy</code>, disponible depuis Windows <span class="caps">XP</span>, pour
+“remplacer” le dossier <code>node_modules</code> par un dossier vide&nbsp;:</p>
+<pre><code>robocopy &lt;chemin vers un dossier vide&gt; &lt;chemin vers node_modules&gt; /MIR
+</code></pre><p><a href="http://www.michael-whelan.net/deleting-nested-node-modules-folders/">Source</a>.</p>
+<p>Si cette solution ne fonctionne pas pour vous pour n’importe quelle raison, il
+reste la&nbsp;suivante.</p>
 <p>C’est OSMStudios qui fournit <a href="http://osmstudios.net/projects/path-too-long">PathTooLong</a>, écrit en Java, et qui permet tout simplement de sélectionner un dossier dont le chemin est trop long pour être supprimé par windows, et le supprimer pour de&nbsp;bon.</p>
 <p>Il suffit de télécharger le fichier <span class="caps">JAR</span> et de l’exécuter avec un JDK 1.7 ou plus&nbsp;:</p>
 <pre><code>java -jar PathTooLong.jar
@@ -43,7 +51,7 @@
         <section class="about">
         </section>
         <section class="copy">
-          <p>&copy; 2015 Cyrille Perois &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          <p>&copy; 2016 Cyrille Perois &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
           </p>
         </section>
       </div>

@@ -28,7 +28,7 @@
 </code></pre><p>Il nous demande le mot de passe root. Nous voilà avec un MySQL et un utilisateur&nbsp;root.</p>
 <p>Maintenant j’aimerais utiliser HeidiSQL pour gérer mes bases. Allez soyons fous, on entre l’ip de notre serveur, root et notre mot de passe dans HeidiSQL. Et là… Oh la grosse erreur ! Eh ouais, MySQL n’autorise que les connexions locales par défaut. Et ne donne des droits aux utilisateur que s’ils se connectent en local. Bon, on va changer tout&nbsp;ça.</p>
 <p>On va d’abord donner tous les droits sur toutes les bases à notre utilisateur root (en vrai il faudrait ne surtout pas toucher à root, mais plutôt créer un autre utilisateur à qui on restreint les droits, etc… J’ai la flemme, on verra plus tard)&nbsp;:</p>
-<pre><code class="lang-sql"><span class="operator"><span class="keyword"><span class="caps">GRANT</span></span> <span class="keyword"><span class="caps">ALL</span></span> <span class="keyword"><span class="caps">PRIVILEGES</span></span> <span class="keyword"><span class="caps">ON</span></span> *.* <span class="keyword"><span class="caps">TO</span></span> ‘root’@’%’ <span class="keyword"><span class="caps">IDENTIFIED</span></span> <span class="keyword"><span class="caps">BY</span></span> ‘UnMDPSuperSecret’;</span>
+<pre><code class="lang-sql"><span class="operator"><span class="keyword"><span class="caps">GRANT</span></span> <span class="caps">ALL</span> <span class="keyword"><span class="caps">PRIVILEGES</span></span> <span class="keyword"><span class="caps">ON</span></span> *.* <span class="keyword"><span class="caps">TO</span></span> ‘root’@’%’ <span class="keyword"><span class="caps">IDENTIFIED</span></span> <span class="keyword"><span class="caps">BY</span></span> ‘UnMDPSuperSecret’;</span>
 </code></pre>
 <p><span class="caps">EDIT</span> : un <a href="http://blog.emmanuelgautier.fr/utilisateurs-et-privileges-sous-mysql.html">très bon article</a> d’Emmanuel Gautier explique comment gérer les droits sous MySQL. Je vous invite à y jetter un oeil pour gérer les droits proprement sur votre&nbsp;serveur.</p>
 <p>Explications. <code>GRANT ALL PRIVILEGES</code>, ça veut dire ce que ça veut dire. <code>ON *.*</code>, ça veut dire sur toutes les bases et toutes les tables qui composent ces bases. <code>TO &#39;root&#39;@&#39;%&#39;</code>, ça veut dire à l’utilisateur root peu importe l’<span class="caps">IP</span> avec laquelle il se connecte. Et <code>IDENTIFIED BY &#39;...&#39;</code>, c’est le mot de passe de&nbsp;root.</p>
@@ -52,7 +52,7 @@
         <section class="about">
         </section>
         <section class="copy">
-          <p>&copy; 2015 Cyrille Perois &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          <p>&copy; 2016 Cyrille Perois &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
           </p>
         </section>
       </div>

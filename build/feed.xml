@@ -5,9 +5,57 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Thu, 08 Oct 2015 02:00:00 +0200</pubDate>
+    <pubDate>Fri, 22 Jan 2016 01:00:00 +0100</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 22/01/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-01/</link>
+      <pubDate>Fri, 22 Jan 2016 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-01/</guid>
+      <author></author>
+      <description>&lt;p&gt;Ça fait assez longtemps que j’hésite à le faire, et donc assez longtemps que je
+ne le fais pas. Les raisons sont multiples : la sensation de ne pas être
+forcément légitime, le fait que d’autres le fassent déjà très bien, entre autres.
+Pourtant aujourd’hui je décide finalement de me lancer, et de partager ma veille
+(technologique, mais pas que) de manière hebdomadaire (en tous cas on va le
+tenter comme ça). C’est partit.&lt;/p&gt;
+&lt;h2 id=&quot;l-o-tout-a-commenc-&quot;&gt;Là où tout a commencé&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://coulisses.pw/post/135701210348/c%C3%A9tait-au-programme-design-de-soi-valoriser&quot;&gt;“Design de soi : valoriser son identité et son expertise sur le web”&lt;/a&gt; :
+dans cette conférence donnée lors du dernier Paris Web,
+&lt;a href=&quot;http://marieguillaumet.com/&quot;&gt;Marie Guillaumet&lt;/a&gt; explique comment se présenter
+et communiquer sur son soi professionnel sur le web. Ce sont les conseils et
+réponses aux questions les plus courantes qu’elle donne qui m’ont fait franchir
+le cap. Faites pareil !&lt;/p&gt;
+&lt;h2 id=&quot;les-liens-&quot;&gt;Les liens !&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.hteumeuleu.fr/la-publicite-n-est-pas-le-modele-economique-du-web/&quot;&gt;“La publicité n’est pas le modèle économique du web”&lt;/a&gt; :
+on parle beaucoup de la guerre entre annonceurs et ad-blockers. Pourtant la pub
+n’est pas indispensable au web.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@housecor/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.385wcm8ng&quot;&gt;“Why I left Gulp and Grunt for npm scripts”&lt;/a&gt; :
+dans cet article, l’auteur expose les raisons pour lesquelles il a décidé de
+laisser de côté les tasks runners JS au profit des scripts npm, ainsi que les
+avantages et inconvénients que ces derniers présentent, mais aussi comment
+contourner les problèmes qu’ils peuvent poser. La phrase suivante résume
+largement l’article : “I’ve found Gulp and Grunt to be unnecessary abstractions.
+npm scripts are plenty powerful and often easier to live with.”&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://tobiasahlin.com/blog/how-to-animate-box-shadow/&quot;&gt;“How to animate box-shadow”&lt;/a&gt; :
+ici l’auteur atire notre attention sur le fait qu’il n’est pas bon d’animer
+n’importe quelle propriété CSS, en montrant que pour arriver au même résultat
+mais avec de meilleures performances, il vaut mieux animer la propriété &lt;code&gt;opacity&lt;/code&gt;
+appliquée à un pseudo-élément que &lt;code&gt;box-shadow&lt;/code&gt; directement.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/VerbalExpressions/JSVerbalExpressions&quot;&gt;JSVerbalExpressions&lt;/a&gt; :
+une lib JS qui permet d’écrire des regex en langage naturel, ou presque.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/tldr-pages/tldr&quot;&gt;tldr&lt;/a&gt; :
+une façon conçise et sympa de présenter les pages de manuel de commandes Linux,
+Mac OS et d’autres. Pleins de clients sont disponibles, allant de Node.js au web
+en passant par bash ou des applications Android et iOS.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://getcontenttools.com/&quot;&gt;ContentTools&lt;/a&gt; :
+un éditeur WYSIWYG qui permet d’éditer facilement le contenu d’une page.
+&lt;a href=&quot;http://getcontenttools.com/demo&quot;&gt;La démo&lt;/a&gt; est bien plus parlante que des mots,
+vous devriez aller jetter un oeil !&lt;/p&gt;
+&lt;p&gt;Voilà, c’est tout pour cette première !&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Gérer sa (ou ses) version(s) de NodeJS</title>
       <link>http://jesmodrazik.fr/articles/gerer-versions-nodejs/</link>
@@ -232,6 +280,14 @@ element.classList.toggle(&lt;span class=&quot;string&quot;&gt;'toto'&lt;/span&gt
       <author></author>
       <description>&lt;p&gt;Quand on travaille avec npm sous windows, on est souvent confronté au message d’erreur suivant lorsqu’on veut supprimer un module non utilisé ou le dossier &lt;code&gt;node_modules&lt;/code&gt; pour quelque raison que ce soit : “Les noms de fichiers source sont plus longs que ne le permet le système de fichiers. Choisissez un emplacement de destination avec un nom plus court, ou donnez des noms plus courts aux fichiers avant de les déplacer”. Il existe un petit outil qui permet de passer outre cette restriction.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Edit 22/01/2016 : il existe en fait une solution un peu plus simple, dont je
+dois la découverte à un collègue (qu’il doit lui-même au web). Il s’agit
+d’utiliser la commande &lt;code&gt;robocopy&lt;/code&gt;, disponible depuis Windows XP, pour
+“remplacer” le dossier &lt;code&gt;node_modules&lt;/code&gt; par un dossier vide :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;robocopy &amp;lt;chemin vers un dossier vide&amp;gt; &amp;lt;chemin vers node_modules&amp;gt; /MIR
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&quot;http://www.michael-whelan.net/deleting-nested-node-modules-folders/&quot;&gt;Source&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Si cette solution ne fonctionne pas pour vous pour n’importe quelle raison, il
+reste la suivante.&lt;/p&gt;
 &lt;p&gt;C’est OSMStudios qui fournit &lt;a href=&quot;http://osmstudios.net/projects/path-too-long&quot;&gt;PathTooLong&lt;/a&gt;, écrit en Java, et qui permet tout simplement de sélectionner un dossier dont le chemin est trop long pour être supprimé par windows, et le supprimer pour de bon.&lt;/p&gt;
 &lt;p&gt;Il suffit de télécharger le fichier JAR et de l’exécuter avec un JDK 1.7 ou plus :&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;java -jar PathTooLong.jar
@@ -581,7 +637,7 @@ npm run gulp:compile
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Il nous demande le mot de passe root. Nous voilà avec un MySQL et un utilisateur root.&lt;/p&gt;
 &lt;p&gt;Maintenant j’aimerais utiliser HeidiSQL pour gérer mes bases. Allez soyons fous, on entre l’ip de notre serveur, root et notre mot de passe dans HeidiSQL. Et là… Oh la grosse erreur ! Eh ouais, MySQL n’autorise que les connexions locales par défaut. Et ne donne des droits aux utilisateur que s’ils se connectent en local. Bon, on va changer tout ça.&lt;/p&gt;
 &lt;p&gt;On va d’abord donner tous les droits sur toutes les bases à notre utilisateur root (en vrai il faudrait ne surtout pas toucher à root, mais plutôt créer un autre utilisateur à qui on restreint les droits, etc… J’ai la flemme, on verra plus tard) :&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; *.* &lt;span class=&quot;keyword&quot;&gt;TO&lt;/span&gt; ‘root’@’%’ &lt;span class=&quot;keyword&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; ‘UnMDPSuperSecret’;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;GRANT&lt;/span&gt; ALL &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; *.* &lt;span class=&quot;keyword&quot;&gt;TO&lt;/span&gt; ‘root’@’%’ &lt;span class=&quot;keyword&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; ‘UnMDPSuperSecret’;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;EDIT : un &lt;a href=&quot;http://blog.emmanuelgautier.fr/utilisateurs-et-privileges-sous-mysql.html&quot;&gt;très bon article&lt;/a&gt; d’Emmanuel Gautier explique comment gérer les droits sous MySQL. Je vous invite à y jetter un oeil pour gérer les droits proprement sur votre serveur.&lt;/p&gt;
 &lt;p&gt;Explications. &lt;code&gt;GRANT ALL PRIVILEGES&lt;/code&gt;, ça veut dire ce que ça veut dire. &lt;code&gt;ON *.*&lt;/code&gt;, ça veut dire sur toutes les bases et toutes les tables qui composent ces bases. &lt;code&gt;TO &amp;#39;root&amp;#39;@&amp;#39;%&amp;#39;&lt;/code&gt;, ça veut dire à l’utilisateur root peu importe l’IP avec laquelle il se connecte. Et &lt;code&gt;IDENTIFIED BY &amp;#39;...&amp;#39;&lt;/code&gt;, c’est le mot de passe de root.&lt;/p&gt;
