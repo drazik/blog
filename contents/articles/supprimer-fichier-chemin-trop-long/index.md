@@ -9,6 +9,20 @@ Quand on travaille avec npm sous windows, on est souvent confronté au message d
 
 <span class="more"></span>
 
+Edit 22/01/2016 : il existe en fait une solution un peu plus simple, dont je
+dois la découverte à un collègue (qu'il doit lui-même au web). Il s'agit
+d'utiliser la commande `robocopy`, disponible depuis Windows XP, pour
+"remplacer" le dossier `node_modules` par un dossier vide :
+
+```
+robocopy <chemin vers un dossier vide> <chemin vers node_modules> /MIR
+```
+
+[Source](http://www.michael-whelan.net/deleting-nested-node-modules-folders/).
+
+Si cette solution ne fonctionne pas pour vous pour n'importe quelle raison, il
+reste la suivante.
+
 C'est OSMStudios qui fournit [PathTooLong](http://osmstudios.net/projects/path-too-long), écrit en Java, et qui permet tout simplement de sélectionner un dossier dont le chemin est trop long pour être supprimé par windows, et le supprimer pour de bon.
 
 Il suffit de télécharger le fichier JAR et de l'exécuter avec un JDK 1.7 ou plus :
