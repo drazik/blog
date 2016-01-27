@@ -10,3 +10,6 @@ template: article.jade
 [Introduction à Grid Layout](http://putaindecode.io/fr/articles/css/grilles/grid-layout/)
 
 [Polyfill service](https://cdn.polyfill.io/v2/docs/)
+
+[Progress bar noticeably slows down npm install](https://github.com/npm/npm/issues/11283#issuecomment-175246823)
+
