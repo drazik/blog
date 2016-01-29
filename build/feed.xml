@@ -5,9 +5,25 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Fri, 22 Jan 2016 01:00:00 +0100</pubDate>
+    <pubDate>Fri, 29 Jan 2016 01:00:00 +0100</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 29/01/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-02/</link>
+      <pubDate>Fri, 29 Jan 2016 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-02/</guid>
+      <author></author>
+      <description>&lt;p&gt;Cette semaine 6 liens au menu. Du React, du Grid Layout, un service de polyfills, du WTF du côté de npm et des nouveautés sur Chrome et Firefox.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://camjackson.net/post/9-things-every-reactjs-beginner-should-know&quot;&gt;9 things every React.js beginner should know&lt;/a&gt; : des conseils pertinents pour démarrer avec React.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://putaindecode.io/fr/articles/css/grilles/grid-layout/&quot;&gt;Introduction à Grid Layout&lt;/a&gt; : une introduction au module CSS Grid Layout qui nous permettra bientôt de créer nos grilles très simplement.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://cdn.polyfill.io/v2/docs/&quot;&gt;Polyfill service&lt;/a&gt; : un service permettant de récupérer uniquement les polyfill dont le navigateur de l’utilisateur a besoin pour faire tourner nos sites. Seul inconvénient : il se base sur le User Agent. C’est un choix à faire.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/npm/npm/issues/11283#issuecomment-175246823&quot;&gt;Progress bar noticeably slows down npm install&lt;/a&gt; : depuis sa version 3, npm propose une barre de progression lorsqu’on installe un module. Vu comme une évolution bien appréciable lors de sa sortie, celle-ci ralentit en fait assez fortement les installations de module (entre 20 et 50% de temps supplémentaire). Un utilisateur explique le pourquoi du comment.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://v8project.blogspot.nl/2016/01/v8-release-49.html&quot;&gt;V8 release 4.0&lt;/a&gt; : la nouvelle version de V8, le moteur Javascript de Chrome, implémentera 91% des nouveautés d’ES6/2015.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.fxsitecompat.com/en-CA/versions/46/&quot;&gt;Firefox 46 est de sortie sur la developer edition&lt;/a&gt; : la principale nouveauté de cette version est qu’elle affiche comme non sécurisées les pages qui comportent un formulaire de login et qui ne sont pas servies en HTTPS.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Veille de la semaine - 22/01/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-01/</link>
