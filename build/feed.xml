@@ -5,9 +5,36 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Fri, 05 Feb 2016 01:00:00 +0100</pubDate>
+    <pubDate>Tue, 01 Mar 2016 01:00:00 +0100</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Résoudre le problème de crochet et d'accolade fermant(e) sur Atom</title>
+      <link>http://jesmodrazik.fr/articles/atom-crochet-accolade-fermant/</link>
+      <pubDate>Tue, 01 Mar 2016 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/atom-crochet-accolade-fermant/</guid>
+      <author></author>
+      <description>&lt;p&gt;Lorsqu’on utilise un clavier français (mais pas que) sur Atom, l’éditeur de code
+initié par Github, il est impossible de taper un crochet fermant ou une accolade
+fermante. Heureusement, il existe une solution.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Le problème est connu depuis 2014 et est lié à la gestion de la touche “ALT GR”,
+comme l’indique &lt;a href=&quot;https://github.com/atom/atom-keymap/issues/35&quot;&gt;cette issue&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;En parcourant les commentaires, on tombe sur pas mal de solutions plus ou moins
+propres qui requièrent d’éditer un fichier de configuration. J’en ai essayé
+plusieurs, sans succès.&lt;/p&gt;
+&lt;p&gt;Je suis finalement tombé sur le package
+&lt;a href=&quot;https://atom.io/packages/keyboard-localization&quot;&gt;keyboard-localization&lt;/a&gt;, qui
+permet de régler ces soucis sur de nombreuses dispositions de claviers, dont le
+bon vieux AZERTY français. Il suffit d’installer le package, puis d’aller dans
+la configuration de celui-ci et de sélectionner la langue qui vous convient
+(fr_FR dans mon cas, par exemple).&lt;/p&gt;
+&lt;p&gt;Voilà. C’est certes un peu drôle d’avoir à installer un package pour avoir une
+gestion correcte de son clavier, mais les développeurs d’Atom sont au courant
+donc il y a de fortes chances qu’une mise à jour réglant le problème finisse par
+arriver.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Veille de la semaine - 05/02/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-03/</link>
@@ -86,33 +113,6 @@ un éditeur WYSIWYG qui permet d’éditer facilement le contenu d’une page.
 &lt;a href=&quot;http://getcontenttools.com/demo&quot;&gt;La démo&lt;/a&gt; est bien plus parlante que des mots,
 vous devriez aller jetter un oeil !&lt;/p&gt;
 &lt;p&gt;Voilà, c’est tout pour cette première !&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>Résoudre le problème de crochet et d'accolade fermant(e) sur Atom</title>
-      <link>http://jesmodrazik.fr/articles/atom-crochet-accolade-fermant/</link>
-      <pubDate>Sun, 03 Jan 2016 01:00:00 +0100</pubDate>
-      <guid isPermaLink="true">http://jesmodrazik.fr/articles/atom-crochet-accolade-fermant/</guid>
-      <author></author>
-      <description>&lt;p&gt;Lorsqu’on utilise un clavier français (mais pas que) sur Atom, l’éditeur de code
-initié par Github, il est impossible de taper un crochet fermant ou une accolade
-fermante. Heureusement, il existe une solution.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Le problème est connu depuis 2014 et est lié à la gestion de la touche “ALT GR”,
-comme l’indique &lt;a href=&quot;https://github.com/atom/atom-keymap/issues/35&quot;&gt;cette issue&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;En parcourant les commentaires, on tombe sur pas mal de solutions plus ou moins
-propres qui requièrent d’éditer un fichier de configuration. J’en ai essayé
-plusieurs, sans succès.&lt;/p&gt;
-&lt;p&gt;Je suis finalement tombé sur le package
-&lt;a href=&quot;https://atom.io/packages/keyboard-localization&quot;&gt;keyboard-localization&lt;/a&gt;, qui
-permet de régler ces soucis sur de nombreuses dispositions de claviers, dont le
-bon vieux AZERTY français. Il suffit d’installer le package, puis d’aller dans
-la configuration de celui-ci et de sélectionner la langue qui vous convient
-(fr_FR dans mon cas, par exemple).&lt;/p&gt;
-&lt;p&gt;Voilà. C’est certes un peu drôle d’avoir à installer un package pour avoir une
-gestion correcte de son clavier, mais les développeurs d’Atom sont au courant
-donc il y a de fortes chances qu’une mise à jour réglant le problème finisse par
-arriver.&lt;/p&gt;
 </description>
     </item>
     <item>

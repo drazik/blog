@@ -1,7 +1,7 @@
 ---
 title: Résoudre le problème de crochet et d'accolade fermant(e) sur Atom
 author: Cyrille Jesmo Drazik
-date: 2016-01-03
+date: 2016-03-01
 template: article.jade
 ---
 
