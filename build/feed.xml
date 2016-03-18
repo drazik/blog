@@ -5,13 +5,13 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Wed, 16 Mar 2016 01:00:00 +0100</pubDate>
+    <pubDate>Fri, 18 Mar 2016 01:00:00 +0100</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
     <item>
-      <title>Veille de la semaine - 16/03/2016</title>
+      <title>Veille de la semaine - 18/03/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-04/</link>
-      <pubDate>Wed, 16 Mar 2016 01:00:00 +0100</pubDate>
+      <pubDate>Fri, 18 Mar 2016 01:00:00 +0100</pubDate>
       <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-04/</guid>
       <author></author>
       <description>&lt;p&gt;Cette semaine au programme : une très bonne introduction aux promises d’ES6, des
