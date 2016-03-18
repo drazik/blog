@@ -5,9 +5,45 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Tue, 01 Mar 2016 01:00:00 +0100</pubDate>
+    <pubDate>Wed, 16 Mar 2016 01:00:00 +0100</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 16/03/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-04/</link>
+      <pubDate>Wed, 16 Mar 2016 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-04/</guid>
+      <author></author>
+      <description>&lt;p&gt;Cette semaine au programme : une très bonne introduction aux promises d’ES6, des
+attributs permettant de précharger des ressources, des images responsives et un
+retour d’expérience sur une refonte de site avec React.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://jamesknelson.com/grokking-es6-promises-the-four-functions-you-need-to-avoid-callback-hell/&quot;&gt;Introduction to ES6 Promises – The Four Functions You Need To Avoid Callback Hell&lt;/a&gt; :
+dans cet article, l’auteur explique les bienfaits des promises et montre comment
+passer petit à petit d’un code illisible à base de callback imbriqués à un code
+très propre utilisant des promises. Un must read pour qui ne comprend rien aux
+promises.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.lvh.io/posts/queryselectorall-from-an-element-probably-doesnt-do-what-you-think-it-does.html#&quot;&gt;querySelectorAll from an element probably doesn’t do what you think it does&lt;/a&gt; :
+on pourrait croire que &lt;code&gt;querySelectorAll&lt;/code&gt;, appliquée à un élément, limite la
+recherche aux enfants de celui-ci, sans traverser tout le DOM. Ce n’est pas le
+cas.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=6KUXRuNzBwM&amp;amp;feature=youtu.be&amp;amp;t=73&quot;&gt;Replay sur la refonte front end de 6play fr - Kenny Dits&lt;/a&gt; :
+retour d’expérience de la part du responsable études et développement de M6Web
+sur la refonte front-end de 6play.fr. Il y explique le cheminement qui a mené
+aux choix des technos faits par son équipe, et comment ils ont pu mener à bien
+ce gros projet.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://css-tricks.com/prefetching-preloading-prebrowsing/&quot;&gt;Prefetching, preloading, prebrowsing&lt;/a&gt; :
+il est question ici de web perf. De nouvelles valeurs de l’attribut &lt;code&gt;rel&lt;/code&gt; de la
+balise &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; nous permettent de précharger des ressources ou d’entamer une
+connexion avec un serveur avant même d’en avoir besoin. Le but est d’accélérer
+les temps de chargements lorsque la ressource sera effectivement demandée par le
+client.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://jakearchibald.com/2015/anatomy-of-responsive-images/&quot;&gt;The anatomy of responsive images&lt;/a&gt; :
+excellent article, bien illustré, de Jake Archibald sur les images responsives.
+Il aborde différents cas de figures pour couvrir une grande partie des cas
+d’utilisation des images responsives.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Résoudre le problème de crochet et d'accolade fermant(e) sur Atom</title>
       <link>http://jesmodrazik.fr/articles/atom-crochet-accolade-fermant/</link>
