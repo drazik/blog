@@ -1,11 +1,14 @@
 ---
-title: Veille de la semaine - 18/03/2016
+title: Veille de la semaine - 25/03/2016
 author: Cyrille Jesmo Drazik
-date: 2016-03-18
+date: 2016-03-25
 template: article.jade
 ---
 
-Intro
+Cette semaine un cours sur les fondamentaux de React, des animations avec React,
+un état de l'art subjectif sur le monde JavaScript, une étude sur l'impact des
+mixins et du `@extend` de Sass sur les performances. Enfin, un talk TEDx qui n'a
+rien de technique, mais qui est très intéressant.
 
 <span class="more"></span>
 
