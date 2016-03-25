@@ -5,9 +5,38 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Fri, 18 Mar 2016 01:00:00 +0100</pubDate>
+    <pubDate>Fri, 25 Mar 2016 01:00:00 +0100</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 25/03/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-05/</link>
+      <pubDate>Fri, 25 Mar 2016 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-05/</guid>
+      <author></author>
+      <description>&lt;p&gt;Cette semaine un cours sur les fondamentaux de React, des animations avec React,
+un état de l’art subjectif sur le monde JavaScript, une étude sur l’impact des
+mixins et du &lt;code&gt;@extend&lt;/code&gt; de Sass sur les performances. Enfin, un talk TEDx qui n’a
+rien de technique, mais qui est très intéressant.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://courses.reactjsprogram.com/courses/reactjsfundamentals&quot;&gt;ReactJS Fundamentals&lt;/a&gt; :
+un cours en ligne gratuit et très bien fait sur les fondamentaux de React. Vous
+devriez commencer par là si vous débutez avec React et son écosystème.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://egghead.io/playlists/react-react-animation-using-react-motion&quot;&gt;Make things move in React with react-motion&lt;/a&gt; :
+une petite série de vidéos à propos de react-motion, un module utilisant les
+ReactTransitionGroup pour animer des composants React.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/javascript-and-opinions/state-of-the-art-javascript-in-2016-ab67fc68eb0b#.y2drossky&quot;&gt;State of the Art JavaScript in 2016&lt;/a&gt; :
+un état de l’art de l’univers JavaScript de nos jours. C’est subjectif, mais ça
+reflète très bien les technos JS qui ont le vent en poupe.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://csswizardry.com/2016/02/mixins-better-for-performance/&quot;&gt;Mixins Better for Performance&lt;/a&gt; :
+Harry Roberts prouve pas A+B qu’avec Sass les mixins sont meilleures que
+&lt;code&gt;@extend&lt;/code&gt; pour les performances.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.ted.com/talks/emilie_wapnick_why_some_of_us_don_t_have_one_true_calling?language=fr&quot;&gt;Pourquoi certains d’entre nous n’ont pas de vocation&lt;/a&gt; :
+une conférence TEDx à propos des gens qui ont beaucoup de centres d’intérêts,
+donc pas de vocation à proprement parler, et qui sont souvent mis de côté par
+notre société qui a tendance à idéaliser la vocation.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Veille de la semaine - 18/03/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-04/</link>
