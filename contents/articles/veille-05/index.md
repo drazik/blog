@@ -32,3 +32,10 @@ Harry Roberts prouve pas A+B qu'avec Sass les mixins sont meilleures que
 une conférence TEDx à propos des gens qui ont beaucoup de centres d'intérêts,
 donc pas de vocation à proprement parler, et qui sont souvent mis de côté par
 notre société qui a tendance à idéaliser la vocation.
+
+[Windows 10 est maintenant capable d'exécuter des binaires Linux](http://blog.dustinkirkland.com/2016/03/ubuntu-on-windows.html?m=1) :
+grâce au travail conjoint des équipes de Canonical (l'entreprise derrière
+Ubuntu) et de Microsoft, Windows 10 est maintenant capable d'exécuter du bash,
+entre autre. Ce n'est disponible que pour les gens qui sont inscrits au
+programme "insider" pour le moment. La mise à jour pour le grand public est
+prévue cet été.
