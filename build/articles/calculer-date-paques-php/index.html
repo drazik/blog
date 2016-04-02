@@ -34,33 +34,33 @@
  * <span class="doctag">@param</span> $year
  * <span class="doctag">@return</span> array
  */</span>
-<span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getHolidays</span><span class="params">(<span class="variable">$year</span>)</span>
+<span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getHolidays</span><span class="params">($year)</span>
 </span>{
-    <span class="variable">$holidays</span> = <span class="keyword">array</span>();
+    $holidays = <span class="keyword">array</span>();
 
     <span class="comment">// Fixed holidays</span>
-    <span class="variable">$fixedDates</span> = <span class="keyword">array</span>(<span class="string">'01-01'</span>, <span class="string">'05-01'</span>, <span class="string">'05-08'</span>, <span class="string">'07-14'</span>, <span class="string">'08-15'</span>, <span class="string">'11-01'</span>, <span class="string">'11-11'</span>, <span class="string">'12-25'</span>);
+    $fixedDates = <span class="keyword">array</span>(<span class="string">'01-01'</span>, <span class="string">'05-01'</span>, <span class="string">'05-08'</span>, <span class="string">'07-14'</span>, <span class="string">'08-15'</span>, <span class="string">'11-01'</span>, <span class="string">'11-11'</span>, <span class="string">'12-25'</span>);
 
-    <span class="keyword">foreach</span> (<span class="variable">$fixedDates</span> <span class="keyword">as</span> <span class="variable">$date</span>)
+    <span class="keyword">foreach</span> ($fixedDates <span class="keyword">as</span> $date)
     {
-        <span class="variable">$holidays</span>[] = <span class="keyword">new</span> DateTime(<span class="variable">$year</span> . <span class="string">'-'</span> . <span class="variable">$date</span>);
+        $holidays[] = <span class="keyword">new</span> DateTime($year . <span class="string">'-'</span> . $date);
     }
 
     <span class="comment">// Variables holidays, depending on easter</span>
-    <span class="variable">$easter</span> = <span class="keyword">new</span> DateTime(<span class="variable">$year</span> . <span class="string">'-03-21'</span>);
-    <span class="variable">$nbDays</span> = easter_days(<span class="variable">$year</span>);
-    <span class="variable">$easter</span>-&gt;add(<span class="keyword">new</span> DateInterval(<span class="string">'P'</span> . <span class="variable">$nbDays</span> . <span class="string">'D'</span>));
-    <span class="variable">$holidays</span>[] = <span class="keyword">clone</span> <span class="variable">$easter</span>;
+    $easter = <span class="keyword">new</span> DateTime($year . <span class="string">'-03-21'</span>);
+    $nbDays = easter_days($year);
+    $easter-&gt;add(<span class="keyword">new</span> DateInterval(<span class="string">'P'</span> . $nbDays . <span class="string">'D'</span>));
+    $holidays[] = <span class="keyword">clone</span> $easter;
 
-    <span class="variable">$easterMonday</span> = <span class="keyword">clone</span> <span class="variable">$easter</span>;
-    <span class="variable">$easterMonday</span>-&gt;add(<span class="keyword">new</span> DateInterval(<span class="string">'<span class="caps">P1D</span>'</span>));
-    <span class="variable">$holidays</span>[] = <span class="variable">$easterMonday</span>;
+    $easterMonday = <span class="keyword">clone</span> $easter;
+    $easterMonday-&gt;add(<span class="keyword">new</span> DateInterval(<span class="string">'<span class="caps">P1D</span>'</span>));
+    $holidays[] = $easterMonday;
 
-    <span class="variable">$easterThursday</span> = <span class="keyword">clone</span> <span class="variable">$easter</span>;
-    <span class="variable">$easterThursday</span>-&gt;add(<span class="keyword">new</span> DateInterval(<span class="string">'<span class="caps">P39D</span>'</span>));
-    <span class="variable">$holidays</span>[] = <span class="variable">$easterThursday</span>;
+    $easterThursday = <span class="keyword">clone</span> $easter;
+    $easterThursday-&gt;add(<span class="keyword">new</span> DateInterval(<span class="string">'<span class="caps">P39D</span>'</span>));
+    $holidays[] = $easterThursday;
 
-    <span class="keyword">return</span> <span class="variable">$holidays</span>;
+    <span class="keyword">return</span> $holidays;
 }
 </code></pre>
 <p>On peut maintenant faire une méthode qui prend en paramètre un DateTime et qui nous dit si celui-ci est un jour férié ou non&nbsp;:</p>
@@ -68,12 +68,12 @@
  * <span class="doctag">@param</span> DateTime $date
  * <span class="doctag">@return</span> bool
  */</span>
-<span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">isHoliday</span><span class="params">(\DateTime <span class="variable">$date</span>)</span>
+<span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">isHoliday</span><span class="params">(\DateTime $date)</span>
 </span>{
-    <span class="variable">$year</span> = intval(<span class="variable">$date</span>-&gt;format(<span class="string">'Y'</span>));
-    <span class="variable">$holidays</span> = <span class="variable">$this</span>-&gt;getHolidays(<span class="variable">$year</span>);
+    $year = intval($date-&gt;format(<span class="string">'Y'</span>));
+    $holidays = $this-&gt;getHolidays($year);
 
-    <span class="keyword">return</span> in_array(<span class="variable">$date</span>, <span class="variable">$holidays</span>);
+    <span class="keyword">return</span> in_array($date, $holidays);
 }
 </code></pre>
 </section>

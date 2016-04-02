@@ -5,9 +5,35 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Fri, 25 Mar 2016 01:00:00 +0100</pubDate>
+    <pubDate>Fri, 01 Apr 2016 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 01/04/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-06/</link>
+      <pubDate>Fri, 01 Apr 2016 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-06/</guid>
+      <author></author>
+      <description>&lt;p&gt;Cette semaine du JS testable, du React, du SVG, des Custom Properties CSS et
+une démo bluffante de synthétiseur basé sur l’API Web Audio.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.toptal.com/javascript/writing-testable-code-in-javascript&quot;&gt;Writing testable code in JavaScript: a brief overview&lt;/a&gt; :
+des conseils pour écrire du JavaScript testable.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://devnacho.com/2016/03/20/how-airbnb-uses-react/&quot;&gt;How Airbnb uses React&lt;/a&gt; :
+une interview de Leland Richardson, Software Engineer chez Airbnb à propos de
+l’utilisation de React et de son écosystème dans l’entreprise.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://fvsch.com/code/svg-icons/how-to/&quot;&gt;How to work with SVG icons&lt;/a&gt; : un guide
+complet sur les bases de l’utilisation de SVG pour afficher des îcones. Au menu,
+comment faire un sprite SVG, comment appliquer efficacement du CSS aux icônes,
+comment inclure les icônes pour obtenir un maximum de performances.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://jakearchibald.com/2016/css-loading-with-custom-props/&quot;&gt;Control CSS loading with custom properties&lt;/a&gt; :
+une expérimentation de Jake Archibald pour définir un ordre de chargement des
+CSS en utilisant les Custome Properties. Cet article fait suite au précédent sur
+&lt;a href=&quot;https://jakearchibald.com/2016/link-in-body/&quot;&gt;l’utilisation de &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; dans &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://jakearchibald.com/2016/link-in-body/&quot;&gt;Viktor NV-1 Synthesizer&lt;/a&gt; : un
+synthétiseur fonctionnel basé sur l’API Web Audio. Impresionnant et intéressant.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Veille de la semaine - 25/03/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-05/</link>
@@ -35,6 +61,12 @@ Harry Roberts prouve pas A+B qu’avec Sass les mixins sont meilleures que
 une conférence TEDx à propos des gens qui ont beaucoup de centres d’intérêts,
 donc pas de vocation à proprement parler, et qui sont souvent mis de côté par
 notre société qui a tendance à idéaliser la vocation.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.dustinkirkland.com/2016/03/ubuntu-on-windows.html?m=1&quot;&gt;Windows 10 est maintenant capable d’exécuter des binaires Linux&lt;/a&gt; :
+grâce au travail conjoint des équipes de Canonical (l’entreprise derrière
+Ubuntu) et de Microsoft, Windows 10 est maintenant capable d’exécuter du bash,
+entre autre. Ce n’est disponible que pour les gens qui sont inscrits au
+programme “insider” pour le moment. La mise à jour pour le grand public est
+prévue cet été.&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -267,11 +299,11 @@ très complète.&lt;/p&gt;
 &lt;p&gt;Voyons voir comment faire ceci avec nos petites main.&lt;/p&gt;
 &lt;h2 id=&quot;la-d-l-gation-d-v-nement-sans-biblioth-que-aucune-&quot;&gt;La délégation d’événement sans bibliothèque aucune !&lt;/h2&gt;
 &lt;p&gt;Alors, qu’est-ce qu’il nous faut ? D’abord un DOM, évidemment, et un event listener. On va changer d’exemple et créer une &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; contenant des &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;. Lorsqu’on cliquera sur un &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;, on affichera le texte qu’il contient.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;container&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;button&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Je suis le 1er bouton&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;button&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Je suis le 2eme bouton&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;button&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Je suis le 3eme bouton&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;container&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;button&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Je suis le 1er bouton&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;button&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Je suis le 2eme bouton&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;button&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Je suis le 3eme bouton&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Il faut maintenant qu’on attache un événement &lt;code&gt;click&lt;/code&gt; à notre &lt;code&gt;div#container&lt;/code&gt;. Celui-ci devra regarder si l’élément ayant déclenché l’événement est un &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;, et si c’est le cas, afficher le texte contenu par celui-ci dans la console. Pour IE 8, on utilisera un polyfill de &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener?redirectlocale=en-US&amp;amp;redirectslug=DOM%2FEventTarget.addEventListener&quot;&gt;&lt;code&gt;EventTarget.addEventListener&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; container = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;string&quot;&gt;'container'&lt;/span&gt;);
@@ -502,9 +534,9 @@ list.insertBefore(newItem, firstItem);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Si &lt;code&gt;firstItem&lt;/code&gt; vaut &lt;code&gt;null&lt;/code&gt;, le comportement est équivalent à &lt;code&gt;appendChild&lt;/code&gt;, ce qui permet d’insérer un élément avant un autre élément, ou à la fin du parent dans le cas où l’autre élément n’existe pas.&lt;/p&gt;
 &lt;p&gt;Le meilleur pour la fin : &lt;code&gt;Element.insertAdjacentHTML()&lt;/code&gt;. Cette méthode permet d’insérer un élément soit avant, au tout début, en toute fin ou après l’élément auquel elle est appliquée. Exemple :&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;parent&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;child&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child element&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;parent&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;child&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child element&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; parent = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelector(&lt;span class=&quot;string&quot;&gt;'#parent'&lt;/span&gt;);
 
@@ -514,13 +546,13 @@ parent.insertAdjacentHTML(&lt;span class=&quot;string&quot;&gt;'beforeend'&lt;/s
 parent.insertAdjacentHTML(&lt;span class=&quot;string&quot;&gt;'afterend'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'&amp;lt;div&amp;gt;Afterend&amp;lt;/div&amp;gt;'&lt;/span&gt;);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;On obtient le DOM suivant :&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;Beforebegin&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;parent&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;Afterbegin&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;child&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child element&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;Beforeend&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;Afterend&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-html&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;Beforebegin&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;parent&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;Afterbegin&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;child&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child element&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;Beforeend&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;Afterend&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Avec tout ça, il est possible d’ajouter des éléments à peu près n’importe où dans notre DOM, sans avoir recours à une bibliothèque.&lt;/p&gt;
 &lt;ul&gt;
@@ -704,33 +736,33 @@ npm run gulp:compile
  * &lt;span class=&quot;doctag&quot;&gt;@param&lt;/span&gt; $year
  * &lt;span class=&quot;doctag&quot;&gt;@return&lt;/span&gt; array
  */&lt;/span&gt;
-&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getHolidays&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt;)&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getHolidays&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;($year)&lt;/span&gt;
 &lt;/span&gt;{
-    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();
+    $holidays = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();
 
     &lt;span class=&quot;comment&quot;&gt;// Fixed holidays&lt;/span&gt;
-    &lt;span class=&quot;variable&quot;&gt;$fixedDates&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;'01-01'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'05-01'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'05-08'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'07-14'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'08-15'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'11-01'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'11-11'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'12-25'&lt;/span&gt;);
+    $fixedDates = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;'01-01'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'05-01'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'05-08'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'07-14'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'08-15'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'11-01'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'11-11'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'12-25'&lt;/span&gt;);
 
-    &lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt; (&lt;span class=&quot;variable&quot;&gt;$fixedDates&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;)
+    &lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt; ($fixedDates &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; $date)
     {
-        &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;[] = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateTime(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt; . &lt;span class=&quot;string&quot;&gt;'-'&lt;/span&gt; . &lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;);
+        $holidays[] = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateTime($year . &lt;span class=&quot;string&quot;&gt;'-'&lt;/span&gt; . $date);
     }
 
     &lt;span class=&quot;comment&quot;&gt;// Variables holidays, depending on easter&lt;/span&gt;
-    &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateTime(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt; . &lt;span class=&quot;string&quot;&gt;'-03-21'&lt;/span&gt;);
-    &lt;span class=&quot;variable&quot;&gt;$nbDays&lt;/span&gt; = easter_days(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt;);
-    &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt;-&amp;gt;add(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateInterval(&lt;span class=&quot;string&quot;&gt;'P'&lt;/span&gt; . &lt;span class=&quot;variable&quot;&gt;$nbDays&lt;/span&gt; . &lt;span class=&quot;string&quot;&gt;'D'&lt;/span&gt;));
-    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;[] = &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt;;
+    $easter = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateTime($year . &lt;span class=&quot;string&quot;&gt;'-03-21'&lt;/span&gt;);
+    $nbDays = easter_days($year);
+    $easter-&amp;gt;add(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateInterval(&lt;span class=&quot;string&quot;&gt;'P'&lt;/span&gt; . $nbDays . &lt;span class=&quot;string&quot;&gt;'D'&lt;/span&gt;));
+    $holidays[] = &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; $easter;
 
-    &lt;span class=&quot;variable&quot;&gt;$easterMonday&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt;;
-    &lt;span class=&quot;variable&quot;&gt;$easterMonday&lt;/span&gt;-&amp;gt;add(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateInterval(&lt;span class=&quot;string&quot;&gt;'P1D'&lt;/span&gt;));
-    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;[] = &lt;span class=&quot;variable&quot;&gt;$easterMonday&lt;/span&gt;;
+    $easterMonday = &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; $easter;
+    $easterMonday-&amp;gt;add(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateInterval(&lt;span class=&quot;string&quot;&gt;'P1D'&lt;/span&gt;));
+    $holidays[] = $easterMonday;
 
-    &lt;span class=&quot;variable&quot;&gt;$easterThursday&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$easter&lt;/span&gt;;
-    &lt;span class=&quot;variable&quot;&gt;$easterThursday&lt;/span&gt;-&amp;gt;add(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateInterval(&lt;span class=&quot;string&quot;&gt;'P39D'&lt;/span&gt;));
-    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;[] = &lt;span class=&quot;variable&quot;&gt;$easterThursday&lt;/span&gt;;
+    $easterThursday = &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; $easter;
+    $easterThursday-&amp;gt;add(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DateInterval(&lt;span class=&quot;string&quot;&gt;'P39D'&lt;/span&gt;));
+    $holidays[] = $easterThursday;
 
-    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;;
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; $holidays;
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;On peut maintenant faire une méthode qui prend en paramètre un DateTime et qui nous dit si celui-ci est un jour férié ou non :&lt;/p&gt;
@@ -738,12 +770,12 @@ npm run gulp:compile
  * &lt;span class=&quot;doctag&quot;&gt;@param&lt;/span&gt; DateTime $date
  * &lt;span class=&quot;doctag&quot;&gt;@return&lt;/span&gt; bool
  */&lt;/span&gt;
-&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isHoliday&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(\DateTime &lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;)&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isHoliday&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(\DateTime $date)&lt;/span&gt;
 &lt;/span&gt;{
-    &lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt; = intval(&lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;-&amp;gt;format(&lt;span class=&quot;string&quot;&gt;'Y'&lt;/span&gt;));
-    &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt; = &lt;span class=&quot;variable&quot;&gt;$this&lt;/span&gt;-&amp;gt;getHolidays(&lt;span class=&quot;variable&quot;&gt;$year&lt;/span&gt;);
+    $year = intval($date-&amp;gt;format(&lt;span class=&quot;string&quot;&gt;'Y'&lt;/span&gt;));
+    $holidays = $this-&amp;gt;getHolidays($year);
 
-    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; in_array(&lt;span class=&quot;variable&quot;&gt;$date&lt;/span&gt;, &lt;span class=&quot;variable&quot;&gt;$holidays&lt;/span&gt;);
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; in_array($date, $holidays);
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -761,12 +793,12 @@ npm run gulp:compile
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Il nous demande le mot de passe root. Nous voilà avec un MySQL et un utilisateur root.&lt;/p&gt;
 &lt;p&gt;Maintenant j’aimerais utiliser HeidiSQL pour gérer mes bases. Allez soyons fous, on entre l’ip de notre serveur, root et notre mot de passe dans HeidiSQL. Et là… Oh la grosse erreur ! Eh ouais, MySQL n’autorise que les connexions locales par défaut. Et ne donne des droits aux utilisateur que s’ils se connectent en local. Bon, on va changer tout ça.&lt;/p&gt;
 &lt;p&gt;On va d’abord donner tous les droits sur toutes les bases à notre utilisateur root (en vrai il faudrait ne surtout pas toucher à root, mais plutôt créer un autre utilisateur à qui on restreint les droits, etc… J’ai la flemme, on verra plus tard) :&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;GRANT&lt;/span&gt; ALL &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; *.* &lt;span class=&quot;keyword&quot;&gt;TO&lt;/span&gt; ‘root’@’%’ &lt;span class=&quot;keyword&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; ‘UnMDPSuperSecret’;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;GRANT&lt;/span&gt; ALL &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; *.* &lt;span class=&quot;keyword&quot;&gt;TO&lt;/span&gt; ‘root’@’%’ &lt;span class=&quot;keyword&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; ‘UnMDPSuperSecret’;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;EDIT : un &lt;a href=&quot;http://blog.emmanuelgautier.fr/utilisateurs-et-privileges-sous-mysql.html&quot;&gt;très bon article&lt;/a&gt; d’Emmanuel Gautier explique comment gérer les droits sous MySQL. Je vous invite à y jetter un oeil pour gérer les droits proprement sur votre serveur.&lt;/p&gt;
 &lt;p&gt;Explications. &lt;code&gt;GRANT ALL PRIVILEGES&lt;/code&gt;, ça veut dire ce que ça veut dire. &lt;code&gt;ON *.*&lt;/code&gt;, ça veut dire sur toutes les bases et toutes les tables qui composent ces bases. &lt;code&gt;TO &amp;#39;root&amp;#39;@&amp;#39;%&amp;#39;&lt;/code&gt;, ça veut dire à l’utilisateur root peu importe l’IP avec laquelle il se connecte. Et &lt;code&gt;IDENTIFIED BY &amp;#39;...&amp;#39;&lt;/code&gt;, c’est le mot de passe de root.&lt;/p&gt;
 &lt;p&gt;Pour que MySQL prenne ceci en compte, il faut “flusher” les privileges :&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;FLUSH&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt;;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;FLUSH&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;PRIVILEGES&lt;/span&gt;;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Une fois ceci fait, on va dire à MySQL de ne plus écouter les connexions uniquement sur 127.0.0.1 :&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;vi /etc/mysql/my.cnf
