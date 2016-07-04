@@ -5,9 +5,63 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Fri, 01 Apr 2016 02:00:00 +0200</pubDate>
+    <pubDate>Tue, 05 Jul 2016 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>CSS Paris - 5ème édition</title>
+      <link>http://jesmodrazik.fr/articles/css-paris-5/</link>
+      <pubDate>Tue, 05 Jul 2016 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/css-paris-5/</guid>
+      <author></author>
+      <description>&lt;p&gt;Hier soir, c’était la cinquième édition du meetup
+&lt;a href=&quot;http://www.meetup.com/fr-FR/CSS-Paris/events/232219450/&quot;&gt;CSS Paris&lt;/a&gt;. C’était la
+première fois que j’assistais à cet événement.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;C’est &lt;a href=&quot;http://www.ekino.com/&quot;&gt;Ekino&lt;/a&gt; qui a accueillit ce meetup dans ses locaux.
+Merci à eux pour l’accueil !&lt;/p&gt;
+&lt;p&gt;3 talks étaient au programme :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;10 astuces SVG qui vont vous sauver la vie&lt;/strong&gt; par
+&lt;a href=&quot;https://twitter.com/iamvdo&quot;&gt;@iamvdo&lt;/a&gt; : un talk que Vincent a déjà donné lors de
+la dernière &lt;a href=&quot;http://www.kiwiparty.fr/&quot;&gt;Kiwi Party&lt;/a&gt;, dans lequel il  nous donne
+10 astuces pour mieux utiliser et mieux comprendre SVG, qui est un langage
+relativement vieux (à l’échelle du web) et pourtant encore assez obscur pour de
+nombreuses personnes. Le format meetup lui a toutefois permis d’approfondir un
+peu plus chaque astuce, puisque le temps ne lui était pas compté. Un talk très
+intéressant.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La technique des Fab Four&lt;/strong&gt; par
+&lt;a href=&quot;https://twitter.com/HTeuMeuLeu&quot;&gt;@HTeuMeuLeu&lt;/a&gt; : comment réaliser une grille
+responsive dans un email sans media queries ni flexbox ? Défi relevé par Rémi et
+sa fameuse
+&lt;a href=&quot;http://emails.hteumeuleu.fr/2016/02/fab-four-emails-responsive-sans-media-queries/&quot;&gt;technique des « Fab Four »&lt;/a&gt;
+qui, par un astucieux mélange de &lt;code&gt;width&lt;/code&gt;, &lt;code&gt;calc()&lt;/code&gt;, &lt;code&gt;min-width&lt;/code&gt; et &lt;code&gt;max-width&lt;/code&gt;
+permet de créer des emails responsives très simplement. Un spectateur s’est
+inquiété de la santé mentale de Rémi, qui a dit qu’il se portait très bien, et
+aimait même ça.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web Animation Performance&lt;/strong&gt; et &lt;strong&gt;Comment faire des Layout Animations sans
+faire de Layout Animation ?&lt;/strong&gt; par
+&lt;a href=&quot;https://twitter.com/HarrisFreddy&quot;&gt;@HarrisFreddy&lt;/a&gt; : d’abord un rappel du
+fonctionnement du moteur de rendu des navigateurs web (phases de layout, de
+paint et de composite) et des impacts de la manipulation du document sur les
+performances de rendu lors d’une animation, Freddy nous a parlé de la technique
+FLIP (pour First Last Invert Play) pour faire des animations sur le layout de
+manière performante. En gros, le principe est de partir de l’état initial, puis
+de passer à l’état final sans faire d’animation, puis de revenir à l’état
+initial. De cette manière, la position initiale et la position finale sont
+connues, et l’animation peut se faire via un &lt;code&gt;transform&lt;/code&gt;, qui ne fait entrer en
+jeu que la phase composite et le GPU et est donc beaucoup plus performante
+qu’une animation sur le &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt; ou autre propriété de layout. Pour plus
+d’informations, vous pouvez aller voir la vidéo du talk
+&lt;a href=&quot;https://www.youtube.com/watch?v=qrbbD-1ET14&quot;&gt;Web Animation Performance&lt;/a&gt; donné
+par Freddy à &lt;a href=&quot;http://bestofweb.paris/&quot;&gt;Best of Web&lt;/a&gt; le mois dernier.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Voilà pour ce retour sur le premier meetup auquel j’assiste. Ce fut une très
+bonne expérience. Je vous conseille de
+&lt;a href=&quot;http://www.meetup.com/fr-FR/CSS-Paris/&quot;&gt;vous y inscrire&lt;/a&gt;. De nombreux autres
+meetup existent, n’hésitez pas à en rejoindre plusieurs !&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Veille de la semaine - 01/04/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-06/</link>
@@ -773,7 +827,7 @@ npm run gulp:compile
 &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isHoliday&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(\DateTime $date)&lt;/span&gt;
 &lt;/span&gt;{
     $year = intval($date-&amp;gt;format(&lt;span class=&quot;string&quot;&gt;'Y'&lt;/span&gt;));
-    $holidays = $this-&amp;gt;getHolidays($year);
+    $holidays = &lt;span class=&quot;keyword&quot;&gt;$this&lt;/span&gt;-&amp;gt;getHolidays($year);
 
     &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; in_array($date, $holidays);
 }

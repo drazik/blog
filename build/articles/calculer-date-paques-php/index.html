@@ -71,7 +71,7 @@
 <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">isHoliday</span><span class="params">(\DateTime $date)</span>
 </span>{
     $year = intval($date-&gt;format(<span class="string">'Y'</span>));
-    $holidays = $this-&gt;getHolidays($year);
+    $holidays = <span class="keyword">$this</span>-&gt;getHolidays($year);
 
     <span class="keyword">return</span> in_array($date, $holidays);
 }
