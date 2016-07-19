@@ -18,3 +18,5 @@ Intro
 [A Comprehensive Guide to Font Loading Strategies](https://www.zachleat.com/web/comprehensive-webfonts/)
 
 [ZingTouch](https://zingchart.github.io/zingtouch/)
+
+[anime.js](https://github.com/juliangarnier/anime)
