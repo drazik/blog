@@ -20,3 +20,9 @@ Intro
 [ZingTouch](https://zingchart.github.io/zingtouch/)
 
 [anime.js](https://github.com/juliangarnier/anime)
+
+[Web Accessibility - Developing with Empathy](https://www.udacity.com/course/web-accessibility--ud891)
+
+[Ress](https://github.com/filipelinhares/ress)
+
+[Everything I Know About The Script Tag](https://eager.io/blog/everything-I-know-about-the-script-tag/)
