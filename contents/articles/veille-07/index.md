@@ -5,7 +5,13 @@ date: 2016-07-22
 template: article.jade
 ---
 
-Intro
+Des sujets assez vaste pour cette semaine. Du CSS, des libs JS, un terminal
+basé sur des technos web, du SVG, de l'accessibilité...
+
+## Accessibilité
+
+[Web Accessibility - Developing with Empathy](https://www.udacity.com/course/web-accessibility--ud891) :
+un cours en ligne sur l'accessibilité, fais par des gens de chez Google.
 
 ## CSS
 
@@ -20,21 +26,10 @@ et Normalize.css, basé sur ce dernier.
 des aspects liés à l'UX et à l'accessibilité à considérer lorsqu'on développe
 une modale, et comment les gérer.
 
-## Accessibilité
+## HTML
 
-[Web Accessibility - Developing with Empathy](https://www.udacity.com/course/web-accessibility--ud891) :
-un cours en ligne sur l'accessibilité, fais par des gens de chez Google.
-
-## SVG
-
-[How to Design, Code, and Animate SVGs](http://surbhioberoi.com/a-complete-guide-to-svg/) :
-une introduction au format d'image SVG et aux différentes manières existantes
-pour l'animer.
-
-## Outils
-
-[Hyperterm](https://hyperterm.org/) : un terminal développé avec des technos web
-(c'est basé sur Electron), extensible via du JS et du CSS.
+[Everything I Know About The Script Tag](https://eager.io/blog/everything-I-know-about-the-script-tag/) :
+Quelques secrets à propos de la balise `script`.
 
 ## JS
 
@@ -45,6 +40,13 @@ gestures.
 [anime.js](https://github.com/juliangarnier/anime) : une librairie d'animation
 légère et performante.
 
-## HTML
-[Everything I Know About The Script Tag](https://eager.io/blog/everything-I-know-about-the-script-tag/) :
-Quelques secrets à propos de la balise `script`.
+## Outils
+
+[Hyperterm](https://hyperterm.org/) : un terminal développé avec des technos web
+(c'est basé sur Electron), extensible via du JS et du CSS.
+
+## SVG
+
+[How to Design, Code, and Animate SVGs](http://surbhioberoi.com/a-complete-guide-to-svg/) :
+une introduction au format d'image SVG et aux différentes manières existantes
+pour l'animer.
