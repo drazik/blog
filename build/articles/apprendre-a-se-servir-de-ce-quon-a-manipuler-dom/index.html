@@ -94,9 +94,9 @@ list.insertBefore(newItem, firstItem);
 </code></pre>
 <p>Si <code>firstItem</code> vaut <code>null</code>, le comportement est équivalent à <code>appendChild</code>, ce qui permet d’insérer un élément avant un autre élément, ou à la fin du parent dans le cas où l’autre élément n’existe&nbsp;pas.</p>
 <p>Le meilleur pour la fin : <code>Element.insertAdjacentHTML()</code>. Cette méthode permet d’insérer un élément soit avant, au tout début, en toute fin ou après l’élément auquel elle est appliquée. Exemple&nbsp;:</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>Child element<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"parent"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"child"</span>&gt;</span>Child element<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 </code></pre>
 <pre><code class="lang-javascript"><span class="keyword">var</span> parent = <span class="built_in">document</span>.querySelector(<span class="string">'#parent'</span>);
 
@@ -106,13 +106,13 @@ parent.insertAdjacentHTML(<span class="string">'beforeend'</span>, <span class="
 parent.insertAdjacentHTML(<span class="string">'afterend'</span>, <span class="string">'&lt;div&gt;Afterend&lt;/div&gt;'</span>);
 </code></pre>
 <p>On obtient le <span class="caps">DOM</span> suivant&nbsp;:</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Beforebegin<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">div</span>&gt;</span>Afterbegin<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>Child element<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="name">div</span>&gt;</span>Beforeend<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-<span class="tag">&lt;<span class="name">div</span>&gt;</span>Afterend<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">div</span>&gt;</span>Beforebegin<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"parent"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span>&gt;</span>Afterbegin<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"child"</span>&gt;</span>Child element<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span>&gt;</span>Beforeend<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span>&gt;</span>Afterend<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 </code></pre>
 <p>Avec tout ça, il est possible d’ajouter des éléments à peu près n’importe où dans notre <span class="caps">DOM</span>, sans avoir recours à une&nbsp;bibliothèque.</p>
 <ul>
