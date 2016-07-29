@@ -5,9 +5,61 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Fri, 22 Jul 2016 02:00:00 +0200</pubDate>
+    <pubDate>Fri, 29 Jul 2016 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 29/07/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-08/</link>
+      <pubDate>Fri, 29 Jul 2016 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-08/</guid>
+      <author></author>
+      <description>&lt;p&gt;Cette semaine une mixin Sass pour émuler un &lt;code&gt;(min|max-font-size)&lt;/code&gt;, un nouvel
+outil dévoilé par Facebook pour démarrer un projet React, un nouveau livre de la
+collection A Book Apart sur SVG, des plugins pour Atom et bien d’autres choses.&lt;/p&gt;
+&lt;h2 id=&quot;atom&quot;&gt;Atom&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mehcode/awesome-atom&quot;&gt;Awesome Atom&lt;/a&gt; : une sélection de
+plugins Atom bien pratiques.&lt;/p&gt;
+&lt;h2 id=&quot;css&quot;&gt;CSS&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/CSSLint/csslint/issues/668&quot;&gt;CSSLint + Stylelint&lt;/a&gt; : CSSLint
+va merger avec Stylelint, et ils ont besoin d’aide pour ça.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://css-tricks.com/snippets/sass/viewport-sized-typography-minimum-maximum-sizes/&quot;&gt;Viewport Sized Typography with Minimum and Maximum Sizes&lt;/a&gt; :
+Eduardo Bouças nous offre sa mixin Sass pour pouvoir déclarer une &lt;code&gt;font-size&lt;/code&gt;
+avec des unités de viewport (&lt;code&gt;vw&lt;/code&gt;, &lt;code&gt;vh&lt;/code&gt;, &lt;code&gt;vmax&lt;/code&gt; et &lt;code&gt;vmin&lt;/code&gt;) tout en spécifiant
+une taille minimum et maximum.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://css-tricks.com/learning-cope-microservices/&quot;&gt;Learning to COPE with Microservices&lt;/a&gt; :
+un retour d’expérience d’Eduardo Bouças (encore lui !) sur le développement
+d’un système COPE (Create Once, Publish Everywhere) en mettant en place une
+couche d’API et des microservices sur un CMS.&lt;/p&gt;
+&lt;h2 id=&quot;js&quot;&gt;JS&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/facebookincubator/create-react-app&quot;&gt;create-react-app&lt;/a&gt; :
+un utilitaire développé par Facebook (donc officiel) qui permet de créer des
+applications React sans avoir à s’occuper de la mise en place de toutes les
+dépendances à la main (Webpack, Babel, les presets/loaders qui vont avec…)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@xjamundx/getting-started-with-async-await-b66385983875#.1r8qaxstz&quot;&gt;Getting Started with Async/Await&lt;/a&gt; :
+une introduction aux fonctions asynchrones et au mot clef &lt;code&gt;await&lt;/code&gt; en JS.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://fr.slideshare.net/weaverryan/finally-professional-frontend-dev-with-reactjs-webpack-symfony-symfony-cat-2016&quot;&gt;Finally, Professional Frontend Dev with ReactJS, WebPack &amp;amp; Symfony&lt;/a&gt; :
+un talk donné lors de la Symfony Cat 2016 à propos de la mise en place de React
+et de Webpack dans un environnement Symfony.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/userpixel/micromustache&quot;&gt;Micromustache&lt;/a&gt; : la bibliothèque
+de templating &lt;a href=&quot;https://github.com/janl/mustache.js&quot;&gt;Mustache&lt;/a&gt; allégée de
+quelques fonctionnalités pour proposer l’essentiel (object + template = HTML)
+avec des performances accrues.&lt;/p&gt;
+&lt;h2 id=&quot;performances&quot;&gt;Performances&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/&quot;&gt;The performance benefits of rel=noopener&lt;/a&gt; :
+un topo sur les bienfaits de l’utilisation de  &lt;code&gt;rel=&amp;quot;noopener&amp;quot;&lt;/code&gt; sur les liens
+externes.&lt;/p&gt;
+&lt;h2 id=&quot;programmation-fonctionnelle&quot;&gt;Programmation fonctionnelle&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@cscalfani/goodbye-object-oriented-programming-a59cda4c0e53#.5fne8z4l1&quot;&gt;Goodbye, Object Oriented Programming&lt;/a&gt; :
+Une réflexion sur les mauvais aspects de la POO, et comment les éviter grâce à
+la programmation fonctionnelle.&lt;/p&gt;
+&lt;h2 id=&quot;svg&quot;&gt;SVG&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://abookapart.com/products/practical-svg&quot;&gt;Practical SVG&lt;/a&gt; : écrit par
+Chris Coyier (CSS-tricks), ce livre de la collection A Book Apart explique
+comment se servir de SVG au jour le jour, mais aussi comment créer un système
+d’icônes ou encore comment faire des animations.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Veille de la semaine - 22/07/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-07/</link>
