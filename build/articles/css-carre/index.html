@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Faire des carrés - Jesmo Drazik Blog
+    </title>
+    <link rel="alternate" href="http://jesmodrazik.fr/feed.xml" type="application/rss+xml" title="Développeur web pour l'agence de production Wandi">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Faire des carrés</h1>
+        <p class="author">Ecrit par <span class="author">Cyrille Jesmo Drazik</span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p>Quoi de plus simple qu’un carré ? Pourtant, comment dire à un élément <span class="caps">HTML</span>
+que sa hauteur doit être égale à sa largeur&nbsp;?</p>
+<h2 id="la-m-thode-tout-en-dur-">La méthode “tout en&nbsp;dur”</h2>
+<p>C’est la méthode qui est la plus simple et la plus inutile en même temps&nbsp;:</p>
+<p data-height="300" data-theme-id="15557" data-slug-hash="dXjrGm" data-default-tab="html,result" data-user="JesmoDrazik" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/JesmoDrazik/pen/dXjrGm/">Fixed width and height square</a> by Cyrille Perois (<a href="http://codepen.io/JesmoDrazik">@JesmoDrazik</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+<p>Alors oui, ça fait un carré, c’est indéniable. Pourtant, rare sont les cas dans
+lesquels ont peut se permettre de donner une taille fixe à un élément
+aujourd’hui. On a plus souvent besoin que l’élément soit un carré, et le reste
+même quand celui-ci est&nbsp;redimensionné.</p>
+<p>Mais il n’existe pas de moyen simple et évident en <span class="caps">CSS</span> pour donner à un élément
+une hauteur égale à sa largeur à tout moment. Quelque chose comme ceci…&nbsp;:</p>
+<pre><code class="lang-css"><span class="class">.Square</span> <span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">25%</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="function">computed-property</span>(width)</span></span>;
+}</span>
+</code></pre>
+<p>… qui prendrait la valeur calculée de <code>width</code> pour l’appliquer à <code>height</code>. Il
+nous faut donc une solution pour “écouter” la largeur de notre élément afin d’y
+appliquer une hauteur&nbsp;égale.</p>
+<h2 id="la-m-thode-javascript">La méthode&nbsp;JavaScript</h2>
+<p>La solution qui vient immédiatement en tête est d’utiliser du <span class="caps">JS</span> pour écouter
+l’événement <code>resize</code> sur la <code>window</code>, lire la <code>width</code> de l’élément et
+l’appliquer à sa <code>height</code> :</p>
+<p data-height="300" data-theme-id="15557" data-slug-hash="mEjPPQ" data-default-tab="js,result" data-user="JesmoDrazik" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/JesmoDrazik/pen/mEjPPQ/">Squares using JavaScript</a> by Cyrille Perois (<a href="http://codepen.io/JesmoDrazik">@JesmoDrazik</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+<p>(il serait évidemment une bonne idée d’utiliser un
+<a href="https://lodash.com/docs#debounce"><code>debounce</code></a> pour ne pas lancer la fonction un
+trop grand nombre de fois, mais le but est de rester simple&nbsp;ici)</p>
+<p>Cette solution fonctionne, mais le fait que mes éléments soient carrés devrait
+être laissé à la responsabilité de <span class="caps">CSS</span>. En effet, mon JS peut être bloqué par
+n’importe quel traitement, erreur, voir même être désactivé par l’utilisateur
+(c’est rare mais ça existe). Une solution CSS only serait&nbsp;préférable.</p>
+<h2 id="la-m-thode-je-connais-css-">La méthode “je connais&nbsp;<span class="caps">CSS</span>”</h2>
+<p>En me baladant sur un site en cours de développement chez Wandi, j’ai remarqué
+que des éléments d’une page étaient carrés, et le restaient lorsqu’on
+redimensionne la fenêtre du navigateur. Je suis allé voir le <span class="caps">JS</span> associé, pour
+m’assurer qu’un <code>debounce</code> était appliqué, afin d’optimiser les performances.
+A ma grande surprise, aucun <span class="caps">JS</span> n’était de la partie, tout était fait en CSS.
+J’ai donc demandé au collègue qui s’est chargé du développement de ce composant
+sa petite astuce. Et celle-ci repose sur le simple fait suivant : lorsqu’on
+applique une valeur en pourcentage à un padding, celle-ci se base sur la largeur
+de l’élément&nbsp;englobant.</p>
+<p>Il existe donc bien un moyen de donner à un élément une hauteur égale à sa
+largeur, et ce de manière fluide : appliquer un <code>padding-bottom: 100%</code> à un&nbsp;pseudo-élément.</p>
+<p><p data-height="300" data-theme-id="15557" data-slug-hash="GqBoGd" data-default-tab="css,result" data-user="JesmoDrazik" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/JesmoDrazik/pen/GqBoGd/"><span class="caps">CSS</span> only square</a> by Cyrille Perois (<a href="http://codepen.io/JesmoDrazik">@JesmoDrazik</a>) on <a href="http://codepen.io">CodePen</a>.</p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>Et voici. Je tire trois enseignements de cette expérience&nbsp;:</p>
+<ul>
+<li>Comment faire des carrés en <span class="caps">CSS</span>&nbsp;!</li>
+<li>Lire la documentation, comme toujours, est&nbsp;primordial</li>
+<li>Le partage de connaissances, lui aussi, est primordial. Je remercie donc ce
+collègue (qui est apprenti, vous avez des choses à apprendre de vos apprentis)
+d’avoir partagé ceci avec&nbsp;moi</li>
+</ul>
+</section>
+        </article>
+        <div class="share"><a href="https://twitter.com/share?text=Faire des carrés&amp;url=http://jesmodrazik.fr/articles/css-carre/&amp;via=JesmoDrazik" target="social">Partager sur Twitter</a></div>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« Revenir à la liste des articles</a></div>
+        <section class="about">
+        </section>
+        <section class="copy">
+          <p>&copy; 2016 Cyrille Perois &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -5,9 +5,75 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Fri, 29 Jul 2016 02:00:00 +0200</pubDate>
+    <pubDate>Wed, 03  Aug 2016 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Faire des carrés</title>
+      <link>http://jesmodrazik.fr/articles/css-carre/</link>
+      <pubDate>Wed, 03  Aug 2016 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/css-carre/</guid>
+      <author></author>
+      <description>&lt;p&gt;Quoi de plus simple qu’un carré ? Pourtant, comment dire à un élément HTML
+que sa hauteur doit être égale à sa largeur ?&lt;/p&gt;
+&lt;h2 id=&quot;la-m-thode-tout-en-dur-&quot;&gt;La méthode “tout en dur”&lt;/h2&gt;
+&lt;p&gt;C’est la méthode qui est la plus simple et la plus inutile en même temps :&lt;/p&gt;
+&lt;p data-height=&quot;300&quot; data-theme-id=&quot;15557&quot; data-slug-hash=&quot;dXjrGm&quot; data-default-tab=&quot;html,result&quot; data-user=&quot;JesmoDrazik&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/JesmoDrazik/pen/dXjrGm/&quot;&gt;Fixed width and height square&lt;/a&gt; by Cyrille Perois (&lt;a href=&quot;http://codepen.io/JesmoDrazik&quot;&gt;@JesmoDrazik&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Alors oui, ça fait un carré, c’est indéniable. Pourtant, rare sont les cas dans
+lesquels ont peut se permettre de donner une taille fixe à un élément
+aujourd’hui. On a plus souvent besoin que l’élément soit un carré, et le reste
+même quand celui-ci est redimensionné.&lt;/p&gt;
+&lt;p&gt;Mais il n’existe pas de moyen simple et évident en CSS pour donner à un élément
+une hauteur égale à sa largeur à tout moment. Quelque chose comme ceci… :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-css&quot;&gt;&lt;span class=&quot;class&quot;&gt;.Square&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;{
+    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; block&lt;/span&gt;&lt;/span&gt;;
+    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;number&quot;&gt;25%&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;
+    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;computed-property&lt;/span&gt;(width)&lt;/span&gt;&lt;/span&gt;;
+}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;… qui prendrait la valeur calculée de &lt;code&gt;width&lt;/code&gt; pour l’appliquer à &lt;code&gt;height&lt;/code&gt;. Il
+nous faut donc une solution pour “écouter” la largeur de notre élément afin d’y
+appliquer une hauteur égale.&lt;/p&gt;
+&lt;h2 id=&quot;la-m-thode-javascript&quot;&gt;La méthode JavaScript&lt;/h2&gt;
+&lt;p&gt;La solution qui vient immédiatement en tête est d’utiliser du JS pour écouter
+l’événement &lt;code&gt;resize&lt;/code&gt; sur la &lt;code&gt;window&lt;/code&gt;, lire la &lt;code&gt;width&lt;/code&gt; de l’élément et
+l’appliquer à sa &lt;code&gt;height&lt;/code&gt; :&lt;/p&gt;
+&lt;p data-height=&quot;300&quot; data-theme-id=&quot;15557&quot; data-slug-hash=&quot;mEjPPQ&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;JesmoDrazik&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/JesmoDrazik/pen/mEjPPQ/&quot;&gt;Squares using JavaScript&lt;/a&gt; by Cyrille Perois (&lt;a href=&quot;http://codepen.io/JesmoDrazik&quot;&gt;@JesmoDrazik&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;(il serait évidemment une bonne idée d’utiliser un
+&lt;a href=&quot;https://lodash.com/docs#debounce&quot;&gt;&lt;code&gt;debounce&lt;/code&gt;&lt;/a&gt; pour ne pas lancer la fonction un
+trop grand nombre de fois, mais le but est de rester simple ici)&lt;/p&gt;
+&lt;p&gt;Cette solution fonctionne, mais le fait que mes éléments soient carrés devrait
+être laissé à la responsabilité de CSS. En effet, mon JS peut être bloqué par
+n’importe quel traitement, erreur, voir même être désactivé par l’utilisateur
+(c’est rare mais ça existe). Une solution CSS only serait préférable.&lt;/p&gt;
+&lt;h2 id=&quot;la-m-thode-je-connais-css-&quot;&gt;La méthode “je connais CSS”&lt;/h2&gt;
+&lt;p&gt;En me baladant sur un site en cours de développement chez Wandi, j’ai remarqué
+que des éléments d’une page étaient carrés, et le restaient lorsqu’on
+redimensionne la fenêtre du navigateur. Je suis allé voir le JS associé, pour
+m’assurer qu’un &lt;code&gt;debounce&lt;/code&gt; était appliqué, afin d’optimiser les performances.
+A ma grande surprise, aucun JS n’était de la partie, tout était fait en CSS.
+J’ai donc demandé au collègue qui s’est chargé du développement de ce composant
+sa petite astuce. Et celle-ci repose sur le simple fait suivant : lorsqu’on
+applique une valeur en pourcentage à un padding, celle-ci se base sur la largeur
+de l’élément englobant.&lt;/p&gt;
+&lt;p&gt;Il existe donc bien un moyen de donner à un élément une hauteur égale à sa
+largeur, et ce de manière fluide : appliquer un &lt;code&gt;padding-bottom: 100%&lt;/code&gt; à un
+pseudo-élément.&lt;/p&gt;
+&lt;p&gt;&lt;p data-height=&quot;300&quot; data-theme-id=&quot;15557&quot; data-slug-hash=&quot;GqBoGd&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;JesmoDrazik&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/JesmoDrazik/pen/GqBoGd/&quot;&gt;CSS only square&lt;/a&gt; by Cyrille Perois (&lt;a href=&quot;http://codepen.io/JesmoDrazik&quot;&gt;@JesmoDrazik&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+&lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Et voici. Je tire trois enseignements de cette expérience :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Comment faire des carrés en CSS !&lt;/li&gt;
+&lt;li&gt;Lire la documentation, comme toujours, est primordial&lt;/li&gt;
+&lt;li&gt;Le partage de connaissances, lui aussi, est primordial. Je remercie donc ce
+collègue (qui est apprenti, vous avez des choses à apprendre de vos apprentis)
+d’avoir partagé ceci avec moi&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     <item>
       <title>Veille de la semaine - 29/07/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-08/</link>
