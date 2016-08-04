@@ -27,3 +27,17 @@ qui ne l'est pas lui-même.
 [Notes on Using ARIA in HTML](https://www.w3.org/TR/aria-in-html/) : un
 document du W3C à destination des développeurs donnant les bonnes pratiques pour
 l'utilisation de ARIA dans un document HTML.
+
+[react-media](https://github.com/ReactTraining/react-media) : un composant React
+pour faire des media queries.
+
+[You don't know npm](https://ashleygwilliams.github.io/node-live/#1) : les
+slides du talk de Ashley G. Williams à la Node Live, sur les petites choses à
+savoir sur npm.
+
+[Les éléments remplacés](http://www.ffoodd.fr/les-elements-remplaces/) : une
+mise au point sur les éléments remplacés et leur capacité (ou non) à avoir des
+pseudo-éléments.
+
+[Please.js](http://www.checkman.io/please/) : une bibliothèque de gestion de
+couleurs en JS.
