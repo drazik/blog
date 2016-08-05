@@ -5,9 +5,50 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Wed, 03  Aug 2016 02:00:00 +0200</pubDate>
+    <pubDate>Fri, 05  Aug 2016 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 05/08/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-09/</link>
+      <pubDate>Fri, 05  Aug 2016 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-09/</guid>
+      <author></author>
+      <description>&lt;p&gt;Cette semaine beaucoup de JS : une proposition pour un nouvel opérateur
+“pipeline”, un composant React pour faire des media queries, une bibliothèque
+de gestion de couleurs. Mais aussi de l’accessibilité et du CSS.&lt;/p&gt;
+&lt;h2 id=&quot;accessibilit-&quot;&gt;Accessibilité&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.w3.org/TR/aria-in-html/&quot;&gt;Notes on Using ARIA in HTML&lt;/a&gt; : un
+document du W3C à destination des développeurs donnant les bonnes pratiques pour
+l’utilisation de ARIA dans un document HTML.&lt;/p&gt;
+&lt;h2 id=&quot;css&quot;&gt;CSS&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://css-tricks.com/full-width-containers-limited-width-parents/&quot;&gt;Full Width Containers in Limited Width Parents&lt;/a&gt; :
+quelques méthodes permettant de placer un élément en full-width dans un parent
+qui ne l’est pas lui-même.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.ffoodd.fr/les-elements-remplaces/&quot;&gt;Les éléments remplacés&lt;/a&gt; : une
+mise au point sur les éléments remplacés et leur capacité (ou non) à avoir des
+pseudo-éléments.&lt;/p&gt;
+&lt;h2 id=&quot;javascript&quot;&gt;JavaScript&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@computer.guy/chaining-is-not-the-answer-6c4143ebb64d#.sgbqwo5cu&quot;&gt;Chaining Is Not The Answer&lt;/a&gt; :
+chaîner des méthodes propres à une bibliothèque ne résoud pas les problèmes
+de variables temporaires. Dès qu’on souhaite mélanger plusieurs bibliothèques,
+le chaining n’est plus possible. Le pipeline operator a pour but de résoudre ce
+problème.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ashleygwilliams.github.io/node-live/#1&quot;&gt;You don’t know npm&lt;/a&gt; : les
+slides du talk de Ashley G. Williams à la Node Live, sur les petites choses à
+savoir sur npm.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/kentcdodds/p-s&quot;&gt;p-s&lt;/a&gt; : un module npm permettant
+d’écrire des scripts npm sans les inconvénients du JSON.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/ReactTraining/react-media&quot;&gt;react-media&lt;/a&gt; : un composant React
+pour faire des media queries.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.checkman.io/please/&quot;&gt;Please.js&lt;/a&gt; : une bibliothèque de gestion de
+couleurs en JS.&lt;/p&gt;
+&lt;h2 id=&quot;autre&quot;&gt;Autre&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea#.3870ns3mb&quot;&gt;Imperative vs Declarative Programming&lt;/a&gt; :
+une explication précise de ce qui différencie la programmation impérative de la
+programmation déclarative.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Faire des carrés</title>
       <link>http://jesmodrazik.fr/articles/css-carre/</link>
