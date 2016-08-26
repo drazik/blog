@@ -5,9 +5,46 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Fri, 05  Aug 2016 02:00:00 +0200</pubDate>
+    <pubDate>Fri, 26  Aug 2016 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 26/08/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-10/</link>
+      <pubDate>Fri, 26  Aug 2016 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-10/</guid>
+      <author></author>
+      <description>&lt;p&gt;Un cours Egghead sur l’accessibilité, des techniques pour customiser des éléments
+de formulaires, des composants React pour faire de la musique et bien d’autres.&lt;/p&gt;
+&lt;h2 id=&quot;accessibilit-&quot;&gt;Accessibilité&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://egghead.io/courses/start-building-accessible-web-applications-today&quot;&gt;Start Building Accessible Web Applications Today&lt;/a&gt; :
+une liste de vidéos sur les bases de l’accessibilité.&lt;/p&gt;
+&lt;h2 id=&quot;css&quot;&gt;CSS&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://wtfforms.com/&quot;&gt;WTF, forms?&lt;/a&gt; : une liste de techniques pour customiser
+simplement et efficacement des éléments de formulaires.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.gadgetdaily.xyz/css4-whats-new-that-you-need-to-know/&quot;&gt;CSS4: What’s new that you need to know&lt;/a&gt; :
+une liste des nouveautés proposées par CSS “4” (entre guillemets car il n’y  a
+pas à proprement parler de version 4 de CSS, comme l’explique l’introduction de
+l’article : “CSS4 doesn’t actually exist, not as a monolithic specification
+describing what ‘CSS4’ is. What we do have are modules which describe separate
+functionality”).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://eliorshalev.github.io/tootik/&quot;&gt;Tootik&lt;/a&gt; : une petite lib CSS pour
+afficher des tooltips. Pas de JS là-dedans, c’est basé sur des attributs
+&lt;code&gt;data-*&lt;/code&gt;, des pseudo-éléments et la fonction &lt;code&gt;attr()&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;js&quot;&gt;JS&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.js-republic.com/keep-npm-dependencies-up-to-date/&quot;&gt;How to keep his NPM dependencies up-to-date ?&lt;/a&gt; :
+4 solutions qui permettent de mettre à jour facilement les dépendances NPM d’un
+projet. Mention spécial à updtr qui fonctionne très très bien.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://formidable.com/blog/2016/08/22/make-dope-beats-with-reactjs/&quot;&gt;Make Dope Beats with ReactJS&lt;/a&gt; :
+Ken Wheeler a créé un ensemble de composants React basés sur l’API Web Audio et
+qui permettent “tout simplement” d’écrire de la musique avec React. Fun et
+impressionnant.&lt;/p&gt;
+&lt;h2 id=&quot;autres&quot;&gt;Autres&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://frontend.center/&quot;&gt;Frontend Center&lt;/a&gt; : Glen Maddern lance une nouvelle
+série de screencasts sur différents sujets front-end fondamentaux. Le premier
+épisode est sur Webpack.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Veille de la semaine - 05/08/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-09/</link>
