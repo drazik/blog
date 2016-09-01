@@ -19,6 +19,11 @@ une explication rapide et efficace des principaux concepts de Flexbox
 les streams des deux journées de la conférence React Rally qui avait lieu les
 25 et 26 août dernier. Pour avoir le programme, c'est [par ici](http://www.reactrally.com/schedule)
 
+[11 Simple npm Tricks That Will Knock Your Wombat Socks Off](http://www.batmanstream.com/) :
+Vérifier les dépendances qui ont besoin d'être mises à jour, figer les versions
+des dépendances, aller directement sur la page npm ou github d'un module npm...
+Quelques astuces pour mieux profiter des outils mis à disposition par npm.
+
 ## Autre
 
 [Learning How to Learn: The Most Important Developer Skill](https://medium.freecodecamp.com/learning-how-to-learn-the-most-important-developer-skill-7bf62dfaf67d#.7szgm2wsm) :
