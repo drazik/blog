@@ -5,9 +5,63 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Sat, 03 Sep 2016 02:00:00 +0200</pubDate>
+    <pubDate>Fri, 28 Oct 2016 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 28/10/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-12/</link>
+      <pubDate>Fri, 28 Oct 2016 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-12/</guid>
+      <author></author>
+      <description>&lt;p&gt;Une mise à jour importante de Gecko doit arriver fin 2017, une technique pour
+remplacer les librairies de templating JS par des template strings introduites
+par ES2015, une technique pour donner l’impression d’un chargement de page plus
+rapide aux utilisateurs…&lt;/p&gt;
+&lt;h2 id=&quot;browsers&quot;&gt;Browsers&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/mozilla-tech/a-quantum-leap-for-the-web-a3b7174b3c12#.o5t1re9u7&quot;&gt;A Quantum Leap for the Web&lt;/a&gt; :
+Mozilla travaille sur une refonte de son moteur Gecko. Leur but est de tirer un
+maximum profit des architectures matérielles modernes (notamment les nombreux
+coeurs des processeurs) afin d’augmenter significativement les performances du
+moteur. Un projet qui devrait voir le jour dans Firefox fin 2017.&lt;/p&gt;
+&lt;h2 id=&quot;css&quot;&gt;CSS&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=eIUCPpWBrIU&quot;&gt;HSL: The RGB You’ve Been Waiting For&lt;/a&gt; :
+La vidéo du talk de Visnu Pitiyanuvath lors de la JSConf Iceland 2016 dans
+lequel celui-ci explique que le format RGB n’est pas fait pour les humains,
+contrairement au HSL qui est plus simple à conceptualiser et à manipuler.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://csswizardry.com/2016/10/improving-perceived-performance-with-multiple-background-images/&quot;&gt;Improving Perceived Performance with Multiple Background Images&lt;/a&gt; :
+Une technique relativement simple pour donner à l’utilisateur l’impression
+qu’une page se charge plus rapidement en remplaçant les images par des dégradés
+sur les couleurs principales de celles-ci pendant leur chargement.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://csswizardry.com/2016/10/continue-normalising-your-css/&quot;&gt;Continue Normalising Your CSS&lt;/a&gt; :
+La réponse d’Harry Roberts à l’article &lt;a href=&quot;http://shaunrashid.com/2015/09/15/normalize-css-no-more/&quot;&gt;Normalize (CSS) no more&lt;/a&gt;.
+Son point de vue est que, contrairement à ce qu’on voudrait faire croire, on
+n’utilise pas Normalize pour faire du pixel perfect sur tous les navigateurs et
+tous les devices, mais pour se faciliter la vie en tant que développeurs. Ce qui
+est un point à ne jamais négliger, tant que ça n’empiête pas sur l’expérience
+de l’utilisateur.&lt;/p&gt;
+&lt;h2 id=&quot;javascript&quot;&gt;JavaScript&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.keithcirkel.co.uk/es6-template-strings/&quot;&gt;ES6 Template Strings, the Handlebars Killer?&lt;/a&gt; :
+L’utilisation des templates strings (arrivées avec ES2015) avec une approche
+fonctionnelle, permettent de remplacer une librairie de templating type
+Handlebars.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=8aGhZQkoFbQ&quot;&gt;What the heck is the event loop anyway ?&lt;/a&gt; :
+La vidéo du talk de Philip Roberts lors de la JSConf EU 2014 à propos de ses
+travaux sur l’event loop qui donne sa nature asynchrone au JavaScript. Ce talk
+permet de comprendre comment JavaScript fonctionne.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://jesmodrazik.fr/articles/veille-12/Add%20document.%7Binteractive,contentLoaded,loaded%7D%20promises&quot;&gt;Add document.{interactive,contentLoaded,loaded} promises&lt;/a&gt; :
+Une proposition d’API basée sur des promises pour détecter le DOM-Ready en JS.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@ericclemmons/teaching-react-without-using-react-a4b87cfd4e87#.vxx8z821e&quot;&gt;Teaching React Without Using React&lt;/a&gt; :
+Une introduction à la philosophie de React et de la programmation fonctionnelle
+pensée pour des développeurs PHP travaillant principalement avec WordPress. Cet
+article démontre très bien que les concepts derrière React sont universels et
+peuvent être utilisés en dehors de l’écosystème JS/React.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.freecodecamp.com/seo-vs-react-is-it-neccessary-to-render-react-pages-in-the-backend-74ce5015c0c9#.y4ptbilhm&quot;&gt;SEO vs. React: Web Crawlers are Smarter Than You Think&lt;/a&gt; :
+Quand on pense à une SPA, on pense souvent à une mauvaise SEO. Pourtant, cet
+article montre que les moteurs de recherche sont capables d’indexer le contenu
+d’une SPA aujourd’hui, tant qu’on respecte quelques règles.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Veille de la semaine - 03/09/2016</title>
       <link>http://jesmodrazik.fr/articles/veille-11/</link>
