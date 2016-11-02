@@ -33,11 +33,11 @@ aujourd’hui. On a plus souvent besoin que l’élément soit un carré, et le 
 même quand celui-ci est&nbsp;redimensionné.</p>
 <p>Mais il n’existe pas de moyen simple et évident en <span class="caps">CSS</span> pour donner à un élément
 une hauteur égale à sa largeur à tout moment. Quelque chose comme ceci…&nbsp;:</p>
-<pre><code class="lang-css"><span class="class">.Square</span> <span class="rules">{
-    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">25%</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="function">computed-property</span>(width)</span></span>;
-}</span>
+<pre><code class="lang-css"><span class="selector-class">.Square</span> {
+    <span class="attribute">display</span>: block;
+    <span class="attribute">width</span>: <span class="number">25%</span>;
+    <span class="attribute">height</span>: <span class="built_in">computed-property</span>(width);
+}
 </code></pre>
 <p>… qui prendrait la valeur calculée de <code>width</code> pour l’appliquer à <code>height</code>. Il
 nous faut donc une solution pour “écouter” la largeur de notre élément afin d’y

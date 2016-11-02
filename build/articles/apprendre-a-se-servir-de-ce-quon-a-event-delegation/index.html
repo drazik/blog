@@ -29,11 +29,11 @@
 <p>Voyons voir comment faire ceci avec nos petites&nbsp;main.</p>
 <h2 id="la-d-l-gation-d-v-nement-sans-biblioth-que-aucune-">La délégation d’événement sans bibliothèque aucune&nbsp;!</h2>
 <p>Alors, qu’est-ce qu’il nous faut ? D’abord un <span class="caps">DOM</span>, évidemment, et un event listener. On va changer d’exemple et créer une <code>&lt;div&gt;</code> contenant des <code>&lt;button&gt;</code>. Lorsqu’on cliquera sur un <code>&lt;button&gt;</code>, on affichera le texte qu’il&nbsp;contient.</p>
-<pre><code class="lang-html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>Je suis le 1er bouton<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>Je suis le 2eme bouton<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>Je suis le 3eme bouton<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>Je suis le 1er bouton<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>Je suis le 2eme bouton<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>Je suis le 3eme bouton<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 </code></pre>
 <p>Il faut maintenant qu’on attache un événement <code>click</code> à notre <code>div#container</code>. Celui-ci devra regarder si l’élément ayant déclenché l’événement est un <code>&lt;button&gt;</code>, et si c’est le cas, afficher le texte contenu par celui-ci dans la console. Pour <span class="caps">IE</span> 8, on utilisera un polyfill de <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener?redirectlocale=en-US&amp;redirectslug=DOM%2FEventTarget.addEventListener"><code>EventTarget.addEventListener</code></a>.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);
