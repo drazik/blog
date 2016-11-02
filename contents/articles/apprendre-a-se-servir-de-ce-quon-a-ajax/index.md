@@ -1,7 +1,7 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : AJAX"
 author: Cyrille Jesmo Drazik
-date: 2015-07-04
+date: 2016-11-03
 template: article.jade
 ---
 
@@ -121,7 +121,8 @@ xhr.onreadystatechange = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
             // OK
         } else {
-            // Erreur
+            // Erreur ou redirection HTTP. Il est possible de gérer ces cas,
+            // mais le but est de rester le plus simple possible ici
         }
     }
 };
@@ -211,16 +212,22 @@ $.ajax({
 Mais on va pas se laisser abattre, on peut toujours se débrouiller sans lui !
 
 ```javascript
-// TODO : gérer async true/false; passer le status au success; donner la possibilité d'envoyer des headers à la requête; faire le encodeURIComponent automatiquement
 function ajax(options) {
+    options.async = options.hasOwnProperty('async') ? options.async : true;
+    options.headers = options.headers ? options.headers : {};
+
     var xhr = new XMLHttpRequest();
 
-    xhr.open(options.type, options.url);
+    xhr.open(options.type, options.url, options.async);
+
+    Object.keys(options.headers).forEach(function(header) {
+        xhr.setRequestHeader(header, options.headers[header]);
+    });
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === xhr.DONE) {
             if (xhr.status >= 200 && xhr.status < 300) {
-                options.success(xhr.responseXML || xhr.responseText);
+                options.success(xhr.responseXML || xhr.responseText, xhr.status);
             } else {
                 options.error(xhr.status, xhr.statusText);
             }
@@ -236,9 +243,9 @@ ajax({
     type: 'POST',
     url: 'http://jesmodrazik.fr',
     data: 'param1=' + encodeURIComponent('value1&') + '&param2=' + encodeURIComponent('value2'),
-    success: function(data) {
+    success: function(data, status) {
         var json = JSON.parse(data);
-        console.log(data);
+        console.log(data, status);
     },
     error: function(status, statusText) {
         console.error(status, statusText);
@@ -246,16 +253,85 @@ ajax({
 });
 ```
 
-Et voilà !
+Et voilà ! Cette fonction pourrait être plus poussée, mais en l'état elle couvre
+la grande majorité des cas d'utilisation.
 
 ## XMLHttpRequest 2, le retour
 
-http://www.html5rocks.com/en/tutorials/file/xhr2/
+La deuxième version de la spécification XMLHttpRequest apporte son lot d'ajouts
+intéressants :
+
+* la possibilité de spécifier un format de réponse, via `xhr.responseType`, et
+de récupérer la réponse directement au bon format via `xhr.response`. Les
+formats possibles sont `text`, `arraybuffer`, `blob`, `document` ou `json`
+* la possibilité d'envoyer tous les formats précédents à la requête
+* l'objet `FormData` pour envoyer très simplement des données de formulaire
+(et qui gère aussi l'upload !) :
+
+```javascript
+var form = document.querySelector('#myForm');
+var data = new FormData(form);
+
+xhr.send(data);
+```
+
+Avec ces évolutions, l'objet `XMLHttpRequest` n'est pas refondu en profondeur,
+mais se voit ajouter quelques propriétés qui ouvrent de nouvelles possibilités.
 
 ## Le "futur" des requêtes asynchrones
 
-http://www.sitepoint.com/javascript-goes-asynchronous-awesome/
+Avec l'arrivée d'ES2015, des nouveautés concernant les traitements asynchrones
+et les requêtes AJAX sont arrivées.
+
+D'abord, l'API [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch),
+basée sur les `Promise`s, qui permet de faire une requête GET asynchrone en une
+ligne, et d'en traiter le résultat avec du code très lisible :
+
+```javascript
+fetch('http://jesmodrazik.fr')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    });
+```
+
+Je vous invite à aller sur le [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+si vous voulez en savoir plus.
+
+Enfin, l'arrivée des fonctions asynchrones va permettre d'écrire du code
+asynchrone comme si celui-ci était synchrone :
+
+```javascript
+function getSomething() {
+    return fetch('http://jesmodrazik.fr')
+        .then(function (response) {
+            return response.json();
+        });
+}
+
+async function getSomething() {
+    const data = await fetch('http://jesmodrazik');
+    console.log(data);
+}
+```
+
+Ici, la fonction est déclarée comme étant asynchrone grâce au mot-clef `async`,
+ce qui donne accès au mot-clef `await` à l'intérieur de la fonction. Ce mot-clef
+permet de mettre en pause la fonction le temps qu'une `Promise` soit résolue ou
+rejettée. Pour en savoir plus à propos des fonctions asynchrones, je vous
+conseilles la lecture de [cet article](http://putaindecode.io/fr/articles/js/es2016/async-await/).
 
 ## Pour finir
 
-Ca commence à devenir répétitif, mais la conclusion reste évidemment toujours la même : comme pour la manipulation du DOM, du style des éléments de ce même DOM, des animations, de la délégation d'événements, et j'en passe, il est donc possible, pour les cas les plus courants, de se passer de jQuery pour faire des requêtes AJAX. L'important est de se poser la bonne question : est-ce que pour faire ce dont j'ai besoin, jQuery est nécessaire ?
+Ca commence à devenir répétitif, mais la conclusion reste évidemment toujours
+a même : comme pour la manipulation du DOM, du style des éléments de ce même
+DOM, des animations, de la délégation d'événements, et j'en passe, il est donc
+possible, pour les cas les plus courants, de se passer de jQuery pour faire des
+requêtes AJAX. L'important est de se poser la bonne question : est-ce que pour
+faire ce dont j'ai besoin, jQuery est nécessaire ? Il est aussi important, même
+si on s'est mit au JavaScript avec jQuery, d'apprendre les fondamentaux. La
+connaissance du langage est plus valorisante que celle de n'importe quelle
+librairie. En effet, connaître le langage permet de s'adapter simplement à
+n'importe quelle librairie. Alors que l'inverse n'est pas vrai.
