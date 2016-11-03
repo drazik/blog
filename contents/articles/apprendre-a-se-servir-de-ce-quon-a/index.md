@@ -16,8 +16,7 @@ Que l'on soit bien d'accord. Je ne crache pas sur jQuery ni sur ses petits copai
 * 3ème partie : [manipuler le style des éléments](/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-styles-elements/)
 * 4ème partie : [faire des animations](/articles/apprendre-a-se-servir-de-ce-quon-a-animations)
 * 5ème partie : [la délégation d'événements](/articles/apprendre-a-se-servir-de-ce-quon-a-event-delegation)
-* 6ème partie : AJAX
-* 7ème partie : des petites choses bien pratiques
+* 6ème partie : [AJAX](/articles/apprendre-a-se-servir-de-ce-quon-a-ajax/)
 
 Les liens ci-dessus seront mis à jour au fur et à mesure de la publication de chaque partie.
 
