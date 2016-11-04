@@ -47,6 +47,8 @@ bien d'autres) si on le lui demande. Cette configuration peut bien évidemment
 évoluer au cours de la vie du projet. Il suffira alors de modifier le fichier
 de configuration en y ajoutant ou en enlevant les plugins souhaités.
 
+![Autocomplétion dans une classe JavaScript](images/atom-ternjs-example.jpg)
+
 ### L'autocomplétion d'import de modules
 
 Pour ne pas avoir à se souvenir de tous les noms des modules qu'on utilise, on
@@ -56,6 +58,8 @@ package analyse notre dossier `node_modules` et nous propose les noms des
 modules qui s'y trouvent lorsqu'on est en train de taper un `require('toto')` ou
 un `import toto from 'toto'`. Il nous propose aussi nos modules locaux si le nom
 qu'on est en train de taper commence par `./` ou `../`.
+
+![Autocomplétion d'import de modules](images/autocomplete-modules-example.jpg)
 
 ## De l'autocomplétion PHP
 
@@ -73,6 +77,8 @@ chemin vers votre Composer et votre PHP. Les deux autres paramètres
 "Autoload file" et "Classmap files" peuvent être laissés à leur valeur par
 défaut pour une utilisation classique de Composer.
 
+![Autocomplétion PHP](images/atom-autocomplete-php-example.jpg)
+
 ### L'autocomplétion Symfony
 
 Ici, c'est sur [`atom-symfony2`](https://atom.io/packages/atom-symfony2) qu'on
@@ -88,6 +94,8 @@ que celui-ci soit fonctionnel, et qu'on ait bien spécifier le chemin du fichier
 Symfony 2, on peut laisser la valeur par défaut (`app/console`). Mais si on
 travaille avec Symfony 3, il faut spécifier le nouvel emplacement de ce
 fichier : `bin/console`.
+
+![Autocomplétion de services dans un contrôleur Symfony](images/atom-symfony2-example.jpg)
 
 Et voici. Pour avoir de
 l'autocomplete sur d'autres langages, il vous suffit de trouver et d'installer
