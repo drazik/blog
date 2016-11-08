@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>L'autocomplétion dans Atom - Jesmo Drazik Blog
+    </title>
+    <link rel="alternate" href="http://jesmodrazik.fr/feed.xml" type="application/rss+xml" title="Développeur web pour l'agence de production Wandi">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>L'autocomplétion dans Atom</h1>
+        <p class="author">Ecrit par <span class="author">Cyrille Jesmo Drazik</span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p>Il y a un peu plus de 2 ans, j’expliquais pourquoi
+<a href="/articles/sublime-text-ide-a-la-carte/">je préfère les éditeurs de texte légers aux gros <span class="caps">IDE</span></a>.
+C’est toujours le cas, à la différence près que j’ai abandonné Sublime Text pour
+Atom. Cette préférence a un inconvénient qui découle d’un avantage majeur : il
+n’y a pas de véritable autocomplétion pré-packagée. Evidemment, puisque dans ce
+genre d’éditeur, l’intégration de fonctionnalités spécifique est laissée à
+l’appréciation de l’utilisateur. Intégrer de l’autocomplétion pour les langages
+qu’on utilise n’a rien de complexe, il faut juste prendre 5 minutes pour s’y
+pencher. De mon côté, j’ai besoin d’autocomplétion sur du JavaScript, du <span class="caps">PHP</span> et
+le framework&nbsp;Symfony.</p>
+<h2 id="la-base-autocomplete-plus-">La base : <code>autocomplete-plus</code></h2>
+<p><a href="https://atom.io/packages/autocomplete-plus"><code>autocomplete-plus</code></a> est le
+provider de base de toute autocomplétion dans Atom. Celui-ci est prépackagé
+avec Atom. Il propose de base un provider simple, le <code>SymbolProvider</code> qui
+propose une autocomplétion basée sur les “symboles” (en gros, les mots) présents
+dans le fichier en cours&nbsp;d’édition.</p>
+<p>Ce package est la base car il propose une <span class="caps">API</span> sur laquelle d’autres providers
+peuvent venir s’appuyer pour proposer une autocomplétion plus spécifique et
+efficace. Et les providers sont nombreux. Pour s’en convaincre, il suffit de
+faire une <a href="https://atom.io/packages/search?utf8=%E2%9C%93&amp;q=autocomplete">petite recherche sur le site d’Atom</a>.</p>
+<h2 id="de-l-autocompl-tion-javascript">De l’autocomplétion&nbsp;JavaScript</h2>
+<p>En JavaScript, on a besoin d’autocomplétion pour le langage en général (classes,
+fonctions, variables…), mais aussi pour l’import de&nbsp;modules.</p>
+<h3 id="l-autocompl-tion-classique-">L’autocomplétion&nbsp;“classique”</h3>
+<p>Pour ça, on va utiliser <a href="https://atom.io/packages/atom-ternjs"><code>atom-ternjs</code></a>
+qui se base sur <a href="https://github.com/ternjs/tern">Tern</a> et <code>autocomplete-plus</code>
+pour fournir une autocomplétion très efficace pour&nbsp;JavaScript.</p>
+<p>Tern doit être configuré pour chaque projet, ce qui nous laisse la main pour
+définir les librairies externes qu’on veut utiliser. En effet, Tern est capable
+de nous proposer de l’autocomplete pour l’<span class="caps">API</span> de jQuery, d’AngularJS, NodeJS (et
+bien d’autres) si on le lui demande. Cette configuration peut bien évidemment
+évoluer au cours de la vie du projet. Il suffira alors de modifier le fichier
+de configuration en y ajoutant ou en enlevant les plugins&nbsp;souhaités.</p>
+<p><img src="/articles/atom-autocomplete/images/atom-ternjs-example.jpg" alt="Autocomplétion dans une classe JavaScript"></p>
+<h3 id="l-autocompl-tion-d-import-de-modules">L’autocomplétion d’import de&nbsp;modules</h3>
+<p>Pour ne pas avoir à se souvenir de tous les noms des modules qu’on utilise, on
+va utiliser
+<a href="https://atom.io/packages/autocomplete-modules"><code>autocomplete-modules</code></a>. Ce
+package analyse notre dossier <code>node_modules</code> et nous propose les noms des
+modules qui s’y trouvent lorsqu’on est en train de taper un <code>require(&#39;toto&#39;)</code> ou
+un <code>import toto from &#39;toto&#39;</code>. Il nous propose aussi nos modules locaux si le nom
+qu’on est en train de taper commence par <code>./</code> ou <code>../</code>.</p>
+<p><img src="/articles/atom-autocomplete/images/autocomplete-modules-example.jpg" alt="Autocomplétion d&#39;import de modules"></p>
+<h2 id="de-l-autocompl-tion-php">De l’autocomplétion&nbsp;<span class="caps">PHP</span></h2>
+<p>Pour <span class="caps">PHP</span>, comme pour JavaScript, on a bien entendu besoin d’une autocomplétion
+générale pour l’ensemble du langage. Mais puisque je travaille majoritairement
+avec le framework Symfony, j’ai aussi besoin de choses propres à celui-ci, pour
+le nom des services par&nbsp;exemple.</p>
+<h3 id="l-autocompl-tion-g-n-rale">L’autocomplétion&nbsp;générale</h3>
+<p>Pour l’autocomplétion générale en <span class="caps">PHP</span>, <a href="https://atom.io/packages/atom-autocomplete-php"><code>atom-autocomplete-php</code></a>
+fait un très bon travail. Celui-ci s’appuie sur Composer et les blocs de
+documentation présents dans le code. Pour qu’il fonctionne, il faut spécifier le
+chemin vers votre Composer et votre <span class="caps">PHP</span>. Les deux autres paramètres
+“Autoload file” et “Classmap files” peuvent être laissés à leur valeur par
+défaut pour une utilisation classique de&nbsp;Composer.</p>
+<p><img src="/articles/atom-autocomplete/images/atom-autocomplete-php-example.jpg" alt="Autocomplétion PHP"></p>
+<h3 id="l-autocompl-tion-symfony">L’autocomplétion&nbsp;Symfony</h3>
+<p>Ici, c’est sur <a href="https://atom.io/packages/atom-symfony2"><code>atom-symfony2</code></a> qu’on
+va compter. Celui-ci propose de l’autocomplétion sur différentes choses.
+D’abord, dans les fichiers de configuration, il propose de l’autocomplétion sur
+les noms de services et sur les classes. Ensuite, dans une classe utilisant le
+conteneur d’injection de dépendance, celui-ci propose de l’autocomplétion sur
+les noms de&nbsp;services.</p>
+<p>Pour fonctionner, celui-ci nécessite qu’on ait installé <code>atom-autocomplete-php</code>,
+que celui-ci soit fonctionnel, et qu’on ait bien spécifier le chemin du fichier
+<code>console</code> dnas la configuration. Pour ce dernier détail, si on travaille avec
+Symfony 2, on peut laisser la valeur par défaut (<code>app/console</code>). Mais si on
+travaille avec Symfony 3, il faut spécifier le nouvel emplacement de ce
+fichier : <code>bin/console</code>.</p>
+<p><img src="/articles/atom-autocomplete/images/atom-symfony2-example.jpg" alt="Autocomplétion de services dans un contrôleur Symfony"></p>
+<p>Et voici. Pour avoir de
+l’autocomplete sur d’autres langages, il vous suffit de trouver et d’installer
+un plugin pour le ou les langages qui vous intéressent. Il y a très peu de
+chance qu’un tel plugin n’existe pas&nbsp;déjà.</p>
+<p>Petit bonus, pour ne pas avoir à installer les mêmes packages deux
+fois (au boulot et à la maison), vous pouvez utiliser
+<a href="https://atom.io/packages/sync-settings"><code>sync-settings</code></a>.</p>
+</section>
+        </article>
+        <div class="share"><a href="https://twitter.com/share?text=L'autocomplétion dans Atom&amp;url=http://jesmodrazik.fr/articles/atom-autocomplete/&amp;via=JesmoDrazik" target="social">Partager sur Twitter</a></div>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« Revenir à la liste des articles</a></div>
+        <section class="about">
+        </section>
+        <section class="copy">
+          <p>&copy; 2016 Cyrille Perois &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
