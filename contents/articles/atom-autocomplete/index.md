@@ -1,7 +1,7 @@
 ---
 title: L'autocomplétion dans Atom
 author: Cyrille Jesmo Drazik
-date: 2016-11-02
+date: 2016-11-08
 template: article.jade
 ---
 
