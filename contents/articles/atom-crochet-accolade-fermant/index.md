@@ -11,6 +11,17 @@ fermante. Heureusement, il existe une solution.
 
 <span class="more"></span>
 
+**Edit 10/11/2016** : La version 1.12.0 d'Atom est sortie aujourd'hui, et parmi
+les nouveautés qu'elle propose (voir les
+[notes de release sur Github](https://github.com/atom/atom/releases/tag/v1.12.0))
+, on trouve le support de tous les layouts de claviers. De leur propre aveux,
+c'est une fonctionnalité qui était demandée depuis longtemps (2014). L'équipe a
+toutefois écrit un
+[article sur son blog](http://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html)
+pour expliquer pourquoi cette fonctionnalité a été complexe à implémenter
+efficacement. Le problème est donc résolu est il n'y a plus besoin d'installer
+de package pour qu'Atom gère le layout de clavier français.
+
 Le problème est connu depuis 2014 et est lié à la gestion de la touche "ALT GR",
 comme l'indique [cette issue](https://github.com/atom/atom-keymap/issues/35).
 
