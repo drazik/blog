@@ -5,9 +5,56 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Tue, 08 Nov 2016 01:00:00 +0100</pubDate>
+    <pubDate>Thu, 10 Nov 2016 01:00:00 +0100</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>Veille de la semaine - 10/11/2016</title>
+      <link>http://jesmodrazik.fr/articles/veille-13/</link>
+      <pubDate>Thu, 10 Nov 2016 01:00:00 +0100</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/veille-13/</guid>
+      <author></author>
+      <description>&lt;p&gt;Cette semaine une mise à jour importante d’Atom pour qui n’utilise pas un
+clavier US, l’histoire d’Unicode, une sensibilisation au chargement asynchrone
+des web fonts, des outils pour développer des sites accessibles, un outil pour
+voir son site développé avec React comme le robot de Google, et la suppression
+de l’API Battery Status dans Firefox.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.12.0&quot;&gt;Atom 1.12.0&lt;/a&gt; est sortit et
+l’éditeur gère maintenant tous les layouts de claviers nativement. Il n’y a donc
+plus besoin d’installer le package &lt;code&gt;keyboard-localization&lt;/code&gt; dont je parlais dans
+un &lt;a href=&quot;http://jesmodrazik.fr/atom-crochet-accolade-fermant&quot;&gt;précédent article&lt;/a&gt;. L’équipe a d’ailleurs
+expliqué dans un
+&lt;a href=&quot;http://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html&quot;&gt;article sur son blog&lt;/a&gt;
+pourquoi cette fonctionnalité a mit du temps à arriver.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://jolicode.com/blog/l-histoire-d-unicode-et-son-adoption-sur-le-web&quot;&gt;L’histoire d’Unicode et son adoption sur le web&lt;/a&gt; :
+comme le nom l’indique, cet article nous explique pourquoi Unicode a été inventé,
+comment il fonctionne et pourquoi il est depuis un moment maintenant un standard
+sur le web.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://meowni.ca/posts/web-fonts/&quot;&gt;Web fonts, boy, I don’t know&lt;/a&gt; : tout le
+monde n’a pas toujours une connexion 4G ou fibre. Il est donc important de faire
+en sorte que le contenu s’affiche le plus rapidement possible, en chargeant ce
+qui n’est pas nécessaire à son affichage de manière asynchrone. Les web fonts
+font partie de ces ressources qui ne sont pas nécessaires à l’affichage du
+contenu, mais qui le retardent. Cet article a pour but de sensibiliser au
+chargement asynchrone des web fonts.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://bitsofco.de/tools-for-developing-accessible-websites/&quot;&gt;Tools for Developing Accessible Websites&lt;/a&gt; :
+une présentation de 6 outils permettant de tester l’accessibilité d’un site web.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://auth0.com/blog/five-things-you-can-do-with-yarn/&quot;&gt;5 things you can do with Yarn&lt;/a&gt; :
+Yarn permet de faire des choses que ne permet pas npm : travail hors-ligne;
+installation de packages issus de plusieurs registres; installation plus rapide
+des packages; génération automatique d’un fichier &lt;code&gt;lock&lt;/code&gt;; déterminisme qui
+implique qu’avec le même &lt;code&gt;package.json&lt;/code&gt;, deux machines auront le même
+&lt;code&gt;node_modules&lt;/code&gt; après l’installation.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.freecodecamp.com/using-fetch-as-google-for-seo-experiments-with-react-driven-websites-914e0fc3ab1#.grayaf9sf&quot;&gt;Testing a React-driven website’s SEO using “Fetch as Google”&lt;/a&gt; :
+en utilisant la Google Search Console, il est possible de voir comment le robot
+de Google voit votre SPA.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.bleepingcomputer.com/news/software/battery-status-api-being-removed-from-firefox-due-to-privacy-concerns/&quot;&gt;Battery Status API being Removed from Firefox due to Privacy Concerns&lt;/a&gt; :
+Mozilla a décidé de supprimer l’API Battery Status de Firefox car celle-ci
+était surtout utilisée par les annonceurs qui s’en servaient pour tracker les
+utilisateurs encore plus finement qu’auparavant.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>L'autocomplétion dans Atom</title>
       <link>http://jesmodrazik.fr/articles/atom-autocomplete/</link>
