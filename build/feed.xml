@@ -839,6 +839,16 @@ d’utilisation des images responsives.&lt;/p&gt;
 initié par Github, il est impossible de taper un crochet fermant ou une accolade
 fermante. Heureusement, il existe une solution.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Edit 10/11/2016&lt;/strong&gt; : La version 1.12.0 d’Atom est sortie aujourd’hui, et parmi
+les nouveautés qu’elle propose (voir les
+&lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.12.0&quot;&gt;notes de release sur Github&lt;/a&gt;)
+, on trouve le support de tous les layouts de claviers. De leur propre aveux,
+c’est une fonctionnalité qui était demandée depuis longtemps (2014). L’équipe a
+toutefois écrit un
+&lt;a href=&quot;http://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html&quot;&gt;article sur son blog&lt;/a&gt;
+pour expliquer pourquoi cette fonctionnalité a été complexe à implémenter
+efficacement. Le problème est donc résolu est il n’y a plus besoin d’installer
+de package pour qu’Atom gère le layout de clavier français.&lt;/p&gt;
 &lt;p&gt;Le problème est connu depuis 2014 et est lié à la gestion de la touche “ALT GR”,
 comme l’indique &lt;a href=&quot;https://github.com/atom/atom-keymap/issues/35&quot;&gt;cette issue&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;En parcourant les commentaires, on tombe sur pas mal de solutions plus ou moins
