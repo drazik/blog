@@ -41,15 +41,46 @@ disponible pour vous, quels que soient votre machine, OS, navigateur...
 
 ## Comment l'utiliser ?
 
+Je ne parlerais ici que de l'extension Firefox, puisque c'est celle que
+j'utilise. Mais le fonctionnement des autres solutions que propose LessPass est
+le même.
+
+Une fois l'extension installée, l'icône de LessPass (une clef dans un losange
+bleu) s'affiche en haut à drotie de votre navigateur. Au click sur cette icône,
+l'interface s'affiche :
+
+![Interface de LessPass](images/01.png)
+
+Cette interface est très simple. Par défaut, le premier champ reprend le
+domaine du site sur lequel vous vous trouvez. Le deuxième champ correspond au
+login que vous utilisez sur ce site. Le troisième champ correspond à votre
+master password, ou mot de passe principal. C'est le seul dont vous devrez vous
+souvenir pour pouvoir retrouver tous vos autres mots de passe générés par
+LessPas. Il est donc conseillé d'avoir un master password complexe.
+
+Grâce à ces trois informations, et avec les options qui se trouvent tout en bas
+de l'interface (longueur, caractères, itérations), un mot de passe est généré.
+Tant que vous fournirez les mêmes entrées et les mêmes paramètres, le meme mot
+de passe vous sera fournit.
+
+![Interface de LessPass avec toutes les informations remplies](images/02.png)
+
+Il ne reste plus qu'à copier/coller le mot de passe généré dans votre formulaire
+de login ou d'inscription, et le tour est joué.
+
 ## Pour finir
 
-Il existe déjà de nombreux outils pour gérer ses mots de passe. Le problème est
-à chaque fois que pour retrouver ses mots de passe, il faut synchroniser une
-base de données en utilisant une application spécifique qui n'est pas forcément
-disponible sur tous nos devices. LessPass est une nouvelle catégorie de
-gestionnaire de mots de passe qui s'affranchit de toutes ces contraintes afin
-d'être encore plus sécurisé et compatible que ses grand-frères. Peut-être que
-dans le futur une solution plus sûre que les mots de passe sera trouvée. En
-attendant, nous devons utiliser des mots de passes les plus sécurisés possibles,
-avec toutes les problématiques que cela implique. LessPass me semble être un
-très bon outil pour oublier nos mots de passe et leurs problématiques.
+Lorsque je vous ai dit que LessPass n'utilisait pas de base de donnée pour
+stocker vos mots de passe, je vous ai à moitié menti. Il est possible
+d'utiliser une base de données. Pour cela, il faut cliquer sur l'icône qui se
+trouve en haut à droite de l'interface. Vous pouvez alors créer un nouveau
+compte, soit directement sur [lesspass.com](lesspass.com), soit sur une instance
+auto-hébergée. Je n'ai toutefois pas encore testé cette fonctionnalité, puisque
+le fonctionnement de base me convient pour le moment.
+
+Je vous conseille donc l'utilisation de LessPass pour gérer vos mots de passe.
+Celui-ci permet d'avoir des mots de passe complexes, différent sur chaque
+service, et de ne pas avoir à s'en souvenir .Si vous voulez aller encore plus
+loin niveau sécurité et vie privée, je vous conseille de lire l'article suivant
+sur Medium :
+[How to encrypt your entire life in less than an hour](https://medium.freecodecamp.com/tor-signal-and-beyond-a-law-abiding-citizens-guide-to-privacy-1a593f2104c3#.i6gyeryj1)
