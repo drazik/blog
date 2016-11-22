@@ -1,7 +1,7 @@
 ---
 title: LessPass, pour avoir des mots de passe solides sans avoir à s'en souvenir
 author: Cyrille Jesmo Drazik
-date: 2016-11-21
+date: 2016-11-22
 template: article.jade
 ---
 
@@ -80,7 +80,9 @@ le fonctionnement de base me convient pour le moment.
 
 Je vous conseille donc l'utilisation de LessPass pour gérer vos mots de passe.
 Celui-ci permet d'avoir des mots de passe complexes, différent sur chaque
-service, et de ne pas avoir à s'en souvenir .Si vous voulez aller encore plus
+service, et de ne pas avoir à s'en souvenir. Si vous voulez aller encore plus
 loin niveau sécurité et vie privée, je vous conseille de lire l'article suivant
 sur Medium :
 [How to encrypt your entire life in less than an hour](https://medium.freecodecamp.com/tor-signal-and-beyond-a-law-abiding-citizens-guide-to-privacy-1a593f2104c3#.i6gyeryj1)
+; ainsi que les articles [Surveillance Self-Defense](https://ssd.eff.org/fr) de
+l'EFF.

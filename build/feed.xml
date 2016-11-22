@@ -5,13 +5,13 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Mon, 21 Nov 2016 01:00:00 +0100</pubDate>
+    <pubDate>Tue, 22 Nov 2016 01:00:00 +0100</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
     <item>
       <title>LessPass, pour avoir des mots de passe solides sans avoir à s'en souvenir</title>
       <link>http://jesmodrazik.fr/articles/lesspass/</link>
-      <pubDate>Mon, 21 Nov 2016 01:00:00 +0100</pubDate>
+      <pubDate>Tue, 22 Nov 2016 01:00:00 +0100</pubDate>
       <guid isPermaLink="true">http://jesmodrazik.fr/articles/lesspass/</guid>
       <author></author>
       <description>&lt;p&gt;Pour ne pas se faire pirater un compte important (mail, réseaux sociaux…), il
@@ -73,10 +73,12 @@ auto-hébergée. Je n’ai toutefois pas encore testé cette fonctionnalité, pu
 le fonctionnement de base me convient pour le moment.&lt;/p&gt;
 &lt;p&gt;Je vous conseille donc l’utilisation de LessPass pour gérer vos mots de passe.
 Celui-ci permet d’avoir des mots de passe complexes, différent sur chaque
-service, et de ne pas avoir à s’en souvenir .Si vous voulez aller encore plus
+service, et de ne pas avoir à s’en souvenir. Si vous voulez aller encore plus
 loin niveau sécurité et vie privée, je vous conseille de lire l’article suivant
 sur Medium :
-&lt;a href=&quot;https://medium.freecodecamp.com/tor-signal-and-beyond-a-law-abiding-citizens-guide-to-privacy-1a593f2104c3#.i6gyeryj1&quot;&gt;How to encrypt your entire life in less than an hour&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;https://medium.freecodecamp.com/tor-signal-and-beyond-a-law-abiding-citizens-guide-to-privacy-1a593f2104c3#.i6gyeryj1&quot;&gt;How to encrypt your entire life in less than an hour&lt;/a&gt;
+; ainsi que les articles &lt;a href=&quot;https://ssd.eff.org/fr&quot;&gt;Surveillance Self-Defense&lt;/a&gt; de
+l’EFF.&lt;/p&gt;
 </description>
     </item>
     <item>
