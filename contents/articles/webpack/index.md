@@ -1,7 +1,7 @@
 ---
 title: webpack
 author: Cyrille Jesmo Drazik
-date: 2019-03-16
+date: 2017-06-28
 template: article.jade
 ---
 
@@ -121,8 +121,11 @@ lorsqu'il charge un module : les *loaders*.
 
 Par exemple, il est possible de lui dire "tiens, webpack, lorsque tu charges un
 fichier JS, alors passe le dans babel pour récupérer le code transpilé avant de
-créer ton bundle". Pour ça, il faut d'abord installer `babel-loader` et
-`babel-core`. De plus, nous allons aussi utiliser le preset `env`.
+créer ton bundle". Pour ça, il faut d'abord installer
+[`babel-loader`](https://www.npmjs.com/package/babel-loader) et
+[`babel-core`](https://www.npmjs.com/package/babel-core). De plus, nous allons
+aussi utiliser le preset
+[`env`](https://www.npmjs.com/package/babel-preset-env).
 
 ```
 npm install --save-dev babel-loader babel-core babel-preset-env
@@ -201,7 +204,7 @@ mais il ne sait pas comment faire. En effet, webpack ne sait s'occuper que des
 fichiers JS out of the box. On va donc se servir d'un loader, non pas pour
 transformer ce qui est importé, mais pour expliquer à webpack ce qu'il doit
 faire quand on lui demande de charger un fichier CSS. Ce loader, c'est le
-`css-loader`.
+[`css-loader`](https://www.npmjs.com/package/css-loader).
 
 On commence par l'installer :
 
@@ -260,9 +263,10 @@ Après avoir relancé webpack et affiché notre page, on peut voir un objet
 contenant toutes nos règles CSS s'afficher dans la console du navigateur.
 
 On va donc avoir besoin d'un autre loader pour dire à webpack ce qu'il doit
-faire avec le CSS qu'il a chargé : le `style-loader`. Ce loader va prendre le
-résultat du `css-loader`, et l'injecter dans une balise `style` dans le `head`
-de notre page.
+faire avec le CSS qu'il a chargé : le
+[`style-loader`](https://www.npmjs.com/package/style-loader).
+Ce loader va prendre le résultat du `css-loader`, et l'injecter dans une balise
+`style` dans le `head` de notre page.
 
 On l'installe :
 
@@ -311,8 +315,9 @@ Sauf si dans votre CSS vous faites appel à des images ou des fonts. Car le
 `css-loader` va traiter ceux-ci comme des imports de modules, et webpack ne
 saura pas comment les charger. On va donc appliquer deux dernières règles à
 notre configuration : une pour charger les images, et une pour charger les
-fonts. Les deux utiliseront le `file-loader` pour simplement copier les ficheirs
-dans le dossier définit dans `output.path`.
+fonts. Les deux utiliseront le
+[`file-loader`](https://www.npmjs.com/package/file-loader) pour simplement
+copier les ficheirs dans le dossier définit dans `output.path`.
 
 À nouveau, on l'installe :
 
