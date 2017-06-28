@@ -13,7 +13,7 @@ plusieurs *bundle(s)* qui pourront être exécutés dans un navigateur web. Il n
 permet donc d'écrire du code modulaire, bien que les navigateurs n'implémentent
 pour la plupart pas encore les modules ES2015. Il fait donc la même chose que
 [browserify](http://browserify.org/). Toutefois, webpack est très différent de
-browserify, de par sa philosophie bien pariculière.
+browserify, de par sa philosophie bien particulière.
 
 ## Ici, tout est module
 

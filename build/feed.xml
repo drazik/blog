@@ -21,7 +21,7 @@ plusieurs &lt;em&gt;bundle(s)&lt;/em&gt; qui pourront être exécutés dans un n
 permet donc d’écrire du code modulaire, bien que les navigateurs n’implémentent
 pour la plupart pas encore les modules ES2015. Il fait donc la même chose que
 &lt;a href=&quot;http://browserify.org/&quot;&gt;browserify&lt;/a&gt;. Toutefois, webpack est très différent de
-browserify, de par sa philosophie bien pariculière.&lt;/p&gt;
+browserify, de par sa philosophie bien particulière.&lt;/p&gt;
 &lt;h2 id=&quot;ici-tout-est-module&quot;&gt;Ici, tout est module&lt;/h2&gt;
 &lt;p&gt;La philosophie de webpack est de traiter n’importe quelle dépendance d’une
 application comme un module. Ainsi, un fichier JS est un module, un fichier CSS
