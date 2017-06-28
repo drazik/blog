@@ -21,50 +21,50 @@
     <div id="content">
       <div class="content-wrap">
         <article class="article">
-          <section class="content"><p>L’une des fonctionnalités majeures des jQuery-like est la manipulation du <span class="caps">DOM</span>. Voyons comment faire pour manipuler le DOM sans utiliser de&nbsp;bibliothèque.</p>
+          <section class="content"><p>L’une des fonctionnalités majeures des jQuery-like est la manipulation du <span class="caps">DOM</span>. Voyons comment faire pour manipuler le <span class="caps">DOM</span> sans utiliser de<span class="widont">&nbsp;</span>bibliothèque.</p>
 <p><span class="more"></span></p>
-<p><em>Cet article est le deuxième de la série <a href="/articles/apprendre-a-se-servir-de-ce-quon-a">“apprendre à se servir de ce qu’on a”</a>, ayant pour objectif de montrer que l’utilisation d’une bibliothèque telle que jQuery n’a pas toujours de sens. N’hésitez pas à parcourir les autres articles&nbsp;!</em></p>
-<h2 id="qu-est-ce-que-c-est-quoi-dis-donc-que-le-dom-">Qu’est-ce que c’est quoi dis-donc que le <span class="caps">DOM</span>&nbsp;?</h2>
-<p>Je ne vais pas réinventer la roue. La définition du <span class="caps">DOM</span> fournie par le Mozilla Developer Network (MDN), auquel je vais souvent faire référence dans cette liste d’articles, est parfaite&nbsp;:</p>
+<p><em>Cet article est le deuxième de la série <a href="/articles/apprendre-a-se-servir-de-ce-quon-a">“apprendre à se servir de ce qu’on a”</a>, ayant pour objectif de montrer que l’utilisation d’une bibliothèque telle que jQuery n’a pas toujours de sens. N’hésitez pas à parcourir les autres articles<span class="widont">&nbsp;</span>!</em></p>
+<h2 id="qu-est-ce-que-c-est-quoi-dis-donc-que-le-dom-">Qu’est-ce que c’est quoi dis-donc que le <span class="caps">DOM</span><span class="widont">&nbsp;</span>?</h2>
+<p>Je ne vais pas réinventer la roue. La définition du <span class="caps">DOM</span> fournie par le Mozilla Developer Network (<span class="caps">MDN</span>), auquel je vais souvent faire référence dans cette liste d’articles, est parfaite<span class="widont">&nbsp;</span>:</p>
 <blockquote>
-<p>Le <strong>Document Object Model</strong> ou <strong><span class="caps">DOM</span></strong> (pour modèle objet de document) est une interface de programmation pour les documents <span class="caps">HTML</span> et XML. Il fournit une représentation structurée du document sous forme d’un arbre et définit la façon dont la structure peut être manipulée par les programmes, en termes de style et de contenu. Le DOM représente le document comme un ensemble de nœuds et d’objets possédant des propriétés et des méthodes. Cela permet de manipuler des pages web grâce à des scripts et/ou des langages de programmation.
-(<a href="https://developer.mozilla.org/fr/docs/Web/API/R%C3%A9f%C3%A9rence_du_DOM_Gecko">Référence du <span class="caps">DOM</span> sur le MDN</a>)</p>
+<p>Le <strong>Document Object Model</strong> ou <strong><span class="caps">DOM</span></strong> (pour modèle objet de document) est une interface de programmation pour les documents <span class="caps">HTML</span> et <span class="caps">XML</span>. Il fournit une représentation structurée du document sous forme d’un arbre et définit la façon dont la structure peut être manipulée par les programmes, en termes de style et de contenu. Le <span class="caps">DOM</span> représente le document comme un ensemble de nœuds et d’objets possédant des propriétés et des méthodes. Cela permet de manipuler des pages web grâce à des scripts et/ou des langages de programmation.
+(<a href="https://developer.mozilla.org/fr/docs/Web/API/R%C3%A9f%C3%A9rence_du_DOM_Gecko">Référence du <span class="caps">DOM</span> sur le <span class="caps">MDN</span></a>)</p>
 </blockquote>
-<h2 id="s-lectionner-des-l-ments">Sélectionner des&nbsp;éléments</h2>
+<h2 id="s-lectionner-des-l-ments">Sélectionner des éléments</h2>
 <p>Pour travailler avec le <span class="caps">DOM</span>, la base c’est de pouvoir sélectionner des éléments, en vue de les modifier, de les supprimer, les cloner, les déplacer, etc. Avec un jQuery-like, ça se fait très simplement avec une fonction, souvent nommée <code>$</code> :</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> $element = $(<span class="string">'#element'</span>);
 <span class="keyword">var</span> $buttons = $(<span class="string">'button'</span>);
 </code></pre>
-<p>Pourtant, les navigateurs proposent une <span class="caps">API</span> pour faire la même chose : <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector?redirectlocale=en-US&amp;redirectslug=DOM%2FDocument.querySelector"><code>document.querySelector()</code></a> et <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll?redirectlocale=en-US&amp;redirectslug=DOM%2FDocument.querySelectorAll"><code>document.querySelectorAll()</code></a>. <code>querySelector</code> renvoie le premier élément trouvé ou <code>null</code>. <code>querySelectorAll</code> renvoie une <code>NodeList</code> contenant tous les éléments trouvés (donc vide si aucun élément n’est trouvé). Voici donc comment faire la même chose que le code précédent, avec cette <span class="caps">API</span>&nbsp;:</p>
+<p>Pourtant, les navigateurs proposent une <span class="caps">API</span> pour faire la même chose : <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector?redirectlocale=en-US&amp;redirectslug=DOM%2FDocument.querySelector"><code>document.querySelector()</code></a> et <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll?redirectlocale=en-US&amp;redirectslug=DOM%2FDocument.querySelectorAll"><code>document.querySelectorAll()</code></a>. <code>querySelector</code> renvoie le premier élément trouvé ou <code>null</code>. <code>querySelectorAll</code> renvoie une <code>NodeList</code> contenant tous les éléments trouvés (donc vide si aucun élément n’est trouvé). Voici donc comment faire la même chose que le code précédent, avec cette <span class="caps">API</span><span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> element = <span class="built_in">document</span>.querySelector(<span class="string">'#element'</span>);
 <span class="keyword">var</span> buttons = <span class="built_in">document</span>.querySelectorAll(<span class="string">'button'</span>);
 </code></pre>
-<p>Il y a deux subtilités. La première, c’est cette <code>NodeList</code> renvoyée par <code>querySelectorAll</code>. On s’attendrait plutôt à obtenir un <code>Array</code>. En effet, <code>NodeList</code> n’expose pas toutes les méthodes pratiques qu’<code>Array</code> expose, et dont vous trouverez une liste <a href="http://es5.github.io/#x15.4.4">par ici</a> (on s’arrête à EcmaScript 5 car nous ciblons <span class="caps">IE8</span>, mais si vous voulez utiliser des méthodes introduites avec EcmaScript 2015 - le nom officiel d’EcmaScript 6 -, vous pouvez chercher des polyfills). Pour des raisons de praticité, il vaut donc mieux transformer cette <code>NodeList</code> en <code>Array</code>. On va donc se recréer une fonction <code>$</code> qui fait&nbsp;ça.</p>
+<p>Il y a deux subtilités. La première, c’est cette <code>NodeList</code> renvoyée par <code>querySelectorAll</code>. On s’attendrait plutôt à obtenir un <code>Array</code>. En effet, <code>NodeList</code> n’expose pas toutes les méthodes pratiques qu’<code>Array</code> expose, et dont vous trouverez une liste <a href="http://es5.github.io/#x15.4.4">par ici</a> (on s’arrête à EcmaScript 5 car nous ciblons <span class="caps">IE8</span>, mais si vous voulez utiliser des méthodes introduites avec EcmaScript 2015 - le nom officiel d’EcmaScript 6 -, vous pouvez chercher des polyfills). Pour des raisons de praticité, il vaut donc mieux transformer cette <code>NodeList</code> en <code>Array</code>. On va donc se recréer une fonction <code>$</code> qui fait<span class="widont">&nbsp;</span>ça.</p>
 <pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">selector</span>) </span>{
     <span class="keyword">var</span> elements = <span class="built_in">document</span>.querySelectorAll(selector);
 
     <span class="keyword">return</span> <span class="built_in">Array</span>.apply(<span class="literal">null</span>, elements);
 }
 </code></pre>
-<p>La seconde, c’est que <span class="caps">IE8</span> ne connait pas les sélecteurs CSS 3. Il n’est donc pas possible de les utiliser avec <code>querySelector</code> et <code>querySelectorAll</code>, ce qui peut être handicapant dans certains cas, mais il est souvent possible de se débrouiller sans. <a href="http://www.w3.org/TR/CSS2/selector.html">Voici la liste des sélecteurs supportés par <span class="caps">IE8</span></a> (ce sont les sélecteurs <span class="caps">CSS</span> 2.1,&nbsp;quoi).</p>
-<h2 id="cr-er-des-l-ments">Créer des&nbsp;éléments</h2>
-<p>Pour créer des éléments, c’est très simple. Là où on ferait un <code>$(&#39;&lt;div /&gt;&#39;)</code> avec jQuery ou un <code>new Element(&#39;div&#39;)</code> avec MooTools, en JavaScript natif, il suffit de faire ceci&nbsp;:</p>
+<p>La seconde, c’est que <span class="caps">IE8</span> ne connait pas les sélecteurs <span class="caps">CSS</span> 3. Il n’est donc pas possible de les utiliser avec <code>querySelector</code> et <code>querySelectorAll</code>, ce qui peut être handicapant dans certains cas, mais il est souvent possible de se débrouiller sans. <a href="http://www.w3.org/TR/CSS2/selector.html">Voici la liste des sélecteurs supportés par <span class="caps">IE8</span></a> (ce sont les sélecteurs <span class="caps">CSS</span> 2.1,<span class="widont">&nbsp;</span>quoi).</p>
+<h2 id="cr-er-des-l-ments">Créer des éléments</h2>
+<p>Pour créer des éléments, c’est très simple. Là où on ferait un <code>$(&#39;&lt;div /&gt;&#39;)</code> avec jQuery ou un <code>new Element(&#39;div&#39;)</code> avec MooTools, en JavaScript natif, il suffit de faire ceci<span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);
 </code></pre>
-<p>Il existe aussi une méthode de <code>document</code> permettant de créer un noeud texte, que l’on pourra par la suite ajouter à notre div précédemment créée&nbsp;:</p>
+<p>Il existe aussi une méthode de <code>document</code> permettant de créer un noeud texte, que l’on pourra par la suite ajouter à notre div précédemment créée<span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> text = <span class="built_in">document</span>.createTextNode(<span class="string">'Le futur contenu de ma div !'</span>);
 </code></pre>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement">Documentation de <code>document.createElement()</code></a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode">Documentation de <code>documentation.createTextNode()</code></a></li>
 </ul>
-<h2 id="ins-rer-des-bouts-de-dom">Insérer des bouts de&nbsp;<span class="caps">DOM</span></h2>
-<p>Reprenons nos deux noeuds précédents. Imaginons qu’on veuille donc insérer le texte dans la div, puis la div dans le <code>body</code>. Pour ça, il suffit de faire ceci&nbsp;:</p>
+<h2 id="ins-rer-des-bouts-de-dom">Insérer des bouts de<span class="widont">&nbsp;</span><span class="caps">DOM</span></h2>
+<p>Reprenons nos deux noeuds précédents. Imaginons qu’on veuille donc insérer le texte dans la div, puis la div dans le <code>body</code>. Pour ça, il suffit de faire ceci<span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-javascript">div.appendChild(text);
 <span class="built_in">document</span>.body.appendChild(div);
 </code></pre>
-<p>C’est exactement la même chose qu’avec un jQuery-like, sauf que c’est&nbsp;natif.</p>
-<p>Ca fonctionne très bien pour ajouter un ou deux éléments, mais pour ajouter de gros bouts de <span class="caps">DOM</span>, il est conseillé d’utiliser <code>document.createDocumentFragment()</code>. En effet, l’<span class="caps">API</span> DOM des navigateurs est extrêmement lente. Par conséquent, faire plusieurs petites insertions est moins performant qu’une seule grosse insertion. En utilisant <code>document.createDocumentFragment()</code>, on crée un <code>DocumentFragment</code> (merci Captain Obvious) dans lequel on va faire toutes nos petites insertions, puis on va finir par insérer tout le résultat, en une seule fois, dans le <span class="caps">DOM</span>. Imaginons qu’on veuille créer une liste non ordonnée d’éléments se trouvant dans un tableau (pourquoi pas)&nbsp;:</p>
+<p>C’est exactement la même chose qu’avec un jQuery-like, sauf que c’est<span class="widont">&nbsp;</span>natif.</p>
+<p>Ca fonctionne très bien pour ajouter un ou deux éléments, mais pour ajouter de gros bouts de <span class="caps">DOM</span>, il est conseillé d’utiliser <code>document.createDocumentFragment()</code>. En effet, l’<span class="caps">API</span> <span class="caps">DOM</span> des navigateurs est extrêmement lente. Par conséquent, faire plusieurs petites insertions est moins performant qu’une seule grosse insertion. En utilisant <code>document.createDocumentFragment()</code>, on crée un <code>DocumentFragment</code> (merci Captain Obvious) dans lequel on va faire toutes nos petites insertions, puis on va finir par insérer tout le résultat, en une seule fois, dans le <span class="caps">DOM</span>. Imaginons qu’on veuille créer une liste non ordonnée d’éléments se trouvant dans un tableau (pourquoi pas)<span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> elements = [<span class="string">'Pommes'</span>, <span class="string">'Poires'</span>, <span class="string">'Carottes'</span>, <span class="string">'Tomates'</span>];
 <span class="keyword">var</span> fragment = <span class="built_in">document</span>.createDocumentFragment();
 <span class="keyword">var</span> title = <span class="built_in">document</span>.createElement(<span class="string">'h1'</span>);
@@ -83,8 +83,8 @@ fragment.appendChild(list);
 
 <span class="built_in">document</span>.body.appendChild(fragment);
 </code></pre>
-<p>Et voilà, on construit petit à petit notre <span class="caps">DOM</span>. Une fois terminé, on l’insère en une seule traite. L’exemple précédent est très simple, et pourtant le gain en performance est déjà notable, comme en atteste <a href="http://jsperf.com/documentfragment-speed-test">ce jsPerf</a>.</p>
-<p>Il est aussi possible de prepend un élément, c’est à dire non pas l’ajouter à la fin des fils d’un noeud, mais avant l’un d’entre eux. Imaginons qu’on veuille ajouter un élément au tout début de notre liste précédente, on aurait donc besoin de 3 choses : la liste, l’élément avant lequel on souhaite ajouter un nouvel élément, et le nouvel élément. Ce qui donne ceci&nbsp;:</p>
+<p>Et voilà, on construit petit à petit notre <span class="caps">DOM</span>. Une fois terminé, on l’insère en une seule traite. L’exemple précédent est très simple, et pourtant le gain en performance est déjà notable, comme en atteste <a href="http://jsperf.com/documentfragment-speed-test">ce<span class="widont">&nbsp;</span>jsPerf</a>.</p>
+<p>Il est aussi possible de prepend un élément, c’est à dire non pas l’ajouter à la fin des fils d’un noeud, mais avant l’un d’entre eux. Imaginons qu’on veuille ajouter un élément au tout début de notre liste précédente, on aurait donc besoin de 3 choses : la liste, l’élément avant lequel on souhaite ajouter un nouvel élément, et le nouvel élément. Ce qui donne ceci<span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> list = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);
 <span class="keyword">var</span> firstItem = list.querySelector(<span class="string">'li'</span>);
 <span class="keyword">var</span> newItem = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);
@@ -92,8 +92,8 @@ newItem.innerHTML = <span class="string">'Courgettes'</span>;
 
 list.insertBefore(newItem, firstItem);
 </code></pre>
-<p>Si <code>firstItem</code> vaut <code>null</code>, le comportement est équivalent à <code>appendChild</code>, ce qui permet d’insérer un élément avant un autre élément, ou à la fin du parent dans le cas où l’autre élément n’existe&nbsp;pas.</p>
-<p>Le meilleur pour la fin : <code>Element.insertAdjacentHTML()</code>. Cette méthode permet d’insérer un élément soit avant, au tout début, en toute fin ou après l’élément auquel elle est appliquée. Exemple&nbsp;:</p>
+<p>Si <code>firstItem</code> vaut <code>null</code>, le comportement est équivalent à <code>appendChild</code>, ce qui permet d’insérer un élément avant un autre élément, ou à la fin du parent dans le cas où l’autre élément n’existe<span class="widont">&nbsp;</span>pas.</p>
+<p>Le meilleur pour la fin : <code>Element.insertAdjacentHTML()</code>. Cette méthode permet d’insérer un élément soit avant, au tout début, en toute fin ou après l’élément auquel elle est appliquée. Exemple<span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span>
   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>Child element<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
@@ -105,7 +105,7 @@ parent.insertAdjacentHTML(<span class="string">'afterbegin'</span>, <span class=
 parent.insertAdjacentHTML(<span class="string">'beforeend'</span>, <span class="string">'&lt;div&gt;Beforeend&lt;/div&gt;'</span>);
 parent.insertAdjacentHTML(<span class="string">'afterend'</span>, <span class="string">'&lt;div&gt;Afterend&lt;/div&gt;'</span>);
 </code></pre>
-<p>On obtient le <span class="caps">DOM</span> suivant&nbsp;:</p>
+<p>On obtient le <span class="caps">DOM</span> suivant<span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-html"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Beforebegin<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span>
   <span class="tag">&lt;<span class="name">div</span>&gt;</span>Afterbegin<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
@@ -114,27 +114,27 @@ parent.insertAdjacentHTML(<span class="string">'afterend'</span>, <span class="s
 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 <span class="tag">&lt;<span class="name">div</span>&gt;</span>Afterend<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 </code></pre>
-<p>Avec tout ça, il est possible d’ajouter des éléments à peu près n’importe où dans notre <span class="caps">DOM</span>, sans avoir recours à une&nbsp;bibliothèque.</p>
+<p>Avec tout ça, il est possible d’ajouter des éléments à peu près n’importe où dans notre <span class="caps">DOM</span>, sans avoir recours à une<span class="widont">&nbsp;</span>bibliothèque.</p>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild">Documentation de <code>Node.appendChild()</code></a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment">Documentation de <code>Document.createDocumentFragment()</code></a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore">Documentation de <code>Node.insertBefore()</code></a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML">Documentation de <code>Element.insertAdjacentHTML()</code></a></li>
 </ul>
-<h2 id="cloner-un-lement">Cloner un&nbsp;élement</h2>
-<p>Enfin, il est possible de cloner un élément existant dans le <span class="caps">DOM</span>. Pour cela il suffit d’utiliser la méthode <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode"><code>Node.cloneNode()</code></a>, comme ceci&nbsp;:</p>
+<h2 id="cloner-un-lement">Cloner un élement</h2>
+<p>Enfin, il est possible de cloner un élément existant dans le <span class="caps">DOM</span>. Pour cela il suffit d’utiliser la méthode <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode"><code>Node.cloneNode()</code></a>, comme ceci<span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> title = <span class="built_in">document</span>.querySelector(<span class="string">'h1'</span>);
 <span class="keyword">var</span> clonedTitle = title.cloneNode(<span class="literal">true</span>);
 </code></pre>
-<p>Le paramètre qu’on passe à <code>cloneNode</code> sert à dire si on veut que les fils du <code>Node</code> soient aussi clonés ou non. Ici, je veux que le texte que contient mon <code>h1</code> soit aussi cloné, donc je passe <code>true</code>. Le noeud cloné n’est pas directement inséré dans le <span class="caps">DOM</span>. On a sa référence dans <code>clonedTitle</code>, ce qui nous permet de l’insérer où on veut en utilisant les méthodes vues&nbsp;précédemment.</p>
-<h2 id="supprimer-un-l-ment">Supprimer un&nbsp;élément</h2>
-<p>On sait sélectionner des éléments, en ajouter, en cloner. Il ne reste plus qu’à savoir comment en supprimer. Et pour ça, il faut utiliser la méthode <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild"><code>Node.removeChild()</code></a>. Supprimons le premier élément de notre liste&nbsp;:</p>
+<p>Le paramètre qu’on passe à <code>cloneNode</code> sert à dire si on veut que les fils du <code>Node</code> soient aussi clonés ou non. Ici, je veux que le texte que contient mon <code>h1</code> soit aussi cloné, donc je passe <code>true</code>. Le noeud cloné n’est pas directement inséré dans le <span class="caps">DOM</span>. On a sa référence dans <code>clonedTitle</code>, ce qui nous permet de l’insérer où on veut en utilisant les méthodes vues<span class="widont">&nbsp;</span>précédemment.</p>
+<h2 id="supprimer-un-l-ment">Supprimer un élément</h2>
+<p>On sait sélectionner des éléments, en ajouter, en cloner. Il ne reste plus qu’à savoir comment en supprimer. Et pour ça, il faut utiliser la méthode <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild"><code>Node.removeChild()</code></a>. Supprimons le premier élément de notre liste<span class="widont">&nbsp;</span>:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> list = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);
 <span class="keyword">var</span> firstItem = list.querySelector(<span class="string">'li'</span>);
 
 list.removeChild(firstItem);
 </code></pre>
-<p>Voilà. La majorité des besoins les plus courants en termes de manipulation du <span class="caps">DOM</span> sont couverts par les API de base des navigateurs. Il y a beaucoup d’autres méthodes à notre disposition. La documentation du MDN est très complète, n’hésitez pas à la&nbsp;parcourir.</p>
+<p>Voilà. La majorité des besoins les plus courants en termes de manipulation du <span class="caps">DOM</span> sont couverts par les <span class="caps">API</span> de base des navigateurs. Il y a beaucoup d’autres méthodes à notre disposition. La documentation du <span class="caps">MDN</span> est très complète, n’hésitez pas à la<span class="widont">&nbsp;</span>parcourir.</p>
 </section>
         </article>
         <div class="share"><a href="https://twitter.com/share?text=Apprendre à se servir de ce qu'on a : manipuler le DOM&amp;url=http://jesmodrazik.fr/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-dom/&amp;via=JesmoDrazik" target="social">Partager sur Twitter</a></div>

@@ -29,53 +29,53 @@ est
 <a href="http://doc.ubuntu-fr.org/nodejs">plus compliqué qu’il n’y parait</a> pour gérer
 son installation de NodeJS. Il fallait donc trouver une solution plus efficace.
 Mon choix s’est porté sur
-<a href="https://github.com/creationix/nvm">Node.js Version Manager (nvm)</a>.</p>
+<a href="https://github.com/creationix/nvm">Node.js Version Manager<span class="widont">&nbsp;</span>(nvm)</a>.</p>
 <p><span class="more"></span></p>
 <p><em>Cet article est consacré à nvm qui ne fonctionne que sur Linux. Mais des
 outils au fonctionnement similaires existent pour Windows :
 <a href="https://github.com/hakobera/nvmw">nvmw</a> et
 <a href="https://github.com/coreybutler/nvm-windows">nvm-windows</a>.</em></p>
-<h2 id="qu-est-ce-que-c-est-">Qu’est-ce que c’est&nbsp;?</h2>
+<h2 id="qu-est-ce-que-c-est-">Qu’est-ce que c’est<span class="widont">&nbsp;</span>?</h2>
 <p>nvm est un programme permettant de gérer son installation de NodeJS. Il permet
 d’installer, de mettre à jour, de désinstaller NodeJS sur votre machine, via une
 simple <span class="caps">CLI</span>. L’avantage de cette solution par rapport à une installation via
 apt-get, hormis la simplicité, c’est qu’il est possible d’installer plusieurs
 versions de NodeJS sur une seule machine, et de switcher de l’une à l’autre
-à la volée avec une simple&nbsp;commande.</p>
-<h2 id="installer-nvm">Installer&nbsp;nvm</h2>
+à la volée avec une simple<span class="widont">&nbsp;</span>commande.</p>
+<h2 id="installer-nvm">Installer nvm</h2>
 <p>Pour installer nvm, il y a deux solutions :
 <a href="https://github.com/creationix/nvm#install-script">via un script</a> ou
 <a href="https://github.com/creationix/nvm#manual-install">manuellement</a>. La
-documentation est très claire sur ce point, rien à&nbsp;ajouter.</p>
-<h2 id="installer-d-sinstaller-nodejs">Installer/désinstaller&nbsp;NodeJS</h2>
+documentation est très claire sur ce point, rien à<span class="widont">&nbsp;</span>ajouter.</p>
+<h2 id="installer-d-sinstaller-nodejs">Installer/désinstaller NodeJS</h2>
 <p>La première étape après avoir installé nvm, c’est de l’utiliser pour installer
-NodeJS&nbsp;:</p>
+NodeJS<span class="widont">&nbsp;</span>:</p>
 <pre><code>nvm install &lt;version&gt;
 </code></pre><p>La version à installer peut être un numéro de version précis (par exemple
 <code>0.12.7</code>), ou un mot-clef. <code>stable</code> installera la dernière version stable
 publiée, <code>unstable</code> la dernière version publiée, même si celle-ci n’est pas
-taggée comme étant&nbsp;stable.</p>
+taggée comme étant<span class="widont">&nbsp;</span>stable.</p>
 <p>Plusieurs versions peuvent être installée, en lançant plusieurs <code>nvm install</code>.</p>
 <p>Pour désinstaller une version précédemment installée, il suffit d’utiliser la
 commande <code>nvm uninstall &lt;version&gt;</code>.</p>
 <p>Enfin, la commande <code>nvm ls</code> vous permet de voir quelles versions sont installées
 sur votre machine. Pour obtenir la liste des versions disponibles, il faut
 utiliser <code>nvm ls-remote</code>.</p>
-<h2 id="utiliser-une-version-install-e">Utiliser une version&nbsp;installée</h2>
+<h2 id="utiliser-une-version-install-e">Utiliser une version<span class="widont">&nbsp;</span>installée</h2>
 <p>Une fois une ou plusieurs version(s) de NodeJS installée(s), la commande
 <code>nvm use &lt;version&gt;</code> permet d’utiliser l’une d’elles dans le shell courrant. En
 effet, de base, lors de l’ouverture d’un shell, NodeJS n’est pas disponible
 dans celui-ci. Il est toutefois possible de définir une version par défaut qui
 sera utilisée automatiquement lors de l’ouverture d’un nouveau shell, avec la
-commande suivante&nbsp;:</p>
+commande suivante<span class="widont">&nbsp;</span>:</p>
 <pre><code>nvm alias default &lt;version&gt;
 </code></pre><p>Il est aussi possible d’exécuter une seule commande en utilisant une version
 donnée. Pour cela, il y a deux solutions. La première permet d’exécuter
-directement un fichier ou une commande avec une version précise&nbsp;:</p>
+directement un fichier ou une commande avec une version précise<span class="widont">&nbsp;</span>:</p>
 <pre><code>nvm run &lt;version&gt; &lt;fichier&gt;
 nvm run 4.1.2 app.js
 </code></pre><p>La seconde permet d’exécuter une commande avec la variable <span class="caps">PATH</span> pointant vers
-la version de NodeJS spécifiée&nbsp;:</p>
+la version de NodeJS spécifiée<span class="widont">&nbsp;</span>:</p>
 <pre><code>nvm exec &lt;version&gt; &lt;commande&gt;
 nvm exec 4.1.2 node app.js
 </code></pre><h2 id="conclusion">Conclusion</h2>
@@ -85,7 +85,7 @@ installer plusieurs versions et d’en utiliser une à un moment donné. J’ai 
 ici les fonctionnalités les plus couramment utiles. Pour les cas d’utilisation
 plus rares et poussés,
 <a href="https://github.com/creationix/nvm#node-version-manager-">la documentation</a> est
-très&nbsp;complète.</p>
+très<span class="widont">&nbsp;</span>complète.</p>
 </section>
         </article>
         <div class="share"><a href="https://twitter.com/share?text=Gérer sa (ou ses) version(s) de NodeJS&amp;url=http://jesmodrazik.fr/articles/gerer-versions-nodejs/&amp;via=JesmoDrazik" target="social">Partager sur Twitter</a></div>

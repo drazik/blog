@@ -5,9 +5,368 @@
     <atom:link href="http://jesmodrazik.fr/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://jesmodrazik.fr</link>
     <description>Développeur web pour l'agence de production Wandi</description>
-    <pubDate>Tue, 22 Nov 2016 01:00:00 +0100</pubDate>
+    <pubDate>Wed, 28 Jun 2017 02:00:00 +0200</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>fr</language>
+    <item>
+      <title>webpack</title>
+      <link>http://jesmodrazik.fr/articles/webpack/</link>
+      <pubDate>Wed, 28 Jun 2017 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://jesmodrazik.fr/articles/webpack/</guid>
+      <author></author>
+      <description>&lt;h2 id=&quot;qu-est-ce-que-webpack-&quot;&gt;Qu’est-ce que webpack ?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://webpack.js.org/&quot;&gt;webpack&lt;/a&gt; est un &lt;em&gt;module bundler&lt;/em&gt;. Il construit le
+graphe de dépendances d’une application JS afin de les regrouper dans un ou
+plusieurs &lt;em&gt;bundle(s)&lt;/em&gt; qui pourront être exécutés dans un navigateur web. Il nous
+permet donc d’écrire du code modulaire, bien que les navigateurs n’implémentent
+pour la plupart pas encore les modules ES2015. Il fait donc la même chose que
+&lt;a href=&quot;http://browserify.org/&quot;&gt;browserify&lt;/a&gt;. Toutefois, webpack est très différent de
+browserify, de par sa philosophie bien pariculière.&lt;/p&gt;
+&lt;h2 id=&quot;ici-tout-est-module&quot;&gt;Ici, tout est module&lt;/h2&gt;
+&lt;p&gt;La philosophie de webpack est de traiter n’importe quelle dépendance d’une
+application comme un module. Ainsi, un fichier JS est un module, un fichier CSS
+est un module, une image est un module… Tous ces modules sont consommables
+directement dans le code JS.&lt;/p&gt;
+&lt;p&gt;On peut donc faire les choses suivantes avec webpack :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-js&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Importer un module JS, classique&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; add &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;./add.js&quot;&lt;/span&gt;;
+
+&lt;span class=&quot;comment&quot;&gt;// Importer un fichier CSS&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; styles &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;./styles.css&quot;&lt;/span&gt;;
+
+&lt;span class=&quot;comment&quot;&gt;// Importer une image&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; logo &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;./logo.png&quot;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Webpack est capable de gérer à peu près n’importe quel type de fichier, grâce à
+son systême de &lt;em&gt;loaders&lt;/em&gt;. À un type de fichier correspond un (ou plusieurs)
+&lt;em&gt;loader(s)&lt;/em&gt;, qui a pour but de dire à webpack comment faire pour charger ce type
+de fichier.&lt;/p&gt;
+&lt;h2 id=&quot;installer-webpack&quot;&gt;Installer webpack&lt;/h2&gt;
+&lt;p&gt;Rien de plus simple, ça se fait évidemment via &lt;code&gt;npm&lt;/code&gt; :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install --save-dev webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Une fois installé, le binaire de webpack est disponible dans
+&lt;code&gt;./node_modules/.bin/webpack&lt;/code&gt;. Pour éviter d’avoir à taper le chemin complet à
+chaque fois, on peut écrire un script npm dans notre &lt;code&gt;package.json&lt;/code&gt; :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-json&quot;&gt;&amp;quot;scripts&amp;quot;: {
+  &amp;quot;build&amp;quot;: &amp;quot;webpack&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;De cette manière, il suffira de taper &lt;code&gt;npm run build&lt;/code&gt;, plutôt que
+&lt;code&gt;./node_modules/.bin/webpack&lt;/code&gt; pour lancer webpack.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Il est aussi possible
+d’&lt;a href=&quot;https://webpack.js.org/guides/installation/#global-installation&quot;&gt;installer webpack en global&lt;/a&gt;,
+mais ce n’est pas conseillé.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Si vous voulez en savoir plus à propos des scripts npm, vous pouvez aller voir
+l’article
+&lt;a href=&quot;http://jesmodrazik.fr/articles/ne-plus-installer-gulp-en-dependance-globale/&quot;&gt;“ne plus installer gulp en dépendance globale”&lt;/a&gt;,
+qui traite de ce sujet.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;configurer-webpack&quot;&gt;Configurer webpack&lt;/h2&gt;
+&lt;p&gt;Pour faire fonctionner webpack, on va créer un fichier de configuration, nommé
+&lt;code&gt;webpack.config.js&lt;/code&gt;. Le minimum requis est un point d’entrée et un point de
+sortie :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;path&quot;&lt;/span&gt;);
+
+&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = {
+  &lt;span class=&quot;comment&quot;&gt;// Notre fichier source&lt;/span&gt;
+  entry: &lt;span class=&quot;string&quot;&gt;&quot;./assets/js/app.js&quot;&lt;/span&gt;,
+  &lt;span class=&quot;attr&quot;&gt;output&lt;/span&gt;: {
+    &lt;span class=&quot;comment&quot;&gt;// le chemin vers le bundle que webpack va générer&lt;/span&gt;
+    path: path.resolve(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;web/assets&quot;&lt;/span&gt;),
+    &lt;span class=&quot;comment&quot;&gt;// le nom du bundle&lt;/span&gt;
+    filename: &lt;span class=&quot;string&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;,
+  },
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Avec cette configuration minimale, webpack est capable de gérer nos dépendances
+JS. Donc, si on a la configuration suivante :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// assets/js/add.js&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; add = &lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;a, b&lt;/span&gt;) =&amp;gt;&lt;/span&gt; a + b;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// assets/js/app.js&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; add &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;./add.js&quot;&lt;/span&gt;;
+
+&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(add(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;webpack générera un seul fichier, regroupant &lt;code&gt;add.js&lt;/code&gt; et &lt;code&gt;app.js&lt;/code&gt;, et qui une
+fois importé dans une page web, affichera &lt;code&gt;3&lt;/code&gt; dans la console.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note : webpack supporte par défaut la syntaxe des modules ES2015. Toutefois,
+c’est le seul aspect de cette syntaxe qu’il transpile directement. Pour le
+reste, il faut utiliser babel.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;les-loaders&quot;&gt;Les loaders&lt;/h2&gt;
+&lt;p&gt;webpack met à disposition une API permettant de lui dire ce qu’il doit faire
+lorsqu’il charge un module : les &lt;em&gt;loaders&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Par exemple, il est possible de lui dire “tiens, webpack, lorsque tu charges un
+fichier JS, alors passe le dans babel pour récupérer le code transpilé avant de
+créer ton bundle”. Pour ça, il faut d’abord installer
+&lt;a href=&quot;https://www.npmjs.com/package/babel-loader&quot;&gt;&lt;code&gt;babel-loader&lt;/code&gt;&lt;/a&gt; et
+&lt;a href=&quot;https://www.npmjs.com/package/babel-core&quot;&gt;&lt;code&gt;babel-core&lt;/code&gt;&lt;/a&gt;. De plus, nous allons
+aussi utiliser le preset
+&lt;a href=&quot;https://www.npmjs.com/package/babel-preset-env&quot;&gt;&lt;code&gt;env&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install --save-dev babel-loader babel-core babel-preset-env
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Il faut ensuite modifier notre configuration, pour y ajouter le loader et le
+configurer :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;path&quot;&lt;/span&gt;);
+
+&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = {
+  &lt;span class=&quot;attr&quot;&gt;entry&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;./assets/js/app.js&quot;&lt;/span&gt;,
+  &lt;span class=&quot;attr&quot;&gt;output&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;: path.resolve(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;web/assets&quot;&lt;/span&gt;),
+    &lt;span class=&quot;attr&quot;&gt;filename&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;,
+  },
+  &lt;span class=&quot;attr&quot;&gt;module&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;rules&lt;/span&gt;: [
+      {
+        &lt;span class=&quot;comment&quot;&gt;// le test se fait sur le nom des fichiers qu'on importe&lt;/span&gt;
+        &lt;span class=&quot;comment&quot;&gt;// ici, on veut que cette règle s'applique à tous les fichiers dont&lt;/span&gt;
+        &lt;span class=&quot;comment&quot;&gt;// le nom se termine par &quot;.js&quot;&lt;/span&gt;
+        test: &lt;span class=&quot;regexp&quot;&gt;/\.js$/&lt;/span&gt;,
+        &lt;span class=&quot;comment&quot;&gt;// on demande à webpack de n'appliquer cette règle qu'aux fichiers qui&lt;/span&gt;
+        &lt;span class=&quot;comment&quot;&gt;// se trouvent dans ./assets/js. Sinon, il l'appliquerait à tous les&lt;/span&gt;
+        &lt;span class=&quot;comment&quot;&gt;// fichiers JS, mêmes ceux de node_modules par exemple&lt;/span&gt;
+        include: path.join(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;assets&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;js&quot;&lt;/span&gt;),
+        &lt;span class=&quot;comment&quot;&gt;// si le test passe, alors on veut appliquer le babel-loader&lt;/span&gt;
+        loader: &lt;span class=&quot;string&quot;&gt;&quot;babel-loader&quot;&lt;/span&gt;,
+        &lt;span class=&quot;comment&quot;&gt;// on passe des options au loader. Ici, on veut utiliser le preset &quot;env&quot;&lt;/span&gt;
+        options: {
+          &lt;span class=&quot;attr&quot;&gt;presets&lt;/span&gt;: [&lt;span class=&quot;string&quot;&gt;&quot;env&quot;&lt;/span&gt;],
+        },
+      },
+    ],
+  },
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lorsqu’il tombera sur un nouveau module à importer, webpack le confrontera à
+toutes les règles que nous avons définit, et celles pour lesquelles le test est
+satisfait lui seront appliquées.&lt;/p&gt;
+&lt;h2 id=&quot;importer-autre-chose-que-du-js&quot;&gt;Importer autre chose que du JS&lt;/h2&gt;
+&lt;p&gt;Le graphe de dépendance créé par webpack permet de n’ajouter au bundle que les
+modules effectivements importés dans notre application. Utiliser ce mécanisme
+pour d’autres types de ressources serait très intéressant. Et justement, le
+système de loaders va nous permettre d’importer n’importe quel autre type de
+fichier directement dans notre JS, et de le consommer comme étant un module de
+notre application.&lt;/p&gt;
+&lt;p&gt;Prenons le cas d’un fichier CSS simple. Nous avons un fichier
+&lt;code&gt;assets/css/app.css&lt;/code&gt; contenant l’ensemble du style de notre site. Nous voulons
+que webpack ajoute celui-ci à son graphe de dépendances afin qu’il fasse partie
+de notre bundle final. On l’importe donc dans notre fichier &lt;code&gt;app.js&lt;/code&gt; :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// assets/js/app.js&lt;/span&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; styles &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;../css/app.css&quot;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Puis on demande à webpack de créer notre bundle avec &lt;code&gt;npm run build&lt;/code&gt;. Et on se
+prend l’erreur suivante :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ERROR in ./assets/css/app.css
+Module parse failed: C:\Users\ASUS\workspace\article-webpack\assets\css\app.css Unexpected token (1:5)
+You may need an appropriate loader to handle this file type.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ce que nous explique webpack, c’est qu’il aimerait bien importer notre fichier,
+mais il ne sait pas comment faire. En effet, webpack ne sait s’occuper que des
+fichiers JS out of the box. On va donc se servir d’un loader, non pas pour
+transformer ce qui est importé, mais pour expliquer à webpack ce qu’il doit
+faire quand on lui demande de charger un fichier CSS. Ce loader, c’est le
+&lt;a href=&quot;https://www.npmjs.com/package/css-loader&quot;&gt;&lt;code&gt;css-loader&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On commence par l’installer :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install --save-dev css-loader
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Puis on l’ajoute aux règles de notre configuration :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;path&quot;&lt;/span&gt;);
+
+&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = {
+  &lt;span class=&quot;attr&quot;&gt;entry&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;./assets/js/app.js&quot;&lt;/span&gt;,
+  &lt;span class=&quot;attr&quot;&gt;output&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;: path.resolve(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;web/assets&quot;&lt;/span&gt;),
+    &lt;span class=&quot;attr&quot;&gt;filename&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;,
+  },
+  &lt;span class=&quot;attr&quot;&gt;module&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;rules&lt;/span&gt;: [
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.js$/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;babel-loader&quot;&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;include&lt;/span&gt;: path.join(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;assets&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;js&quot;&lt;/span&gt;),
+        &lt;span class=&quot;attr&quot;&gt;options&lt;/span&gt;: {
+          &lt;span class=&quot;attr&quot;&gt;presets&lt;/span&gt;: [&lt;span class=&quot;string&quot;&gt;&quot;env&quot;&lt;/span&gt;],
+        },
+      },
+      {
+        &lt;span class=&quot;comment&quot;&gt;// pour les fichiers CSS...&lt;/span&gt;
+        test: &lt;span class=&quot;regexp&quot;&gt;/\.css$/&lt;/span&gt;,
+        &lt;span class=&quot;comment&quot;&gt;// ...utilise le css-loader&lt;/span&gt;
+        loader: &lt;span class=&quot;string&quot;&gt;&quot;css-loader&quot;&lt;/span&gt;,
+      }
+    ],
+  },
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;De cette manière, webpack sera capable d’importer un fichier CSS. Toutefois, si
+on recharge notre page, on s’apperçoit rapidement que le style n’est pas
+appliqué. Et c’est normal. On a dit à webpack comment importer un fichier CSS,
+mais on ne lui a pas dit ce qu’il doit faire avec ce qu’il a chargé. On a donc
+actuellement un fichier CSS chargé en mémoire, mais on n’en fait rien. Pour s’en
+convaincre, on peut faire la chose suivante :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// assets/js/app.js&lt;/span&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; styles &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;../css/app.css&quot;&lt;/span&gt;;
+
+&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(styles);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Après avoir relancé webpack et affiché notre page, on peut voir un objet
+contenant toutes nos règles CSS s’afficher dans la console du navigateur.&lt;/p&gt;
+&lt;p&gt;On va donc avoir besoin d’un autre loader pour dire à webpack ce qu’il doit
+faire avec le CSS qu’il a chargé : le
+&lt;a href=&quot;https://www.npmjs.com/package/style-loader&quot;&gt;&lt;code&gt;style-loader&lt;/code&gt;&lt;/a&gt;.
+Ce loader va prendre le résultat du &lt;code&gt;css-loader&lt;/code&gt;, et l’injecter dans une balise
+&lt;code&gt;style&lt;/code&gt; dans le &lt;code&gt;head&lt;/code&gt; de notre page.&lt;/p&gt;
+&lt;p&gt;On l’installe :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install --save-dev style-loader
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Puis on l’ajoute aux règles :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;path&quot;&lt;/span&gt;);
+
+&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = {
+  &lt;span class=&quot;attr&quot;&gt;entry&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;./assets/js/app.js&quot;&lt;/span&gt;,
+  &lt;span class=&quot;attr&quot;&gt;output&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;: path.resolve(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;web/assets&quot;&lt;/span&gt;),
+    &lt;span class=&quot;attr&quot;&gt;filename&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;,
+  },
+  &lt;span class=&quot;attr&quot;&gt;module&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;rules&lt;/span&gt;: [
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.js$/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;babel-loader&quot;&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;include&lt;/span&gt;: path.join(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;assets&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;js&quot;&lt;/span&gt;),
+        &lt;span class=&quot;attr&quot;&gt;options&lt;/span&gt;: {
+          &lt;span class=&quot;attr&quot;&gt;presets&lt;/span&gt;: [&lt;span class=&quot;string&quot;&gt;&quot;env&quot;&lt;/span&gt;],
+        },
+      },
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.css$/&lt;/span&gt;,
+        &lt;span class=&quot;comment&quot;&gt;// il est possible de chaîner plusieurs loaders. Pour ça, on passe un&lt;/span&gt;
+        &lt;span class=&quot;comment&quot;&gt;// tableau de loaders à la propriété `use`. Les loaders sont appliqués&lt;/span&gt;
+        &lt;span class=&quot;comment&quot;&gt;// les uns à la suite des autres, en partant du dernier élément du tableau&lt;/span&gt;
+        use: [
+          { &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;style-loader&quot;&lt;/span&gt; },
+          { &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;css-loader&quot;&lt;/span&gt; },
+        ],
+      },
+    ],
+  },
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Après avoir relancé webpack, le style est cette fois-ci bien appliqué à la page.
+Sauf si dans votre CSS vous faites appel à des images ou des fonts. Car le
+&lt;code&gt;css-loader&lt;/code&gt; va traiter ceux-ci comme des imports de modules, et webpack ne
+saura pas comment les charger. On va donc appliquer deux dernières règles à
+notre configuration : une pour charger les images, et une pour charger les
+fonts. Les deux utiliseront le
+&lt;a href=&quot;https://www.npmjs.com/package/file-loader&quot;&gt;&lt;code&gt;file-loader&lt;/code&gt;&lt;/a&gt; pour simplement
+copier les ficheirs dans le dossier définit dans &lt;code&gt;output.path&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;À nouveau, on l’installe :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install --save-dev file-loader
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Et on ajoute deux règles à notre configuration :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;path&quot;&lt;/span&gt;);
+
+&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = {
+  &lt;span class=&quot;attr&quot;&gt;entry&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;./assets/js/app.js&quot;&lt;/span&gt;,
+  &lt;span class=&quot;attr&quot;&gt;output&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;: path.resolve(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;web/assets&quot;&lt;/span&gt;),
+    &lt;span class=&quot;attr&quot;&gt;filename&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;,
+  },
+  &lt;span class=&quot;attr&quot;&gt;module&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;rules&lt;/span&gt;: [
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.js$/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;babel-loader&quot;&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;include&lt;/span&gt;: path.join(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;assets&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;js&quot;&lt;/span&gt;),
+        &lt;span class=&quot;attr&quot;&gt;options&lt;/span&gt;: {
+          &lt;span class=&quot;attr&quot;&gt;presets&lt;/span&gt;: [&lt;span class=&quot;string&quot;&gt;&quot;env&quot;&lt;/span&gt;],
+        },
+      },
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.css$/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;use&lt;/span&gt;: [
+          { &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;style-loader&quot;&lt;/span&gt; },
+          { &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;css-loader&quot;&lt;/span&gt; },
+        ],
+      },
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.(jpg|gif|png|svg)$/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;file-loader&quot;&lt;/span&gt;,
+      },
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.(ttf|woff|woff2|eot)/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;file-loader&quot;&lt;/span&gt;,
+      }
+    ],
+  },
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;De cette manière, quand webpack croisera un de ces fichiers, il le copiera dans
+le dossier &lt;code&gt;output.path&lt;/code&gt; et remplacera le chemin d’origine par celui où il aura
+placé le fichier.&lt;/p&gt;
+&lt;h2 id=&quot;le-mode-watch-&quot;&gt;Le mode &lt;code&gt;watch&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Relancer webpack à chaque fois qu’on fait une modification est chronophage. On
+aimerait bien que celui-ci se relance automatiquement lorsqu’on modifie un
+fichier. C’est possible, en utilisant le mode &lt;code&gt;watch&lt;/code&gt; de webpack. Celui-ci peut
+être activé de 2 manières : via le fichier de configuration, ou via la ligne de
+commande.&lt;/p&gt;
+&lt;p&gt;Pour le fichier de configuration, il suffit d’ajouter le booléen &lt;code&gt;watch: true&lt;/code&gt; à
+l’objet exporté :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;path&quot;&lt;/span&gt;);
+
+&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = {
+  &lt;span class=&quot;attr&quot;&gt;entry&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;./assets/js/app.js&quot;&lt;/span&gt;,
+  &lt;span class=&quot;attr&quot;&gt;output&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;: path.resolve(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;web/assets&quot;&lt;/span&gt;),
+    &lt;span class=&quot;attr&quot;&gt;filename&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;,
+  },
+  &lt;span class=&quot;attr&quot;&gt;module&lt;/span&gt;: {
+    &lt;span class=&quot;attr&quot;&gt;rules&lt;/span&gt;: [
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.js$/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;babel-loader&quot;&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;include&lt;/span&gt;: path.join(__dirname, &lt;span class=&quot;string&quot;&gt;&quot;assets&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;js&quot;&lt;/span&gt;),
+        &lt;span class=&quot;attr&quot;&gt;options&lt;/span&gt;: {
+          &lt;span class=&quot;attr&quot;&gt;presets&lt;/span&gt;: [&lt;span class=&quot;string&quot;&gt;&quot;env&quot;&lt;/span&gt;],
+        },
+      },
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.css$/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;use&lt;/span&gt;: [
+          { &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;style-loader&quot;&lt;/span&gt; },
+          { &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;css-loader&quot;&lt;/span&gt; },
+        ],
+      },
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.(jpg|gif|png|svg)$/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;file-loader&quot;&lt;/span&gt;,
+      },
+      {
+        &lt;span class=&quot;attr&quot;&gt;test&lt;/span&gt;: &lt;span class=&quot;regexp&quot;&gt;/\.(ttf|woff|woff2|eot)/&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;loader&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;file-loader&quot;&lt;/span&gt;,
+      }
+    ],
+  },
+  &lt;span class=&quot;comment&quot;&gt;// webpack se lancera tout le temps en mode watch&lt;/span&gt;
+  watch: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pour la ligne de commande, il faut ajouter le flag &lt;code&gt;-w&lt;/code&gt;. On peut donc se faire
+un script &lt;code&gt;start&lt;/code&gt; qui lance webpack en mode watch :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-json&quot;&gt;&amp;quot;scripts&amp;quot;: {
+  &amp;quot;build&amp;quot;: &amp;quot;webpack&amp;quot;,
+  &amp;quot;start&amp;quot;: &amp;quot;webpack -w&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ainsi, en lançant &lt;code&gt;npm start&lt;/code&gt; en console, webpack crée un bundle, puis attend
+qu’on fasse des modifications pour se relancer automatiquement. De plus, il
+utilise un cache qui lui permet de recompiler le bundle très rapidement.&lt;/p&gt;
+&lt;p&gt;Voilà pour cette introduction à webpack, sa philosophie et son concept de
+&lt;em&gt;loaders&lt;/em&gt;. Cet outil est capable de faire énormément d’autres choses. Je vous
+conseille de jeter un oeil à la documentation qui est très bien faite. Dans les
+prochains articles, on abordera des aspects plus spécifiques comme le
+&lt;em&gt;code splitting&lt;/em&gt;, les &lt;em&gt;plugins&lt;/em&gt;, les &lt;em&gt;sourcemaps&lt;/em&gt;, &lt;code&gt;webpack-dev-server&lt;/code&gt; et le
+&lt;em&gt;hot module replacement&lt;/em&gt;. Nous verrons aussi comment webpack peut totalement
+remplacer un workflow utilisant gulp (et ça vaudra aussi pour grunt,
+évidemment).&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>LessPass, pour avoir des mots de passe solides sans avoir à s'en souvenir</title>
       <link>http://jesmodrazik.fr/articles/lesspass/</link>
@@ -351,16 +710,16 @@ xhr.send(&lt;span class=&quot;string&quot;&gt;'param1='&lt;/span&gt; + param1 + 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Bon heu… Autant d’habitude le JS natif est aussi simple, ou tout du moins pas beaucoup plus compliqué que l’équivalent avec jQuery, autant là, je dois avouer que jQuery a gagné :&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;$.ajax({
-    type: &lt;span class=&quot;string&quot;&gt;'POST'&lt;/span&gt;,
-    url: &lt;span class=&quot;string&quot;&gt;'hhtp://jesmodrazik.fr'&lt;/span&gt;,
-    data: {
-        param1: &lt;span class=&quot;string&quot;&gt;'value1&amp;amp;'&lt;/span&gt;,
-        param2: &lt;span class=&quot;string&quot;&gt;'value2'&lt;/span&gt;
+    &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'POST'&lt;/span&gt;,
+    &lt;span class=&quot;attr&quot;&gt;url&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'hhtp://jesmodrazik.fr'&lt;/span&gt;,
+    &lt;span class=&quot;attr&quot;&gt;data&lt;/span&gt;: {
+        &lt;span class=&quot;attr&quot;&gt;param1&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'value1&amp;amp;'&lt;/span&gt;,
+        &lt;span class=&quot;attr&quot;&gt;param2&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'value2'&lt;/span&gt;
     },
-    success: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;data&lt;/span&gt;) &lt;/span&gt;{
+    &lt;span class=&quot;attr&quot;&gt;success&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;data&lt;/span&gt;) &lt;/span&gt;{
         &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(data);
     },
-    dataType: &lt;span class=&quot;string&quot;&gt;'json'&lt;/span&gt;
+    &lt;span class=&quot;attr&quot;&gt;dataType&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'json'&lt;/span&gt;
 });
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Mais on va pas se laisser abattre, on peut toujours se débrouiller sans lui !&lt;/p&gt;
@@ -392,14 +751,14 @@ xhr.send(&lt;span class=&quot;string&quot;&gt;'param1='&lt;/span&gt; + param1 + 
 }
 
 ajax({
-    type: &lt;span class=&quot;string&quot;&gt;'POST'&lt;/span&gt;,
-    url: &lt;span class=&quot;string&quot;&gt;'http://jesmodrazik.fr'&lt;/span&gt;,
-    data: &lt;span class=&quot;string&quot;&gt;'param1='&lt;/span&gt; + &lt;span class=&quot;built_in&quot;&gt;encodeURIComponent&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;'value1&amp;amp;'&lt;/span&gt;) + &lt;span class=&quot;string&quot;&gt;'&amp;amp;param2='&lt;/span&gt; + &lt;span class=&quot;built_in&quot;&gt;encodeURIComponent&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;'value2'&lt;/span&gt;),
-    success: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;data, status&lt;/span&gt;) &lt;/span&gt;{
+    &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'POST'&lt;/span&gt;,
+    &lt;span class=&quot;attr&quot;&gt;url&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'http://jesmodrazik.fr'&lt;/span&gt;,
+    &lt;span class=&quot;attr&quot;&gt;data&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'param1='&lt;/span&gt; + &lt;span class=&quot;built_in&quot;&gt;encodeURIComponent&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;'value1&amp;amp;'&lt;/span&gt;) + &lt;span class=&quot;string&quot;&gt;'&amp;amp;param2='&lt;/span&gt; + &lt;span class=&quot;built_in&quot;&gt;encodeURIComponent&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;'value2'&lt;/span&gt;),
+    &lt;span class=&quot;attr&quot;&gt;success&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;data, status&lt;/span&gt;) &lt;/span&gt;{
         &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; json = &lt;span class=&quot;built_in&quot;&gt;JSON&lt;/span&gt;.parse(data);
         &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(data, status);
     },
-    error: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;status, statusText&lt;/span&gt;) &lt;/span&gt;{
+    &lt;span class=&quot;attr&quot;&gt;error&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;status, statusText&lt;/span&gt;) &lt;/span&gt;{
         &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.error(status, statusText);
     }
 });
@@ -1241,8 +1600,8 @@ container.addEventListener(&lt;span class=&quot;string&quot;&gt;'click'&lt;/span
 &lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; $element = $(&lt;span class=&quot;string&quot;&gt;'#element'&lt;/span&gt;);
 $element.css(&lt;span class=&quot;string&quot;&gt;'background-color'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'#000'&lt;/span&gt;);
 $element.css({
-    color: &lt;span class=&quot;string&quot;&gt;'#fff'&lt;/span&gt;,
-    display: &lt;span class=&quot;string&quot;&gt;'block'&lt;/span&gt;
+    &lt;span class=&quot;attr&quot;&gt;color&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'#fff'&lt;/span&gt;,
+    &lt;span class=&quot;attr&quot;&gt;display&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'block'&lt;/span&gt;
 });
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Mais c’est tout aussi simple avec &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style&quot;&gt;&lt;code&gt;HTMLElement.style&lt;/code&gt;&lt;/a&gt; :&lt;/p&gt;

@@ -30,32 +30,32 @@ genre d’éditeur, l’intégration de fonctionnalités spécifique est laissé
 l’appréciation de l’utilisateur. Intégrer de l’autocomplétion pour les langages
 qu’on utilise n’a rien de complexe, il faut juste prendre 5 minutes pour s’y
 pencher. De mon côté, j’ai besoin d’autocomplétion sur du JavaScript, du <span class="caps">PHP</span> et
-le framework&nbsp;Symfony.</p>
+le framework<span class="widont">&nbsp;</span>Symfony.</p>
 <h2 id="la-base-autocomplete-plus-">La base : <code>autocomplete-plus</code></h2>
 <p><a href="https://atom.io/packages/autocomplete-plus"><code>autocomplete-plus</code></a> est le
 provider de base de toute autocomplétion dans Atom. Celui-ci est prépackagé
 avec Atom. Il propose de base un provider simple, le <code>SymbolProvider</code> qui
 propose une autocomplétion basée sur les “symboles” (en gros, les mots) présents
-dans le fichier en cours&nbsp;d’édition.</p>
+dans le fichier en cours<span class="widont">&nbsp;</span>d’édition.</p>
 <p>Ce package est la base car il propose une <span class="caps">API</span> sur laquelle d’autres providers
 peuvent venir s’appuyer pour proposer une autocomplétion plus spécifique et
 efficace. Et les providers sont nombreux. Pour s’en convaincre, il suffit de
-faire une <a href="https://atom.io/packages/search?utf8=%E2%9C%93&amp;q=autocomplete">petite recherche sur le site d’Atom</a>.</p>
-<h2 id="de-l-autocompl-tion-javascript">De l’autocomplétion&nbsp;JavaScript</h2>
+faire une <a href="https://atom.io/packages/search?utf8=%E2%9C%93&amp;q=autocomplete">petite recherche sur le site<span class="widont">&nbsp;</span>d’Atom</a>.</p>
+<h2 id="de-l-autocompl-tion-javascript">De l’autocomplétion JavaScript</h2>
 <p>En JavaScript, on a besoin d’autocomplétion pour le langage en général (classes,
-fonctions, variables…), mais aussi pour l’import de&nbsp;modules.</p>
-<h3 id="l-autocompl-tion-classique-">L’autocomplétion&nbsp;“classique”</h3>
+fonctions, variables…), mais aussi pour l’import de<span class="widont">&nbsp;</span>modules.</p>
+<h3 id="l-autocompl-tion-classique-">L’autocomplétion “classique”</h3>
 <p>Pour ça, on va utiliser <a href="https://atom.io/packages/atom-ternjs"><code>atom-ternjs</code></a>
 qui se base sur <a href="https://github.com/ternjs/tern">Tern</a> et <code>autocomplete-plus</code>
-pour fournir une autocomplétion très efficace pour&nbsp;JavaScript.</p>
+pour fournir une autocomplétion très efficace pour<span class="widont">&nbsp;</span>JavaScript.</p>
 <p>Tern doit être configuré pour chaque projet, ce qui nous laisse la main pour
 définir les librairies externes qu’on veut utiliser. En effet, Tern est capable
 de nous proposer de l’autocomplete pour l’<span class="caps">API</span> de jQuery, d’AngularJS, NodeJS (et
 bien d’autres) si on le lui demande. Cette configuration peut bien évidemment
 évoluer au cours de la vie du projet. Il suffira alors de modifier le fichier
-de configuration en y ajoutant ou en enlevant les plugins&nbsp;souhaités.</p>
+de configuration en y ajoutant ou en enlevant les plugins<span class="widont">&nbsp;</span>souhaités.</p>
 <p><img src="/articles/atom-autocomplete/images/atom-ternjs-example.jpg" alt="Autocomplétion dans une classe JavaScript"></p>
-<h3 id="l-autocompl-tion-d-import-de-modules">L’autocomplétion d’import de&nbsp;modules</h3>
+<h3 id="l-autocompl-tion-d-import-de-modules">L’autocomplétion d’import de<span class="widont">&nbsp;</span>modules</h3>
 <p>Pour ne pas avoir à se souvenir de tous les noms des modules qu’on utilise, on
 va utiliser
 <a href="https://atom.io/packages/autocomplete-modules"><code>autocomplete-modules</code></a>. Ce
@@ -64,26 +64,26 @@ modules qui s’y trouvent lorsqu’on est en train de taper un <code>require(&#
 un <code>import toto from &#39;toto&#39;</code>. Il nous propose aussi nos modules locaux si le nom
 qu’on est en train de taper commence par <code>./</code> ou <code>../</code>.</p>
 <p><img src="/articles/atom-autocomplete/images/autocomplete-modules-example.jpg" alt="Autocomplétion d&#39;import de modules"></p>
-<h2 id="de-l-autocompl-tion-php">De l’autocomplétion&nbsp;<span class="caps">PHP</span></h2>
+<h2 id="de-l-autocompl-tion-php">De l’autocomplétion <span class="caps">PHP</span></h2>
 <p>Pour <span class="caps">PHP</span>, comme pour JavaScript, on a bien entendu besoin d’une autocomplétion
 générale pour l’ensemble du langage. Mais puisque je travaille majoritairement
 avec le framework Symfony, j’ai aussi besoin de choses propres à celui-ci, pour
-le nom des services par&nbsp;exemple.</p>
-<h3 id="l-autocompl-tion-g-n-rale">L’autocomplétion&nbsp;générale</h3>
+le nom des services par<span class="widont">&nbsp;</span>exemple.</p>
+<h3 id="l-autocompl-tion-g-n-rale">L’autocomplétion générale</h3>
 <p>Pour l’autocomplétion générale en <span class="caps">PHP</span>, <a href="https://atom.io/packages/atom-autocomplete-php"><code>atom-autocomplete-php</code></a>
 fait un très bon travail. Celui-ci s’appuie sur Composer et les blocs de
 documentation présents dans le code. Pour qu’il fonctionne, il faut spécifier le
 chemin vers votre Composer et votre <span class="caps">PHP</span>. Les deux autres paramètres
 “Autoload file” et “Classmap files” peuvent être laissés à leur valeur par
-défaut pour une utilisation classique de&nbsp;Composer.</p>
+défaut pour une utilisation classique de<span class="widont">&nbsp;</span>Composer.</p>
 <p><img src="/articles/atom-autocomplete/images/atom-autocomplete-php-example.jpg" alt="Autocomplétion PHP"></p>
-<h3 id="l-autocompl-tion-symfony">L’autocomplétion&nbsp;Symfony</h3>
+<h3 id="l-autocompl-tion-symfony">L’autocomplétion Symfony</h3>
 <p>Ici, c’est sur <a href="https://atom.io/packages/atom-symfony2"><code>atom-symfony2</code></a> qu’on
 va compter. Celui-ci propose de l’autocomplétion sur différentes choses.
 D’abord, dans les fichiers de configuration, il propose de l’autocomplétion sur
 les noms de services et sur les classes. Ensuite, dans une classe utilisant le
 conteneur d’injection de dépendance, celui-ci propose de l’autocomplétion sur
-les noms de&nbsp;services.</p>
+les noms de<span class="widont">&nbsp;</span>services.</p>
 <p>Pour fonctionner, celui-ci nécessite qu’on ait installé <code>atom-autocomplete-php</code>,
 que celui-ci soit fonctionnel, et qu’on ait bien spécifier le chemin du fichier
 <code>console</code> dnas la configuration. Pour ce dernier détail, si on travaille avec
@@ -94,7 +94,7 @@ fichier : <code>bin/console</code>.</p>
 <p>Et voici. Pour avoir de
 l’autocomplete sur d’autres langages, il vous suffit de trouver et d’installer
 un plugin pour le ou les langages qui vous intéressent. Il y a très peu de
-chance qu’un tel plugin n’existe pas&nbsp;déjà.</p>
+chance qu’un tel plugin n’existe pas<span class="widont">&nbsp;</span>déjà.</p>
 <p>Petit bonus, pour ne pas avoir à installer les mêmes packages deux
 fois (au boulot et à la maison), vous pouvez utiliser
 <a href="https://atom.io/packages/sync-settings"><code>sync-settings</code></a>.</p>
