@@ -167,7 +167,7 @@ module.exports = {
 ```
 
 Lorsqu'il tombera sur un nouveau module à importer, webpack le confrontera à
-toutes les règles que nous avons définit, et celles pour lesquelles le test est
+toutes les règles que nous avons définies, et celles pour lesquelles le test est
 satisfait lui seront appliquées.
 
 ## Importer autre chose que du JS
@@ -317,7 +317,7 @@ saura pas comment les charger. On va donc appliquer deux dernières règles à
 notre configuration : une pour charger les images, et une pour charger les
 fonts. Les deux utiliseront le
 [`file-loader`](https://www.npmjs.com/package/file-loader) pour simplement
-copier les ficheirs dans le dossier définit dans `output.path`.
+copier les fichiers dans le dossier défini dans `output.path`.
 
 À nouveau, on l'installe :
 
