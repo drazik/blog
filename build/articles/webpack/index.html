@@ -143,7 +143,7 @@ configurer<span class="widont">&nbsp;</span>:</p>
 };
 </code></pre>
 <p>Lorsqu’il tombera sur un nouveau module à importer, webpack le confrontera à
-toutes les règles que nous avons définit, et celles pour lesquelles le test est
+toutes les règles que nous avons définies, et celles pour lesquelles le test est
 satisfait lui seront<span class="widont">&nbsp;</span>appliquées.</p>
 <h2 id="importer-autre-chose-que-du-js">Importer autre chose que du<span class="widont">&nbsp;</span><span class="caps">JS</span></h2>
 <p>Le graphe de dépendance créé par webpack permet de n’ajouter au bundle que les
@@ -263,7 +263,7 @@ saura pas comment les charger. On va donc appliquer deux dernières règles à
 notre configuration : une pour charger les images, et une pour charger les
 fonts. Les deux utiliseront le
 <a href="https://www.npmjs.com/package/file-loader"><code>file-loader</code></a> pour simplement
-copier les ficheirs dans le dossier définit dans <code>output.path</code>.</p>
+copier les fichiers dans le dossier défini dans <code>output.path</code>.</p>
 <p>À nouveau, on l’installe<span class="widont">&nbsp;</span>:</p>
 <pre><code>npm install --save-dev file-loader
 </code></pre><p>Et on ajoute deux règles à notre configuration<span class="widont">&nbsp;</span>:</p>

@@ -136,7 +136,7 @@ configurer :&lt;/p&gt;
 };
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Lorsqu’il tombera sur un nouveau module à importer, webpack le confrontera à
-toutes les règles que nous avons définit, et celles pour lesquelles le test est
+toutes les règles que nous avons définies, et celles pour lesquelles le test est
 satisfait lui seront appliquées.&lt;/p&gt;
 &lt;h2 id=&quot;importer-autre-chose-que-du-js&quot;&gt;Importer autre chose que du JS&lt;/h2&gt;
 &lt;p&gt;Le graphe de dépendance créé par webpack permet de n’ajouter au bundle que les
@@ -256,7 +256,7 @@ saura pas comment les charger. On va donc appliquer deux dernières règles à
 notre configuration : une pour charger les images, et une pour charger les
 fonts. Les deux utiliseront le
 &lt;a href=&quot;https://www.npmjs.com/package/file-loader&quot;&gt;&lt;code&gt;file-loader&lt;/code&gt;&lt;/a&gt; pour simplement
-copier les ficheirs dans le dossier définit dans &lt;code&gt;output.path&lt;/code&gt;.&lt;/p&gt;
+copier les fichiers dans le dossier défini dans &lt;code&gt;output.path&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;À nouveau, on l’installe :&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;npm install --save-dev file-loader
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Et on ajoute deux règles à notre configuration :&lt;/p&gt;
