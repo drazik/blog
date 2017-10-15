@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "dploy": "^1.2.0",
     "moment": "^2.18.1",
     "typogr": "^0.6.6",
     "underscore": "^1.8.3",
@@ -8,9 +7,9 @@
   },
   "repository": "none",
   "scripts": {
+    "test": "exit 0",
     "start": "wintersmith preview",
     "build": "wintersmith build -c config.build.json",
-    "dploy": "dploy prod",
     "postinstall": "npm run build"
   }
 }
