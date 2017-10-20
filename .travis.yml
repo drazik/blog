@@ -1,3 +1,18 @@
 language: node_js
 node_js:
-    - node
+  - node
+deploy:
+  provider: script
+  script: scripts/deploy.js --username=$USERNAME --password=$PASSWORD --host=$HOST --port=$PORT
+  'on':
+    branch: master
+env:
+  global:
+    - secure: >-
+        ROi9c7ZQdgVIqZjyqtVblSNxd9oQhIK0MxWGRF5NJhn37UgYPQ+AramqQxsZU4uVjRm2IWVl0hklVBc7fKbZHdoei6qEJQUiK/I5DsInX9/uC9KzJhWCBfoxeYWVPyWajPlFlEWNZM8F8xyDcA0bZ0EslVy4OgQNuyPf4Z2+4Fk=
+    - secure: >-
+        bDZZOxwVggcGlO6qpbnRO/WgbzOGhIXRPhfh+WViURHauguI4LhLZ8c1Mea1lg4CrGtv/uCiW8vPMY1ZH7H5qeoZx0u/PcLt34VYvXST0zswdCvT6bPF2GdCCXbLKW/BXKSnLNH40iAokQIPkjx/qN+KGMxHE1hCuKHfCTChANE=
+    - secure: >-
+        jiJ6bnK+cVuGZ98VyokYQNbi1FUwFGYOx9twLAfnGz3iqgFaYjS2BfnJ67NBfW5zQsnnZwttu+ersVp8upTahT0LpFWZr4DyjE0oEF2Il+5YkbBQZafAkKxz4ojsbfNeoJRYDl2oQs5Cd1sH7Ct3ktyIKsVtLImrInDnvI4zdbo=
+    - secure: >-
+        roiwr56W8Ff+sZ7Lu3Va0Vi1i7UWH2/5RN0/XZryz28chfpQDzMjYBto42YqdaJkfVJbU9jufix9EZSmuzLUpfJHrazArFd/irqcrtpa6WCZI+wANaiBdV+ZsN5Aa9qbXBDBv4JKqDCuSiB/4fGqnAUI90F02ensUMLUNXr9Ygw=
