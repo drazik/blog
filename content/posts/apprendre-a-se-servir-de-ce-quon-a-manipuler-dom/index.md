@@ -1,7 +1,6 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : manipuler le DOM"
-author: Cyrille Jesmo Drazik
-date: 2015-05-04
+date: "2015-05-04"
 ---
 
 L'une des fonctionnalités majeures des jQuery-like est la manipulation du DOM. Voyons comment faire pour manipuler le DOM sans utiliser de bibliothèque.

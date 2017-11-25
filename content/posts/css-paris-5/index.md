@@ -1,7 +1,6 @@
 ---
-title: CSS Paris - 5ème édition
-author: Cyrille Jesmo Drazik
-date: 2016-07-05
+title: "CSS Paris - 5ème édition"
+date: "2016-07-05"
 ---
 
 Hier soir, c'était la cinquième édition du meetup

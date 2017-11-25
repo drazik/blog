@@ -1,7 +1,6 @@
 ---
-title: J'ai eu besoin d'un accès distant à mon serveur MySQL
-author: Cyrille Jesmo Drazik
-date: 2014-03-16
+title: "J'ai eu besoin d'un accès distant à mon serveur MySQL"
+date: "2014-03-16"
 ---
 
 Pour un projet universitaire (une plateforme collaborative de développement R), j’ai eu besoin d’une base de données. J’ai pas cherché midi à quatorze heures, j’ai choisi MySQL. Mais quelle fût ma surprise lorsque j'ai constaté que je ne pouvais pas m'y connecter à partir de ma machine mais uniquement à partir de celle sur laquelle MySQL tournait.

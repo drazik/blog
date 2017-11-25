@@ -1,7 +1,6 @@
 ---
-title: webpack
-author: Cyrille Jesmo Drazik
-date: 2017-06-28
+title: "webpack"
+date: "2017-06-28"
 ---
 
 ## Qu'est-ce que webpack ?

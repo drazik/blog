@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 10/11/2016
-author: Cyrille Jesmo Drazik
-date: 2016-11-10
+title: "Veille de la semaine - 10/11/2016"
+date: "2016-11-10"
 ---
 
 Cette semaine une mise à jour importante d'Atom pour qui n'utilise pas un

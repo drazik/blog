@@ -1,7 +1,6 @@
 ---
-title: Bye bye Tumblr !
-author: Cyrille Jesmo Drazik
-date: 2015-03-15
+title: "Bye bye Tumblr !"
+date: "2015-03-15"
 ---
 
 En ce moment, je m'interesse pas mal à tout ce qui touche à la perte de contrôle sur nos données personnelles (ou privées, c'est selon comment qu'on aime dire, comme dirait l'autre). Et mon apprentissage a débuté avec la publication du livre de Tristan Nitot (ex directeur de Mozilla Europe, aujourd'hui C3PO : Cozy Cloud Chief Product Officer) sur [son blog](http://standblog.org/blog/serie/flicage-brouillon).

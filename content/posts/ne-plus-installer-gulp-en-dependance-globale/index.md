@@ -1,7 +1,6 @@
 ---
-title: Ne plus installer gulp en dépendance globale
-author: Cyrille Jesmo Drazik
-date: 2015-03-01
+title: "Ne plus installer gulp en dépendance globale"
+date: "2015-03-01"
 ---
 
 Avec l’arrivée de Gulp 4 (actuellement 3.8.x), qui apporte des nouveautés et cassera potentiellement la compatibilité descendante (nouvelle version majeure), je me suis penché sur le problème que pose le fait d’utiliser Gulp via une installation locale (projet, gulpfile.js) + une installation globale (système, commande gulp).

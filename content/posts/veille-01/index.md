@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 22/01/2016
-author: Cyrille Jesmo Drazik
-date: 2016-01-22
+title: "Veille de la semaine - 22/01/2016"
+date: "2016-01-22"
 ---
 
 Ça fait assez longtemps que j'hésite à le faire, et donc assez longtemps que je

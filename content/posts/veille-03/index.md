@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 05/02/2016
-author: Cyrille Jesmo Drazik
-date: 2016-02-05
+title: "Veille de la semaine - 05/02/2016"
+date: "2016-02-05"
 ---
 
 Cette semaine beaucoup de Javascript. Le draft de la prochaine specification ES2016 (ES7), la première RC d'ESLint 2.0.0 et d'autres choses !

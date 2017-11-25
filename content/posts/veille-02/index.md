@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 29/01/2016
-author: Cyrille Jesmo Drazik
-date: 2016-01-29
+title: "Veille de la semaine - 29/01/2016"
+date: "2016-01-29"
 ---
 
 Cette semaine 6 liens au menu. Du React, du Grid Layout, un service de polyfills, du WTF du côté de npm et des nouveautés sur Chrome et Firefox.

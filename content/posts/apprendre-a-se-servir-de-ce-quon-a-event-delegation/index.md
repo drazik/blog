@@ -1,7 +1,6 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : la délégation d'événements"
-author: Cyrille Jesmo Drazik
-date: 2015-07-04
+date: "2015-07-04"
 ---
 
 La délégation d'événements est un concept très fréquemment utilisé et extrêmement utile. Plutôt que d'attacher un événement à chaque élément enfant d'un autre élément, pourquoi ne pas en attacher un uniquement à l'élément parent, et se servir de la phase de bubbling pour identifier l'élément qui a déclenché l'événement ? jQuery et ses petits copains gèrent ça très bien (le fameux 2ème paramètre de `jQuery.on`). Voyons comment faire la même chose en se passant de leurs services.

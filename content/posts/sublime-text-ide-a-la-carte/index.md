@@ -1,7 +1,6 @@
 ---
-title: Sublime Text, un IDE à la carte ?
-author: Cyrille Jesmo Drazik
-date: 2014-09-23
+title: "Sublime Text, un IDE à la carte ?"
+date: "2014-09-23"
 ---
 
 Durant ma courte vie de développeur (ça fait “déjà” 4 ans pour de vrai, un peu plus pour rire), j’ai été amené à utiliser plusieurs éditeurs. J’ai commencé avec le bloc note de Windows parce que le tutoriel HTML/CSS du bon vieux Site du Zero disait que c’était suffisant même si il y avait mieux. Puis j’ai utilisé notepad++. Je développais dans mon coin et pas en pro donc ça m’a suffit pendant un bon bout de temps. Puis j’ai intégré une entreprise dans le cadre d’un contrat d’apprentissage. On m’a dit d’utiliser ce que je voulais, donc j’ai continué avec mon notepad++ (hey, c’est le truc le plus avancé que je connaissais!). Puis un jour j’ai découvert Sublime Text 2. C’était la mode, je me suis mis à l’utiliser, je l’ai trouvé plutôt cool. Puis mon maître d’apprentissage m’a suggéré d’utiliser Netbeans. Ce que j’ai fais 2/3 jours. Avant de revenir en courant vers Sublime Text. Dans mon entreprise actuelle, tout le monde utilise PhpStorm. J’ai essayé de faire comme tout le monde. Cette fois j’ai réussi presque 1 an… Avant de revenir en courant vers Sublime Text. Et ce pour plusieurs raisons.

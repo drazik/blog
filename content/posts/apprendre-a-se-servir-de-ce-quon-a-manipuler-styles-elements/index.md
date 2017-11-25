@@ -1,7 +1,6 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : manipuler les styles des éléments"
-author: Cyrille Jesmo Drazik
-date: 2015-05-14
+date: "2015-05-14"
 ---
 
 Ajouter, modifier, supprimer des styles inline, des classes... Autant de choses facilitées par les jQuery-like, mais tout aussi simple à faire sans.

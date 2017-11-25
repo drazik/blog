@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 22/07/2016
-author: Cyrille Jesmo Drazik
-date: 2016-07-22
+title: "Veille de la semaine - 22/07/2016"
+date: "2016-07-22"
 ---
 
 Des sujets assez vaste pour cette semaine. Du CSS, des libs JS, un terminal

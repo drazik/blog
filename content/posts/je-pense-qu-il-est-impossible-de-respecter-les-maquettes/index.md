@@ -1,7 +1,6 @@
 ---
-title: Je pense qu'il est impossible de respecter les maquettes
-author: Cyrille Jesmo Drazik
-date: 2014-04-16
+title: "Je pense qu'il est impossible de respecter les maquettes"
+date: "2014-04-16"
 ---
 
 Quand on fait une intégration, on se fie à une maquette. C’est cette image statique qu’il faut retranscrire afin qu’elle s’affiche et soit comprise par le navigateur web.

@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 29/07/2016
-author: Cyrille Jesmo Drazik
-date: 2016-07-29
+title: "Veille de la semaine - 29/07/2016"
+date: "2016-07-29"
 ---
 
 Cette semaine une mixin Sass pour émuler un `(min|max-font-size)`, un nouvel

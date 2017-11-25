@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 05/08/2016
-author: Cyrille Jesmo Drazik
-date: 2016-08-05
+title: "Veille de la semaine - 05/08/2016"
+date: "2016-08-05"
 ---
 
 Cette semaine beaucoup de JS : une proposition pour un nouvel opérateur

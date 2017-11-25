@@ -1,7 +1,6 @@
 ---
-title: Debrief des ateliers Paris Web 2017
-author: Cyrille Jesmo Drazik
-date: 2017-10-08
+title: "Debrief des ateliers Paris Web 2017"
+date: "2017-10-08"
 ---
 
 L'édition 2017 de [Paris Web](https://www.paris-web.fr/) a touché à sa fin hier

@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 28/10/2016
-author: Cyrille Jesmo Drazik
-date: 2016-10-28
+title: "Veille de la semaine - 28/10/2016"
+date: "2016-10-28"
 ---
 
 Une mise à jour importante de Gecko doit arriver fin 2017, une technique pour

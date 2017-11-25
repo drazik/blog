@@ -1,7 +1,6 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : AJAX"
-author: Cyrille Jesmo Drazik
-date: 2016-11-03
+date: "2016-11-03"
 ---
 
 Quel site web, aujourd'hui, n'utilise pas de requête AJAX, cette technologie permettant d'envoyer des requêtes HTTP à un serveur de manière (a)synchrone, et donc de rafraîchir des données affichées sans avoir à recharger la page en cours de consultation ? Celui que vous êtes en train de lire, certes... Mais aujourd'hui une grande majorité des sites web que vous visitez tirent très certainement parti d'AJAX. Mais au fait, quand on fait un `$.ajax()`, ça fait quoi ?

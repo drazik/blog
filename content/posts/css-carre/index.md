@@ -1,7 +1,6 @@
 ---
-title: Faire des carrés
-author: Cyrille Jesmo Drazik
-date: 2016-08-03
+title: "Faire des carrés"
+date: "2016-08-03"
 ---
 
 Quoi de plus simple qu'un carré ? Pourtant, comment dire à un élément HTML

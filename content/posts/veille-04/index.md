@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 18/03/2016
-author: Cyrille Jesmo Drazik
-date: 2016-03-18
+title: "Veille de la semaine - 18/03/2016"
+date: "2016-03-18"
 ---
 
 Cette semaine au programme : une très bonne introduction aux promises d'ES6, des

@@ -1,7 +1,6 @@
 ---
-title: Gérer sa (ou ses) version(s) de NodeJS
-author: Cyrille Jesmo Drazik
-date: 2015-10-08
+title: "Gérer sa (ou ses) version(s) de NodeJS"
+date: "2015-10-08"
 ---
 
 La sortie de la version 4.0.0 de NodeJS apporte de nombreuses nouvelles

@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 25/03/2016
-author: Cyrille Jesmo Drazik
-date: 2016-03-25
+title: "Veille de la semaine - 25/03/2016"
+date: "2016-03-25"
 ---
 
 Cette semaine un cours sur les fondamentaux de React, des animations avec React,

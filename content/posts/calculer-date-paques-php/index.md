@@ -1,7 +1,6 @@
 ---
-title: J'ai eu besoin de connaître la date de pâques chaque année jusqu'à l'infini et au-delà
-author: Cyrille Jesmo Drazik
-date: 2014-04-01
+title: "J'ai eu besoin de connaître la date de pâques chaque année jusqu'à l'infini et au-delà"
+date: "2014-04-01"
 ---
 
 Pour un projet de gestion de demandes de congés, j’ai eu besoin de connaître les dates de chaque jour férié (sauf le lundi de Pentecôte puisqu’il est maintenant ouvré).

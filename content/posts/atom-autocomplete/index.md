@@ -1,7 +1,6 @@
 ---
-title: L'autocomplétion dans Atom
-author: Cyrille Jesmo Drazik
-date: 2016-11-08
+title: "L'autocomplétion dans Atom"
+date: "2016-11-08"
 ---
 
 Il y a un peu plus de 2 ans, j'expliquais pourquoi

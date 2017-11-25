@@ -1,7 +1,6 @@
 ---
-title: LessPass, pour avoir des mots de passe solides sans avoir à s'en souvenir
-author: Cyrille Jesmo Drazik
-date: 2016-11-22
+title: "LessPass, pour avoir des mots de passe solides sans avoir à s'en souvenir"
+date: "2016-11-22"
 ---
 
 Pour ne pas se faire pirater un compte important (mail, réseaux sociaux...), il

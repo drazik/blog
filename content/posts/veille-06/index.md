@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 01/04/2016
-author: Cyrille Jesmo Drazik
-date: 2016-04-01
+title: "Veille de la semaine - 01/04/2016"
+date: "2016-04-01"
 ---
 
 Cette semaine du JS testable, du React, du SVG, des Custom Properties CSS et

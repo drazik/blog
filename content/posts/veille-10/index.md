@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 26/08/2016
-author: Cyrille Jesmo Drazik
-date: 2016-08-26
+title: "Veille de la semaine - 26/08/2016"
+date: "2016-08-26"
 ---
 
 Un cours Egghead sur l'accessibilité, des techniques pour customiser des éléments

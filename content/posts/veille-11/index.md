@@ -1,7 +1,6 @@
 ---
-title: Veille de la semaine - 03/09/2016
-author: Cyrille Jesmo Drazik
-date: 2016-09-03
+title: "Veille de la semaine - 03/09/2016"
+date: "2016-09-03"
 ---
 
 Une présentation rapide des bases de flexbox, le enregistrements des talks de
