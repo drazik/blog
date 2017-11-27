@@ -1,6 +1,7 @@
 ---
 title: "Résoudre le problème de crochet et d'accolade fermant(e) sur Atom"
 date: "2016-03-01"
+timeSensitive: true
 ---
 
 Lorsqu'on utilise un clavier français (mais pas que) sur Atom, l'éditeur de

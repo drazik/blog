@@ -1,6 +1,7 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : manipuler le DOM"
 date: "2015-05-04"
+timeSensitive: true
 ---
 
 L'une des fonctionnalités majeures des jQuery-like est la manipulation du DOM.

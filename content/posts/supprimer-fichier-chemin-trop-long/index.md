@@ -1,6 +1,7 @@
 ---
-title: "Supprimer un fichier (ou un dossier) dont le chemin est trop long"
+title: "Supprimer un fichier (ou un dossier) dont le chemin est trop long sur Windows"
 date: "2015-05-08"
+timeSensitive: true
 ---
 
 Quand on travaille avec npm sous windows, on est souvent confronté au message

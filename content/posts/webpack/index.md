@@ -1,6 +1,7 @@
 ---
 title: "webpack"
 date: "2017-06-28"
+timeSensitive: true
 ---
 
 ## Qu'est-ce que webpack ?

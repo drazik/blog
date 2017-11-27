@@ -1,6 +1,7 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : AJAX"
 date: "2016-11-03"
+timeSensitive: true
 ---
 
 Quel site web, aujourd'hui, n'utilise pas de requête AJAX, cette technologie

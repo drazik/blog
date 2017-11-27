@@ -1,6 +1,7 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : la délégation d'événements"
 date: "2015-07-04"
+timeSensitive: true
 ---
 
 La délégation d'événements est un concept très fréquemment utilisé et

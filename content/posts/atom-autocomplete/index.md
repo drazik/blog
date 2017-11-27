@@ -1,6 +1,7 @@
 ---
 title: "L'autocomplétion dans Atom"
 date: "2016-11-08"
+timeSensitive: true
 ---
 
 Il y a un peu plus de 2 ans, j'expliquais pourquoi [je préfère les éditeurs de

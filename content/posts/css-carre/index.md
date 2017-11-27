@@ -1,6 +1,7 @@
 ---
 title: "Faire des carrés"
 date: "2016-08-03"
+timeSensitive: true
 ---
 
 Quoi de plus simple qu'un carré ? Pourtant, comment dire à un élément HTML que

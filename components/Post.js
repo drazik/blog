@@ -8,6 +8,9 @@ import {
     textRenderer,
 } from "@phenomic/preset-react-app/lib/client";
 import { Link } from "react-router";
+import MaybeOutdatedMessage from "./MaybeOutdatedMessage";
+import differenceInYears from "date-fns/difference_in_years";
+import parseDate from "date-fns/parse";
 
 const Post = ({ isLoading, page }) => (
     <Layout>
@@ -22,6 +25,7 @@ const Post = ({ isLoading, page }) => (
                         <body className="article-detail" />
                     </Head>
                     <h1 style={{textAlign: "center"}}>{page.node.title}</h1>
+                    {page.node.timeSensitive && page.node.date && differenceInYears(new Date(), parseDate(page.node.date)) > 1 && <MaybeOutdatedMessage />}
                     <BodyRenderer>{page.node.body}</BodyRenderer>
                 </article>
                 <div className="share">

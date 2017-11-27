@@ -1,6 +1,7 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : faire des animations"
 date: "2015-05-30"
+timeSensitive: true
 ---
 
 Les sites web sont aujourd'hui remplis d'animations en tout genre. Elles

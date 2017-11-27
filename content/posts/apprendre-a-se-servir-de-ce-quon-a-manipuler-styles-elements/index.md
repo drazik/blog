@@ -1,6 +1,7 @@
 ---
 title: "Apprendre à se servir de ce qu'on a : manipuler les styles des éléments"
 date: "2015-05-14"
+timeSensitive: true
 ---
 
 Ajouter, modifier, supprimer des styles inline, des classes... Autant de choses
