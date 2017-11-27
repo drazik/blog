@@ -13,8 +13,8 @@ Cet atelier a été donné par Xavier Julien et Clément Dubois d'OCTO Technolog
 Les Progressive Web Apps (PWA) sont en place depuis un certain temps (fin 2015
 sur Chrome et début 2016 sur Firefox, en gros). C'est un sujet que je vois
 passer régulièrement dans mon feed Twitter, mais auquel je n'ai jamais eu le
-temps de m'intéresser vraiment. Cet atelier m'a permis de défricher le sujet, et
-de comprendre réellement ce que sont les PWA.
+temps de m'intéresser vraiment. Cet atelier m'a permis de défricher le sujet,
+et de comprendre réellement ce que sont les PWA.
 
 Ces applications ne sont pas basées sur une seule technologie, mais sur tout un
 ensemble d'APIs que les navigateurs implémentent chacun à leur rythme. D'où le
@@ -30,12 +30,12 @@ L'atelier a été l'occasion d'implémenter les features suivantes sur une app d
 micro-blogging très simple :
 
 * Installation d'un Service Worker : celui-ci agit comme un proxy entre notre
-app et le reste du monde. Il s'exécute en arrière-plan, même quand notre app est
-fermée
+app et le reste du monde. Il s'exécute en arrière-plan, même quand notre app
+est fermée
 * Écriture d'un `manifest.json` : ce fichier permet de déclarer plein de choses
 concernant notre app. Nom, nom court, icônes, URL de base, orientation de
-l'écran à l'ouverture... Ce fichier JSON permet à notre app de "s'installer" sur
-l'écran d'accueil de l'utilisateur, comme une app native
+l'écran à l'ouverture... Ce fichier JSON permet à notre app de "s'installer"
+sur l'écran d'accueil de l'utilisateur, comme une app native
 * Mise en cache des fichiers statiques de l'app ("App Shell") : cette mise en
 cache permet à l'utilisateur de charger notre app même lorsqu'il n'a pas de
 connexion
@@ -53,13 +53,16 @@ envoyé au back-end dès que sa connexion est de retour
 Cet atelier a été très intéressant à suivre. Bravo et merci à Xavier et Julien.
 Si le sujet vous intéresse, vous pouvez allez voir les ressources suivantes :
 
-* [Making a Simple Site Work Offline with ServiceWorker](https://ponyfoo.com/articles/simple-offline-site-serviceworker)
-* [The copy & paste guide to your first Service Worker](https://remysharp.com/2016/03/22/the-copy--paste-guide-to-your-first-service-worker)
+* [Making a Simple Site Work Offline with
+ServiceWorker](https://ponyfoo.com/articles/simple-offline-site-serviceworker)
+* [The copy & paste guide to your first Service
+Worker](https://remysharp.com/2016/03/22/the-copy--paste-guide-to-your-first-service-worker)
 
 ## Webpack comme des grand·e·s !
 
-L'atelier était donné par [Christophe Porteneuve](https://twitter.com/porteneuve)
-de [Delicious Insights](https://delicious-insights.com/).
+L'atelier était donné par [Christophe
+Porteneuve](https://twitter.com/porteneuve) de [Delicious
+Insights](https://delicious-insights.com/).
 
 Comme toujours, Christophe a été fidèle à sa réputation : au sommet du trolling
 et de la bonne humeur.
@@ -84,9 +87,9 @@ performance.
 ## À l'année prochaine
 
 C'était ma première aux ateliers Paris Web (et même à Paris Web tout court), et
-ça m'a beaucoup plu. Beaucoup d'ateliers avaient l'air intéressants, il a
-fallu faire un choix. Celui-ci s'est porté sur deux ateliers très techniques.
-Je compte bien y retourner pour l'édition 2018, peut-être pour des ateliers sur
+ça m'a beaucoup plu. Beaucoup d'ateliers avaient l'air intéressants, il a fallu
+faire un choix. Celui-ci s'est porté sur deux ateliers très techniques.  Je
+compte bien y retourner pour l'édition 2018, peut-être pour des ateliers sur
 des sujets qui s'éloignent un peu plus de ce dont j'ai l'habitude.
 
 Si vous avez raté les conférences, celles-ci étaient diffusées en direct en
@@ -95,5 +98,5 @@ streaming. Vous pouvez tout rattraper [par ici](http://direct.paris-web.fr/).
 Il y a aussi déjà des retours sur les conférences qui ont été publiés :
 [ici](https://www.6x8.org/2017/10/mon-paris-web-2017/) et
 [là](https://blog.maisonkleop.com/posts/paris-web-2017-1/). Vous pouvez aussi
-voir [les derniers tweets](https://twitter.com/search?f=tweets&q=%23parisweb) du
-hashtag #ParisWeb pour peut-être en trouver d'autres.
+voir [les derniers tweets](https://twitter.com/search?f=tweets&q=%23parisweb)
+du hashtag #ParisWeb pour peut-être en trouver d'autres.

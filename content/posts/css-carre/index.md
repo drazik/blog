@@ -3,8 +3,8 @@ title: "Faire des carrés"
 date: "2016-08-03"
 ---
 
-Quoi de plus simple qu'un carré ? Pourtant, comment dire à un élément HTML
-que sa hauteur doit être égale à sa largeur ?
+Quoi de plus simple qu'un carré ? Pourtant, comment dire à un élément HTML que
+sa hauteur doit être égale à sa largeur ?
 
 ## La méthode "tout en dur"
 
@@ -42,8 +42,8 @@ l'appliquer à sa `height` :
 <p data-height="300" data-theme-id="15557" data-slug-hash="mEjPPQ" data-default-tab="js,result" data-user="JesmoDrazik" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/JesmoDrazik/pen/mEjPPQ/">Squares using JavaScript</a> by Cyrille Perois (<a href="http://codepen.io/JesmoDrazik">@JesmoDrazik</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
 (il serait évidemment une bonne idée d'utiliser un
-[`debounce`](https://lodash.com/docs#debounce) pour ne pas lancer la fonction un
-trop grand nombre de fois, mais le but est de rester simple ici)
+[`debounce`](https://lodash.com/docs#debounce) pour ne pas lancer la fonction
+un trop grand nombre de fois, mais le but est de rester simple ici)
 
 Cette solution fonctionne, mais le fait que mes éléments soient carrés devrait
 être laissé à la responsabilité de CSS. En effet, mon JS peut être bloqué par
@@ -59,8 +59,8 @@ m'assurer qu'un `debounce` était appliqué, afin d'optimiser les performances.
 A ma grande surprise, aucun JS n'était de la partie, tout était fait en CSS.
 J'ai donc demandé au collègue qui s'est chargé du développement de ce composant
 sa petite astuce. Et celle-ci repose sur le simple fait suivant : lorsqu'on
-applique une valeur en pourcentage à un padding, celle-ci se base sur la largeur
-de l'élément englobant.
+applique une valeur en pourcentage à un padding, celle-ci se base sur la
+largeur de l'élément englobant.
 
 Il existe donc bien un moyen de donner à un élément une hauteur égale à sa
 largeur, et ce de manière fluide : appliquer un `padding-bottom: 100%` à un

@@ -7,11 +7,11 @@ date: "2017-06-28"
 
 [webpack](https://webpack.js.org/) est un *module bundler*. Il construit le
 graphe de dépendances d'une application JS afin de les regrouper dans un ou
-plusieurs *bundle(s)* qui pourront être exécutés dans un navigateur web. Il nous
-permet donc d'écrire du code modulaire, bien que les navigateurs n'implémentent
-pour la plupart pas encore les modules ES2015. Il fait donc la même chose que
-[browserify](http://browserify.org/). Toutefois, webpack est très différent de
-browserify, de par sa philosophie bien particulière.
+plusieurs *bundle(s)* qui pourront être exécutés dans un navigateur web. Il
+nous permet donc d'écrire du code modulaire, bien que les navigateurs
+n'implémentent pour la plupart pas encore les modules ES2015. Il fait donc la
+même chose que [browserify](http://browserify.org/). Toutefois, webpack est
+très différent de browserify, de par sa philosophie bien particulière.
 
 ## Ici, tout est module
 
@@ -35,8 +35,8 @@ import logo from "./logo.png";
 
 Webpack est capable de gérer à peu près n'importe quel type de fichier, grâce à
 son systême de *loaders*. À un type de fichier correspond un (ou plusieurs)
-*loader(s)*, qui a pour but de dire à webpack comment faire pour charger ce type
-de fichier.
+*loader(s)*, qui a pour but de dire à webpack comment faire pour charger ce
+type de fichier.
 
 ## Installer webpack
 
@@ -59,14 +59,14 @@ chaque fois, on peut écrire un script npm dans notre `package.json` :
 De cette manière, il suffira de taper `npm run build`, plutôt que
 `./node_modules/.bin/webpack` pour lancer webpack.
 
-*Il est aussi possible
-d'[installer webpack en global](https://webpack.js.org/guides/installation/#global-installation),
-mais ce n'est pas conseillé.*
+*Il est aussi possible d'[installer webpack en
+global](https://webpack.js.org/guides/installation/#global-installation), mais
+ce n'est pas conseillé.*
 
 *Si vous voulez en savoir plus à propos des scripts npm, vous pouvez aller voir
-l'article
-["ne plus installer gulp en dépendance globale"](/articles/ne-plus-installer-gulp-en-dependance-globale/),
-qui traite de ce sujet.*
+l'article ["ne plus installer gulp en dépendance
+globale"](/articles/ne-plus-installer-gulp-en-dependance-globale/), qui traite
+de ce sujet.*
 
 ## Configurer webpack
 
@@ -165,8 +165,8 @@ module.exports = {
 ```
 
 Lorsqu'il tombera sur un nouveau module à importer, webpack le confrontera à
-toutes les règles que nous avons définies, et celles pour lesquelles le test est
-satisfait lui seront appliquées.
+toutes les règles que nous avons définies, et celles pour lesquelles le test
+est satisfait lui seront appliquées.
 
 ## Importer autre chose que du JS
 
@@ -246,8 +246,8 @@ De cette manière, webpack sera capable d'importer un fichier CSS. Toutefois, si
 on recharge notre page, on s'apperçoit rapidement que le style n'est pas
 appliqué. Et c'est normal. On a dit à webpack comment importer un fichier CSS,
 mais on ne lui a pas dit ce qu'il doit faire avec ce qu'il a chargé. On a donc
-actuellement un fichier CSS chargé en mémoire, mais on n'en fait rien. Pour s'en
-convaincre, on peut faire la chose suivante :
+actuellement un fichier CSS chargé en mémoire, mais on n'en fait rien. Pour
+s'en convaincre, on peut faire la chose suivante :
 
 ```javascript
 // assets/js/app.js
@@ -262,9 +262,9 @@ contenant toutes nos règles CSS s'afficher dans la console du navigateur.
 
 On va donc avoir besoin d'un autre loader pour dire à webpack ce qu'il doit
 faire avec le CSS qu'il a chargé : le
-[`style-loader`](https://www.npmjs.com/package/style-loader).
-Ce loader va prendre le résultat du `css-loader`, et l'injecter dans une balise
-`style` dans le `head` de notre page.
+[`style-loader`](https://www.npmjs.com/package/style-loader).  Ce loader va
+prendre le résultat du `css-loader`, et l'injecter dans une balise `style` dans
+le `head` de notre page.
 
 On l'installe :
 
@@ -308,9 +308,9 @@ module.exports = {
 };
 ```
 
-Après avoir relancé webpack, le style est cette fois-ci bien appliqué à la page.
-Sauf si dans votre CSS vous faites appel à des images ou des fonts. Car le
-`css-loader` va traiter ceux-ci comme des imports de modules, et webpack ne
+Après avoir relancé webpack, le style est cette fois-ci bien appliqué à la
+page.  Sauf si dans votre CSS vous faites appel à des images ou des fonts. Car
+le `css-loader` va traiter ceux-ci comme des imports de modules, et webpack ne
 saura pas comment les charger. On va donc appliquer deux dernières règles à
 notre configuration : une pour charger les images, et une pour charger les
 fonts. Les deux utiliseront le
@@ -376,8 +376,8 @@ fichier. C'est possible, en utilisant le mode `watch` de webpack. Celui-ci peut
 être activé de 2 manières : via le fichier de configuration, ou via la ligne de
 commande.
 
-Pour le fichier de configuration, il suffit d'ajouter le booléen `watch: true` à
-l'objet exporté :
+Pour le fichier de configuration, il suffit d'ajouter le booléen `watch: true`
+à l'objet exporté :
 
 ```javascript
 const path = require("path");
@@ -437,8 +437,8 @@ utilise un cache qui lui permet de recompiler le bundle très rapidement.
 Voilà pour cette introduction à webpack, sa philosophie et son concept de
 *loaders*. Cet outil est capable de faire énormément d'autres choses. Je vous
 conseille de jeter un oeil à la documentation qui est très bien faite. Dans les
-prochains articles, on abordera des aspects plus spécifiques comme le
-*code splitting*, les *plugins*, les *sourcemaps*, `webpack-dev-server` et le
-*hot module replacement*. Nous verrons aussi comment webpack peut totalement
+prochains articles, on abordera des aspects plus spécifiques comme le *code
+splitting*, les *plugins*, les *sourcemaps*, `webpack-dev-server` et le *hot
+module replacement*. Nous verrons aussi comment webpack peut totalement
 remplacer un workflow utilisant gulp (et ça vaudra aussi pour grunt,
 évidemment).
