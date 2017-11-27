@@ -25,7 +25,8 @@ const PostsList = ({ isLoading, posts }) => (
                         .sort((a, b) => compareDatesDesc(a, b))
                         .map(post => (
                             <li key={post.id}>
-                                <Link to={`/article/${post.id}/`}>{post.title || post.id}</Link>
+                                {post.externalURL && <a href={post.externalURL} target="_blank">{post.title || post.id}</a>}
+                                {!post.externalURL && <Link to={`/article/${post.id}/`}>{post.title || post.id}</Link>}
                             </li>
                         ))}
             </ul>
