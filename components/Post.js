@@ -28,11 +28,6 @@ const Post = ({ isLoading, page }) => (
                     {page.node.timeSensitive && page.node.date && differenceInYears(new Date(), parseDate(page.node.date)) > 1 && <MaybeOutdatedMessage />}
                     <BodyRenderer>{page.node.body}</BodyRenderer>
                 </article>
-                <div className="share">
-                    <a href={`https://twitter.com/share?text=${page.title}&url=${window.location.toString()}&via=JesmoDrazik`} target="social">
-                        Partager sur Twitter
-                    </a>
-                </div>
                 <div>
                     <Link to="/">Revenir à l'accueil</Link>
                 </div>
