@@ -8,11 +8,13 @@ import "./css/main.css";
 import "highlight.js/styles/atom-one-dark.css";
 import { HomeContainer } from "./components/Home";
 import { PostContainer } from "./components/Post";
+import { ErrorPage } from "./components/ErrorPage";
 
 const routes = () => (
     <Router history={browserHistory}>
         <Route path="/" component={HomeContainer} />
         <Route path="/article/*" component={PostContainer} />
+        <Route path="*" component={ErrorPage} />
     </Router>
 );
 
