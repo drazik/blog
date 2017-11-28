@@ -30,14 +30,14 @@ global.
 
 Pour lancer la tâche watch d’un projet, on peut faire ceci :
 
-```
+```bash
 .\node_modules.bin\gulp watch
 ```
 
 On peut aussi aller “plus loin” et utiliser les scripts NPM. NPM permet de
 définir des scripts qui peuvent être lancés en tapant :
 
-```
+```bash
 npm run nom_du_script
 ```
 
@@ -63,7 +63,7 @@ tâche qu’on veut exécuter en argument, ou alors définir un script par tâch
 
 On pourrait donc faire :
 
-```
+```bash
 npm run gulp:watch
 npm run gulp:compile
 ```
@@ -73,19 +73,19 @@ et lui passer en paramètre le nom de la tâche qu’on veut exécuter. C’est
 possible de faire ça, mais uniquement à partir de la version 2.0.0 de npm. Il
 faut donc mettre à jour notre npm si on est en 1.x.y (`npm -v` pour vérifier) :
 
-```
+```bash
 npm install npm -g
 ```
 
 On peut maintenant faire ceci :
 
-```
+```bash
 npm run nom_du_script — arg1 arg2 "arg avec des espaces"
 ```
 
 Et du coup on peut lancer une tâche gulp en spécifiant son nom comme ceci :
 
-```
+```bash
 npm run gulp -- watch
 ```
 

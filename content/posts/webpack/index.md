@@ -23,7 +23,7 @@ directement dans le code JS.
 
 On peut donc faire les choses suivantes avec webpack :
 
-```js
+```javascript
 // Importer un module JS, classique
 import add from "./add.js";
 
@@ -43,7 +43,7 @@ type de fichier.
 
 Rien de plus simple, ça se fait évidemment via `npm` :
 
-```
+```bash
 npm install --save-dev webpack
 ```
 
@@ -207,7 +207,7 @@ faire quand on lui demande de charger un fichier CSS. Ce loader, c'est le
 
 On commence par l'installer :
 
-```
+```bash
 npm install --save-dev css-loader
 ```
 
@@ -269,7 +269,7 @@ le `head` de notre page.
 
 On l'installe :
 
-```
+```bash
 npm install --save-dev style-loader
 ```
 
@@ -320,7 +320,7 @@ copier les fichiers dans le dossier défini dans `output.path`.
 
 À nouveau, on l'installe :
 
-```
+```bash
 npm install --save-dev file-loader
 ```
 

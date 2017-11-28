@@ -14,7 +14,7 @@ celle sur laquelle MySQL tournait.
 
 Bon d'abord, on va commencer par installer MySQL :
 
-```
+```bash
 apt-get mysql-server
 ```
 
@@ -56,7 +56,7 @@ FLUSH PRIVILEGES;
 Une fois ceci fait, on va dire à MySQL de ne plus écouter les connexions
 uniquement sur 127.0.0.1 :
 
-```
+```bash
 vi /etc/mysql/my.cnf
 ```
 
@@ -64,7 +64,7 @@ On commente la ligne `bind-address = 127.0.0.1`.
 
 Et on redémarre MySQL :
 
-```
+```bash
 /etc/init.d/mysql restart
 ```
 

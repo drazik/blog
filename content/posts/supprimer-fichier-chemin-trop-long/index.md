@@ -19,7 +19,7 @@ dois la découverte à un collègue (qu'il doit lui-même au web). Il s'agit
 d'utiliser la commande `robocopy`, disponible depuis Windows XP, pour
 "remplacer" le dossier `node_modules` par un dossier vide :
 
-```
+```bash
 robocopy <chemin vers un dossier vide> <chemin vers node_modules> /MIR
 ```
 
@@ -36,7 +36,7 @@ long pour être supprimé par windows, et le supprimer pour de bon.
 Il suffit de télécharger le fichier JAR et de l'exécuter avec un JDK 1.7 ou
 plus :
 
-```
+```bash
 java -jar PathTooLong.jar
 ```
 
