@@ -12,13 +12,11 @@ import Head from "react-helmet";
 import Layout from "./components/Layout";
 import "./css/main.css";
 import { HomeContainer } from "./components/Home";
-import { PostsListContainer } from "./components/PostsList";
 import { PostContainer } from "./components/Post";
 
 const routes = () => (
     <Router history={browserHistory}>
         <Route path="/" component={HomeContainer} />
-        <Route path="/articles" component={PostsListContainer} />
         <Route path="/article/*" component={PostContainer} />
     </Router>
 );
