@@ -5,6 +5,7 @@ import {
     renderApp,
 } from "@phenomic/preset-react-app/lib/client";
 import "./css/main.css";
+import "highlight.js/styles/atom-one-dark.css";
 import { HomeContainer } from "./components/Home";
 import { PostContainer } from "./components/Post";
 
