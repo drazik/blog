@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "react-helmet";
-import Layout from "./Layout";
+import { Layout } from "./Layout";
 import {
     createContainer,
     query,
@@ -8,11 +8,11 @@ import {
     textRenderer,
 } from "@phenomic/preset-react-app/lib/client";
 import { Link } from "react-router";
-import MaybeOutdatedMessage from "./MaybeOutdatedMessage";
+import { MaybeOutdatedMessage } from "./MaybeOutdatedMessage";
 import differenceInYears from "date-fns/difference_in_years";
 import parseDate from "date-fns/parse";
 
-const Post = ({ isLoading, page }) => (
+export const Post = ({ isLoading, page }) => (
     <Layout>
         {isLoading && "Loading..."}
         {!isLoading &&
@@ -36,12 +36,6 @@ const Post = ({ isLoading, page }) => (
     </Layout>
 );
 
-const PostContainer = createContainer(Post, props => ({
+export const PostContainer = createContainer(Post, props => ({
     page: query({ path: "posts", id: props.params.splat })
 }));
-
-export default Post;
-export {
-    Post,
-    PostContainer,
-};

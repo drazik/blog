@@ -6,7 +6,7 @@ import {
     createContainer,
     query,
 } from "@phenomic/preset-react-app/lib/client";
-import Layout from "./Layout";
+import { Layout } from "./Layout";
 import { Link } from "react-router";
 import { PostsList } from "./PostsList";
 

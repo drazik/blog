@@ -1,6 +1,6 @@
 import React from "react";
 
-export default () => (
+export const Footer = () => (
     <footer>
         <div className="content-wrap">
             <section className="copy">

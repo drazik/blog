@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-export default () => (
+export const Header = () => (
     <header className="header">
         <div className="content-wrap">
             <div className="logo">

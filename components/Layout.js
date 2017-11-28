@@ -1,10 +1,10 @@
 import React from "react";
 import Head from "react-helmet";
-import Header from "./Header";
-import Footer from "./Footer";
-import Content from "./Content";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { Content } from "./Content";
 
-export default ({ children }) => (
+export const Layout = ({ children }) => (
     <div>
         <Head>
             <html lang="fr" />
