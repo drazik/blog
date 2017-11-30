@@ -13,7 +13,6 @@ export const Layout = ({ children }) => (
             <meta name="viewport" content="width=device-width" />
             <title>Jesmo Drazik Blog</title>
             <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300" />
-            <link rel="stylesheet" href="/css/main.css" />
         </Head>
         <Header />
         <Content>

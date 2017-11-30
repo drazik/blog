@@ -40,16 +40,16 @@ plus :
 java -jar PathTooLong.jar
 ```
 
-![Fenêtre principale de PathTooLong](images/01.jpg)
+![Fenêtre principale de PathTooLong](/posts/supprimer-fichier-chemin-trop-long/01.jpg)
 
 Une fenêtre s'ouvre, il ne vous reste plus qu'à sélectionner le dossier à
 supprimer, à confirmer la suppression et attendre plus ou moins longtemps en
 fonction de la taille de celui-ci. Un message de succès s'affiche une fois le
 dossier supprimé.
 
-![Confirmation de suppression](images/02.jpg)
+![Confirmation de suppression](/posts/supprimer-fichier-chemin-trop-long/02.jpg)
 
-![Message de succès](images/03.jpg)
+![Message de succès](/posts/supprimer-fichier-chemin-trop-long/03.jpg)
 
 Attention, comme l'indique le message vous demandant de confirmer la
 suppression, celle-ci est définitive. Les fichiers ne passeront pas par la

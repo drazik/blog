@@ -50,7 +50,7 @@ Une fois l'extension installée, l'icône de LessPass (une clef dans un losange
 bleu) s'affiche en haut à drotie de votre navigateur. Au click sur cette icône,
 l'interface s'affiche :
 
-![Interface de LessPass](images/01.png)
+![Interface de LessPass](/posts/lesspass/01.png)
 
 Cette interface est très simple. Par défaut, le premier champ reprend le
 domaine du site sur lequel vous vous trouvez. Le deuxième champ correspond au
@@ -64,7 +64,7 @@ de l'interface (longueur, caractères, itérations), un mot de passe est génér
 Tant que vous fournirez les mêmes entrées et les mêmes paramètres, le meme mot
 de passe vous sera fournit.
 
-![Interface de LessPass avec toutes les informations remplies](images/02.png)
+![Interface de LessPass avec toutes les informations remplies](/posts/lesspass/02.png)
 
 Il ne reste plus qu'à copier/coller le mot de passe généré dans votre
 formulaire de login ou d'inscription, et le tour est joué.
