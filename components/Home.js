@@ -9,6 +9,7 @@ import {
 import { Layout } from "./Layout";
 import { Link } from "react-router";
 import { PostsList } from "./PostsList";
+import { Loading } from "./Loading";
 
 export const Home = ({ isLoading, posts}) => {
     const p = posts && posts.node && posts.node.list && posts.node.list
@@ -24,7 +25,7 @@ export const Home = ({ isLoading, posts}) => {
                 <title>Jesmo Drazik Blog</title>
                 <meta name="description" content="Lead-développeur front-end @ Wandi" />
             </Head>
-            {isLoading && "Loading..."}
+            {isLoading && <Loading />}
             {!isLoading && p && (
                 <div>
                     <PostsList posts={p} />

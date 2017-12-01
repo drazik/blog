@@ -12,6 +12,7 @@ import { MaybeOutdatedMessage } from "./MaybeOutdatedMessage";
 import differenceInYears from "date-fns/difference_in_years";
 import parseDate from "date-fns/parse";
 import { ErrorPage } from "./ErrorPage";
+import { Loading } from "./Loading";
 
 export const Post = ({ hasError, isLoading, page }) => {
     if (hasError) {
@@ -20,7 +21,7 @@ export const Post = ({ hasError, isLoading, page }) => {
 
     return (
         <Layout>
-            {isLoading && "Loading..."}
+            {isLoading && <Loading />}
             {!isLoading &&
                 page.node && (
                 <div>
