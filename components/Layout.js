@@ -12,7 +12,6 @@ export const Layout = ({ children }) => (
             <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
             <meta name="viewport" content="width=device-width" />
             <title>Jesmo Drazik Blog</title>
-            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300" />
         </Head>
         <Header />
         <Content>
