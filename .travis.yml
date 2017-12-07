@@ -1,12 +1,12 @@
 language: node_js
 node_js:
   - node
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: scripts/deploy.js --username=$USERNAME --password=$PASSWORD --host=$HOST --port=$PORT
-  'on':
-    branch: master
+#deploy:
+  #skip_cleanup: true
+  #provider: script
+  #script: scripts/deploy.js --username=$USERNAME --password=$PASSWORD --host=$HOST --port=$PORT
+  #'on':
+    #branch: master
 env:
   global:
     - secure: >-
