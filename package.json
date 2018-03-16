@@ -1,17 +1,26 @@
 {
-  "dependencies": {
-    "klaw": "^2.1.0",
-    "moment": "^2.18.1",
-    "mri": "^1.1.0",
-    "ssh2": "^0.5.5",
-    "typogr": "^0.6.6",
-    "underscore": "^1.8.3",
-    "wintersmith": "^2.1.0"
+  "private": true,
+  "devDependencies": {
+    "@phenomic/cli": "^1.0.0-beta.0",
+    "@phenomic/core": "^1.0.0-beta.0",
+    "@phenomic/preset-react-app": "^1.0.0-beta.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^3.2.1"
   },
-  "repository": "none",
+  "phenomic": {
+    "presets": [
+      "@phenomic/preset-react-app"
+    ]
+  },
   "scripts": {
-    "test": "npm run build",
-    "start": "wintersmith preview",
-    "build": "wintersmith build -c config.build.json"
+    "start": "phenomic start",
+    "build": "phenomic build"
+  },
+  "dependencies": {
+    "date-fns": "^1.29.0",
+    "prismjs": "^1.12.2",
+    "react-helmet": "^5.2.0",
+    "react-topbar-progress-indicator": "^2.0.0"
   }
 }
