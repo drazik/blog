@@ -6,7 +6,7 @@ export const PostsList = ({ posts = [] }) => (
         {posts
             .map(post => (
                 <li key={post.id}>
-                    {post.externalURL && <a href={post.externalURL} target="_blank">{post.title || post.id}</a>}
+                    {post.externalURL && <a href={post.externalURL} target="_blank">{post.title || post.id} 🔗</a>}
                     {!post.externalURL && <Link to={`/article/${post.id}/`}>{post.title || post.id}</Link>}
                 </li>
             ))}
