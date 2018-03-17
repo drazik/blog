@@ -30,33 +30,33 @@ L'atelier a été l'occasion d'implémenter les features suivantes sur une app d
 micro-blogging très simple :
 
 * Installation d'un Service Worker : celui-ci agit comme un proxy entre notre
-app et le reste du monde. Il s'exécute en arrière-plan, même quand notre app
-est fermée
+  app et le reste du monde. Il s'exécute en arrière-plan, même quand notre app
+  est fermée
 * Écriture d'un `manifest.json` : ce fichier permet de déclarer plein de choses
-concernant notre app. Nom, nom court, icônes, URL de base, orientation de
-l'écran à l'ouverture... Ce fichier JSON permet à notre app de "s'installer"
-sur l'écran d'accueil de l'utilisateur, comme une app native
+  concernant notre app. Nom, nom court, icônes, URL de base, orientation de
+  l'écran à l'ouverture... Ce fichier JSON permet à notre app de "s'installer"
+  sur l'écran d'accueil de l'utilisateur, comme une app native
 * Mise en cache des fichiers statiques de l'app ("App Shell") : cette mise en
-cache permet à l'utilisateur de charger notre app même lorsqu'il n'a pas de
-connexion
+  cache permet à l'utilisateur de charger notre app même lorsqu'il n'a pas de
+  connexion
 * Mise en cache des données dynamiques : tout comme le point précédent, cette
-mise en cache a pour but de permettre à l'utilisateur d'accéder aux données
-qu'il a déjà chargées, même lorsqu'il est hors connexion
+  mise en cache a pour but de permettre à l'utilisateur d'accéder aux données
+  qu'il a déjà chargées, même lorsqu'il est hors connexion
 * Notifications push : comme sur une app native, il est possible d'envoyer des
-notifications à l'utilisateur, même lorsque l'app est fermée
+  notifications à l'utilisateur, même lorsque l'app est fermée
 * Envoi au back-end des messages postés en offline, dès qu'une connexion est
-rétablie : afin de permettre à l'utilisateur d'intéragir avec l'app sans se
-soucier de l'état de sa connexion. Si celui-ci envoie un message lorsqu'il n'a
-pas de connexion, alors son message est enregistré dans une base locale, et
-envoyé au back-end dès que sa connexion est de retour
+  rétablie : afin de permettre à l'utilisateur d'intéragir avec l'app sans se
+  soucier de l'état de sa connexion. Si celui-ci envoie un message lorsqu'il n'a
+  pas de connexion, alors son message est enregistré dans une base locale, et
+  envoyé au back-end dès que sa connexion est de retour
 
 Cet atelier a été très intéressant à suivre. Bravo et merci à Xavier et Julien.
 Si le sujet vous intéresse, vous pouvez allez voir les ressources suivantes :
 
 * [Making a Simple Site Work Offline with
-ServiceWorker](https://ponyfoo.com/articles/simple-offline-site-serviceworker)
+  ServiceWorker](https://ponyfoo.com/articles/simple-offline-site-serviceworker)
 * [The copy & paste guide to your first Service
-Worker](https://remysharp.com/2016/03/22/the-copy--paste-guide-to-your-first-service-worker)
+  Worker](https://remysharp.com/2016/03/22/the-copy--paste-guide-to-your-first-service-worker)
 
 ## Webpack comme des grand·e·s !
 
@@ -88,7 +88,7 @@ performance.
 
 C'était ma première aux ateliers Paris Web (et même à Paris Web tout court), et
 ça m'a beaucoup plu. Beaucoup d'ateliers avaient l'air intéressants, il a fallu
-faire un choix. Celui-ci s'est porté sur deux ateliers très techniques.  Je
+faire un choix. Celui-ci s'est porté sur deux ateliers très techniques. Je
 compte bien y retourner pour l'édition 2018, peut-être pour des ateliers sur
 des sujets qui s'éloignent un peu plus de ce dont j'ai l'habitude.
 

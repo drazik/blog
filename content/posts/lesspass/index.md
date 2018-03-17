@@ -6,7 +6,7 @@ date: "2016-11-22"
 Pour ne pas se faire pirater un compte important (mail, réseaux sociaux...), il
 faut respecter des règles bien précises pour nos mots de passe : ne pas
 utiliser deux fois le même, varier les caractères, former un mot de passe assez
-long...  Respecter toutes ces règles et se souvenir parfaitement de tous nos
+long... Respecter toutes ces règles et se souvenir parfaitement de tous nos
 mots de passe de tête est extrêmement compliqué. LessPass permet de régler ce
 problème.
 

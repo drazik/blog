@@ -58,13 +58,13 @@ réponse. Pour commencer, nous allons faire une simple requête en GET sur la
 page d'accueil du blog :
 
 ```javascript
-xhr.open('GET', 'http://jesmodrazik.fr');
+xhr.open("GET", "http://jesmodrazik.fr");
 ```
 
 Il est possible de spécifier 3 autres paramètres :
 
 * Un booléen spécifiant si la requête est asynchrone ou non. Par défaut
-celui-ci vaut `true`, donc la requête sera asynchrone
+  celui-ci vaut `true`, donc la requête sera asynchrone
 * Un login en cas d'identification nécessaire (type .htaccess)
 * Le mot de passe qui va avec
 
@@ -85,7 +85,7 @@ réponse), le passage de paramètres se fait dans l'URL qu'on passe à la métho
 `open`, comme on le ferait dans la barre d'adresse de notre navigateur :
 
 ```javascript
-xhr.open('GET', 'http://jesmodrazik.fr?param1=value2&param2=value2');
+xhr.open("GET", "http://jesmodrazik.fr?param1=value2&param2=value2");
 ```
 
 Dans le cas d'une requête POST, il faut d'abord préciser dans l'entête de la
@@ -93,14 +93,14 @@ requête que les paramètres viennent d'un formulaire (même si ce n'est pas le
 cas) :
 
 ```javascript
-xhr.open('POST', 'http://jesmodrazik.fr');
-xhr.setRequestHeader('Content-Type', 'application/x-form-urlencoded');
+xhr.open("POST", "http://jesmodrazik.fr");
+xhr.setRequestHeader("Content-Type", "application/x-form-urlencoded");
 ```
 
 Puis il faut passer les paramètres à la méthode `send` :
 
 ```javascript
-xhr.send('param1=value1&param2=value2');
+xhr.send("param1=value1&param2=value2");
 ```
 
 Dans les deux cas, il est nécessaire de convertir les paramètres qu'on veut
@@ -110,11 +110,11 @@ interdit dans une URL. Pour cela, il faut utiliser la fonction
 
 ```javascript
 // le caractère "&" a une signification dans une URL, il faut donc le convertir
-var param1 = encodeURIComponent('value1&');
+var param1 = encodeURIComponent("value1&");
 // ici, pas de caractère à convertir, mais dans le cas d'une saisie utilisateur, on ne peut pas prédire ce qu'on reçoit !
-var param2 = encodeURIComponent('value2');
+var param2 = encodeURIComponent("value2");
 
-xhr.send('param1=' + param1 + '&param2=' + param2);
+xhr.send("param1=" + param1 + "&param2=" + param2);
 ```
 
 Maintenant qu'on sait envoyer une requête, il faudrait savoir...
@@ -129,7 +129,7 @@ Qui dit asynchrone dit callback. On va donc commencer par attacher une fonction
 xhr.onreadystatechange = function() {};
 
 // Ou avec addEventListener
-xhr.addEventListener('readystatechange', function() {});
+xhr.addEventListener("readystatechange", function() {});
 ```
 
 Comme le nom de l'événement l'indique, nous n'écoutons pas réellement l'arrivée
@@ -139,11 +139,11 @@ nombre entier, ainsi qu'une constante de l'objet `XMLHttpRequest` qui le
 représente :
 
 * `XMLHttpRequest.UNSENT === 0` : on a un objet `XMLHttpRequest` tout frais sur
-lequel la méthode `open()` n'a pas encore été appelée
+  lequel la méthode `open()` n'a pas encore été appelée
 * `XMLHttpRequest.OPENED === 1` : la méthode `open()` a été appelée sur
-l'objet, mais pas la méthode `send()`
+  l'objet, mais pas la méthode `send()`
 * `XMLHttpRequest.HEADERS_RECEIVED === 2` : la méthode `send()` a été appelée,
-la requête a été entièrement envoyée
+  la requête a été entièrement envoyée
 * `XMLHttpRequest.LOADING === 3` : le serveur a commencé à renvoyer des données
 * `XMLHttpRequest.DONE === 4` : on a reçu toutes les données de la réponse
 
@@ -152,7 +152,8 @@ ajouter une condition sur celui-ci :
 
 ```javascript
 xhr.onreadystatechange = function() {
-    if (xhr.readyState === xhr.DONE) {}
+  if (xhr.readyState === xhr.DONE) {
+  }
 };
 ```
 
@@ -161,14 +162,14 @@ réponse du serveur doit avoir un code HTTP 2xx. Nouvelle condition :
 
 ```javascript
 xhr.onreadystatechange = function() {
-    if (xhr.readyState === xhr.DONE) {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            // OK
-        } else {
-            // Erreur ou redirection HTTP. Il est possible de gérer ces cas,
-            // mais le but est de rester le plus simple possible ici
-        }
+  if (xhr.readyState === xhr.DONE) {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      // OK
+    } else {
+      // Erreur ou redirection HTTP. Il est possible de gérer ces cas,
+      // mais le but est de rester le plus simple possible ici
     }
+  }
 };
 ```
 
@@ -182,17 +183,17 @@ alors on peut le parser avec `JSON.parse()` :
 
 ```javascript
 xhr.onreadystatechange = function() {
-    if (xhr.readyState === xhr.DONE) {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            // On récupère du XML
-            var elements = xhr.responseXML.getElementsByTagName('element');
+  if (xhr.readyState === xhr.DONE) {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      // On récupère du XML
+      var elements = xhr.responseXML.getElementsByTagName("element");
 
-            // On récupère du JSON
-            var data = JSON.parse(xhr.responseText);
-        } else {
-            // Erreur
-        }
+      // On récupère du JSON
+      var data = JSON.parse(xhr.responseText);
+    } else {
+      // Erreur
     }
+  }
 };
 ```
 
@@ -205,13 +206,13 @@ contenu dans `xhr.status`, évidemment, mais aussi ce que contient
 
 ```javascript
 xhr.onreadystatechange = function() {
-    if (xhr.readyState === xhr.DONE) {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            var data = JSON.parse(xhr.responseText);
-        } else {
-            console.error(xhr.status, xhr.statusText);
-        }
+  if (xhr.readyState === xhr.DONE) {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      var data = JSON.parse(xhr.responseText);
+    } else {
+      console.error(xhr.status, xhr.statusText);
     }
+  }
 };
 ```
 
@@ -224,26 +225,25 @@ afficher dans la console du navigateur):
 
 ```javascript
 var xhr = new XMLHttpRequest();
-var param1 = encodeURIComponent('value1&');
-var param2 = encodeURIComponent('value2');
+var param1 = encodeURIComponent("value1&");
+var param2 = encodeURIComponent("value2");
 
-xhr.open('POST', 'http://jesmodrazik.fr');
-xhr.setRequestHeader('Content-Type', 'application/x-form-urlencoded');
+xhr.open("POST", "http://jesmodrazik.fr");
+xhr.setRequestHeader("Content-Type", "application/x-form-urlencoded");
 
 xhr.onreadystatechange = function() {
-    if (xhr.readyState === xhr.DONE) {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            var data = JSON.parse(xhr.responseText);
+  if (xhr.readyState === xhr.DONE) {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      var data = JSON.parse(xhr.responseText);
 
-            console.log(data);
-        } else {
-            console.error(xhr.status, xhr.statusText);
-        }
+      console.log(data);
+    } else {
+      console.error(xhr.status, xhr.statusText);
     }
+  }
 };
 
-xhr.send('param1=' + param1 + '&param2=' + param2);
-
+xhr.send("param1=" + param1 + "&param2=" + param2);
 ```
 
 Bon heu... Autant d'habitude le JS natif est aussi simple, ou tout du moins pas
@@ -252,16 +252,16 @@ que jQuery a gagné :
 
 ```javascript
 $.ajax({
-    type: 'POST',
-    url: 'hhtp://jesmodrazik.fr',
-    data: {
-        param1: 'value1&',
-        param2: 'value2'
-    },
-    success: function(data) {
-        console.log(data);
-    },
-    dataType: 'json'
+  type: "POST",
+  url: "hhtp://jesmodrazik.fr",
+  data: {
+    param1: "value1&",
+    param2: "value2"
+  },
+  success: function(data) {
+    console.log(data);
+  },
+  dataType: "json"
 });
 ```
 
@@ -269,43 +269,47 @@ Mais on va pas se laisser abattre, on peut toujours se débrouiller sans lui !
 
 ```javascript
 function ajax(options) {
-    options.async = options.hasOwnProperty('async') ? options.async : true;
-    options.headers = options.headers ? options.headers : {};
+  options.async = options.hasOwnProperty("async") ? options.async : true;
+  options.headers = options.headers ? options.headers : {};
 
-    var xhr = new XMLHttpRequest();
+  var xhr = new XMLHttpRequest();
 
-    xhr.open(options.type, options.url, options.async);
+  xhr.open(options.type, options.url, options.async);
 
-    Object.keys(options.headers).forEach(function(header) {
-        xhr.setRequestHeader(header, options.headers[header]);
-    });
+  Object.keys(options.headers).forEach(function(header) {
+    xhr.setRequestHeader(header, options.headers[header]);
+  });
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === xhr.DONE) {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                options.success(xhr.responseXML || xhr.responseText, xhr.status);
-            } else {
-                options.error(xhr.status, xhr.statusText);
-            }
-        }
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === xhr.DONE) {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        options.success(xhr.responseXML || xhr.responseText, xhr.status);
+      } else {
+        options.error(xhr.status, xhr.statusText);
+      }
     }
+  };
 
-    xhr.send(options.data || null);
+  xhr.send(options.data || null);
 
-    return xhr;
+  return xhr;
 }
 
 ajax({
-    type: 'POST',
-    url: 'http://jesmodrazik.fr',
-    data: 'param1=' + encodeURIComponent('value1&') + '&param2=' + encodeURIComponent('value2'),
-    success: function(data, status) {
-        var json = JSON.parse(data);
-        console.log(data, status);
-    },
-    error: function(status, statusText) {
-        console.error(status, statusText);
-    }
+  type: "POST",
+  url: "http://jesmodrazik.fr",
+  data:
+    "param1=" +
+    encodeURIComponent("value1&") +
+    "&param2=" +
+    encodeURIComponent("value2"),
+  success: function(data, status) {
+    var json = JSON.parse(data);
+    console.log(data, status);
+  },
+  error: function(status, statusText) {
+    console.error(status, statusText);
+  }
 });
 ```
 
@@ -318,14 +322,14 @@ La deuxième version de la spécification XMLHttpRequest apporte son lot d'ajout
 intéressants :
 
 * la possibilité de spécifier un format de réponse, via `xhr.responseType`, et
-de récupérer la réponse directement au bon format via `xhr.response`. Les
-formats possibles sont `text`, `arraybuffer`, `blob`, `document` ou `json`
+  de récupérer la réponse directement au bon format via `xhr.response`. Les
+  formats possibles sont `text`, `arraybuffer`, `blob`, `document` ou `json`
 * la possibilité d'envoyer tous les formats précédents à la requête
 * l'objet `FormData` pour envoyer très simplement des données de formulaire (et
-qui gère aussi l'upload !) :
+  qui gère aussi l'upload !) :
 
 ```javascript
-var form = document.querySelector('#myForm');
+var form = document.querySelector("#myForm");
 var data = new FormData(form);
 
 xhr.send(data);
@@ -345,13 +349,13 @@ basée sur les `Promise`s, qui permet de faire une requête GET asynchrone en un
 ligne, et d'en traiter le résultat avec du code très lisible :
 
 ```javascript
-fetch('http://jesmodrazik.fr')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    });
+fetch("http://jesmodrazik.fr")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data);
+  });
 ```
 
 Je vous invite à aller sur le
@@ -363,15 +367,14 @@ asynchrone comme si celui-ci était synchrone :
 
 ```javascript
 function getSomething() {
-    return fetch('http://jesmodrazik.fr')
-        .then(function (response) {
-            return response.json();
-        });
+  return fetch("http://jesmodrazik.fr").then(function(response) {
+    return response.json();
+  });
 }
 
 async function getSomething() {
-    const data = await fetch('http://jesmodrazik');
-    console.log(data);
+  const data = await fetch("http://jesmodrazik");
+  console.log(data);
 }
 ```
 

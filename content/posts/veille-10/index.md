@@ -20,7 +20,7 @@ simplement et efficacement des éléments de formulaires.
 
 [CSS4: What’s new that you need to
 know](https://www.gadgetdaily.xyz/css4-whats-new-that-you-need-to-know/) : une
-liste des nouveautés proposées par CSS "4" (entre guillemets car il n'y  a pas
+liste des nouveautés proposées par CSS "4" (entre guillemets car il n'y a pas
 à proprement parler de version 4 de CSS, comme l'explique l'introduction de
 l'article : "CSS4 doesn’t actually exist, not as a monolithic specification
 describing what ‘CSS4’ is. What we do have are modules which describe separate

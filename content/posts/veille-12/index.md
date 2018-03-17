@@ -15,8 +15,7 @@ Web](https://medium.com/mozilla-tech/a-quantum-leap-for-the-web-a3b7174b3c12#.o5
 : Mozilla travaille sur une refonte de son moteur Gecko. Leur but est de tirer
 un maximum profit des architectures matérielles modernes (notamment les
 nombreux coeurs des processeurs) afin d'augmenter significativement les
-performances du moteur. Un projet qui devrait voir le jour dans Firefox fin
-2017.
+performances du moteur. Un projet qui devrait voir le jour dans Firefox fin 2017.
 
 ## CSS
 
@@ -35,7 +34,7 @@ sur les couleurs principales de celles-ci pendant leur chargement.
 [Continue Normalising Your
 CSS](http://csswizardry.com/2016/10/continue-normalising-your-css/) : La
 réponse d'Harry Roberts à l'article [Normalize (CSS) no
-more](http://shaunrashid.com/2015/09/15/normalize-css-no-more/).  Son point de
+more](http://shaunrashid.com/2015/09/15/normalize-css-no-more/). Son point de
 vue est que, contrairement à ce qu'on voudrait faire croire, on n'utilise pas
 Normalize pour faire du pixel perfect sur tous les navigateurs et tous les
 devices, mais pour se faciliter la vie en tant que développeurs. Ce qui est un

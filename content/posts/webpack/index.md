@@ -6,9 +6,9 @@ timeSensitive: true
 
 ## Qu'est-ce que webpack ?
 
-[webpack](https://webpack.js.org/) est un *module bundler*. Il construit le
+[webpack](https://webpack.js.org/) est un _module bundler_. Il construit le
 graphe de dépendances d'une application JS afin de les regrouper dans un ou
-plusieurs *bundle(s)* qui pourront être exécutés dans un navigateur web. Il
+plusieurs _bundle(s)_ qui pourront être exécutés dans un navigateur web. Il
 nous permet donc d'écrire du code modulaire, bien que les navigateurs
 n'implémentent pour la plupart pas encore les modules ES2015. Il fait donc la
 même chose que [browserify](http://browserify.org/). Toutefois, webpack est
@@ -35,8 +35,8 @@ import logo from "./logo.png";
 ```
 
 Webpack est capable de gérer à peu près n'importe quel type de fichier, grâce à
-son systême de *loaders*. À un type de fichier correspond un (ou plusieurs)
-*loader(s)*, qui a pour but de dire à webpack comment faire pour charger ce
+son systême de _loaders_. À un type de fichier correspond un (ou plusieurs)
+_loader(s)_, qui a pour but de dire à webpack comment faire pour charger ce
 type de fichier.
 
 ## Installer webpack
@@ -60,14 +60,14 @@ chaque fois, on peut écrire un script npm dans notre `package.json` :
 De cette manière, il suffira de taper `npm run build`, plutôt que
 `./node_modules/.bin/webpack` pour lancer webpack.
 
-*Il est aussi possible d'[installer webpack en
+_Il est aussi possible d'[installer webpack en
 global](https://webpack.js.org/guides/installation/#global-installation), mais
-ce n'est pas conseillé.*
+ce n'est pas conseillé._
 
-*Si vous voulez en savoir plus à propos des scripts npm, vous pouvez aller voir
+_Si vous voulez en savoir plus à propos des scripts npm, vous pouvez aller voir
 l'article ["ne plus installer gulp en dépendance
 globale"](/articles/ne-plus-installer-gulp-en-dependance-globale/), qui traite
-de ce sujet.*
+de ce sujet._
 
 ## Configurer webpack
 
@@ -85,8 +85,8 @@ module.exports = {
     // le chemin vers le bundle que webpack va générer
     path: path.resolve(__dirname, "web/assets"),
     // le nom du bundle
-    filename: "bundle.js",
-  },
+    filename: "bundle.js"
+  }
 };
 ```
 
@@ -108,15 +108,14 @@ console.log(add(1, 2));
 webpack générera un seul fichier, regroupant `add.js` et `app.js`, et qui une
 fois importé dans une page web, affichera `3` dans la console.
 
-*Note : webpack supporte par défaut la syntaxe des modules ES2015. Toutefois,
+_Note : webpack supporte par défaut la syntaxe des modules ES2015. Toutefois,
 c'est le seul aspect de cette syntaxe qu'il transpile directement. Pour le
-reste, il faut utiliser babel.*
-
+reste, il faut utiliser babel._
 
 ## Les loaders
 
 webpack met à disposition une API permettant de lui dire ce qu'il doit faire
-lorsqu'il charge un module : les *loaders*.
+lorsqu'il charge un module : les _loaders_.
 
 Par exemple, il est possible de lui dire "tiens, webpack, lorsque tu charges un
 fichier JS, alors passe le dans babel pour récupérer le code transpilé avant de
@@ -140,7 +139,7 @@ module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js",
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -157,11 +156,11 @@ module.exports = {
         loader: "babel-loader",
         // on passe des options au loader. Ici, on veut utiliser le preset "env"
         options: {
-          presets: ["env"],
-        },
-      },
-    ],
-  },
+          presets: ["env"]
+        }
+      }
+    ]
+  }
 };
 ```
 
@@ -220,7 +219,7 @@ module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js",
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -229,17 +228,17 @@ module.exports = {
         loader: "babel-loader",
         include: path.join(__dirname, "assets", "js"),
         options: {
-          presets: ["env"],
-        },
+          presets: ["env"]
+        }
       },
       {
         // pour les fichiers CSS...
         test: /\.css$/,
         // ...utilise le css-loader
-        loader: "css-loader",
+        loader: "css-loader"
       }
-    ],
-  },
+    ]
+  }
 };
 ```
 
@@ -263,7 +262,7 @@ contenant toutes nos règles CSS s'afficher dans la console du navigateur.
 
 On va donc avoir besoin d'un autre loader pour dire à webpack ce qu'il doit
 faire avec le CSS qu'il a chargé : le
-[`style-loader`](https://www.npmjs.com/package/style-loader).  Ce loader va
+[`style-loader`](https://www.npmjs.com/package/style-loader). Ce loader va
 prendre le résultat du `css-loader`, et l'injecter dans une balise `style` dans
 le `head` de notre page.
 
@@ -282,7 +281,7 @@ module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js",
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -291,26 +290,23 @@ module.exports = {
         loader: "babel-loader",
         include: path.join(__dirname, "assets", "js"),
         options: {
-          presets: ["env"],
-        },
+          presets: ["env"]
+        }
       },
       {
         test: /\.css$/,
         // il est possible de chaîner plusieurs loaders. Pour ça, on passe un
         // tableau de loaders à la propriété `use`. Les loaders sont appliqués
         // les uns à la suite des autres, en partant du dernier élément du tableau
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-        ],
-      },
-    ],
-  },
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+      }
+    ]
+  }
 };
 ```
 
 Après avoir relancé webpack, le style est cette fois-ci bien appliqué à la
-page.  Sauf si dans votre CSS vous faites appel à des images ou des fonts. Car
+page. Sauf si dans votre CSS vous faites appel à des images ou des fonts. Car
 le `css-loader` va traiter ceux-ci comme des imports de modules, et webpack ne
 saura pas comment les charger. On va donc appliquer deux dernières règles à
 notre configuration : une pour charger les images, et une pour charger les
@@ -333,7 +329,7 @@ module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js",
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -342,26 +338,23 @@ module.exports = {
         loader: "babel-loader",
         include: path.join(__dirname, "assets", "js"),
         options: {
-          presets: ["env"],
-        },
+          presets: ["env"]
+        }
       },
       {
         test: /\.css$/,
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-        ],
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
       },
       {
         test: /\.(jpg|gif|png|svg)$/,
-        loader: "file-loader",
+        loader: "file-loader"
       },
       {
         test: /\.(ttf|woff|woff2|eot)/,
-        loader: "file-loader",
+        loader: "file-loader"
       }
-    ],
-  },
+    ]
+  }
 };
 ```
 
@@ -387,7 +380,7 @@ module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js",
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -396,28 +389,25 @@ module.exports = {
         loader: "babel-loader",
         include: path.join(__dirname, "assets", "js"),
         options: {
-          presets: ["env"],
-        },
+          presets: ["env"]
+        }
       },
       {
         test: /\.css$/,
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-        ],
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
       },
       {
         test: /\.(jpg|gif|png|svg)$/,
-        loader: "file-loader",
+        loader: "file-loader"
       },
       {
         test: /\.(ttf|woff|woff2|eot)/,
-        loader: "file-loader",
+        loader: "file-loader"
       }
-    ],
+    ]
   },
   // webpack se lancera tout le temps en mode watch
-  watch: true,
+  watch: true
 };
 ```
 
@@ -436,10 +426,10 @@ qu'on fasse des modifications pour se relancer automatiquement. De plus, il
 utilise un cache qui lui permet de recompiler le bundle très rapidement.
 
 Voilà pour cette introduction à webpack, sa philosophie et son concept de
-*loaders*. Cet outil est capable de faire énormément d'autres choses. Je vous
+_loaders_. Cet outil est capable de faire énormément d'autres choses. Je vous
 conseille de jeter un oeil à la documentation qui est très bien faite. Dans les
-prochains articles, on abordera des aspects plus spécifiques comme le *code
-splitting*, les *plugins*, les *sourcemaps*, `webpack-dev-server` et le *hot
-module replacement*. Nous verrons aussi comment webpack peut totalement
+prochains articles, on abordera des aspects plus spécifiques comme le _code
+splitting_, les _plugins_, les _sourcemaps_, `webpack-dev-server` et le _hot
+module replacement_. Nous verrons aussi comment webpack peut totalement
 remplacer un workflow utilisant gulp (et ça vaudra aussi pour grunt,
 évidemment).

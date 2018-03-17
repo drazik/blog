@@ -41,8 +41,7 @@ article](http://blog.emmanuelgautier.fr/utilisateurs-et-privileges-sous-mysql.ht
 d'Emmanuel Gautier explique comment gérer les droits sous MySQL. Je vous invite
 à y jetter un oeil pour gérer les droits proprement sur votre serveur.
 
-Explications. `GRANT ALL PRIVILEGES`, ça veut dire ce que ça veut dire. `ON
-*.*`, ça veut dire sur toutes les bases et toutes les tables qui composent ces
+Explications. `GRANT ALL PRIVILEGES`, ça veut dire ce que ça veut dire. `ON *.*`, ça veut dire sur toutes les bases et toutes les tables qui composent ces
 bases. `TO 'root'@'%'`, ça veut dire à l’utilisateur root peu importe l’IP avec
 laquelle il se connecte. Et `IDENTIFIED BY '...'`, c’est le mot de passe de
 root.

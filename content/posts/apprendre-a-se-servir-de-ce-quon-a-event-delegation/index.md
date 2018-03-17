@@ -61,12 +61,12 @@ console. Pour IE 8, on utilisera un polyfill de
 [`EventTarget.addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener?redirectlocale=en-US&redirectslug=DOM%2FEventTarget.addEventListener).
 
 ```javascript
-var container = document.getElementById('container');
+var container = document.getElementById("container");
 
-container.addEventListener('click', function(event) {
-    if (event.target && event.target.nodeName === 'BUTTON') {
-        console.log(event.target.textContent);
-    }
+container.addEventListener("click", function(event) {
+  if (event.target && event.target.nodeName === "BUTTON") {
+    console.log(event.target.textContent);
+  }
 });
 ```
 

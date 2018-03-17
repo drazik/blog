@@ -63,19 +63,19 @@ la bibliothèque en ne chargeant que ce dont on a besoin. Pour résumer, voici
 comment se compose GSAP :
 
 * TweenLite : la librairie de base. Toutes les fonctions couvrant la majorité
-des cas d'utilisation sont présentes. `TweenLite.to` permet d'animer un élément
-de son état actuel à un autre spécifié en paramètre; `TweenLite.from` permet
-d'animer un élément d'un état spécifié en paramètre à son état actuel. De très
-nombreuses "timing functions" sont disponibles.
+  des cas d'utilisation sont présentes. `TweenLite.to` permet d'animer un élément
+  de son état actuel à un autre spécifié en paramètre; `TweenLite.from` permet
+  d'animer un élément d'un état spécifié en paramètre à son état actuel. De très
+  nombreuses "timing functions" sont disponibles.
 * TweenMax : extension de TweenLite embarquant des fonctions supplémentaires
-ainsi que des plugins comme CSSPlugin, d'autres timing functions ainsi que
-TimelineLite et TimelineMax.
+  ainsi que des plugins comme CSSPlugin, d'autres timing functions ainsi que
+  TimelineLite et TimelineMax.
 * TimelineLite : permet de définir des séquences d'animations et de les jouer
-dans tous les sens, les arrêter, les reprendre, les recommencer...
+  dans tous les sens, les arrêter, les reprendre, les recommencer...
 * TimelineMax : exactement comme TweenMax pour TweenLite, mais pour
-TimelineLite.
+  TimelineLite.
 * Des plugins : qu'on peut trouver [ici](https://greensock.com/plugins/), qui
-font des tas de choses... Je vous laisse regarder.
+  font des tas de choses... Je vous laisse regarder.
 
 On commencera donc généralement par importer TweenLite, puis les plugins dont
 on a besoin, et on remplacera le tout par TweenMax si on en arrive à avoir

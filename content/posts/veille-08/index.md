@@ -55,10 +55,11 @@ avec des performances accrues.
 
 [The performance benefits of
 rel=noopener](https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/)
-: un topo sur les bienfaits de l'utilisation de  `rel="noopener"` sur les liens
+: un topo sur les bienfaits de l'utilisation de `rel="noopener"` sur les liens
 externes.
 
 ## Programmation fonctionnelle [Goodbye, Object Oriented
+
 Programming](https://medium.com/@cscalfani/goodbye-object-oriented-programming-a59cda4c0e53#.5fne8z4l1)
 : Une réflexion sur les mauvais aspects de la POO, et comment les éviter grâce
 à la programmation fonctionnelle.

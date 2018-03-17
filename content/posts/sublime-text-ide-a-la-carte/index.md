@@ -58,5 +58,5 @@ Sauf si on ne veut pas qu'une petite fenêtre apparaisse de temps en temps
 lorsqu'un sauvegarde un fichier. Dans ce cas c'est 70$.
 
 Pour tout ça, selon moi, Sublime Text n’a rien a envier à Eclipse, Netbeans et
-*Storm. Ceci dit, le principal est d’utiliser l’outil qu’on préfère. Moi, j’ai
+\*Storm. Ceci dit, le principal est d’utiliser l’outil qu’on préfère. Moi, j’ai
 fais mon choix :)

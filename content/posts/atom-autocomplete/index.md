@@ -5,7 +5,7 @@ timeSensitive: true
 ---
 
 Il y a un peu plus de 2 ans, j'expliquais pourquoi [je préfère les éditeurs de
-texte légers aux gros IDE](/articles/sublime-text-ide-a-la-carte/).  C'est
+texte légers aux gros IDE](/articles/sublime-text-ide-a-la-carte/). C'est
 toujours le cas, à la différence près que j'ai abandonné Sublime Text pour
 Atom. Cette préférence a un inconvénient qui découle d'un avantage majeur : il
 n'y a pas de véritable autocomplétion pré-packagée. Evidemment, puisque dans ce
