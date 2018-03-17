@@ -10,7 +10,7 @@ Windows, faire la mise à jour de NodeJS revient à désinstaller la version
 actuelle, télécharger l'installeur de la nouvelle version. Sur Ubuntu, utiliser
 apt-get est [plus compliqué qu'il n'y parait](http://doc.ubuntu-fr.org/nodejs)
 pour gérer son installation de NodeJS. Il fallait donc trouver une solution
-plus efficace.  Mon choix s'est porté sur [Node.js Version Manager
+plus efficace. Mon choix s'est porté sur [Node.js Version Manager
 (nvm)](https://github.com/creationix/nvm).
 
 <span class="more"></span>
@@ -61,8 +61,7 @@ il faut utiliser `nvm ls-remote`.
 
 ## Utiliser une version installée
 
-Une fois une ou plusieurs version(s) de NodeJS installée(s), la commande `nvm
-use <version>` permet d'utiliser l'une d'elles dans le shell courrant. En
+Une fois une ou plusieurs version(s) de NodeJS installée(s), la commande `nvm use <version>` permet d'utiliser l'une d'elles dans le shell courrant. En
 effet, de base, lors de l'ouverture d'un shell, NodeJS n'est pas disponible
 dans celui-ci. Il est toutefois possible de définir une version par défaut qui
 sera utilisée automatiquement lors de l'ouverture d'un nouveau shell, avec la

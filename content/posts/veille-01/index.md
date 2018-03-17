@@ -6,7 +6,7 @@ date: "2016-01-22"
 Ça fait assez longtemps que j'hésite à le faire, et donc assez longtemps que je
 ne le fais pas. Les raisons sont multiples : la sensation de ne pas être
 forcément légitime, le fait que d'autres le fassent déjà très bien, entre
-autres.  Pourtant aujourd'hui je décide finalement de me lancer, et de partager
+autres. Pourtant aujourd'hui je décide finalement de me lancer, et de partager
 ma veille (technologique, mais pas que) de manière hebdomadaire (en tous cas on
 va le tenter comme ça). C'est partit.
 
@@ -34,7 +34,7 @@ laisser de côté les tasks runners JS au profit des scripts npm, ainsi que les
 avantages et inconvénients que ces derniers présentent, mais aussi comment
 contourner les problèmes qu'ils peuvent poser. La phrase suivante résume
 largement l'article : "I’ve found Gulp and Grunt to be unnecessary
-abstractions.  npm scripts are plenty powerful and often easier to live with."
+abstractions. npm scripts are plenty powerful and often easier to live with."
 
 ["How to animate
 box-shadow"](http://tobiasahlin.com/blog/how-to-animate-box-shadow/) : ici
@@ -52,7 +52,7 @@ clients sont disponibles, allant de Node.js au web en passant par bash ou des
 applications Android et iOS.
 
 [ContentTools](http://getcontenttools.com/) : un éditeur WYSIWYG qui permet
-d'éditer facilement le contenu d'une page.  [La
+d'éditer facilement le contenu d'une page. [La
 démo](http://getcontenttools.com/demo) est bien plus parlante que des mots,
 vous devriez aller jetter un oeil !
 

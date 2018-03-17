@@ -19,11 +19,11 @@ de sens. N'hésitez pas à parcourir les autres articles !_
 Avec jQuery, on ferait ça de la manière suivante :
 
 ```javascript
-var $element = $('#element');
-$element.css('background-color', '#000');
+var $element = $("#element");
+$element.css("background-color", "#000");
 $element.css({
-    color: '#fff',
-    display: 'block'
+  color: "#fff",
+  display: "block"
 });
 ```
 
@@ -32,10 +32,10 @@ Mais c'est tout aussi simple avec
 :
 
 ```javascript
-var element = document.getElementById('element');
-element.style.backgroundColor = '#000';
-element.style.color = '#fff';
-element.style.display = 'block';
+var element = document.getElementById("element");
+element.style.backgroundColor = "#000";
+element.style.color = "#fff";
+element.style.display = "block";
 ```
 
 Toutefois on n'a pas la possibilité de passer directement un objet à
@@ -49,7 +49,7 @@ Pour modifier plusieurs propriétés d'un seul coup, il est quand même possible
 d'utiliser `CSSStyleDeclaration.cssText` :
 
 ```javascript
-element.style.cssText = 'background-color: #000; color: #fff; display: block;';
+element.style.cssText = "background-color: #000; color: #fff; display: block;";
 ```
 
 Ca marche ©, mais c'est quand même beaucoup moins cool à lire qu'un objet.
@@ -63,8 +63,8 @@ Le plus simple pour gérer les classes d'un element, c'est
 :
 
 ```javascript
-var element = document.getElementById('element');
-element.className = 'toto';
+var element = document.getElementById("element");
+element.className = "toto";
 ```
 
 Avec ce bout de code, l'élément ayant l'id `element` se verra attribuer la
@@ -79,15 +79,15 @@ Cette API est très simple puisqu'elle n'expose que 4 méthodes : `add()`,
 
 ```javascript
 //<div id="element"></div>
-element.classList.add('toto');
+element.classList.add("toto");
 //<div class="toto" id="element"></div>
-element.classList.remove('toto');
+element.classList.remove("toto");
 //<div class="" id="element"></div>
-element.classList.toggle('toto');
+element.classList.toggle("toto");
 //<div class="toto" id="element"></div>
-element.classList.toggle('toto');
+element.classList.toggle("toto");
 //<div class="" id="element"></div>
-console.log(element.classList.contains('toto'));
+console.log(element.classList.contains("toto"));
 // false
 ```
 

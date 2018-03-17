@@ -21,17 +21,17 @@ en utilisant Photoshop ou assimilés. Il file ensuite cette maquette à
 l’intégrateur. Ici deux solutions :
 
 * le designer et l’intégrateur peuvent discuter (sous entendu il n’y a pas 36
-intermédiaires ~~inutiles, sauf à faire grimper la facture du client final~~
-entre eux). Le designer peut dire à l’intégrateur comment il voit la page
-vivre. L’intégrateur a alors une idée de ce qu’il y a à faire, et le sujet de
-la faisabilité peut être abordé
+  intermédiaires ~~inutiles, sauf à faire grimper la facture du client final~~
+  entre eux). Le designer peut dire à l’intégrateur comment il voit la page
+  vivre. L’intégrateur a alors une idée de ce qu’il y a à faire, et le sujet de
+  la faisabilité peut être abordé
 * le designer et l’intégrateur ne peuvent pas discuter ~~(saloperies
-d’intermédiaires)~~, ou très difficilement. L’intégrateur doit donc tout
-deviner. La probabilité que ce soit exactement ce à quoi le designer avait
-pensé? Quasi nulle. Dans le meilleur des cas ça s’en rapprochera. L’intégrateur
-n’est pas dans la tête du designer. Même si nous, les gens qui faisons de
-l’informatique, [sommes d’obscurs
-magiciens](https://www.youtube.com/watch?v=BKorP55Aqvg)
+  d’intermédiaires)~~, ou très difficilement. L’intégrateur doit donc tout
+  deviner. La probabilité que ce soit exactement ce à quoi le designer avait
+  pensé? Quasi nulle. Dans le meilleur des cas ça s’en rapprochera. L’intégrateur
+  n’est pas dans la tête du designer. Même si nous, les gens qui faisons de
+  l’informatique, [sommes d’obscurs
+  magiciens](https://www.youtube.com/watch?v=BKorP55Aqvg)
 
 Aujourd’hui, les maquettes sont de plus en plus composées d’éléments complexes.
 Il y a du bord arrondis de partout, des transitions (quand le designer a pu

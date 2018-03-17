@@ -31,7 +31,7 @@ ici](http://www.reactrally.com/schedule).
 [11 Simple npm Tricks That Will Knock Your Wombat Socks
 Off](http://www.batmanstream.com/) : Vérifier les dépendances qui ont besoin
 d'être mises à jour, figer les versions des dépendances, aller directement sur
-la page npm ou github d'un module npm...  Quelques astuces pour mieux profiter
+la page npm ou github d'un module npm... Quelques astuces pour mieux profiter
 des outils mis à disposition par npm.
 
 ## UX

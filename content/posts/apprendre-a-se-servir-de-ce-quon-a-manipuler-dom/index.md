@@ -27,7 +27,7 @@ liste d'articles, est parfaite :
 > style et de contenu. Le DOM représente le document comme un ensemble de nœuds
 > et d'objets possédant des propriétés et des méthodes. Cela permet de
 > manipuler des pages web grâce à des scripts et/ou des langages de
-> programmation.  ([Référence du DOM sur le
+> programmation. ([Référence du DOM sur le
 > MDN](https://developer.mozilla.org/fr/docs/Web/API/R%C3%A9f%C3%A9rence_du_DOM_Gecko))
 
 ## Sélectionner des éléments
@@ -38,8 +38,8 @@ etc. Avec un jQuery-like, ça se fait très simplement avec une fonction, souven
 nommée `$` :
 
 ```javascript
-var $element = $('#element');
-var $buttons = $('button');
+var $element = $("#element");
+var $buttons = $("button");
 ```
 
 Pourtant, les navigateurs proposent une API pour faire la même chose :
@@ -52,8 +52,8 @@ renvoie une `NodeList` contenant tous les éléments trouvés (donc vide si aucu
 précédent, avec cette API :
 
 ```javascript
-var element = document.querySelector('#element');
-var buttons = document.querySelectorAll('button');
+var element = document.querySelector("#element");
+var buttons = document.querySelectorAll("button");
 ```
 
 Il y a deux subtilités. La première, c'est cette `NodeList` renvoyée par
@@ -68,9 +68,9 @@ fonction `$` qui fait ça.
 
 ```javascript
 function $(selector) {
-    var elements = document.querySelectorAll(selector);
+  var elements = document.querySelectorAll(selector);
 
-    return Array.apply(null, elements);
+  return Array.apply(null, elements);
 }
 ```
 
@@ -81,7 +81,6 @@ débrouiller sans. [Voici la liste des sélecteurs supportés par
 IE8](http://www.w3.org/TR/CSS2/selector.html) (ce sont les sélecteurs CSS 2.1,
 quoi).
 
-
 ## Créer des éléments
 
 Pour créer des éléments, c'est très simple. Là où on ferait un `$('<div />')`
@@ -89,20 +88,20 @@ avec jQuery ou un `new Element('div')` avec MooTools, en JavaScript natif, il
 suffit de faire ceci :
 
 ```javascript
-var div = document.createElement('div');
+var div = document.createElement("div");
 ```
 
 Il existe aussi une méthode de `document` permettant de créer un noeud texte,
 que l'on pourra par la suite ajouter à notre div précédemment créée :
 
 ```javascript
-var text = document.createTextNode('Le futur contenu de ma div !');
+var text = document.createTextNode("Le futur contenu de ma div !");
 ```
 
 * [Documentation de
-`document.createElement()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
+  `document.createElement()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
 * [Documentation de
-`documentation.createTextNode()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode)
+  `documentation.createTextNode()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode)
 
 ## Insérer des bouts de DOM
 
@@ -129,18 +128,18 @@ Imaginons qu'on veuille créer une liste non ordonnée d'éléments se trouvant
 dans un tableau (pourquoi pas) :
 
 ```javascript
-var elements = ['Pommes', 'Poires', 'Carottes', 'Tomates'];
+var elements = ["Pommes", "Poires", "Carottes", "Tomates"];
 var fragment = document.createDocumentFragment();
-var title = document.createElement('h1');
-var list = document.createElement('ul');
-title.innerHTML = 'Ma liste de trucs à acheter';
+var title = document.createElement("h1");
+var list = document.createElement("ul");
+title.innerHTML = "Ma liste de trucs à acheter";
 fragment.appendChild(title);
 
 elements.forEach(function(element) {
-    var listItem = document.createElement('li');
-    listItem.innerHTML = element;
+  var listItem = document.createElement("li");
+  listItem.innerHTML = element;
 
-    list.appendChild(listItem);
+  list.appendChild(listItem);
 });
 
 fragment.appendChild(list);
@@ -160,10 +159,10 @@ donc besoin de 3 choses : la liste, l'élément avant lequel on souhaite ajouter
 un nouvel élément, et le nouvel élément. Ce qui donne ceci :
 
 ```javascript
-var list = document.querySelector('ul');
-var firstItem = list.querySelector('li');
-var newItem = document.createElement('li');
-newItem.innerHTML = 'Courgettes';
+var list = document.querySelector("ul");
+var firstItem = list.querySelector("li");
+var newItem = document.createElement("li");
+newItem.innerHTML = "Courgettes";
 
 list.insertBefore(newItem, firstItem);
 ```
@@ -183,12 +182,12 @@ auquel elle est appliquée. Exemple :
 ```
 
 ```javascript
-var parent = document.querySelector('#parent');
+var parent = document.querySelector("#parent");
 
-parent.insertAdjacentHTML('beforebegin','<div>Beforebegin</div>');
-parent.insertAdjacentHTML('afterbegin', '<div>Afterbegin</div>');
-parent.insertAdjacentHTML('beforeend', '<div>Beforeend</div>');
-parent.insertAdjacentHTML('afterend', '<div>Afterend</div>');
+parent.insertAdjacentHTML("beforebegin", "<div>Beforebegin</div>");
+parent.insertAdjacentHTML("afterbegin", "<div>Afterbegin</div>");
+parent.insertAdjacentHTML("beforeend", "<div>Beforeend</div>");
+parent.insertAdjacentHTML("afterend", "<div>Afterend</div>");
 ```
 
 On obtient le DOM suivant :
@@ -207,13 +206,13 @@ Avec tout ça, il est possible d'ajouter des éléments à peu près n'importe o
 dans notre DOM, sans avoir recours à une bibliothèque.
 
 * [Documentation de
-`Node.appendChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+  `Node.appendChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
 * [Documentation de
-`Document.createDocumentFragment()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment)
+  `Document.createDocumentFragment()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment)
 * [Documentation de
-`Node.insertBefore()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
+  `Node.insertBefore()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
 * [Documentation de
-`Element.insertAdjacentHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML)
+  `Element.insertAdjacentHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML)
 
 ## Cloner un élement
 
@@ -223,7 +222,7 @@ suffit d'utiliser la méthode
 comme ceci :
 
 ```javascript
-var title = document.querySelector('h1');
+var title = document.querySelector("h1");
 var clonedTitle = title.cloneNode(true);
 ```
 
@@ -242,8 +241,8 @@ savoir comment en supprimer. Et pour ça, il faut utiliser la méthode
 Supprimons le premier élément de notre liste :
 
 ```javascript
-var list = document.querySelector('ul');
-var firstItem = list.querySelector('li');
+var list = document.querySelector("ul");
+var firstItem = list.querySelector("li");
 
 list.removeChild(firstItem);
 ```

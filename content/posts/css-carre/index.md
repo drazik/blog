@@ -23,16 +23,15 @@ une hauteur égale à sa largeur à tout moment. Quelque chose comme ceci... :
 
 ```css
 .Square {
-    display: block;
-    width: 25%;
-    height: computed-property(width);
+  display: block;
+  width: 25%;
+  height: computed-property(width);
 }
 ```
 
 ... qui prendrait la valeur calculée de `width` pour l'appliquer à `height`. Il
 nous faut donc une solution pour "écouter" la largeur de notre élément afin d'y
 appliquer une hauteur égale.
-
 
 ## La méthode JavaScript
 
@@ -75,5 +74,5 @@ Et voici. Je tire trois enseignements de cette expérience :
 * Comment faire des carrés en CSS !
 * Lire la documentation, comme toujours, est primordial
 * Le partage de connaissances, lui aussi, est primordial. Je remercie donc ce
-collègue (qui est apprenti, vous avez des choses à apprendre de vos apprentis)
-d'avoir partagé ceci avec moi
+  collègue (qui est apprenti, vous avez des choses à apprendre de vos apprentis)
+  d'avoir partagé ceci avec moi
