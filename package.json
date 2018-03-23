@@ -17,7 +17,8 @@
   "scripts": {
     "start": "phenomic start",
     "build": "phenomic build",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "test": "npm run build"
   },
   "dependencies": {
     "date-fns": "^1.29.0",
