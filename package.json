@@ -5,7 +5,7 @@
     "@phenomic/core": "1.0.0-beta.0",
     "@phenomic/preset-react-app": "1.0.0-beta.0",
     "husky": "0.14.3",
-    "lint-staged": "7.0.2",
+    "lint-staged": "7.0.3",
     "prettier": "1.11.1",
     "react": "16.3.0",
     "react-dom": "16.3.0",
