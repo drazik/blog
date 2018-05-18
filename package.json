@@ -1,9 +1,9 @@
 {
   "private": true,
   "devDependencies": {
-    "@phenomic/cli": "1.0.0-beta.0",
-    "@phenomic/core": "1.0.0-beta.0",
-    "@phenomic/preset-react-app": "1.0.0-beta.0",
+    "@phenomic/cli": "1.0.0-beta.2",
+    "@phenomic/core": "1.0.0-beta.2",
+    "@phenomic/preset-react-app": "1.0.0-beta.2",
     "husky": "0.14.3",
     "lint-staged": "7.1.1",
     "prettier": "1.12.1",
