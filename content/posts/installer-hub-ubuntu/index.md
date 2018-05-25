@@ -28,7 +28,7 @@ $ hub fork
 → git remote add YOUR_USER git://github.com/YOUR_USER/hub.git
 ```
 
-C'est un outil très pratique pour faire toutes sortes de tâches permises par
+C'est un outil très pratique pour faire toutes sortes de tâches liées à
 Github, sans quitter son terminal.
 
 La documentation indique comment l'installer sur
