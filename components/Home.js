@@ -2,7 +2,7 @@ import React from "react";
 import Head from "react-helmet";
 import parseDate from "date-fns/parse";
 import compareDatesDesc from "date-fns/compare_desc";
-import { createContainer, query } from "@phenomic/preset-react-app/lib/client";
+import { withPhenomicApi, query } from "@phenomic/preset-react-app/lib/client";
 import { Layout } from "./Layout";
 import { Link } from "react-router";
 import { PostsList } from "./PostsList";
@@ -37,6 +37,6 @@ export const Home = ({ isLoading, posts }) => {
   );
 };
 
-export const HomeContainer = createContainer(Home, () => ({
+export const HomeContainer = withPhenomicApi(Home, () => ({
   posts: query({ path: "posts" })
 }));
