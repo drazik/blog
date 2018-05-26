@@ -2,7 +2,7 @@ import React from "react";
 import Head from "react-helmet";
 import { Layout } from "./Layout";
 import {
-  createContainer,
+  withPhenomicApi,
   query,
   BodyRenderer,
   textRenderer
@@ -50,6 +50,6 @@ export const Post = ({ hasError, isLoading, page }) => {
   );
 };
 
-export const PostContainer = createContainer(Post, props => ({
+export const PostContainer = withPhenomicApi(Post, props => ({
   page: query({ path: "posts", id: props.params.splat })
 }));
