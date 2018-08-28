@@ -38,5 +38,5 @@ export const Home = ({ isLoading, posts }) => {
 };
 
 export const HomeContainer = withPhenomicApi(Home, () => ({
-  posts: query({ path: "posts" })
+  posts: query({ path: "content/posts" })
 }));
