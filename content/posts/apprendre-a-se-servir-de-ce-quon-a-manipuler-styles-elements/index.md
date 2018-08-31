@@ -18,7 +18,7 @@ de sens. N'hésitez pas à parcourir les autres articles !_
 
 Avec jQuery, on ferait ça de la manière suivante :
 
-```javascript
+```js
 var $element = $("#element");
 $element.css("background-color", "#000");
 $element.css({
@@ -31,7 +31,7 @@ Mais c'est tout aussi simple avec
 [`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style)
 :
 
-```javascript
+```js
 var element = document.getElementById("element");
 element.style.backgroundColor = "#000";
 element.style.color = "#fff";
@@ -48,13 +48,13 @@ MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference).
 Pour modifier plusieurs propriétés d'un seul coup, il est quand même possible
 d'utiliser `CSSStyleDeclaration.cssText` :
 
-```javascript
+```js
 element.style.cssText = "background-color: #000; color: #fff; display: block;";
 ```
 
 Ca marche ©, mais c'est quand même beaucoup moins cool à lire qu'un objet.
 
-* [Documentation de `CSSStyleDeclaration`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration)
+- [Documentation de `CSSStyleDeclaration`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration)
 
 ## Manipuler les classes
 
@@ -62,7 +62,7 @@ Le plus simple pour gérer les classes d'un element, c'est
 [`Element.className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className?redirectlocale=en-US&redirectslug=DOM%2Felement.className)
 :
 
-```javascript
+```js
 var element = document.getElementById("element");
 element.className = "toto";
 ```
@@ -77,7 +77,7 @@ Ce qui nous mène à l'API
 Cette API est très simple puisqu'elle n'expose que 4 méthodes : `add()`,
 `remove()`, `toggle` et `contains`, donc les noms sont plutôt évocateurs :
 
-```javascript
+```js
 //<div id="element"></div>
 element.classList.add("toto");
 //<div class="toto" id="element"></div>

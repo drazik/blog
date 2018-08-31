@@ -30,21 +30,21 @@ global.
 
 Pour lancer la tâche watch d’un projet, on peut faire ceci :
 
-```bash
+```console
 .\node_modules.bin\gulp watch
 ```
 
 On peut aussi aller “plus loin” et utiliser les scripts NPM. NPM permet de
 définir des scripts qui peuvent être lancés en tapant :
 
-```bash
+```console
 npm run nom_du_script
 ```
 
 Pour définir un script, il suffit d’ajouter un objet “scripts” dans le
 package.json. On peut donc faire ceci :
 
-```javascript
+```js
 "scripts": {
     "gulp": "./node_modules/.bin/gulp"
 }
@@ -53,7 +53,7 @@ package.json. On peut donc faire ceci :
 Dans l’état c’est cool mais ça ne fait rien, il faudrait pouvoir lui passer la
 tâche qu’on veut exécuter en argument, ou alors définir un script par tâche :
 
-```javascript
+```js
 "scripts": {
     "gulp:watch": "./node_modules/.bin/gulp watch",
     "gulp:compile": "./node_modules/.bin/gulp compile"
@@ -63,7 +63,7 @@ tâche qu’on veut exécuter en argument, ou alors définir un script par tâch
 
 On pourrait donc faire :
 
-```bash
+```console
 npm run gulp:watch
 npm run gulp:compile
 ```
@@ -73,26 +73,26 @@ et lui passer en paramètre le nom de la tâche qu’on veut exécuter. C’est
 possible de faire ça, mais uniquement à partir de la version 2.0.0 de npm. Il
 faut donc mettre à jour notre npm si on est en 1.x.y (`npm -v` pour vérifier) :
 
-```bash
+```console
 npm install npm -g
 ```
 
 On peut maintenant faire ceci :
 
-```bash
+```console
 npm run nom_du_script — arg1 arg2 "arg avec des espaces"
 ```
 
 Et du coup on peut lancer une tâche gulp en spécifiant son nom comme ceci :
 
-```bash
+```console
 npm run gulp -- watch
 ```
 
 Et si on tient absolument à avoir un script pour chaque tâche, on peut
 réutiliser le script “gulp” déjà écrit :
 
-```javascript
+```js
 "scripts": {
     "gulp": "./node_modules/.bin/gulp",
     "gulp:watch": "npm run gulp — watch",
@@ -105,7 +105,7 @@ Oh, wait ! Il y a encore plus fort. Quand on lance un script avec `npm run`,
 npm prend le dossier `node_modules/.bin` et le met dans le PATH. On peut donc
 faire encore plus court :
 
-```javascript
+```js
 "scripts": {
     "gulp:watch": "gulp watch",
     "gulp:compile": "gulp compile"

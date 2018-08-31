@@ -60,7 +60,7 @@ Celui-ci devra regarder si l'élément ayant déclenché l'événement est un
 console. Pour IE 8, on utilisera un polyfill de
 [`EventTarget.addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener?redirectlocale=en-US&redirectslug=DOM%2FEventTarget.addEventListener).
 
-```javascript
+```js
 var container = document.getElementById("container");
 
 container.addEventListener("click", function(event) {
@@ -89,7 +89,7 @@ suffisant pour une grande majorité des cas.
 
 On a donc tout ce qu'il faut pour créer notre fonction `delegate` !
 
-```javascript
+```js
 // Notre fonction a besoin :
 // - de l'élément sur lequel écouter l'événement
 // - du type d'événement à écouter

@@ -47,7 +47,7 @@ Voyons voir comment fonctionne cet objet XMLHttpRequest.
 
 D'abord il nous faut un objet...
 
-```javascript
+```js
 var xhr = new XMLHttpRequest();
 ```
 
@@ -57,23 +57,23 @@ ainsi qu'une plus spéciale, HEAD, qui permet de ne récupérer que l'entête de
 réponse. Pour commencer, nous allons faire une simple requête en GET sur la
 page d'accueil du blog :
 
-```javascript
+```js
 xhr.open("GET", "http://jesmodrazik.fr");
 ```
 
 Il est possible de spécifier 3 autres paramètres :
 
-* Un booléen spécifiant si la requête est asynchrone ou non. Par défaut
+- Un booléen spécifiant si la requête est asynchrone ou non. Par défaut
   celui-ci vaut `true`, donc la requête sera asynchrone
-* Un login en cas d'identification nécessaire (type .htaccess)
-* Le mot de passe qui va avec
+- Un login en cas d'identification nécessaire (type .htaccess)
+- Le mot de passe qui va avec
 
 Pour faire une requête HEAD ou POST, il suffit de spécifier la méthode
 souhaitée en premier paramètre.
 
 Il ne nous reste plus qu'à envoyer la requête :
 
-```javascript
+```js
 xhr.send(null);
 ```
 
@@ -84,7 +84,7 @@ requête GET, à la différence près qu'on ne récupère que l'entête de la
 réponse), le passage de paramètres se fait dans l'URL qu'on passe à la méthode
 `open`, comme on le ferait dans la barre d'adresse de notre navigateur :
 
-```javascript
+```js
 xhr.open("GET", "http://jesmodrazik.fr?param1=value2&param2=value2");
 ```
 
@@ -92,14 +92,14 @@ Dans le cas d'une requête POST, il faut d'abord préciser dans l'entête de la
 requête que les paramètres viennent d'un formulaire (même si ce n'est pas le
 cas) :
 
-```javascript
+```js
 xhr.open("POST", "http://jesmodrazik.fr");
 xhr.setRequestHeader("Content-Type", "application/x-form-urlencoded");
 ```
 
 Puis il faut passer les paramètres à la méthode `send` :
 
-```javascript
+```js
 xhr.send("param1=value1&param2=value2");
 ```
 
@@ -108,7 +108,7 @@ passer à notre requête, afin que ceux-ci ne contiennent aucun caractère
 interdit dans une URL. Pour cela, il faut utiliser la fonction
 `encodeURIComponent` :
 
-```javascript
+```js
 // le caractère "&" a une signification dans une URL, il faut donc le convertir
 var param1 = encodeURIComponent("value1&");
 // ici, pas de caractère à convertir, mais dans le cas d'une saisie utilisateur, on ne peut pas prédire ce qu'on reçoit !
@@ -124,7 +124,7 @@ Maintenant qu'on sait envoyer une requête, il faudrait savoir...
 Qui dit asynchrone dit callback. On va donc commencer par attacher une fonction
 à un événement qui nous notifiera l'arrivée de la réponse :
 
-```javascript
+```js
 // Directement via onreadystatechange
 xhr.onreadystatechange = function() {};
 
@@ -138,19 +138,19 @@ possible pour une `XMLHttpRequest` est de 5. Chaque état est représenté par u
 nombre entier, ainsi qu'une constante de l'objet `XMLHttpRequest` qui le
 représente :
 
-* `XMLHttpRequest.UNSENT === 0` : on a un objet `XMLHttpRequest` tout frais sur
+- `XMLHttpRequest.UNSENT === 0` : on a un objet `XMLHttpRequest` tout frais sur
   lequel la méthode `open()` n'a pas encore été appelée
-* `XMLHttpRequest.OPENED === 1` : la méthode `open()` a été appelée sur
+- `XMLHttpRequest.OPENED === 1` : la méthode `open()` a été appelée sur
   l'objet, mais pas la méthode `send()`
-* `XMLHttpRequest.HEADERS_RECEIVED === 2` : la méthode `send()` a été appelée,
+- `XMLHttpRequest.HEADERS_RECEIVED === 2` : la méthode `send()` a été appelée,
   la requête a été entièrement envoyée
-* `XMLHttpRequest.LOADING === 3` : le serveur a commencé à renvoyer des données
-* `XMLHttpRequest.DONE === 4` : on a reçu toutes les données de la réponse
+- `XMLHttpRequest.LOADING === 3` : le serveur a commencé à renvoyer des données
+- `XMLHttpRequest.DONE === 4` : on a reçu toutes les données de la réponse
 
 Puisqu'on est intéressés uniquement par le dernier état, on va commencer par
 ajouter une condition sur celui-ci :
 
-```javascript
+```js
 xhr.onreadystatechange = function() {
   if (xhr.readyState === xhr.DONE) {
   }
@@ -160,7 +160,7 @@ xhr.onreadystatechange = function() {
 Il faut maintenant détecter si tout s'est bien passé. Si c'est le cas, alors la
 réponse du serveur doit avoir un code HTTP 2xx. Nouvelle condition :
 
-```javascript
+```js
 xhr.onreadystatechange = function() {
   if (xhr.readyState === xhr.DONE) {
     if (xhr.status >= 200 && xhr.status < 300) {
@@ -181,7 +181,7 @@ est un DOM qui peut être parcouru de la même manière que n'importe quel autre
 DOM. `responseText` n'est que du texte brut. Si on sait qu'on reçoit du JSON,
 alors on peut le parser avec `JSON.parse()` :
 
-```javascript
+```js
 xhr.onreadystatechange = function() {
   if (xhr.readyState === xhr.DONE) {
     if (xhr.status >= 200 && xhr.status < 300) {
@@ -204,7 +204,7 @@ Dans ce cas, on peut savoir quelle est l'erreur en regardant le code HTTP
 contenu dans `xhr.status`, évidemment, mais aussi ce que contient
 `xhr.statusText` :
 
-```javascript
+```js
 xhr.onreadystatechange = function() {
   if (xhr.readyState === xhr.DONE) {
     if (xhr.status >= 200 && xhr.status < 300) {
@@ -223,7 +223,7 @@ qu'on veut faire une requête en POST avec les paramètres `param1` et `param2`
 sur `http://jesmodrazik.fr`, et qu'on récupère du JSON qu'on veut simplement
 afficher dans la console du navigateur):
 
-```javascript
+```js
 var xhr = new XMLHttpRequest();
 var param1 = encodeURIComponent("value1&");
 var param2 = encodeURIComponent("value2");
@@ -250,7 +250,7 @@ Bon heu... Autant d'habitude le JS natif est aussi simple, ou tout du moins pas
 beaucoup plus compliqué que l'équivalent avec jQuery, autant là, je dois avouer
 que jQuery a gagné :
 
-```javascript
+```js
 $.ajax({
   type: "POST",
   url: "hhtp://jesmodrazik.fr",
@@ -267,7 +267,7 @@ $.ajax({
 
 Mais on va pas se laisser abattre, on peut toujours se débrouiller sans lui !
 
-```javascript
+```js
 function ajax(options) {
   options.async = options.hasOwnProperty("async") ? options.async : true;
   options.headers = options.headers ? options.headers : {};
@@ -321,14 +321,14 @@ couvre la grande majorité des cas d'utilisation.
 La deuxième version de la spécification XMLHttpRequest apporte son lot d'ajouts
 intéressants :
 
-* la possibilité de spécifier un format de réponse, via `xhr.responseType`, et
+- la possibilité de spécifier un format de réponse, via `xhr.responseType`, et
   de récupérer la réponse directement au bon format via `xhr.response`. Les
   formats possibles sont `text`, `arraybuffer`, `blob`, `document` ou `json`
-* la possibilité d'envoyer tous les formats précédents à la requête
-* l'objet `FormData` pour envoyer très simplement des données de formulaire (et
+- la possibilité d'envoyer tous les formats précédents à la requête
+- l'objet `FormData` pour envoyer très simplement des données de formulaire (et
   qui gère aussi l'upload !) :
 
-```javascript
+```js
 var form = document.querySelector("#myForm");
 var data = new FormData(form);
 
@@ -348,7 +348,7 @@ D'abord, l'API
 basée sur les `Promise`s, qui permet de faire une requête GET asynchrone en une
 ligne, et d'en traiter le résultat avec du code très lisible :
 
-```javascript
+```js
 fetch("http://jesmodrazik.fr")
   .then(function(response) {
     return response.json();
@@ -365,7 +365,7 @@ si vous voulez en savoir plus.
 Enfin, l'arrivée des fonctions asynchrones va permettre d'écrire du code
 asynchrone comme si celui-ci était synchrone :
 
-```javascript
+```js
 function getSomething() {
   return fetch("http://jesmodrazik.fr").then(function(response) {
     return response.json();

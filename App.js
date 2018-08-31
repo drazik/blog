@@ -5,6 +5,7 @@ import "./css/main.css";
 import { HomeContainer } from "./components/Home";
 import { PostContainer } from "./components/Post";
 import { ErrorPage } from "./components/ErrorPage";
+import "./css/code.css";
 
 const routes = () => (
   <Router history={browserHistory}>
