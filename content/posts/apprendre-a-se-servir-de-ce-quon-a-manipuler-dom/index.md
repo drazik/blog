@@ -37,7 +37,7 @@ Pour travailler avec le DOM, la base c'est de pouvoir sélectionner des
 etc. Avec un jQuery-like, ça se fait très simplement avec une fonction, souvent
 nommée `$` :
 
-```javascript
+```js
 var $element = $("#element");
 var $buttons = $("button");
 ```
@@ -51,7 +51,7 @@ renvoie une `NodeList` contenant tous les éléments trouvés (donc vide si aucu
 élément n'est trouvé). Voici donc comment faire la même chose que le code
 précédent, avec cette API :
 
-```javascript
+```js
 var element = document.querySelector("#element");
 var buttons = document.querySelectorAll("button");
 ```
@@ -66,7 +66,7 @@ vous pouvez chercher des polyfills). Pour des raisons de praticité, il vaut
 donc mieux transformer cette `NodeList` en `Array`. On va donc se recréer une
 fonction `$` qui fait ça.
 
-```javascript
+```js
 function $(selector) {
   var elements = document.querySelectorAll(selector);
 
@@ -87,20 +87,20 @@ Pour créer des éléments, c'est très simple. Là où on ferait un `$('<div />
 avec jQuery ou un `new Element('div')` avec MooTools, en JavaScript natif, il
 suffit de faire ceci :
 
-```javascript
+```js
 var div = document.createElement("div");
 ```
 
 Il existe aussi une méthode de `document` permettant de créer un noeud texte,
 que l'on pourra par la suite ajouter à notre div précédemment créée :
 
-```javascript
+```js
 var text = document.createTextNode("Le futur contenu de ma div !");
 ```
 
-* [Documentation de
+- [Documentation de
   `document.createElement()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
-* [Documentation de
+- [Documentation de
   `documentation.createTextNode()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode)
 
 ## Insérer des bouts de DOM
@@ -109,7 +109,7 @@ Reprenons nos deux noeuds précédents. Imaginons qu'on veuille donc insérer le
 texte dans la div, puis la div dans le `body`. Pour ça, il suffit de faire ceci
 :
 
-```javascript
+```js
 div.appendChild(text);
 document.body.appendChild(div);
 ```
@@ -127,7 +127,7 @@ va finir par insérer tout le résultat, en une seule fois, dans le DOM.
 Imaginons qu'on veuille créer une liste non ordonnée d'éléments se trouvant
 dans un tableau (pourquoi pas) :
 
-```javascript
+```js
 var elements = ["Pommes", "Poires", "Carottes", "Tomates"];
 var fragment = document.createDocumentFragment();
 var title = document.createElement("h1");
@@ -158,7 +158,7 @@ veuille ajouter un élément au tout début de notre liste précédente, on aura
 donc besoin de 3 choses : la liste, l'élément avant lequel on souhaite ajouter
 un nouvel élément, et le nouvel élément. Ce qui donne ceci :
 
-```javascript
+```js
 var list = document.querySelector("ul");
 var firstItem = list.querySelector("li");
 var newItem = document.createElement("li");
@@ -181,7 +181,7 @@ auquel elle est appliquée. Exemple :
 </div>
 ```
 
-```javascript
+```js
 var parent = document.querySelector("#parent");
 
 parent.insertAdjacentHTML("beforebegin", "<div>Beforebegin</div>");
@@ -205,13 +205,13 @@ On obtient le DOM suivant :
 Avec tout ça, il est possible d'ajouter des éléments à peu près n'importe où
 dans notre DOM, sans avoir recours à une bibliothèque.
 
-* [Documentation de
+- [Documentation de
   `Node.appendChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
-* [Documentation de
+- [Documentation de
   `Document.createDocumentFragment()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment)
-* [Documentation de
+- [Documentation de
   `Node.insertBefore()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
-* [Documentation de
+- [Documentation de
   `Element.insertAdjacentHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML)
 
 ## Cloner un élement
@@ -221,7 +221,7 @@ suffit d'utiliser la méthode
 [`Node.cloneNode()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode),
 comme ceci :
 
-```javascript
+```js
 var title = document.querySelector("h1");
 var clonedTitle = title.cloneNode(true);
 ```
@@ -240,7 +240,7 @@ savoir comment en supprimer. Et pour ça, il faut utiliser la méthode
 [`Node.removeChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild).
 Supprimons le premier élément de notre liste :
 
-```javascript
+```js
 var list = document.querySelector("ul");
 var firstItem = list.querySelector("li");
 

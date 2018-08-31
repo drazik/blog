@@ -41,7 +41,7 @@ documentation est très claire sur ce point, rien à ajouter.
 La première étape après avoir installé nvm, c'est de l'utiliser pour installer
 NodeJS :
 
-```bash
+```console
 nvm install <version>
 ```
 
@@ -67,7 +67,7 @@ dans celui-ci. Il est toutefois possible de définir une version par défaut qui
 sera utilisée automatiquement lors de l'ouverture d'un nouveau shell, avec la
 commande suivante :
 
-```bash
+```console
 nvm alias default <version>
 ```
 
@@ -75,7 +75,7 @@ Il est aussi possible d'exécuter une seule commande en utilisant une version
 donnée. Pour cela, il y a deux solutions. La première permet d'exécuter
 directement un fichier ou une commande avec une version précise :
 
-```bash
+```console
 nvm run <version> <fichier>
 nvm run 4.1.2 app.js
 ```
@@ -83,7 +83,7 @@ nvm run 4.1.2 app.js
 La seconde permet d'exécuter une commande avec la variable PATH pointant vers
 la version de NodeJS spécifiée :
 
-```bash
+```console
 nvm exec <version> <commande>
 nvm exec 4.1.2 node app.js
 ```

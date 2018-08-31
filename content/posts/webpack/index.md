@@ -23,7 +23,7 @@ directement dans le code JS.
 
 On peut donc faire les choses suivantes avec webpack :
 
-```javascript
+```js
 // Importer un module JS, classique
 import add from "./add.js";
 
@@ -43,7 +43,7 @@ type de fichier.
 
 Rien de plus simple, ça se fait évidemment via `npm` :
 
-```bash
+```console
 npm install --save-dev webpack
 ```
 
@@ -75,7 +75,7 @@ Pour faire fonctionner webpack, on va créer un fichier de configuration, nommé
 `webpack.config.js`. Le minimum requis est un point d'entrée et un point de
 sortie :
 
-```javascript
+```js
 const path = require("path");
 
 module.exports = {
@@ -93,12 +93,12 @@ module.exports = {
 Avec cette configuration minimale, webpack est capable de gérer nos dépendances
 JS. Donc, si on a la configuration suivante :
 
-```javascript
+```js
 // assets/js/add.js
 export default const add = (a, b) => a + b;
 ```
 
-```javascript
+```js
 // assets/js/app.js
 import add from "./add.js";
 
@@ -132,7 +132,7 @@ npm install --save-dev babel-loader babel-core babel-preset-env
 Il faut ensuite modifier notre configuration, pour y ajouter le loader et le
 configurer :
 
-```javascript
+```js
 const path = require("path");
 
 module.exports = {
@@ -182,7 +182,7 @@ Prenons le cas d'un fichier CSS simple. Nous avons un fichier
 que webpack ajoute celui-ci à son graphe de dépendances afin qu'il fasse partie
 de notre bundle final. On l'importe donc dans notre fichier `app.js` :
 
-```javascript
+```js
 // assets/js/app.js
 
 import styles from "../css/app.css";
@@ -191,7 +191,7 @@ import styles from "../css/app.css";
 Puis on demande à webpack de créer notre bundle avec `npm run build`. Et on se
 prend l'erreur suivante :
 
-```
+```console
 ERROR in ./assets/css/app.css
 Module parse failed: C:\Users\ASUS\workspace\article-webpack\assets\css\app.css Unexpected token (1:5)
 You may need an appropriate loader to handle this file type.
@@ -206,13 +206,13 @@ faire quand on lui demande de charger un fichier CSS. Ce loader, c'est le
 
 On commence par l'installer :
 
-```bash
+```console
 npm install --save-dev css-loader
 ```
 
 Puis on l'ajoute aux règles de notre configuration :
 
-```javascript
+```js
 const path = require("path");
 
 module.exports = {
@@ -249,7 +249,7 @@ mais on ne lui a pas dit ce qu'il doit faire avec ce qu'il a chargé. On a donc
 actuellement un fichier CSS chargé en mémoire, mais on n'en fait rien. Pour
 s'en convaincre, on peut faire la chose suivante :
 
-```javascript
+```js
 // assets/js/app.js
 
 import styles from "../css/app.css";
@@ -268,13 +268,13 @@ le `head` de notre page.
 
 On l'installe :
 
-```bash
+```console
 npm install --save-dev style-loader
 ```
 
 Puis on l'ajoute aux règles :
 
-```javascript
+```js
 const path = require("path");
 
 module.exports = {
@@ -316,13 +316,13 @@ copier les fichiers dans le dossier défini dans `output.path`.
 
 À nouveau, on l'installe :
 
-```bash
+```console
 npm install --save-dev file-loader
 ```
 
 Et on ajoute deux règles à notre configuration :
 
-```javascript
+```js
 const path = require("path");
 
 module.exports = {
@@ -373,7 +373,7 @@ commande.
 Pour le fichier de configuration, il suffit d'ajouter le booléen `watch: true`
 à l'objet exporté :
 
-```javascript
+```js
 const path = require("path");
 
 module.exports = {
