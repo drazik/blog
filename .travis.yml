@@ -9,3 +9,6 @@ deploy:
   script: npm run deploy
   on:
     branch: master
+before_install:
+- openssl aes-256-cbc -K $encrypted_4a82e81fd57d_key -iv $encrypted_4a82e81fd57d_iv
+  -in github_deploy_key.enc -out /tmp/github_deploy_key -d
