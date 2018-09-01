@@ -26,7 +26,7 @@
     "build": "phenomic build",
     "precommit": "lint-staged",
     "test": "npm run build",
-    "deploy": "git-directory-deploy --directory dist --branch build"
+    "deploy": "git-directory-deploy --directory dist --branch build --repo=git@github.com:drazik/blog.git"
   },
   "dependencies": {
     "date-fns": "1.29.0",
