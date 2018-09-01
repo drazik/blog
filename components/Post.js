@@ -13,8 +13,19 @@ import differenceInYears from "date-fns/difference_in_years";
 import parseDate from "date-fns/parse";
 import { ErrorPage } from "./ErrorPage";
 import { Loading } from "./Loading";
+import pkg from "../package.json";
 
-export const Post = ({ hasError, isLoading, page }) => {
+function getGithubRootURL() {
+  return pkg.repository.url.replace(/\.git$/, "");
+}
+
+function getGithubEditURL(filename) {
+  const githubRootURL = getGithubRootURL();
+
+  return githubRootURL + "/edit/master/content/posts/" + filename;
+}
+
+export const Post = ({ hasError, isLoading, page, ...props }) => {
   if (hasError) {
     return <ErrorPage error={page.error} />;
   }
@@ -40,6 +51,16 @@ export const Post = ({ hasError, isLoading, page }) => {
                 differenceInYears(new Date(), parseDate(page.node.date)) >
                   1 && <MaybeOutdatedMessage />}
               <BodyRenderer>{page.node.body}</BodyRenderer>
+              <footer style={{ textAlign: "center" }}>
+                <a
+                  href={getGithubEditURL(
+                    props.params.splat + "/" + page.node.filename
+                  )}
+                  target="_blank"
+                >
+                  Proposer des modifications
+                </a>
+              </footer>
             </article>
             <div>
               <Link to="/">Revenir à l'accueil</Link>
