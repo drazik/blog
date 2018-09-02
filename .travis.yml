@@ -1,20 +1,22 @@
 language: node_js
 node_js:
-  - node
+- node
 script:
-  - npm run build
+- npm run build
 deploy:
   skip_cleanup: true
   provider: script
-  script: npm run deploy
+  script: npm run deploy && ssh drazik@vps562745.ovh.net cd blog && git pull
   on:
     branch: master
 before_install:
 - openssl aes-256-cbc -K $encrypted_4a82e81fd57d_key -iv $encrypted_4a82e81fd57d_iv
-  -in github_deploy_key.enc -out /tmp/github_deploy_key -d
+  -in deploy_key.enc -out /tmp/deploy_key -d
 - eval "$(ssh-agent -s)"
-- chmod 600 /tmp/github_deploy_key
-- ssh-add /tmp/github_deploy_key
+- chmod 600 /tmp/deploy_key
+- ssh-add /tmp/deploy_key
 after_deploy:
-- rm /tmp/github_deploy_key
+- rm /tmp/deploy_key
 - ssh-add -D
+addons:
+  ssh_known_hosts: vps562745.ovh.net
