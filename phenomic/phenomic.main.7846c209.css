@@ -594,6 +594,7 @@ pre .javascript .function {
     margin-bottom: 1em;
   }
 }
+
 .editor {
   background-color: #1d1f21;
   color: #c5c8c6;
@@ -863,3 +864,4 @@ pre .javascript .function {
 .syntax--markdown .syntax--link .syntax--string.syntax--title {
   color: #ddd;
 }
+
