@@ -9,7 +9,7 @@
     "@phenomic/core": "1.0.0-beta.8",
     "@phenomic/preset-react-app": "1.0.0-beta.8",
     "git-directory-deploy": "1.5.1",
-    "husky": "0.14.3",
+    "husky": "1.2.1",
     "lint-staged": "7.3.0",
     "prettier": "1.15.3",
     "react": "16.7.0",
@@ -24,7 +24,6 @@
   "scripts": {
     "start": "phenomic start",
     "build": "phenomic build",
-    "precommit": "lint-staged",
     "test": "npm run build",
     "deploy": "git-directory-deploy --directory dist --branch build --repo=git@github.com:drazik/blog.git"
   },
@@ -33,6 +32,11 @@
     "prismjs": "1.15.0",
     "react-helmet": "5.2.0",
     "react-topbar-progress-indicator": "2.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
