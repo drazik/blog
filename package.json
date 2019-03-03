@@ -25,7 +25,8 @@
     "start": "phenomic start",
     "build": "phenomic build",
     "test": "npm run build",
-    "deploy": "git-directory-deploy --directory dist --branch build --repo=git@github.com:drazik/blog.git"
+    "deploy": "git-directory-deploy --directory dist --branch build --repo=git@github.com:drazik/blog.git",
+    "now-build": "npm run build"
   },
   "dependencies": {
     "date-fns": "1.30.1",
