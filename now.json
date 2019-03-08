@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "jesmodrazik",
+  "alias": ["jesmodrazik.fr", "www.jesmodrazik.fr"],
   "builds": [
     {
       "src": "package.json",
