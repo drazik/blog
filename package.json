@@ -14,7 +14,7 @@
     "prettier": "1.16.4",
     "react": "16.8.3",
     "react-dom": "16.8.3",
-    "react-router": "3.2.1"
+    "react-router": "5.0.0"
   },
   "phenomic": {
     "presets": [
