@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "@phenomic/cli": "1.0.0",
-    "@phenomic/core": "1.0.0-beta.11",
+    "@phenomic/core": "1.0.0",
     "@phenomic/preset-react-app": "1.0.0-beta.11",
     "git-directory-deploy": "1.5.1",
     "husky": "2.3.0",
