@@ -9,7 +9,7 @@
     "@phenomic/core": "1.0.0",
     "@phenomic/preset-react-app": "1.0.0",
     "git-directory-deploy": "1.5.1",
-    "husky": "2.4.0",
+    "husky": "2.4.1",
     "lint-staged": "8.2.0",
     "prettier": "1.18.2",
     "react": "16.8.6",
