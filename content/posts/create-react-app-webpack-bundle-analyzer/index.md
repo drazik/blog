@@ -4,6 +4,8 @@ date: "2018-12-24"
 timeSensitive: true
 ---
 
+**Edit 03/11/2019** : Le flag `--stats` n'est plus supporté depuis create-react-app v3. Plus de détails sur [cette issue](https://github.com/facebook/create-react-app/issues/6904).
+
 La méthode préconisée par la documentation de create-react-app pour analyser la
 taille de son bundle est d'utiliser
 [source-map-explorer](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size).
