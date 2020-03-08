@@ -1,8 +1,8 @@
-import React from "react";
-import Head from "react-helmet";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
-import { Content } from "./Content";
+import React from "react"
+import Head from "react-helmet"
+import { Header } from "./Header"
+import { Footer } from "./Footer"
+import { Content } from "./Content"
 
 export const Layout = ({ children }) => (
   <div>
@@ -17,4 +17,4 @@ export const Layout = ({ children }) => (
     <Content>{children}</Content>
     <Footer />
   </div>
-);
+)
