@@ -14,7 +14,7 @@ locaux. Merci à eux pour l'accueil !
 
 3 talks étaient au programme :
 
-* **10 astuces SVG qui vont vous sauver la vie** par
+- **10 astuces SVG qui vont vous sauver la vie** par
   [@iamvdo](https://twitter.com/iamvdo) : un talk que Vincent a déjà donné lors
   de la dernière [Kiwi Party](http://www.kiwiparty.fr/), dans lequel il nous
   donne 10 astuces pour mieux utiliser et mieux comprendre SVG, qui est un
@@ -22,7 +22,7 @@ locaux. Merci à eux pour l'accueil !
   pour de nombreuses personnes. Le format meetup lui a toutefois permis
   d'approfondir un peu plus chaque astuce, puisque le temps ne lui était pas
   compté. Un talk très intéressant.
-* **La technique des Fab Four** par
+- **La technique des Fab Four** par
   [@HTeuMeuLeu](https://twitter.com/HTeuMeuLeu) : comment réaliser une grille
   responsive dans un email sans media queries ni flexbox ? Défi relevé par Rémi
   et sa fameuse [technique des « Fab Four
@@ -31,7 +31,7 @@ locaux. Merci à eux pour l'accueil !
   permet de créer des emails responsives très simplement. Un spectateur s'est
   inquiété de la santé mentale de Rémi, qui a dit qu'il se portait très bien, et
   aimait même ça.
-* **Web Animation Performance** et **Comment faire des Layout Animations sans
+- **Web Animation Performance** et **Comment faire des Layout Animations sans
   faire de Layout Animation ?** par
   [@HarrisFreddy](https://twitter.com/HarrisFreddy) : d'abord un rappel du
   fonctionnement du moteur de rendu des navigateurs web (phases de layout, de

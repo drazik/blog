@@ -25,13 +25,13 @@ On peut donc faire les choses suivantes avec webpack :
 
 ```js
 // Importer un module JS, classique
-import add from "./add.js";
+import add from "./add.js"
 
 // Importer un fichier CSS
-import styles from "./styles.css";
+import styles from "./styles.css"
 
 // Importer une image
-import logo from "./logo.png";
+import logo from "./logo.png"
 ```
 
 Webpack est capable de gérer à peu près n'importe quel type de fichier, grâce à
@@ -76,7 +76,7 @@ Pour faire fonctionner webpack, on va créer un fichier de configuration, nommé
 sortie :
 
 ```js
-const path = require("path");
+const path = require("path")
 
 module.exports = {
   // Notre fichier source
@@ -85,9 +85,9 @@ module.exports = {
     // le chemin vers le bundle que webpack va générer
     path: path.resolve(__dirname, "web/assets"),
     // le nom du bundle
-    filename: "bundle.js"
-  }
-};
+    filename: "bundle.js",
+  },
+}
 ```
 
 Avec cette configuration minimale, webpack est capable de gérer nos dépendances
@@ -100,9 +100,9 @@ export default const add = (a, b) => a + b;
 
 ```js
 // assets/js/app.js
-import add from "./add.js";
+import add from "./add.js"
 
-console.log(add(1, 2));
+console.log(add(1, 2))
 ```
 
 webpack générera un seul fichier, regroupant `add.js` et `app.js`, et qui une
@@ -133,13 +133,13 @@ Il faut ensuite modifier notre configuration, pour y ajouter le loader et le
 configurer :
 
 ```js
-const path = require("path");
+const path = require("path")
 
 module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -156,12 +156,12 @@ module.exports = {
         loader: "babel-loader",
         // on passe des options au loader. Ici, on veut utiliser le preset "env"
         options: {
-          presets: ["env"]
-        }
-      }
-    ]
-  }
-};
+          presets: ["env"],
+        },
+      },
+    ],
+  },
+}
 ```
 
 Lorsqu'il tombera sur un nouveau module à importer, webpack le confrontera à
@@ -185,7 +185,7 @@ de notre bundle final. On l'importe donc dans notre fichier `app.js` :
 ```js
 // assets/js/app.js
 
-import styles from "../css/app.css";
+import styles from "../css/app.css"
 ```
 
 Puis on demande à webpack de créer notre bundle avec `npm run build`. Et on se
@@ -213,13 +213,13 @@ npm install --save-dev css-loader
 Puis on l'ajoute aux règles de notre configuration :
 
 ```js
-const path = require("path");
+const path = require("path")
 
 module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -228,18 +228,18 @@ module.exports = {
         loader: "babel-loader",
         include: path.join(__dirname, "assets", "js"),
         options: {
-          presets: ["env"]
-        }
+          presets: ["env"],
+        },
       },
       {
         // pour les fichiers CSS...
         test: /\.css$/,
         // ...utilise le css-loader
-        loader: "css-loader"
-      }
-    ]
-  }
-};
+        loader: "css-loader",
+      },
+    ],
+  },
+}
 ```
 
 De cette manière, webpack sera capable d'importer un fichier CSS. Toutefois, si
@@ -252,9 +252,9 @@ s'en convaincre, on peut faire la chose suivante :
 ```js
 // assets/js/app.js
 
-import styles from "../css/app.css";
+import styles from "../css/app.css"
 
-console.log(styles);
+console.log(styles)
 ```
 
 Après avoir relancé webpack et affiché notre page, on peut voir un objet
@@ -275,13 +275,13 @@ npm install --save-dev style-loader
 Puis on l'ajoute aux règles :
 
 ```js
-const path = require("path");
+const path = require("path")
 
 module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -290,19 +290,19 @@ module.exports = {
         loader: "babel-loader",
         include: path.join(__dirname, "assets", "js"),
         options: {
-          presets: ["env"]
-        }
+          presets: ["env"],
+        },
       },
       {
         test: /\.css$/,
         // il est possible de chaîner plusieurs loaders. Pour ça, on passe un
         // tableau de loaders à la propriété `use`. Les loaders sont appliqués
         // les uns à la suite des autres, en partant du dernier élément du tableau
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
-      }
-    ]
-  }
-};
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+      },
+    ],
+  },
+}
 ```
 
 Après avoir relancé webpack, le style est cette fois-ci bien appliqué à la
@@ -323,13 +323,13 @@ npm install --save-dev file-loader
 Et on ajoute deux règles à notre configuration :
 
 ```js
-const path = require("path");
+const path = require("path")
 
 module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -338,24 +338,24 @@ module.exports = {
         loader: "babel-loader",
         include: path.join(__dirname, "assets", "js"),
         options: {
-          presets: ["env"]
-        }
+          presets: ["env"],
+        },
       },
       {
         test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
       },
       {
         test: /\.(jpg|gif|png|svg)$/,
-        loader: "file-loader"
+        loader: "file-loader",
       },
       {
         test: /\.(ttf|woff|woff2|eot)/,
-        loader: "file-loader"
-      }
-    ]
-  }
-};
+        loader: "file-loader",
+      },
+    ],
+  },
+}
 ```
 
 De cette manière, quand webpack croisera un de ces fichiers, il le copiera dans
@@ -374,13 +374,13 @@ Pour le fichier de configuration, il suffit d'ajouter le booléen `watch: true`
 à l'objet exporté :
 
 ```js
-const path = require("path");
+const path = require("path")
 
 module.exports = {
   entry: "./assets/js/app.js",
   output: {
     path: path.resolve(__dirname, "web/assets"),
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -389,26 +389,26 @@ module.exports = {
         loader: "babel-loader",
         include: path.join(__dirname, "assets", "js"),
         options: {
-          presets: ["env"]
-        }
+          presets: ["env"],
+        },
       },
       {
         test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
       },
       {
         test: /\.(jpg|gif|png|svg)$/,
-        loader: "file-loader"
+        loader: "file-loader",
       },
       {
         test: /\.(ttf|woff|woff2|eot)/,
-        loader: "file-loader"
-      }
-    ]
+        loader: "file-loader",
+      },
+    ],
   },
   // webpack se lancera tout le temps en mode watch
-  watch: true
-};
+  watch: true,
+}
 ```
 
 Pour la ligne de commande, il faut ajouter le flag `-w`. On peut donc se faire

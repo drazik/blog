@@ -29,22 +29,22 @@ Apple bossent sur le sujet pour les prochaines versions de Edge et Safari.
 L'atelier a été l'occasion d'implémenter les features suivantes sur une app de
 micro-blogging très simple :
 
-* Installation d'un Service Worker : celui-ci agit comme un proxy entre notre
+- Installation d'un Service Worker : celui-ci agit comme un proxy entre notre
   app et le reste du monde. Il s'exécute en arrière-plan, même quand notre app
   est fermée
-* Écriture d'un `manifest.json` : ce fichier permet de déclarer plein de choses
+- Écriture d'un `manifest.json` : ce fichier permet de déclarer plein de choses
   concernant notre app. Nom, nom court, icônes, URL de base, orientation de
   l'écran à l'ouverture... Ce fichier JSON permet à notre app de "s'installer"
   sur l'écran d'accueil de l'utilisateur, comme une app native
-* Mise en cache des fichiers statiques de l'app ("App Shell") : cette mise en
+- Mise en cache des fichiers statiques de l'app ("App Shell") : cette mise en
   cache permet à l'utilisateur de charger notre app même lorsqu'il n'a pas de
   connexion
-* Mise en cache des données dynamiques : tout comme le point précédent, cette
+- Mise en cache des données dynamiques : tout comme le point précédent, cette
   mise en cache a pour but de permettre à l'utilisateur d'accéder aux données
   qu'il a déjà chargées, même lorsqu'il est hors connexion
-* Notifications push : comme sur une app native, il est possible d'envoyer des
+- Notifications push : comme sur une app native, il est possible d'envoyer des
   notifications à l'utilisateur, même lorsque l'app est fermée
-* Envoi au back-end des messages postés en offline, dès qu'une connexion est
+- Envoi au back-end des messages postés en offline, dès qu'une connexion est
   rétablie : afin de permettre à l'utilisateur d'intéragir avec l'app sans se
   soucier de l'état de sa connexion. Si celui-ci envoie un message lorsqu'il n'a
   pas de connexion, alors son message est enregistré dans une base locale, et
@@ -53,9 +53,9 @@ micro-blogging très simple :
 Cet atelier a été très intéressant à suivre. Bravo et merci à Xavier et Julien.
 Si le sujet vous intéresse, vous pouvez allez voir les ressources suivantes :
 
-* [Making a Simple Site Work Offline with
+- [Making a Simple Site Work Offline with
   ServiceWorker](https://ponyfoo.com/articles/simple-offline-site-serviceworker)
-* [The copy & paste guide to your first Service
+- [The copy & paste guide to your first Service
   Worker](https://remysharp.com/2016/03/22/the-copy--paste-guide-to-your-first-service-worker)
 
 ## Webpack comme des grand·e·s !

@@ -71,8 +71,8 @@ pseudo-élément.
 
 Et voici. Je tire trois enseignements de cette expérience :
 
-* Comment faire des carrés en CSS !
-* Lire la documentation, comme toujours, est primordial
-* Le partage de connaissances, lui aussi, est primordial. Je remercie donc ce
+- Comment faire des carrés en CSS !
+- Lire la documentation, comme toujours, est primordial
+- Le partage de connaissances, lui aussi, est primordial. Je remercie donc ce
   collègue (qui est apprenti, vous avez des choses à apprendre de vos apprentis)
   d'avoir partagé ceci avec moi

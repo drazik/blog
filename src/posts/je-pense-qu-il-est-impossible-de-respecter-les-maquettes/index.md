@@ -20,12 +20,12 @@ En effet, le designer a une idée. Il transpose cette idée en maquette, souvent
 en utilisant Photoshop ou assimilés. Il file ensuite cette maquette à
 l’intégrateur. Ici deux solutions :
 
-* le designer et l’intégrateur peuvent discuter (sous entendu il n’y a pas 36
+- le designer et l’intégrateur peuvent discuter (sous entendu il n’y a pas 36
   intermédiaires ~~inutiles, sauf à faire grimper la facture du client final~~
   entre eux). Le designer peut dire à l’intégrateur comment il voit la page
   vivre. L’intégrateur a alors une idée de ce qu’il y a à faire, et le sujet de
   la faisabilité peut être abordé
-* le designer et l’intégrateur ne peuvent pas discuter ~~(saloperies
+- le designer et l’intégrateur ne peuvent pas discuter ~~(saloperies
   d’intermédiaires)~~, ou très difficilement. L’intégrateur doit donc tout
   deviner. La probabilité que ce soit exactement ce à quoi le designer avait
   pensé? Quasi nulle. Dans le meilleur des cas ça s’en rapprochera. L’intégrateur

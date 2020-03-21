@@ -48,9 +48,9 @@ contient.
 
 ```html
 <div id="container">
-    <button type="button">Je suis le 1er bouton</button>
-    <button type="button">Je suis le 2eme bouton</button>
-    <button type="button">Je suis le 3eme bouton</button>
+  <button type="button">Je suis le 1er bouton</button>
+  <button type="button">Je suis le 2eme bouton</button>
+  <button type="button">Je suis le 3eme bouton</button>
 </div>
 ```
 
@@ -61,13 +61,13 @@ console. Pour IE 8, on utilisera un polyfill de
 [`EventTarget.addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener?redirectlocale=en-US&redirectslug=DOM%2FEventTarget.addEventListener).
 
 ```js
-var container = document.getElementById("container");
+var container = document.getElementById("container")
 
 container.addEventListener("click", function(event) {
   if (event.target && event.target.nodeName === "BUTTON") {
-    console.log(event.target.textContent);
+    console.log(event.target.textContent)
   }
-});
+})
 ```
 
 Cette façon de faire fonctionne. Mais est très spécifique et va vite devenir
@@ -101,9 +101,9 @@ function delegate(element, eventType, selector, callback) {
     // si event.target correspond au sélecteur voulu...
     if (event.target && event.target.matches(selector)) {
       // ... on exécute le callback
-      callback(event);
+      callback(event)
     }
-  });
+  })
 }
 ```
 

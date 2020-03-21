@@ -38,8 +38,8 @@ etc. Avec un jQuery-like, ça se fait très simplement avec une fonction, souven
 nommée `$` :
 
 ```js
-var $element = $("#element");
-var $buttons = $("button");
+var $element = $("#element")
+var $buttons = $("button")
 ```
 
 Pourtant, les navigateurs proposent une API pour faire la même chose :
@@ -52,8 +52,8 @@ renvoie une `NodeList` contenant tous les éléments trouvés (donc vide si aucu
 précédent, avec cette API :
 
 ```js
-var element = document.querySelector("#element");
-var buttons = document.querySelectorAll("button");
+var element = document.querySelector("#element")
+var buttons = document.querySelectorAll("button")
 ```
 
 Il y a deux subtilités. La première, c'est cette `NodeList` renvoyée par
@@ -68,9 +68,9 @@ fonction `$` qui fait ça.
 
 ```js
 function $(selector) {
-  var elements = document.querySelectorAll(selector);
+  var elements = document.querySelectorAll(selector)
 
-  return Array.apply(null, elements);
+  return Array.apply(null, elements)
 }
 ```
 
@@ -88,14 +88,14 @@ avec jQuery ou un `new Element('div')` avec MooTools, en JavaScript natif, il
 suffit de faire ceci :
 
 ```js
-var div = document.createElement("div");
+var div = document.createElement("div")
 ```
 
 Il existe aussi une méthode de `document` permettant de créer un noeud texte,
 que l'on pourra par la suite ajouter à notre div précédemment créée :
 
 ```js
-var text = document.createTextNode("Le futur contenu de ma div !");
+var text = document.createTextNode("Le futur contenu de ma div !")
 ```
 
 - [Documentation de
@@ -110,8 +110,8 @@ texte dans la div, puis la div dans le `body`. Pour ça, il suffit de faire ceci
 :
 
 ```js
-div.appendChild(text);
-document.body.appendChild(div);
+div.appendChild(text)
+document.body.appendChild(div)
 ```
 
 C'est exactement la même chose qu'avec un jQuery-like, sauf que c'est natif.
@@ -128,23 +128,23 @@ Imaginons qu'on veuille créer une liste non ordonnée d'éléments se trouvant
 dans un tableau (pourquoi pas) :
 
 ```js
-var elements = ["Pommes", "Poires", "Carottes", "Tomates"];
-var fragment = document.createDocumentFragment();
-var title = document.createElement("h1");
-var list = document.createElement("ul");
-title.innerHTML = "Ma liste de trucs à acheter";
-fragment.appendChild(title);
+var elements = ["Pommes", "Poires", "Carottes", "Tomates"]
+var fragment = document.createDocumentFragment()
+var title = document.createElement("h1")
+var list = document.createElement("ul")
+title.innerHTML = "Ma liste de trucs à acheter"
+fragment.appendChild(title)
 
 elements.forEach(function(element) {
-  var listItem = document.createElement("li");
-  listItem.innerHTML = element;
+  var listItem = document.createElement("li")
+  listItem.innerHTML = element
 
-  list.appendChild(listItem);
-});
+  list.appendChild(listItem)
+})
 
-fragment.appendChild(list);
+fragment.appendChild(list)
 
-document.body.appendChild(fragment);
+document.body.appendChild(fragment)
 ```
 
 Et voilà, on construit petit à petit notre DOM. Une fois terminé, on l'insère
@@ -159,12 +159,12 @@ donc besoin de 3 choses : la liste, l'élément avant lequel on souhaite ajouter
 un nouvel élément, et le nouvel élément. Ce qui donne ceci :
 
 ```js
-var list = document.querySelector("ul");
-var firstItem = list.querySelector("li");
-var newItem = document.createElement("li");
-newItem.innerHTML = "Courgettes";
+var list = document.querySelector("ul")
+var firstItem = list.querySelector("li")
+var newItem = document.createElement("li")
+newItem.innerHTML = "Courgettes"
 
-list.insertBefore(newItem, firstItem);
+list.insertBefore(newItem, firstItem)
 ```
 
 Si `firstItem` vaut `null`, le comportement est équivalent à `appendChild`, ce
@@ -182,12 +182,12 @@ auquel elle est appliquée. Exemple :
 ```
 
 ```js
-var parent = document.querySelector("#parent");
+var parent = document.querySelector("#parent")
 
-parent.insertAdjacentHTML("beforebegin", "<div>Beforebegin</div>");
-parent.insertAdjacentHTML("afterbegin", "<div>Afterbegin</div>");
-parent.insertAdjacentHTML("beforeend", "<div>Beforeend</div>");
-parent.insertAdjacentHTML("afterend", "<div>Afterend</div>");
+parent.insertAdjacentHTML("beforebegin", "<div>Beforebegin</div>")
+parent.insertAdjacentHTML("afterbegin", "<div>Afterbegin</div>")
+parent.insertAdjacentHTML("beforeend", "<div>Beforeend</div>")
+parent.insertAdjacentHTML("afterend", "<div>Afterend</div>")
 ```
 
 On obtient le DOM suivant :
@@ -222,8 +222,8 @@ suffit d'utiliser la méthode
 comme ceci :
 
 ```js
-var title = document.querySelector("h1");
-var clonedTitle = title.cloneNode(true);
+var title = document.querySelector("h1")
+var clonedTitle = title.cloneNode(true)
 ```
 
 Le paramètre qu'on passe à `cloneNode` sert à dire si on veut que les fils du
@@ -241,10 +241,10 @@ savoir comment en supprimer. Et pour ça, il faut utiliser la méthode
 Supprimons le premier élément de notre liste :
 
 ```js
-var list = document.querySelector("ul");
-var firstItem = list.querySelector("li");
+var list = document.querySelector("ul")
+var firstItem = list.querySelector("li")
 
-list.removeChild(firstItem);
+list.removeChild(firstItem)
 ```
 
 Voilà. La majorité des besoins les plus courants en termes de manipulation du

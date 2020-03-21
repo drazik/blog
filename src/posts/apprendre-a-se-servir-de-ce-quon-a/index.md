@@ -22,16 +22,16 @@ d'articles aura pour but de donner des solutions aux problèmes couramment
 rencontrés lors du développement de sites (et d'applications) web. J'évoquerais
 les sujets suivants :
 
-* 1ère partie : introduction
-* 2ème partie : [manipuler le
+- 1ère partie : introduction
+- 2ème partie : [manipuler le
   DOM](/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-dom/)
-* 3ème partie : [manipuler le style des
+- 3ème partie : [manipuler le style des
   éléments](/articles/apprendre-a-se-servir-de-ce-quon-a-manipuler-styles-elements/)
-* 4ème partie : [faire des
+- 4ème partie : [faire des
   animations](/articles/apprendre-a-se-servir-de-ce-quon-a-animations)
-* 5ème partie : [la délégation
+- 5ème partie : [la délégation
   d'événements](/articles/apprendre-a-se-servir-de-ce-quon-a-event-delegation)
-* 6ème partie : [AJAX](/articles/apprendre-a-se-servir-de-ce-quon-a-ajax/)
+- 6ème partie : [AJAX](/articles/apprendre-a-se-servir-de-ce-quon-a-ajax/)
 
 Les liens ci-dessus seront mis à jour au fur et à mesure de la publication de
 chaque partie.
