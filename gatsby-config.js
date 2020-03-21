@@ -5,5 +5,16 @@
  */
 
 module.exports = {
-  plugins: ["gatsby-plugin-emotion", "gatsby-plugin-svgr"],
+  plugins: [
+    "gatsby-plugin-emotion",
+    "gatsby-plugin-svgr",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "posts",
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    "gatsby-transformer-remark",
+  ],
 }

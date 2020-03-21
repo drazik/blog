@@ -65,7 +65,7 @@ export const Layout = ({ children }) => (
     >
       <Global styles={globalStyles} />
       <Header />
-      <Wrapper>{children}</Wrapper>
+      <Wrapper css={{ paddingBottom: "4rem" }}>{children}</Wrapper>
       <Footer css={{ alignSelf: "center" }} />
     </div>
   </ThemeProvider>

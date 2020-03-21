@@ -1,54 +1,37 @@
 import React from "react"
+import { graphql } from "gatsby"
+import sortBy from "lodash/sortBy"
 
-function IndexPage() {
-  return (
-    <>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-        vulputate neque euismod nibh dapibus imperdiet. Vivamus pellentesque
-        nulla non felis convallis porta. Nullam scelerisque nec risus ut tempor.
-        Praesent iaculis velit at tristique blandit. Mauris faucibus est est, at
-        commodo enim eleifend sed. Proin eget lobortis eros, at ullamcorper
-        lectus. Quisque vulputate lacus ut est fringilla, eget posuere ante
-        pellentesque. Sed lectus leo, lobortis quis lorem ullamcorper, volutpat
-        elementum dolor. Curabitur a facilisis est. Maecenas sagittis
-        ullamcorper sodales. Maecenas a massa urna.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-        vulputate neque euismod nibh dapibus imperdiet. Vivamus pellentesque
-        nulla non felis convallis porta. Nullam scelerisque nec risus ut tempor.
-        Praesent iaculis velit at tristique blandit. Mauris faucibus est est, at
-        commodo enim eleifend sed. Proin eget lobortis eros, at ullamcorper
-        lectus. Quisque vulputate lacus ut est fringilla, eget posuere ante
-        pellentesque. Sed lectus leo, lobortis quis lorem ullamcorper, volutpat
-        elementum dolor. Curabitur a facilisis est. Maecenas sagittis
-        ullamcorper sodales. Maecenas a massa urna.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-        vulputate neque euismod nibh dapibus imperdiet. Vivamus pellentesque
-        nulla non felis convallis porta. Nullam scelerisque nec risus ut tempor.
-        Praesent iaculis velit at tristique blandit. Mauris faucibus est est, at
-        commodo enim eleifend sed. Proin eget lobortis eros, at ullamcorper
-        lectus. Quisque vulputate lacus ut est fringilla, eget posuere ante
-        pellentesque. Sed lectus leo, lobortis quis lorem ullamcorper, volutpat
-        elementum dolor. Curabitur a facilisis est. Maecenas sagittis
-        ullamcorper sodales. Maecenas a massa urna.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-        vulputate neque euismod nibh dapibus imperdiet. Vivamus pellentesque
-        nulla non felis convallis porta. Nullam scelerisque nec risus ut tempor.
-        Praesent iaculis velit at tristique blandit. Mauris faucibus est est, at
-        commodo enim eleifend sed. Proin eget lobortis eros, at ullamcorper
-        lectus. Quisque vulputate lacus ut est fringilla, eget posuere ante
-        pellentesque. Sed lectus leo, lobortis quis lorem ullamcorper, volutpat
-        elementum dolor. Curabitur a facilisis est. Maecenas sagittis
-        ullamcorper sodales. Maecenas a massa urna.
-      </p>
-    </>
+const IndexPage = ({ data }) => {
+  const posts = sortBy(
+    data.allMarkdownRemark.edges,
+    edge => edge.node.frontmatter.date
   )
+    .reverse()
+    .map(edge => edge.node)
+
+  return posts.map(post => (
+    <article key={post.id}>
+      <h1>{post.frontmatter.title}</h1>
+      <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
+    </article>
+  ))
 }
+
+export const query = graphql`
+  query {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
