@@ -8,6 +8,7 @@ import manropeBold from "../assets/fonts/Manrope-Bold.woff2"
 import manropeSemiBold from "../assets/fonts/Manrope-SemiBold.woff2"
 import { Header } from "./Header"
 import { Wrapper } from "./Wrapper"
+import { Footer } from "./Footer"
 
 const globalStyles = css`
 @font-face {
@@ -41,6 +42,14 @@ body {
   font-family: Manrope, sans-serif;
   font-size: 18px;
 }
+
+svg {
+  fill: currentColor;
+}
+
+a {
+  color: ${theme.colors.primary};
+}
 `
 
 export const Layout = ({ children }) => (
@@ -50,11 +59,14 @@ export const Layout = ({ children }) => (
         minHeight: "100vh",
         backgroundColor: theme.colors.grey.dark,
         color: theme.colors.text,
+        display: "grid",
+        gridTemplateRows: "100px 1fr 64px",
       }}
     >
       <Global styles={globalStyles} />
       <Header />
       <Wrapper>{children}</Wrapper>
+      <Footer css={{ alignSelf: "center" }} />
     </div>
   </ThemeProvider>
 )
