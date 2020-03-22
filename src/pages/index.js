@@ -1,14 +1,8 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import sortBy from "lodash/sortBy"
 
 const IndexPage = ({ data }) => {
-  const posts = sortBy(
-    data.allMarkdownRemark.edges,
-    edge => edge.node.frontmatter.date
-  )
-    .reverse()
-    .map(edge => edge.node)
+  const posts = data.allMarkdownRemark.edges.map(edge => edge.node)
 
   return posts.map(post => (
     <Link key={post.id} to={post.fields.slug}>
@@ -20,7 +14,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
