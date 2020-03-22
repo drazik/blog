@@ -4,7 +4,7 @@ const path = require("path")
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === "MarkdownRemark") {
+  if (node.internal.type === "Mdx") {
     const slug = createFilePath({ node, getNode, basePath: "pages" })
     createNodeField({
       node,
@@ -19,7 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             fields {
@@ -31,7 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.allMarkdownRemark.edges.forEach(edge => {
+  result.data.allMdx.edges.forEach(edge => {
     const { node } = edge
     createPage({
       path: node.fields.slug,

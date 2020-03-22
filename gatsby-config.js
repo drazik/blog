@@ -15,6 +15,14 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       },
     },
-    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".mdx", ".md"],
+        defaultLayouts: {
+          posts: require.resolve("./src/components/PostLayout.js"),
+        },
+      },
+    },
   ],
 }
