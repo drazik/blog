@@ -5,34 +5,42 @@
     "url": "https://github.com/drazik/blog.git"
   },
   "devDependencies": {
-    "@phenomic/cli": "1.0.0",
-    "@phenomic/core": "1.0.0",
-    "@phenomic/preset-react-app": "1.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
     "git-directory-deploy": "1.5.1",
-    "husky": "3.0.5",
-    "lint-staged": "9.2.5",
-    "prettier": "1.18.2",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-router": "3.2.3"
-  },
-  "phenomic": {
-    "presets": [
-      "@phenomic/preset-react-app"
-    ]
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "prop-types": "^15.7.2"
   },
   "scripts": {
-    "start": "phenomic start",
-    "build": "phenomic build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "test": "npm run build",
     "deploy": "git-directory-deploy --directory dist --branch build --repo=git@github.com:drazik/blog.git",
-    "now-build": "npm run build"
+    "now-build": "npm run build",
+    "lint": "eslint --fix src/**/*.{js,jsx}"
   },
   "dependencies": {
-    "date-fns": "1.30.1",
-    "prismjs": "1.17.1",
-    "react-helmet": "5.2.1",
-    "react-topbar-progress-indicator": "4.0.2"
+    "@emotion/core": "^10.0.28",
+    "@mdx-js/mdx": "^1.5.7",
+    "@mdx-js/react": "^1.5.7",
+    "@svgr/webpack": "^5.2.0",
+    "emotion-theming": "^10.0.27",
+    "gatsby": "^2.19.32",
+    "gatsby-plugin-emotion": "^4.1.24",
+    "gatsby-plugin-mdx": "^1.1.0",
+    "gatsby-plugin-svgr": "^2.0.2",
+    "gatsby-source-filesystem": "^2.2.1",
+    "gatsby-transformer-remark": "^2.7.0",
+    "lodash": "^4.17.15",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-helmet": "5.2.1"
   },
   "husky": {
     "hooks": {
@@ -41,8 +49,7 @@
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   }
 }
