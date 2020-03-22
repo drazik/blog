@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import sortBy from "lodash/sortBy"
 
 const IndexPage = ({ data }) => {
@@ -11,10 +11,10 @@ const IndexPage = ({ data }) => {
     .map(edge => edge.node)
 
   return posts.map(post => (
-    <article key={post.id}>
+    <Link key={post.id} to={post.fields.slug}>
       <h1>{post.frontmatter.title}</h1>
       <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
-    </article>
+    </Link>
   ))
 }
 
@@ -27,6 +27,9 @@ export const query = graphql`
           frontmatter {
             title
             date
+          }
+          fields {
+            slug
           }
         }
       }
